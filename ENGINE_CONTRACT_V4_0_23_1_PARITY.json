@@ -1,0 +1,59 @@
+{
+  "contract": "FS_ENGINE_PARITY_V4_0_23_1",
+  "target_build": "V4.1.8.2",
+  "engine_label": "V4.0.23.1 LINEAGE / V4.1.8.2 HARDENED PARITY",
+  "source_lineage": [
+    "V4.0.23.1 core auction engine",
+    "V4.0.9 modifier defense + clean sheet marginal MAX",
+    "V4.0.10 shadow price / roster marginal value",
+    "V4.0.11 pivot survival",
+    "V4.0.20 exact MAX safe ceiling"
+  ],
+  "parity_functions": [
+    "coreLiveMax",
+    "optimizerMax",
+    "modifierMarginal",
+    "cleanSheetMarginal",
+    "shadowRawMax",
+    "shadowMax_guarded",
+    "exactMax",
+    "opponentPressure",
+    "costOfPass",
+    "pivotSurvival",
+    "transaction"
+  ],
+  "intentional_hardening": [
+    "legacy shadow recursive self-call removed by pre-shadow capture",
+    "raw shadow retained as diagnostic only",
+    "operational shadow uplift capped at min(8 credits, ceil(8% of MOD+CS max))",
+    "single namespaced state API instead of direct legacy localStorage writes",
+    "legacy state migration is semantically validated and preserves old keys",
+    "atomic bundle import preserves history/future/LKG without normal commit side effects",
+    "exact MAX used by transaction validator",
+    "runtime decision/instruction generated from exact MAX instead of stale static registry text"
+  ],
+  "league_invariants": {
+    "budget_each": 500,
+    "managers": 10,
+    "squad": 25,
+    "slots": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
+    },
+    "budget_non_negative": true,
+    "unique_player_owner": true,
+    "completion_financeable": true
+  },
+  "gold_status": "NOT_GOLD_PENDING_DEVICE_AND_TEMPORAL_REPLAY",
+  "strict_numeric_parity_claimed": false,
+  "parity_status": "PARITY_INTENT_PASS_WITH_SHADOW_SAFETY_GUARD",
+  "shadow_safety": {
+    "raw_layer": "shadowRawMax",
+    "operational_layer": "shadowMax",
+    "uplift_cap": "min(8 credits, ceil(modCsMax*0.08))",
+    "calibration_write": false,
+    "rationale": "prevents pathological legacy Shadow values from overriding otherwise bounded layers"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "contract_delta": "FS_GOLDEN_CONTRACT_V1_1_DELTA_20260818",
+  "parent_contract": "FS_GOLDEN_CONTRACT_V1",
+  "effective_at": "2026-08-18T19:45:00+02:00",
+  "reason": "Canonical FS NEWS registry addition + V4.1.8.2 engine/state hardening",
+  "parent_snapshot": {
+    "registry_players": 492,
+    "engine": "V4.0.23.1 LOCK",
+    "status": "EVIDENCE_BASELINE"
+  },
+  "current_runtime": {
+    "base_registry_players": 492,
+    "canonical_overlay_additions": 1,
+    "effective_registry_players": 493,
+    "canonical_addition": "p-vicario-juventus",
+    "engine": "V4.0.23.1 LINEAGE / V4.1.8.2 HARDENED PARITY + SHADOW GUARD",
+    "calibration_writes": 0
+  },
+  "unchanged_invariants": [
+    "budget_non_negative",
+    "max_25_players",
+    "role_caps_3_8_8_6",
+    "unique_player_owner",
+    "completion_financeable",
+    "ME_WIN_price_le_exact_max",
+    "exact_boundary_epsilon",
+    "undo_redo_roundtrip",
+    "backup_restore_roundtrip"
+  ],
+  "data_truth_rules": {
+    "source_derived_separation": true,
+    "vicario_qi_fvm": "SOURCE_FROM_USER_VERIFIED_FS_NEWS_DELTA",
+    "vicario_fs_valuation": "DERIVED_PROVISIONAL_ROLE_COMPARABLE_BRIDGE",
+    "di_gregorio_fs_reprice": "DERIVED_ROLE_COMPARABLE_BRIDGE_HARD_CAP",
+    "lucumi_canonical_team": "Bologna",
+    "lucumi_juventus": "TACTICAL_CONTEXT_ONLY_IN_THIS_DELTA",
+    "canonical_registry_writes": 1
+  },
+  "engine_hardening": {
+    "legacy_shadow_raw_preserved": true,
+    "legacy_shadow_recursive_self_call_removed": true,
+    "operational_shadow_uplift_cap": "min(8 credits, ceil(8% of MOD+CS max))",
+    "strict_numeric_parity_claimed": false
+  },
+  "release_rule": "No blocking FAIL or PENDING may be presented as GOLD LOCK.",
+  "current_blockers": [
+    "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
+    "CURRENT_ENGINE_CERTIFIED_TEMPORAL_REAL_AUCTION_REPLAY",
+    "CURRENT_BUILD_FULL_GOLDEN_STRESS_RECERTIFICATION"
+  ],
+  "current_evidence": {
+    "legacy_golden_stress": "3000 scenarios / 750000 transactions / 6369000 assertions / 0 failures on prior 492-player engine snapshot",
+    "v4_1_8_2_full_auction_smoke": "5 full auctions / 1250 transactions / 6525 assertions / 0 failures",
+    "effect": "RC evidence only; not GOLD closure"
+  }
+}

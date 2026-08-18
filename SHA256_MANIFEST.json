@@ -1,0 +1,133 @@
+{
+  "build": "V4.1.8.2 ENGINE PARITY + STATE HARDENING",
+  "generated_at": "2026-08-18T20:13:00+02:00",
+  "algorithm": "SHA-256",
+  "scope": "GITHUB_ROOT_PRODUCTION_FILES",
+  "files": [
+    {
+      "file": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "BUILD_METADATA.json",
+      "bytes": 2857,
+      "sha256": "4720b8198af623543cedb8b232ef1c0c69af6c648ee5f026d91d7661a51da96d"
+    },
+    {
+      "file": "ENGINE_CONTRACT_V4_0_23_1_PARITY.json",
+      "bytes": 2003,
+      "sha256": "2a90a63ed042ac9878ae3cc0ea4b8e2a67037eef35d19eadefbd5c18e605e345"
+    },
+    {
+      "file": "FS_GOLDEN_CONTRACT_V1_1_DELTA_20260818.json",
+      "bytes": 2196,
+      "sha256": "a7f5b4e0bfccfed9e86c5f54807a719e7fe86becd19dd015c23dcfe18729dadd"
+    },
+    {
+      "file": "FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json",
+      "bytes": 4049,
+      "sha256": "7f59878b5a52ad13b54f12704ab21288b1326e21ded817c4d4b57c00c32708db"
+    },
+    {
+      "file": "README_GITHUB_DEPLOY.txt",
+      "bytes": 3103,
+      "sha256": "86aa2cd05e86dd30190f62e420b542dbe69353a4c86ee2f71e0ecb609eeaad87"
+    },
+    {
+      "file": "REGRESSION_GATE_REPORT.json",
+      "bytes": 4449,
+      "sha256": "8604aaa8136033b0ee107f0091c83b6cad110ed124ef67d4e94a8e34c1b7b87c"
+    },
+    {
+      "file": "STATE_MIGRATION_REPORT.json",
+      "bytes": 911,
+      "sha256": "d2ed3b1090f99f1aea1d5cf578619620f2023e5286ec828344a78b5eb4b1253e"
+    },
+    {
+      "file": "app.js",
+      "bytes": 13763,
+      "sha256": "a86d683de94930d8614653618b171e3f1d54f01dd3a25a1d20b79d4d2d2a511a"
+    },
+    {
+      "file": "apple-touch-icon.png",
+      "bytes": 2555,
+      "sha256": "49d49de7b6a041d380d2d76ec743c0867e46137c34b5c50949438454fed8cece"
+    },
+    {
+      "file": "audit.js",
+      "bytes": 5485,
+      "sha256": "af7e3ecfd81d3a20a51e22a03f9ef5438b650e49fa263308684c1a85714d1350"
+    },
+    {
+      "file": "backup.js",
+      "bytes": 3032,
+      "sha256": "98a5fdded5893540a53ec514fbab502c15aad7b315e53c6535fedf8b4d2cbb6b"
+    },
+    {
+      "file": "engine.js",
+      "bytes": 18224,
+      "sha256": "c0893e3de396582b6e3c55a07848714ce13df262824f56443a31f84947a5f872"
+    },
+    {
+      "file": "icon-192.png",
+      "bytes": 2729,
+      "sha256": "b2ffbddb0406ecf92b3b50ec3b495fd4648bdd7a85f8af26423e20cb6a686511"
+    },
+    {
+      "file": "icon-512.png",
+      "bytes": 7746,
+      "sha256": "75bd77028124350796ca4cf058bc2e3d1caaaa50a95f37a0da66fa44fe0f3311"
+    },
+    {
+      "file": "index.html",
+      "bytes": 16304,
+      "sha256": "fa473eef5904f1131470e04e9cec2330ddf27a4585f42a65203af5562c1ad2ca"
+    },
+    {
+      "file": "manifest.webmanifest",
+      "bytes": 524,
+      "sha256": "328eb5986d123a2514f293ab625af2760b949c1bab62f168983e40a5d0c201aa"
+    },
+    {
+      "file": "opponents.js",
+      "bytes": 1620,
+      "sha256": "360ee428c69c5824e6975682ed74b09cae37ed1d0240a0ec2b451a6c12027c5d"
+    },
+    {
+      "file": "piano25.js",
+      "bytes": 1222,
+      "sha256": "0113a558110f3a8777269d8f90e8c3a417227ce5ec2db964a425f6ae4e904606"
+    },
+    {
+      "file": "player-details.json",
+      "bytes": 392836,
+      "sha256": "d919e47f1702570f071fc1d5219291b4339c86a0fe377f4e0c4110a918745d14"
+    },
+    {
+      "file": "registry.json",
+      "bytes": 197526,
+      "sha256": "247ae8cf30ac4ea4be45e13ff4cb7be9b6b617fa65975f0caf95c23f0f75935d"
+    },
+    {
+      "file": "state-manager.js",
+      "bytes": 9315,
+      "sha256": "dc4758c73bb322a530b532a366e1a522fd936eb57bf1c854f77f7eed0ffd0fac"
+    },
+    {
+      "file": "styles.css",
+      "bytes": 9311,
+      "sha256": "45d8ce93ebbdf3c74f3df6b6aa02bb4eb65416945bcb3481c09a45fabfc0a123"
+    },
+    {
+      "file": "sw.js",
+      "bytes": 1902,
+      "sha256": "725b55dd9ecaaa1b922818890ee4c751a0214059db1fd9a3ee4d140f08aebc4f"
+    },
+    {
+      "file": "version.json",
+      "bytes": 501,
+      "sha256": "da72eeeeab93c9ca9fbce286c06357d09bf311e10ab080629d6c9ca62477f9ae"
+    }
+  ]
+}

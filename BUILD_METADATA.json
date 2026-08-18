@@ -1,51 +1,92 @@
 {
-  "build": "V4.1.1.1",
-  "purpose": "iOS Deployment Hotfix",
-  "design_reference": "V4.1.0",
-  "engine": "V4.0.23.1 LOCK",
-  "pwa": "R8.1 RC",
-  "registry_count": 492,
-  "render_window": 24,
-  "local_file_behavior": "EXPLICIT_DEPLOYMENT_NOTICE_NO_RUNTIME",
-  "production_protocol": "HTTPS",
-  "css_strategy": "critical CSS inline; data/runtime external",
-  "monolith_restored": false,
-  "files": {
-    "index.html": {
-      "bytes": 12552,
-      "sha256": "42f8282a989bfa83642bfc82aed5a3bae62b759f901be76ce048534b42b83821"
-    },
-    "app.js": {
-      "bytes": 6103,
-      "sha256": "3a27312be2fda2059610e99d9e043109b39fc1fbc4212ba30133fe24ffed9a15"
-    },
-    "engine.js": {
-      "bytes": 68834,
-      "sha256": "4ae664a6f03cc1cf881a343cc4be7837696581dc9b4a117c8026f2538432943c"
-    },
-    "registry.json": {
-      "bytes": 197244,
-      "sha256": "29fdc28c6efbdee44b190c9988134b83e9818880e9e022c0e583d89f0e591ddc"
-    },
-    "player-details.json": {
-      "bytes": 487582,
-      "sha256": "2863d431c3932a14ab591b3dcdff4a5f53ce67c960f43d8a0a7e825768652d91"
-    },
-    "sw.js": {
-      "bytes": 1039,
-      "sha256": "0e8f45d2140f04cfa687d66079dcd5b83ff1c18b60d24c4f180ed6552ea12136"
-    },
-    "manifest.webmanifest": {
-      "bytes": 155,
-      "sha256": "a45ec0d2a9916eae9393f0855a5b95bc8d699c0314a8581eea20d05b60e20e99"
-    },
-    "styles.css": {
-      "bytes": 6446,
-      "sha256": "5741d2217473565c38a93d8bdddd83b39687721fde1974876de1146f7374f79a"
-    },
-    "README_DEPLOY_IPHONE.txt": {
-      "bytes": 1394,
-      "sha256": "d9bcd92bafab4a4793a4257959ee9486645f976ca1bfec57cfdefbcfeeea55f5"
+  "build_id": "FANTASEGRETO_V4_1_8_2_ENGINE_PARITY_STATE_HARDENING_18AGO2026",
+  "app_version": "V4.1.8.2",
+  "engine_version": "V4.0.23.1 LINEAGE / V4.1.8.2 HARDENED PARITY",
+  "schema_version": "FS_STATE_V2",
+  "registry_version": "BASE_2026-08-17_PLUS_NEWS_2026-08-18T19:45+02:00",
+  "pwa_version": "R9.1.1",
+  "league": {
+    "managers": 10,
+    "budget_each": 500,
+    "total_budget": 5000,
+    "squad": 25,
+    "slots": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
     }
+  },
+  "runtime": {
+    "list_batch": 24,
+    "transaction_api": "FS_AUCTION_ENGINE.transaction",
+    "state_api": "FS_STATE",
+    "exact_max_api": "FS_AUCTION_ENGINE.exactMax",
+    "last_known_good": true,
+    "engine_api": "FS_AUCTION_ENGINE"
+  },
+  "state_hardening": {
+    "namespaced_storage": true,
+    "legacy_migration": true,
+    "bundle_restore": true,
+    "semantic_validation": true,
+    "undo_redo_roundtrip_preserved": true
+  },
+  "engine_parity": {
+    "source_engine": "V4.0.23.1 LOCK",
+    "modifier_clean_sheet": true,
+    "shadow_price": true,
+    "pivot_survival": true,
+    "exact_max": true,
+    "shadow_recursion_guard": true,
+    "strict_numeric_parity_claimed": false,
+    "parity_intent": "SOURCE_LINEAGE_EXTRACTED",
+    "shadow_raw_preserved_for_diagnostics": true,
+    "shadow_safety_guard": "uplift <= min(8 credits, ceil(8% of MOD+CS max))",
+    "reason": "Legacy V4.0.10 shadow source contains recursive self-call and unbounded raw shadow values; operational exact MAX uses guarded shadow.",
+    "calibration_writes": 0
+  },
+  "news_delta": {
+    "as_of": "2026-08-18T19:45:00+02:00",
+    "base_registry_count": 492,
+    "canonical_additions": 1,
+    "effective_registry_count": 493,
+    "vicario_canonical_add": true,
+    "di_gregorio_fvm": 10,
+    "kelly_fvm": 10,
+    "lucumi_team_rewrite": false,
+    "calibration_writes": 0
+  },
+  "data_truth": {
+    "source_derived_separation": true,
+    "vicario_qi_fvm_source": {
+      "QI": 16,
+      "FVM": 55
+    },
+    "vicario_fs_valuation": "PROVISIONAL_ROLE_COMPARABLE_BRIDGE",
+    "di_gregorio_fs_reprice": "DERIVED_ROLE_COMPARABLE_BRIDGE_HARD_CAP",
+    "range_policy": "CONSERVATIVE_EDGE"
+  },
+  "gold_status": "BLOCKED_PENDING_PHYSICAL_IPHONE_AND_CURRENT_ENGINE_TEMPORAL_REPLAY",
+  "pwa_hardening": {
+    "cache_prefix": "fantasegreto-",
+    "legacy_app_prefix_cleanup": [
+      "fs-control-room-"
+    ],
+    "origin_wide_cache_delete": false,
+    "critical_asset_install_gate": true
+  },
+  "regression_evidence": {
+    "full_auction_scenarios": 5,
+    "transactions": 1250,
+    "assertions": 6525,
+    "failures": 0,
+    "scope": "DETERMINISTIC_RC_SMOKE_NOT_GOLD_RECERTIFICATION"
+  },
+  "known_deferred_cleanup": {
+    "legacy_detail_reversed_ranges": 237,
+    "empty_detail_instructions": 3,
+    "operational_impact": "NONE_WHEN_ENGINE_BOOT_PASSES",
+    "target": "V4.1.8.4"
   }
 }

@@ -1,0 +1,30 @@
+{
+  "schema": "FS_STATE_MIGRATION_REPORT_V2",
+  "build": "V4.1.8.2",
+  "new_namespace": {
+    "state": "fantasegreto:state:v2",
+    "history": "fantasegreto:history:v2",
+    "future": "fantasegreto:future:v2",
+    "last_known_good": "fantasegreto:lkg:v2"
+  },
+  "legacy_read_once": [
+    "fs_gold_auction_v393",
+    "fs_v412_manager_names",
+    "fs_v418_history",
+    "fs_v418_future",
+    "fs_v418_last_known_good"
+  ],
+  "restore_contract": [
+    "state + history + future imported as one bundle",
+    "no normal commit during backup restore",
+    "semantic validation before write",
+    "rollback to pre-import raw values on failure",
+    "undo/redo stacks preserved by restore"
+  ],
+  "implementation": "state-manager.js V4.1.8.2",
+  "semantic_validation": true,
+  "legacy_keys_preserved": true,
+  "bundle_import_atomic": true,
+  "restore_history_future_preserved": true,
+  "status": "IMPLEMENTED_TESTED"
+}

@@ -1,0 +1,17 @@
+{
+  "app": "V4.1.8.2",
+  "build": "FANTASEGRETO_V4_1_8_2_ENGINE_PARITY_STATE_HARDENING_18AGO2026",
+  "engine": "V4.0.23.1 LINEAGE / HARDENED PARITY",
+  "pwa": "R9.1.1",
+  "state_schema": "FS_STATE_V2",
+  "news_cutoff": "2026-08-18T19:45:00+02:00",
+  "base_registry": 492,
+  "effective_registry": 493,
+  "canonical_news_additions": 1,
+  "calibration_writes": 0,
+  "gold": false,
+  "blockers": [
+    "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
+    "CURRENT_ENGINE_CERTIFIED_TEMPORAL_REAL_AUCTION_REPLAY"
+  ]
+}

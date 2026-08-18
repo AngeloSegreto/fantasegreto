@@ -1,0 +1,142 @@
+{
+  "build": "V4.1.8.2 ENGINE PARITY + STATE HARDENING + FS NEWS 18/08 19:45",
+  "as_of": "2026-08-18T20:13:00+02:00",
+  "status": "PASS_RC_WITH_EXTERNAL_AND_RECERTIFICATION_GATES",
+  "gold_lock_allowed": false,
+  "checks": {
+    "base_registry_count": true,
+    "base_registry_unique": true,
+    "base_role_counts": true,
+    "base_details_count": true,
+    "canonical_news_writes": true,
+    "calibration_writes_zero": true,
+    "effective_registry_smoke_493": true,
+    "vicario_qi_fvm": true,
+    "di_gregorio_fvm10": true,
+    "lucumi_no_canonical_rewrite": true,
+    "kelly_fvm10": true,
+    "shadow_guard_all_players": true,
+    "exact_boundary": true,
+    "undo_redo_roundtrip": true,
+    "bundle_restore_roundtrip": true,
+    "legacy_migration_smoke": true,
+    "backup_checksum_smoke": true,
+    "full_auction_smoke": true,
+    "html_duplicate_ids_zero": true,
+    "required_files_present": true,
+    "sw_scoped_deletion": true,
+    "engine_exact_alias_removed": true,
+    "state_namespaced": true,
+    "legacy_state_only_in_state_manager": true,
+    "runtime_instruction_authoritative": true
+  },
+  "blocking_static_failures": [],
+  "metrics": {
+    "base_registry": 492,
+    "effective_registry": 493,
+    "base_role_counts": {
+      "D": 176,
+      "C": 171,
+      "P": 60,
+      "A": 85
+    },
+    "details_base": 492,
+    "html_duplicate_ids": 0,
+    "required_files_missing": [],
+    "legacy_detail_reversed_range_texts": 237,
+    "legacy_detail_empty_instructions": 3,
+    "deterministic_full_auction_smoke": {
+      "scenarios": 5,
+      "transactions": 1250,
+      "assertions": 6525,
+      "failures": 0
+    },
+    "state_engine_smoke": {
+      "vicario_exact_max": 62,
+      "di_gregorio_exact_max": 10,
+      "lucumi_exact_max": 21,
+      "kelly_exact_max": 10
+    }
+  },
+  "engine_findings": {
+    "legacy_shadow_raw_problem_confirmed": true,
+    "strict_numeric_parity_claimed": false,
+    "shadow_guard": "operational uplift <= min(8 credits, ceil(8% of MOD+CS max))",
+    "shadow_raw_examples": {
+      "Dimarco": {
+        "base": 47,
+        "mod_cs": 64,
+        "shadow_raw": 178,
+        "shadow_guarded": 70,
+        "exact": 70
+      },
+      "Martinez L.": {
+        "base": 91,
+        "mod_cs": 113,
+        "shadow_raw": 224,
+        "shadow_guarded": 121,
+        "exact": 121
+      },
+      "Malen": {
+        "base": 98,
+        "mod_cs": 122,
+        "shadow_raw": 234,
+        "shadow_guarded": 130,
+        "exact": 130
+      },
+      "Maignan": {
+        "base": 52,
+        "mod_cs": 66,
+        "shadow_raw": 162,
+        "shadow_guarded": 72,
+        "exact": 72
+      },
+      "Svilar": {
+        "base": 49,
+        "mod_cs": 63,
+        "shadow_raw": 157,
+        "shadow_guarded": 69,
+        "exact": 69
+      },
+      "Butez": {
+        "base": 41,
+        "mod_cs": 53,
+        "shadow_raw": 142,
+        "shadow_guarded": 58,
+        "exact": 58
+      },
+      "Carnesecchi": {
+        "base": 37,
+        "mod_cs": 42,
+        "shadow_raw": 131,
+        "shadow_guarded": 46,
+        "exact": 46
+      }
+    },
+    "note": "Legacy V4.0.10 raw Shadow values remain diagnostic only; operational Exact MAX uses bounded Shadow. This is safety hardening, not a price calibration write."
+  },
+  "data_truth": {
+    "canonical_writes": 1,
+    "calibration_writes": 0,
+    "base_registry_frozen": 492,
+    "effective_registry": 493,
+    "lucumi_canonical_team": "Bologna",
+    "lucumi_context_team": "Juventus",
+    "derived_values_not_source_values": [
+      "Vicario FS Score/ideal/MAX bridge",
+      "Di Gregorio repriced ideal/MAX bridge"
+    ]
+  },
+  "non_blocking_deferred_cleanup": {
+    "legacy_player_detail_instruction_ranges_reversed": 237,
+    "legacy_player_detail_empty_instructions": 3,
+    "why_non_blocking": "V4.1.8.2 runtime renders instruction from FS_AUCTION_ENGINE.exactMax; stale detail instruction is not operational when engine boots.",
+    "planned": "V4.1.8.4 DATA & DECISION INTEGRITY"
+  },
+  "blocking_release_gates": [
+    "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
+    "CURRENT_ENGINE_CERTIFIED_TEMPORAL_REAL_AUCTION_REPLAY",
+    "CURRENT_BUILD_FULL_GOLDEN_STRESS_RECERTIFICATION"
+  ],
+  "evidence_note": "Old 3000/750000/6369000 stress remains lineage evidence only because registry/cardinality and operational Shadow behavior changed. Current V4.1.8.2 adds a 5 full-auction / 1250 transaction deterministic smoke but does not claim replacement GOLD stress certification."
+}
