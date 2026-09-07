@@ -1,0 +1,88 @@
+{
+  "schema": "FS_RC4_DECISION_ENGINE_V1",
+  "version": "V3.9.6-RC4",
+  "as_of": "2026-09-07",
+  "pipeline": [
+    "PERFORMANCE",
+    "FOS_V2_RC",
+    "MARKET_500",
+    "RISK",
+    "DECISION_BUY_WATCH_PASS",
+    "MAX_LIVE"
+  ],
+  "status": "PROVISIONAL_NOT_GOLD",
+  "rules": {
+    "market_500": {
+      "observed": "FantaLab screenshot value configured at 1000 / 2",
+      "fallback": "role-specific linear regression from FVM using only screenshot-observed FantaLab players",
+      "labels": [
+        "FANTALAB_OBSERVED_500",
+        "FS_ESTIMATE_FROM_FVM"
+      ]
+    },
+    "performance": {
+      "normalization": "role-relative percentile",
+      "weights": {
+        "FM": 0.45,
+        "MV": 0.2,
+        "GOALS": 0.25,
+        "ASSISTS": 0.1
+      },
+      "missing": "neutral 50 for score contribution; missingness increases risk/confidence penalty"
+    },
+    "fos_v2_rc": {
+      "formula": "0.25*QA_role_pct + 0.30*FVM_role_pct + 0.30*PerformanceScore + 0.15*Availability",
+      "note": "RC proxy only. Canonical GOLD FOS V2 still requires Expected Minutes, set pieces, tactical centrality, team environment and stability per FOS contract."
+    },
+    "risk": {
+      "base": 25,
+      "verified_injury_add": 50,
+      "missing_performance_add_per_field": 3,
+      "clamp": [
+        0,
+        100
+      ]
+    },
+    "decision": {
+      "BUY": "risk < 75 AND FOS>=65 AND MAX_LIVE/Market500>=1.04",
+      "WATCH": "otherwise risk <75 AND FOS>=55 AND MAX_LIVE/Market500>=0.92",
+      "PASS": "otherwise"
+    },
+    "max_live": {
+      "formula": "Market500 * (1 + ((FOS-50)/100)*0.35 - max(0,Risk-25)/100*0.35)",
+      "role_caps_500": {
+        "P": 70,
+        "D": 80,
+        "C": 130,
+        "A": 220
+      }
+    }
+  },
+  "sanity": {
+    "Malen": {
+      "market500": 195,
+      "performance": 90.6,
+      "fos_v2_rc": 94.6,
+      "risk": 25,
+      "decision": "BUY",
+      "max_live": 220
+    }
+  },
+  "counts": {
+    "players": 531,
+    "BUY": 108,
+    "WATCH": 145,
+    "PASS": 278
+  },
+  "gates_pending": [
+    "MD3_COMPLETE",
+    "TACTICAL_BINDING_COMPLETE",
+    "EXPECTED_MINUTES",
+    "SET_PIECES",
+    "TEAM_ENVIRONMENT",
+    "GOLD_RECALIBRATION",
+    "REGRESSION",
+    "RELEASE_SEAL"
+  ],
+  "engine_lock": "V4.0.23.1 unchanged"
+}
