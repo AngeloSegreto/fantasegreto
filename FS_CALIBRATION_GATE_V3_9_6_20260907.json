@@ -1,0 +1,58 @@
+{
+  "schema": "FS_CALIBRATION_GATE_V3_9_6",
+  "as_of": "2026-09-07T05:06:00+02:00",
+  "release_branch": "release/v3.9.6",
+  "engine": "V4.0.23.1 LOCK",
+  "state": "BLOCKED_FOR_FULL_CALIBRATION",
+  "gates": {
+    "G0_SOURCE_TRUTH": "PARTIAL_PASS_PUBLIC_PAGES",
+    "G1_OFFICIAL_LISTONE_XLSX_SHA256": "BLOCKING_PENDING",
+    "G2_REGISTRY_ID_RECONCILIATION": "BLOCKING_PENDING",
+    "G3_TRANSFER_RECONCILIATION": "IN_PROGRESS",
+    "G4_STATS_FIRST_3_MATCHDAYS": "PARTIAL_MATCHDAY3_INCOMPLETE",
+    "G5_INJURY_AVAILABILITY": "PASS_OVERLAY",
+    "G6_TACTICAL_HIERARCHY": "PASS_SOURCE_REFRESH_REQUIRED_ENTITY_RECHECK",
+    "G7_FOS_RECALIBRATION": "BLOCKED_BY_G1_G2",
+    "G8_RISK_RECALIBRATION": "BLOCKED_BY_G1_G2",
+    "G9_MAX_RECALIBRATION": "BLOCKED_NO_CALIBRATION_WRITE",
+    "G10_DATA_WEB_BYTE_PARITY": "NOT_RUN_NEW_DATASET_NOT_BUILT",
+    "G11_REGRESSION": "NOT_RUN",
+    "G12_RELEASE_SEAL": "BLOCKED"
+  },
+  "calibration_policy": {
+    "observed": [
+      "QI",
+      "QA",
+      "FVM",
+      "PV",
+      "MV",
+      "FM",
+      "goals",
+      "assists",
+      "injury_status",
+      "return_estimate",
+      "XI",
+      "ballot",
+      "penalty_rank",
+      "set_piece_rank"
+    ],
+    "derived": [
+      "expected_minutes",
+      "availability_factor",
+      "form_signal",
+      "fos_v2",
+      "risk",
+      "auction_value",
+      "max_delta"
+    ],
+    "decision": [
+      "BUY",
+      "WAIT",
+      "AVOID"
+    ],
+    "confidence_separate_from_fos": true,
+    "temporal_decay_required": true,
+    "no_double_counting": true
+  },
+  "promotion_rule": "All blocking gates PASS; official Listone snapshot hash present; matchday stats timestamped; engine hash unchanged."
+}
