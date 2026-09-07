@@ -1,0 +1,199 @@
+{
+  "schema": "FS_REGISTRY_07SEP_VERIFIED_FACTS_V1",
+  "source_sha256": "69154f3e423f18fa7e9c8393caade7c9c104b5e271669602c6bc26c4c2174e99",
+  "records": 531,
+  "verified_players": [
+    {
+      "id": 4964,
+      "name": "Vicario",
+      "role": "P",
+      "rm": "Por",
+      "team": "Juventus",
+      "qa": 17,
+      "qi": 16,
+      "fvm": 70
+    },
+    {
+      "id": 7603,
+      "name": "Grabara",
+      "role": "P",
+      "rm": "Por",
+      "team": "Juventus",
+      "qa": 1,
+      "qi": 1,
+      "fvm": 1
+    },
+    {
+      "id": 4664,
+      "name": "Badiashile",
+      "role": "D",
+      "rm": "Dc",
+      "team": "Napoli",
+      "qa": 7,
+      "qi": 7,
+      "fvm": 18
+    },
+    {
+      "id": 7556,
+      "name": "Mora",
+      "role": "C",
+      "rm": "T",
+      "team": "Roma",
+      "qa": 20,
+      "qi": 19,
+      "fvm": 100
+    },
+    {
+      "id": 7547,
+      "name": "Kevin Carlos",
+      "role": "A",
+      "rm": "Pc",
+      "team": "Cagliari",
+      "qa": 12,
+      "qi": 13,
+      "fvm": 36
+    },
+    {
+      "id": 7078,
+      "name": "Mastantuono",
+      "role": "C",
+      "rm": "W;T",
+      "team": "Fiorentina",
+      "qa": 11,
+      "qi": 12,
+      "fvm": 50
+    },
+    {
+      "id": 5982,
+      "name": "Spence",
+      "role": "D",
+      "rm": "E",
+      "team": "Inter",
+      "qa": 11,
+      "qi": 12,
+      "fvm": 37
+    },
+    {
+      "id": 6372,
+      "name": "Moreira",
+      "role": "C",
+      "rm": "E;W",
+      "team": "Milan",
+      "qa": 11,
+      "qi": 12,
+      "fvm": 45
+    },
+    {
+      "id": 5172,
+      "name": "Jones C.",
+      "role": "C",
+      "rm": "C",
+      "team": "Inter",
+      "qa": 12,
+      "qi": 12,
+      "fvm": 47
+    },
+    {
+      "id": 6042,
+      "name": "Lucumì",
+      "role": "D",
+      "rm": "Dc",
+      "team": "Juventus",
+      "qa": 7,
+      "qi": 8,
+      "fvm": 17
+    },
+    {
+      "id": 6815,
+      "name": "Fadera",
+      "role": "C",
+      "rm": "W",
+      "team": "Cagliari",
+      "qa": 2,
+      "qi": 2,
+      "fvm": 12
+    },
+    {
+      "id": 4896,
+      "name": "Maldini",
+      "role": "A",
+      "rm": "T;A",
+      "team": "Cagliari",
+      "qa": 5,
+      "qi": 5,
+      "fvm": 21
+    },
+    {
+      "id": 5585,
+      "name": "Malen",
+      "role": "A",
+      "rm": "Pc",
+      "team": "Roma",
+      "qa": 38,
+      "qi": 34,
+      "fvm": 450
+    },
+    {
+      "id": 4777,
+      "name": "McTominay",
+      "role": "C",
+      "rm": "C;T",
+      "team": "Napoli",
+      "qa": 27,
+      "qi": 28,
+      "fvm": 220
+    },
+    {
+      "id": 6434,
+      "name": "Yildiz",
+      "role": "A",
+      "rm": "A",
+      "team": "Juventus",
+      "qa": 22,
+      "qi": 23,
+      "fvm": 100
+    },
+    {
+      "id": 5562,
+      "name": "Thuram K.",
+      "role": "C",
+      "rm": "C",
+      "team": "Juventus",
+      "qa": 9,
+      "qi": 10,
+      "fvm": 25
+    },
+    {
+      "id": 2167,
+      "name": "Orsolini",
+      "role": "C",
+      "rm": "W;A",
+      "team": "Bologna",
+      "qa": 25,
+      "qi": 26,
+      "fvm": 177
+    }
+  ],
+  "exclusions_verified_absent_from_tutti": [
+    "Di Gregorio",
+    "Perin"
+  ],
+  "staging_resolution": {
+    "canonical": [
+      "Vicario",
+      "Grabara",
+      "Badiashile",
+      "Mora",
+      "Kevin Carlos",
+      "Mastantuono",
+      "Spence",
+      "Moreira",
+      "Jones C."
+    ],
+    "team_conflicts_resolved": {
+      "Lucumì": "Juventus",
+      "Fadera": "Cagliari",
+      "Maldini": "Cagliari"
+    }
+  }
+}
