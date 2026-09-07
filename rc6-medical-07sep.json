@@ -1,0 +1,406 @@
+{
+  "version": "RC6.1_FULL_MEDICAL_RECONCILIATION_07SEP2026",
+  "as_of": "2026-09-07T08:00:00+02:00",
+  "sources": [
+    "Fantacalcio.it - Indisponibili Serie A / Probabili Formazioni, crawled 2026-09-07",
+    "Gazzetta.it - Indisponibili Serie A 3a giornata, updated 2026-09-04 and probabili 2026-09-07"
+  ],
+  "policy": {
+    "QUESTIONABLE": {
+      "risk_floor": 55,
+      "max_factor": 0.88
+    },
+    "OUT_SHORT": {
+      "risk_floor": 62,
+      "max_factor": 0.8
+    },
+    "OUT_MEDIUM": {
+      "risk_floor": 75,
+      "max_factor": 0.6
+    },
+    "OUT_LONG": {
+      "risk_floor": 90,
+      "max_factor": 0.35
+    }
+  },
+  "conflicts": [
+    {
+      "name": "Schmid",
+      "team": "Frosinone",
+      "note": "Gazzetta 04/09 indicava rientro alla 4a; Fantacalcio 07/09 non lo elenca tra gli infortunati. Nessuna penalizzazione automatica finché il conflitto non è risolto."
+    }
+  ],
+  "players": [
+    [
+      "Hien",
+      "Atalanta",
+      "OUT_MEDIUM",
+      "rientro 6a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Sulemana K.",
+      "Atalanta",
+      "OUT_MEDIUM",
+      "rientro 6a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "El Azzouzi O.",
+      "Bologna",
+      "OUT_SHORT",
+      "rientro 4a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Orsolini",
+      "Bologna",
+      "OUT_MEDIUM",
+      "rientro 6a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Mina",
+      "Cagliari",
+      "OUT_SHORT",
+      "rientro 4a",
+      "Fantacalcio 06/09"
+    ],
+    [
+      "Idrissi R.",
+      "Cagliari",
+      "OUT_MEDIUM",
+      "rottura LCA, rientro fine ottobre",
+      "Fantacalcio"
+    ],
+    [
+      "Trepy",
+      "Cagliari",
+      "QUESTIONABLE",
+      "noie fisiche / da valutare",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Addai",
+      "Como",
+      "OUT_MEDIUM",
+      "rientro seconda metà settembre / 6a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Parisi",
+      "Fiorentina",
+      "OUT_LONG",
+      "rientro novembre / 13a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Venturino",
+      "Genoa",
+      "OUT_MEDIUM",
+      "rientro fine ottobre",
+      "Fantacalcio"
+    ],
+    [
+      "Nuredini",
+      "Genoa",
+      "OUT_MEDIUM",
+      "rientro 10a",
+      "Gazzetta"
+    ],
+    [
+      "Havel",
+      "Genoa",
+      "OUT_SHORT",
+      "rientro dalla 4a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Yildiz",
+      "Juventus",
+      "OUT_LONG",
+      "rientro fine novembre / 14a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "McKennie",
+      "Juventus",
+      "QUESTIONABLE",
+      "affaticamento muscolare, da valutare",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Thuram K.",
+      "Juventus",
+      "OUT_LONG",
+      "rientro gennaio / 19a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Cambiaso",
+      "Juventus",
+      "QUESTIONABLE",
+      "fastidio/distorsione caviglia, da valutare",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Ekhator",
+      "Juventus",
+      "OUT_MEDIUM",
+      "rientro fine ottobre / 10a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Zhegrova",
+      "Juventus",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "Cabal",
+      "Juventus",
+      "OUT_MEDIUM",
+      "rientro 7a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Sarr P.",
+      "Juventus",
+      "QUESTIONABLE",
+      "noie fisiche, da valutare dalla 4a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Cataldi",
+      "Lazio",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "Marusic",
+      "Lazio",
+      "OUT_MEDIUM",
+      "rientro 6a",
+      "Gazzetta"
+    ],
+    [
+      "Dele-Bashiru",
+      "Lazio",
+      "OUT_MEDIUM",
+      "rientro 6a",
+      "Gazzetta"
+    ],
+    [
+      "Rovella",
+      "Lazio",
+      "QUESTIONABLE",
+      "problema muscolare al polpaccio, da valutare",
+      "Gazzetta 06/09"
+    ],
+    [
+      "Geubbels",
+      "Lecce",
+      "QUESTIONABLE",
+      "distorsione caviglia, out a Cagliari",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Gabbia",
+      "Milan",
+      "OUT_SHORT",
+      "problema caviglia, rientro 4a/5a",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Pessina",
+      "Monza",
+      "OUT_MEDIUM",
+      "rientro 10a",
+      "Gazzetta"
+    ],
+    [
+      "Ciurria",
+      "Monza",
+      "OUT_SHORT",
+      "rientro 4a",
+      "Gazzetta"
+    ],
+    [
+      "Varela G.",
+      "Monza",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "Buongiorno",
+      "Napoli",
+      "OUT_LONG",
+      "rientro 11a",
+      "Gazzetta"
+    ],
+    [
+      "Marianucci",
+      "Napoli",
+      "OUT_MEDIUM",
+      "rientro 7a",
+      "Gazzetta"
+    ],
+    [
+      "McTominay",
+      "Napoli",
+      "OUT_MEDIUM",
+      "rientro 6a",
+      "Gazzetta"
+    ],
+    [
+      "Giovane",
+      "Napoli",
+      "OUT_MEDIUM",
+      "rientro 6a",
+      "Gazzetta"
+    ],
+    [
+      "Nicolussi Caviglia",
+      "Parma",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "Bernabè",
+      "Parma",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "Pellegrini Lo.",
+      "Roma",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "N'Dicka",
+      "Roma",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "Boloca",
+      "Sassuolo",
+      "QUESTIONABLE",
+      "problema ginocchio, da valutare / fine settembre",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Pieragnolo",
+      "Sassuolo",
+      "OUT_MEDIUM",
+      "recupero LCA, rientro ottobre",
+      "Fantacalcio"
+    ],
+    [
+      "Candè",
+      "Sassuolo",
+      "OUT_SHORT",
+      "recupero LCA, tentativo rientro metà settembre",
+      "Fantacalcio"
+    ],
+    [
+      "Konè I.",
+      "Sassuolo",
+      "OUT_LONG",
+      "rottura tibia/perone, rientro dicembre",
+      "Fantacalcio"
+    ],
+    [
+      "Walukiewicz",
+      "Sassuolo",
+      "QUESTIONABLE",
+      "trauma gamba, da valutare",
+      "Fantacalcio/Gazzetta"
+    ],
+    [
+      "Israel",
+      "Torino",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "Pellegri",
+      "Torino",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "Casadei",
+      "Torino",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "Chakvetadze",
+      "Udinese",
+      "OUT_SHORT",
+      "rientro 4a",
+      "Gazzetta 06/09"
+    ],
+    [
+      "Zanoli",
+      "Udinese",
+      "OUT_SHORT",
+      "rientro 5a",
+      "Gazzetta 06/09"
+    ],
+    [
+      "Zaniolo",
+      "Udinese",
+      "OUT_SHORT",
+      "rientro 5a",
+      "Gazzetta 06/09"
+    ],
+    [
+      "Palma",
+      "Udinese",
+      "OUT_SHORT",
+      "rientro 5a",
+      "Gazzetta 06/09"
+    ],
+    [
+      "Sverko",
+      "Venezia",
+      "OUT_MEDIUM",
+      "rientro 8a",
+      "Gazzetta"
+    ],
+    [
+      "Adorante",
+      "Venezia",
+      "OUT_MEDIUM",
+      "rientro 6a",
+      "Gazzetta"
+    ],
+    [
+      "Moreno M.",
+      "Venezia",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ],
+    [
+      "Franjic",
+      "Venezia",
+      "QUESTIONABLE",
+      "da valutare",
+      "Gazzetta"
+    ]
+  ]
+}
