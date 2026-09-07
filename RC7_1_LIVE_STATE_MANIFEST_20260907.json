@@ -1,0 +1,37 @@
+{
+  "version": "V3.9.6-RC7.1-FULL-DASHBOARD-LIVE-STATE",
+  "as_of": "2026-09-07",
+  "registry": 531,
+  "modules": {
+    "listone": true,
+    "buy_board": true,
+    "medical_07sep": true,
+    "strategy": true,
+    "audit": true,
+    "live_auction": true,
+    "budget_slots": true,
+    "roster": true,
+    "ledger_search": true,
+    "undo_redo": true,
+    "backup_restore": true,
+    "remaining_pool": true,
+    "dynamic_pivots": true,
+    "opponent_pressure": "RC_HEURISTIC"
+  },
+  "state": {
+    "storage_key": "FS_RC7_1_STATE_V1",
+    "namespaced": true,
+    "budget": 500,
+    "slots": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
+    }
+  },
+  "release_seal": "BLOCKED_MD3_FINAL_PERFORMANCE_PARITY_REGRESSION",
+  "notes": [
+    "FOS V2 and RC6 market/medical data are preserved.",
+    "Live state layer is RC7.1 preview and does not claim strict parity with legacy exactMax/opponentPressure yet."
+  ]
+}
