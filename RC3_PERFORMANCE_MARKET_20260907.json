@@ -1,0 +1,100 @@
+{
+  "version": "V3.9.6-RC3-PERFORMANCE-MARKET",
+  "as_of": "2026-09-07",
+  "release_authorized": false,
+  "gold_status": "NOT GOLD - MD3 OPEN",
+  "league": {
+    "managers": 10,
+    "budget_per_manager": 500,
+    "slots": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
+    }
+  },
+  "market": {
+    "fantalab_reference_budget": 1000,
+    "normalization_to_fs500": "observed_fantalab_value / 2",
+    "observed_only": true,
+    "policy": "No Premium-only value is fabricated. Screenshot-observed market values remain source-labelled."
+  },
+  "performance": {
+    "fields": [
+      "PV",
+      "MV",
+      "FM",
+      "GOALS",
+      "ASSISTS",
+      "PENALTIES",
+      "YELLOW",
+      "RED",
+      "FORM",
+      "TREND"
+    ],
+    "rule": "Performance fields feed FOS V2; they do not overwrite observed market values.",
+    "examples_from_user_observed_fantalab": [
+      {
+        "player": "Malen",
+        "goals": 5,
+        "mv": 7.5,
+        "fm": 12.33
+      },
+      {
+        "player": "Raimondo",
+        "goals": 4,
+        "fm": 10.83
+      },
+      {
+        "player": "Adams C.",
+        "goals": 2
+      },
+      {
+        "player": "Dybala",
+        "assists": 4,
+        "mv": 7.33
+      },
+      {
+        "player": "Chukwueze",
+        "assists": 2
+      },
+      {
+        "player": "Mangas",
+        "assists": 2
+      },
+      {
+        "player": "Frattesi",
+        "mv": 7.25,
+        "fm": 10.25
+      }
+    ]
+  },
+  "pricing_pipeline": [
+    "FANTALAB_MARKET_500",
+    "FVM",
+    "PERFORMANCE",
+    "AVAILABILITY",
+    "TACTICAL_HIERARCHY",
+    "SET_PIECES",
+    "ROLE_SCARCITY",
+    "DEFENCE_MODIFIER",
+    "CLEAN_SHEET_VALUE",
+    "FOS_V2",
+    "RISK",
+    "MAX_LIVE"
+  ],
+  "gates": [
+    "MD3_COMPLETE",
+    "STANDINGS_RECONCILED",
+    "PLAYER_STATS_RECONCILED",
+    "INJURY_AVAILABILITY_RECONCILED",
+    "TACTICAL_RECONCILED",
+    "FOS_V2_RECALCULATED",
+    "RISK_RECALCULATED",
+    "MAX_RECALCULATED",
+    "LISTINO_WEB_PARITY",
+    "REGRESSION_PASS",
+    "RELEASE_SEAL"
+  ],
+  "note": "RC3 is deliberately provisional until Cagliari-Lecce and Udinese-Lazio are final."
+}

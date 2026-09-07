@@ -1,0 +1,26 @@
+{
+  "version": "V3.9.6-RC6-BUY-DEPTH-2-PIVOT-ENGINE",
+  "records": 531,
+  "fos_v2_mutated": false,
+  "role_counts": {
+    "P": 64,
+    "D": 189,
+    "C": 192,
+    "A": 86
+  },
+  "decision_counts": {
+    "BUY": 56,
+    "WATCH": 3,
+    "PASS": 472
+  },
+  "buy_by_role": {
+    "P": 8,
+    "D": 18,
+    "C": 18,
+    "A": 12
+  },
+  "pivot_count_per_player": 2,
+  "pivot_same_role": true,
+  "release_seal": "BLOCKED_UNTIL_MD3_CLOSE_TACTICAL_REFRESH_PARITY_REGRESSION",
+  "html_sha256": "fef9b4484c7729d2b2f3d6904317d1daeab9bcb347d026742c4e260fffc51663"
+}

@@ -1,0 +1,63 @@
+{
+  "version": "V3.9.6-RC5-FOSV2-CANONICAL-CANDIDATE",
+  "as_of": "2026-09-07",
+  "html_artifact": "FS_Control_Room_iPhone_V3_9_6_RC5_FOSV2_CANONICAL_CANDIDATE_FIXED_07SEP2026.html",
+  "html_sha256": "cbbb2b063a755333b346c2c7698570792a2fb434afee5c8489c56225e4bb99e1",
+  "bugfix": {
+    "symptom": "RC4 malformed nested markup caused only goalkeeper cards / stray tags to render correctly on iPhone Quick Look",
+    "fix": "Rebuilt standalone HTML from zero with valid details/summary structure and CSS-only filters",
+    "records": 531,
+    "roles": {
+      "P": 64,
+      "D": 189,
+      "C": 192,
+      "A": 86
+    }
+  },
+  "fos_v2": {
+    "formula_source": "FOS.txt",
+    "role_specific": true,
+    "confidence_independent": true,
+    "no_double_counting": true,
+    "components": [
+      "Expected Minutes",
+      "Set Pieces/Penalty Opportunity",
+      "Tactical Centrality/Attacking Role",
+      "Team Attack/Defense Environment",
+      "Lineup Stability",
+      "Availability via Expected Minutes/Risk"
+    ],
+    "goalkeeper": "35% ExpectedMinutes + 35% DefensiveEnvironment + 15% CleanSheetOpportunity + 10% SaveOpportunity + 5% PenaltySaveRole",
+    "defender": "30% ExpectedMinutes + 25% DefensiveEnvironment + 20% AttackingRole + 15% SetPieces + 10% Stability",
+    "midfielder": "30% ExpectedMinutes + 25% SetPieces + 20% TacticalCentrality + 15% TeamAttack + 10% Stability",
+    "attacker": "35% ExpectedMinutes + 25% PenaltyOpportunity + 20% TeamAttack + 10% Centrality + 10% Stability"
+  },
+  "source_state": {
+    "registry": "Fantacalcio official XLSX 07SEP",
+    "tactical": "V3.9.2 tactical snapshot 26/27 AUG with temporal decay",
+    "standings": "07SEP provisional MD3 snapshot",
+    "performance": "current observed Fantacalcio/FantaLab layer",
+    "market": "FantaLab observed 1000 normalized to 500; FVM fallback where missing"
+  },
+  "decisions": {
+    "BUY": 20,
+    "WATCH": 58,
+    "PASS": 453
+  },
+  "sanity": {
+    "Malen": {
+      "fos_v2": 80.6,
+      "market500": 195,
+      "risk": 31.4,
+      "max_live": 220,
+      "decision": "BUY"
+    }
+  },
+  "release_seal": "BLOCKED",
+  "blockers": [
+    "TACTICAL_SNAPSHOT_REFRESH",
+    "MATCHDAY3_FINAL_CLOSE",
+    "CURRENT_ENTITY_RESOLUTION_RECHECK",
+    "REGRESSION_AND_PARITY"
+  ]
+}
