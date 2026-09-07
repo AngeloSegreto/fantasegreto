@@ -1,0 +1,28 @@
+{
+  "version": "V3.9.6-RC7.2-ENGINE-PARITY",
+  "as_of": "2026-09-07",
+  "registry": 531,
+  "engine_source": "engine.js V4.0.23.1 LINEAGE / V4.1.8.2 PARITY+SHADOW_GUARD",
+  "state_source": "state-manager.js FS_STATE_V2",
+  "bindings": {
+    "score": "FOS V2",
+    "ideal": "min(Market500, medical-adjusted base MAX)",
+    "max": "medical-adjusted base MAX",
+    "risk": "medical-adjusted risk",
+    "exact_max": "FS_AUCTION_ENGINE.exactMax",
+    "opponent_pressure": "FS_AUCTION_ENGINE.opponentPressure",
+    "modifier": "FS_AUCTION_ENGINE.modifierMarginal",
+    "clean_sheet": "FS_AUCTION_ENGINE.cleanSheetMarginal",
+    "shadow": "FS_AUCTION_ENGINE.shadowMax",
+    "pivots": "FS_AUCTION_ENGINE.pivots",
+    "transactions": "FS_AUCTION_ENGINE.transaction"
+  },
+  "gates": {
+    "registry_531": "PASS",
+    "state_v2": "PASS",
+    "engine_api_bound": "PASS",
+    "release_seal": "BLOCKED_MD3_FINAL_PERFORMANCE_REFRESH_TEMPORAL_REGRESSION"
+  },
+  "strict_numeric_parity_claimed": false,
+  "note": "Current 07SEP data are mapped into the historical parity engine. Strict numeric parity against a golden replay remains pending."
+}
