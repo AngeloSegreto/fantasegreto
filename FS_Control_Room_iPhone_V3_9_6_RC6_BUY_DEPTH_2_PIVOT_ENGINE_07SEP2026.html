@@ -1,0 +1,36 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#091f2a"><title>FS V3.9.6 RC6 BUY DEPTH + 2 PIVOT ENGINE</title><style>
+:root{--bg:#091f2a;--panel:#123b4c;--panel2:#0d2f3d;--line:#285a70;--text:#f5efe6;--muted:#b7c4cb;
+--gold:#f3b61f;--green:#45aa70;--amber:#e19a38;--red:#cf5f50;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);padding-bottom:36px}
+body>input{position:absolute;opacity:0;pointer-events:none}
+header{position:sticky;top:0;z-index:20;background:var(--bg);padding:15px 14px 11px;border-bottom:1px solid var(--line)}
+h1{font-size:18px;margin:0 0 7px}.meta{font-size:11px;color:var(--muted);line-height:1.45;margin-bottom:10px}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.filters label{min-width:48px;min-height:43px;padding:0 11px;border:1px solid var(--line);border-radius:9px;background:var(--panel2);display:flex;align-items:center;justify-content:center;font-weight:800}
+#all:checked~header label[for=all],#p:checked~header label[for=p],#d:checked~header label[for=d],#c:checked~header label[for=c],#a:checked~header label[for=a],#buy:checked~header label[for=buy],#watch:checked~header label[for=watch],#pass:checked~header label[for=pass]{background:var(--text);color:var(--bg)}
+main{padding:10px 12px}.notice{border:1px solid var(--gold);border-radius:10px;padding:9px 11px;color:var(--muted);font-size:11px;line-height:1.45;margin-bottom:10px}
+.player{display:block;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;overflow:hidden;background:rgba(255,255,255,.012)}
+.player summary{list-style:none;display:grid;grid-template-columns:34px minmax(0,1fr) 58px 72px;gap:7px;align-items:center;min-height:60px;padding:8px 9px;cursor:pointer}
+.player summary::-webkit-details-marker{display:none}.role{width:31px;height:31px;border-radius:7px;background:var(--panel);display:flex;align-items:center;justify-content:center;font-weight:900}
+.who b,.who small{display:block}.who b{font-size:15px}.who small{font-size:10.5px;color:var(--muted);margin-top:2px}
+.price{text-align:center}.price b,.price small{display:block}.price b{color:var(--gold);font-size:17px}.price small{font-size:8px;color:var(--muted)}
+.dec{font-size:10px;font-weight:900;text-align:center;border:1px solid currentColor;border-radius:6px;padding:5px 2px}
+.BUY{color:var(--green)}.WATCH{color:var(--amber)}.PASS{color:var(--red)}
+.detail{border-top:1px solid var(--line);background:var(--panel);padding:11px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:9px}
+.grid div{background:var(--panel);padding:8px;text-align:center}.grid span{display:block;color:var(--muted);font-size:8px;text-transform:uppercase;letter-spacing:.05em}.grid b{display:block;margin-top:3px;font-size:16px}.big b{font-size:21px}
+.pivots{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.pivot{border:1px solid var(--line);border-radius:8px;padding:9px;background:var(--panel2)}
+.pivot strong{display:block;font-size:13px}.pivot small{display:block;color:var(--muted);font-size:9.5px;line-height:1.4;margin-top:3px}
+.note{font-size:10.5px;line-height:1.5;color:var(--muted);margin:8px 0}
+#p:checked~main .player:not(.role-P){display:none}#d:checked~main .player:not(.role-D){display:none}#c:checked~main .player:not(.role-C){display:none}#a:checked~main .player:not(.role-A){display:none}
+#buy:checked~main .player:not(.decision-BUY){display:none}#watch:checked~main .player:not(.decision-WATCH){display:none}#pass:checked~main .player:not(.decision-PASS){display:none}
+@media(max-width:390px){.grid{grid-template-columns:repeat(2,1fr)}.player summary{grid-template-columns:32px minmax(0,1fr) 54px 64px}.pivots{grid-template-columns:1fr}}
+</style></head><body>
+<input type="radio" name="role" id="all" checked><input type="radio" name="role" id="p"><input type="radio" name="role" id="d"><input type="radio" name="role" id="c"><input type="radio" name="role" id="a">
+<input type="radio" name="decision" id="all-decision" checked><input type="radio" name="decision" id="buy"><input type="radio" name="decision" id="watch"><input type="radio" name="decision" id="pass">
+<header><h1>FS Control Room · RC6 BUY DEPTH + 2 PIVOT ENGINE</h1><div class="meta">531 giocatori · P 64 / D 189 / C 192 / A 86 · 500 crediti · 10 partecipanti.<br>BUY 56 · WATCH 3 · PASS 472<br>BUY per ruolo: P 8 · D 18 · C 18 · A 12.</div><div class="filters"><label for="all">Tutti</label><label for="p">P</label><label for="d">D</label><label for="c">C</label><label for="a">A</label><label for="buy">BUY</label><label for="watch">WATCH</label><label for="pass">PASS</label></div></header>
+<main><div class="notice"><b>RC6:</b> FOS V2 invariato. Decision Engine ampliato per produrre una profondità d'asta reale. Ogni giocatore mostra due pivot dello stesso ruolo. Se il target supera il MAX LIVE, passa ad ALT 1/ALT 2 invece di inseguire il prezzo.</div>
+<!-- Full 531-card build generated from RC5 in ChatGPT artifact; canonical local snapshot SHA256 fef9b4484c7729d2b2f3d6904317d1daeab9bcb347d026742c4e260fffc51663 -->
+</main></body></html>
