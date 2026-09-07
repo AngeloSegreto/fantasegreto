@@ -1,1 +1,83 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#091f2a"><meta http-equiv="refresh" content="0; url=./FS_Control_Room_iPhone_V3_9_6_RC6_BUY_DEPTH_2_PIVOT_ENGINE_07SEP2026.html"><title>FantaSegreto RC6 Dashboard</title><style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#091f2a;color:#f5efe6;margin:0;display:grid;place-items:center;min-height:100vh;padding:24px;text-align:center}a{color:#f3b61f}</style></head><body><main><h1>FantaSegreto RC6</h1><p>Apertura Dashboard…</p><p><a href="./FS_Control_Room_iPhone_V3_9_6_RC6_BUY_DEPTH_2_PIVOT_ENGINE_07SEP2026.html">Apri manualmente la Dashboard RC6</a></p></main></body></html>
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#091f2a">
+<title>FantaSegreto RC6 Dashboard</title>
+<style>
+:root{--bg:#091f2a;--panel:#123b4c;--panel2:#0d2f3d;--line:#285a70;--text:#f5efe6;--muted:#b7c4cb;--gold:#f3b61f;--green:#45aa70;--amber:#e19a38;--red:#cf5f50;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);padding-bottom:40px}
+header{position:sticky;top:0;z-index:20;background:#091f2af2;backdrop-filter:blur(18px);padding:15px 14px 10px;border-bottom:1px solid var(--line)}
+h1{font-size:18px;margin:0 0 7px}.meta{font-size:11px;color:var(--muted);line-height:1.45;margin-bottom:10px}.controls{display:flex;gap:7px;flex-wrap:wrap}
+button,input{font:inherit}.controls button{min-width:48px;min-height:43px;padding:0 11px;border:1px solid var(--line);border-radius:9px;background:var(--panel2);color:var(--text);font-weight:800}
+.controls button.on{background:var(--text);color:var(--bg)}.search{width:100%;margin-top:8px;min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);color:var(--text);padding:0 12px;font-size:16px}
+main{padding:10px 12px}.notice{border:1px solid var(--gold);border-radius:10px;padding:9px 11px;color:var(--muted);font-size:11px;line-height:1.45;margin-bottom:10px}
+.status{font-size:11px;color:var(--muted);margin:6px 2px 10px}.list{display:grid;gap:8px}
+.player{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:rgba(255,255,255,.012)}
+.player summary{list-style:none;display:grid;grid-template-columns:34px minmax(0,1fr) 58px 72px;gap:7px;align-items:center;min-height:60px;padding:8px 9px;cursor:pointer}
+.player summary::-webkit-details-marker{display:none}.role{width:31px;height:31px;border-radius:7px;background:var(--panel);display:flex;align-items:center;justify-content:center;font-weight:900}
+.who b,.who small{display:block}.who b{font-size:15px}.who small{font-size:10.5px;color:var(--muted);margin-top:2px}.price{text-align:center}.price b,.price small{display:block}.price b{color:var(--gold);font-size:17px}.price small{font-size:8px;color:var(--muted)}
+.dec{font-size:10px;font-weight:900;text-align:center;border:1px solid currentColor;border-radius:6px;padding:5px 2px}.BUY{color:var(--green)}.WATCH{color:var(--amber)}.PASS{color:var(--red)}
+.detail{border-top:1px solid var(--line);background:var(--panel);padding:11px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:9px}
+.grid div{background:var(--panel);padding:8px;text-align:center}.grid span{display:block;color:var(--muted);font-size:8px;text-transform:uppercase;letter-spacing:.05em}.grid b{display:block;margin-top:3px;font-size:18px}
+.pivots{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pivot{border:1px solid var(--line);border-radius:8px;padding:9px;background:var(--panel2)}.pivot b{display:block}.pivot small{color:var(--muted);font-size:10px}
+@media(max-width:390px){.player summary{grid-template-columns:32px minmax(0,1fr) 54px 64px}.pivots{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>FS Control Room · RC6 BUY DEPTH + 2 PIVOT ENGINE</h1>
+<div class="meta" id="meta">Caricamento registry RC6…</div>
+<div class="controls" id="roles">
+<button data-role="ALL" class="on">Tutti</button><button data-role="P">P</button><button data-role="D">D</button><button data-role="C">C</button><button data-role="A">A</button>
+</div>
+<div class="controls" id="decisions" style="margin-top:7px">
+<button data-dec="ALL" class="on">Tutte</button><button data-dec="BUY">BUY</button><button data-dec="WATCH">WATCH</button><button data-dec="PASS">PASS</button>
+</div>
+<input id="q" class="search" type="search" placeholder="Cerca giocatore o squadra…">
+</header>
+<main>
+<div class="notice"><b>RC6 FIXED WEB:</b> la pagina ora carica i 531 giocatori da file dati separati, evitando il troncamento del precedente HTML monolitico su GitHub Pages.</div>
+<div class="status" id="status">Caricamento…</div>
+<section id="list" class="list"></section>
+</main>
+<script>
+(()=>{
+const files=["rc6-P.json","rc6-D1.json","rc6-D2.json","rc6-C1.json","rc6-C2.json","rc6-A.json"];
+let rows=[],role="ALL",decision="ALL";
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
+function norm(r){
+ const nested=Array.isArray(r[8]);
+ return {name:r[0],role:r[1],team:r[2],market:Number(r[3]),decision:r[4],fos:Number(r[5]),risk:Number(r[6]),max:Number(r[7]),
+   a1:nested?r[8][0]:r[8],a1max:nested?Number(r[8][2]):Number(r[9]),
+   a2:nested?r[9][0]:r[10],a2max:nested?Number(r[9][2]):Number(r[11])};
+}
+function render(){
+ const q=document.getElementById("q").value.trim().toLowerCase();
+ const v=rows.filter(x=>(role==="ALL"||x.role===role)&&(decision==="ALL"||x.decision===decision)&&(!q||(x.name+" "+x.team).toLowerCase().includes(q)));
+ document.getElementById("status").textContent=v.length+" giocatori visualizzati";
+ document.getElementById("list").innerHTML=v.map(x=>`
+ <details class="player">
+  <summary>
+   <span class="role">${esc(x.role)}</span>
+   <span class="who"><b>${esc(x.name)}</b><small>${esc(x.team)}</small></span>
+   <span class="price"><b>${x.market}</b><small>MARKET500</small></span>
+   <span class="dec ${esc(x.decision)}">${esc(x.decision)}</span>
+  </summary>
+  <div class="detail">
+   <div class="grid"><div><span>FOS V2</span><b>${x.fos}</b></div><div><span>Risk</span><b>${x.risk}</b></div><div><span>MAX LIVE</span><b>${x.max}</b></div></div>
+   <div class="pivots"><div class="pivot"><b>ALT 1 · ${esc(x.a1)}</b><small>MAX ${x.a1max}</small></div><div class="pivot"><b>ALT 2 · ${esc(x.a2)}</b><small>MAX ${x.a2max}</small></div></div>
+  </div>
+ </details>`).join("");
+}
+Promise.all(files.map(f=>fetch(f,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(f+" "+r.status);return r.json()})))
+.then(parts=>{rows=parts.flat().map(norm);const c={P:0,D:0,C:0,A:0,BUY:0,WATCH:0,PASS:0};rows.forEach(x=>{c[x.role]++;c[x.decision]++});
+ document.getElementById("meta").textContent=`${rows.length} giocatori · P ${c.P} / D ${c.D} / C ${c.C} / A ${c.A} · BUY ${c.BUY} · WATCH ${c.WATCH} · PASS ${c.PASS} · 500 crediti · 10 partecipanti`;render();})
+.catch(e=>{document.getElementById("status").textContent="Errore caricamento dati: "+e.message;});
+document.getElementById("roles").addEventListener("click",e=>{if(!e.target.dataset.role)return;role=e.target.dataset.role;document.querySelectorAll("#roles button").forEach(b=>b.classList.toggle("on",b===e.target));render();});
+document.getElementById("decisions").addEventListener("click",e=>{if(!e.target.dataset.dec)return;decision=e.target.dataset.dec;document.querySelectorAll("#decisions button").forEach(b=>b.classList.toggle("on",b===e.target));render();});
+document.getElementById("q").addEventListener("input",render);
+})();
+</script>
+</body></html>
