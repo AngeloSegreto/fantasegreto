@@ -1,0 +1,552 @@
+{
+  "schema": "FS_FORM_HEALTH_INTELLIGENCE_V1",
+  "as_of": "2026-09-07T05:06:00+02:00",
+  "status": "PROVISIONAL_MATCHDAY_3_INCOMPLETE",
+  "engine_mutated": false,
+  "calibration_writes": 0,
+  "source_derived_separation": true,
+  "note": "Observed health/form layer only. Does not rewrite FS Score, Exact MAX or engine logic. Matchday 3 is incomplete until Cagliari-Lecce and Udinese-Lazio are played on 7 September.",
+  "sources": [
+    {
+      "type": "official_fantacalcio_health",
+      "url": "https://www.fantacalcio.it/infortunati-serie-a",
+      "fetched": "2026-09-07"
+    },
+    {
+      "type": "official_fantacalcio_stats",
+      "url": "https://www.fantacalcio.it/statistiche-serie-a/2026-27/fantacalcio/riepilogo",
+      "fetched": "2026-09-07"
+    },
+    {
+      "type": "official_fantacalcio_votes",
+      "url": "https://www.fantacalcio.it/voti-fantacalcio-serie-a",
+      "fetched": "2026-09-07"
+    }
+  ],
+  "injuries": [
+    {
+      "name": "Sulemana K.",
+      "team": "Atalanta",
+      "issue": "lesione collaterale mediale II grado ginocchio sinistro",
+      "return_estimate": "inizio ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Hien",
+      "team": "Atalanta",
+      "issue": "post intervento tendine prossimale semimembranoso coscia sinistra",
+      "return_estimate": "inizio ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Orsolini",
+      "team": "Bologna",
+      "issue": "risentimento flessori coscia sinistra dal 31 agosto",
+      "return_estimate": "fine settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "El Azzouzi O.",
+      "team": "Bologna",
+      "issue": "lesione bicipite femorale coscia sinistra",
+      "return_estimate": "seconda metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Mina",
+      "team": "Cagliari",
+      "issue": "noie fisiche",
+      "return_estimate": "possibile 4a giornata",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Trepy",
+      "team": "Cagliari",
+      "issue": "condizioni monitorate dopo ricovero",
+      "return_estimate": "tempi da valutare",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Idrissi R.",
+      "team": "Cagliari",
+      "issue": "recupero rottura legamento crociato",
+      "return_estimate": "fine ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Addai",
+      "team": "Como",
+      "issue": "rottura tendine d'Achille",
+      "return_estimate": "seconda metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Parisi",
+      "team": "Fiorentina",
+      "issue": "recupero infortunio legamento crociato",
+      "return_estimate": "novembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Venturino",
+      "team": "Genoa",
+      "issue": "post intervento tendine rotuleo",
+      "return_estimate": "fine ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Havel",
+      "team": "Genoa",
+      "issue": "fastidio muscolare gamba",
+      "return_estimate": "possibile 4a giornata",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Yildiz",
+      "team": "Juventus",
+      "issue": "frattura base V metatarso piede sinistro, osteosintesi 31 agosto",
+      "return_estimate": "fine novembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Sarr P.",
+      "team": "Juventus",
+      "issue": "noie fisiche",
+      "return_estimate": "possibile 4a giornata",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Ekhator",
+      "team": "Juventus",
+      "issue": "lesione medio grado semitendinoso",
+      "return_estimate": "fine ottobre stimata, nuovi esami metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Thuram K.",
+      "team": "Juventus",
+      "issue": "sindrome femoro-rotulea, intervento 3 settembre",
+      "return_estimate": "gennaio stimato",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "McKennie",
+      "team": "Juventus",
+      "issue": "affaticamento muscolare gamba dal 27 agosto",
+      "return_estimate": "da valutare 4a giornata",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Cambiaso",
+      "team": "Juventus",
+      "issue": "fastidio caviglia",
+      "return_estimate": "da valutare 4a giornata",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Cabal",
+      "team": "Juventus",
+      "issue": "lesione basso grado semimembranoso coscia sinistra",
+      "return_estimate": "seconda metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Patric",
+      "team": "Lazio",
+      "issue": "problema fisico",
+      "return_estimate": "tempi da valutare",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Marusic",
+      "team": "Lazio",
+      "issue": "lesione muscolare coscia",
+      "return_estimate": "inizio ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Cataldi",
+      "team": "Lazio",
+      "issue": "recupero ernia bilaterale",
+      "return_estimate": "metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Rovella",
+      "team": "Lazio",
+      "issue": "lesione muscolare polpaccio",
+      "return_estimate": "prima metà ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Dele-Bashiru",
+      "team": "Lazio",
+      "issue": "guaio muscolare gamba",
+      "return_estimate": "metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Geubbels",
+      "team": "Lecce",
+      "issue": "distorsione caviglia",
+      "return_estimate": "tempi da valutare",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Gabbia",
+      "team": "Milan",
+      "issue": "fastidio caviglia",
+      "return_estimate": "da valutare",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Ciurria",
+      "team": "Monza",
+      "issue": "noie fisiche",
+      "return_estimate": "da valutare",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Pessina",
+      "team": "Monza",
+      "issue": "lussazione rotula ginocchio destro",
+      "return_estimate": "inizio novembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Varela G.",
+      "team": "Monza",
+      "issue": "fastidio muscolare adduttore",
+      "return_estimate": "inizio ottobre stimato",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Giovane",
+      "team": "Napoli",
+      "issue": "intervento ernia inguinale 3 settembre",
+      "return_estimate": "inizio ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Marianucci",
+      "team": "Napoli",
+      "issue": "lesione alto grado collaterale mediale ginocchio sinistro",
+      "return_estimate": "almeno due mesi",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Buongiorno",
+      "team": "Napoli",
+      "issue": "post intervento menisco ginocchio destro",
+      "return_estimate": "metà novembre stimata",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "McTominay",
+      "team": "Napoli",
+      "issue": "ablazione per lieve aritmia benigna 1 settembre",
+      "return_estimate": "metà ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Nicolussi Caviglia",
+      "team": "Parma",
+      "issue": "lesione coscia destra e intervento a fine agosto",
+      "return_estimate": "novembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Bernabè",
+      "team": "Parma",
+      "issue": "problema fisico in rifinitura",
+      "return_estimate": "da valutare 4a giornata",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Diallo O.",
+      "team": "Parma",
+      "issue": "noie fisiche",
+      "return_estimate": "da valutare 4a giornata",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Walukiewicz",
+      "team": "Sassuolo",
+      "issue": "forte trauma contusivo gamba destra",
+      "return_estimate": "metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Candè",
+      "team": "Sassuolo",
+      "issue": "recupero rottura LCA ginocchio destro",
+      "return_estimate": "metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Pieragnolo",
+      "team": "Sassuolo",
+      "issue": "recupero lesione LCA",
+      "return_estimate": "ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Boloca",
+      "team": "Sassuolo",
+      "issue": "problema ginocchio",
+      "return_estimate": "fine settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Konè I.",
+      "team": "Sassuolo",
+      "issue": "rottura tibia e perone",
+      "return_estimate": "dicembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Casadei",
+      "team": "Torino",
+      "issue": "affaticamento muscolare",
+      "return_estimate": "da valutare 4a giornata",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Palma",
+      "team": "Udinese",
+      "issue": "problema adduttore coscia destra",
+      "return_estimate": "metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Zanoli",
+      "team": "Udinese",
+      "issue": "recupero LCA ginocchio destro",
+      "return_estimate": "ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Arizala",
+      "team": "Udinese",
+      "issue": "lesione bicipite femorale",
+      "return_estimate": "tempi da valutare",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Chakvetadze",
+      "team": "Udinese",
+      "issue": "frattura terzo metatarso piede destro",
+      "return_estimate": "prima metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Zaniolo",
+      "team": "Udinese",
+      "issue": "lesione bicipite femorale coscia destra",
+      "return_estimate": "seconda metà settembre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Sverko",
+      "team": "Venezia",
+      "issue": "post intervento anca",
+      "return_estimate": "fine ottobre",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Franjic",
+      "team": "Venezia",
+      "issue": "problema spalla",
+      "return_estimate": "tempi da valutare",
+      "status": "OUT_OR_DOUBT"
+    },
+    {
+      "name": "Adorante",
+      "team": "Venezia",
+      "issue": "post intervento schiena",
+      "return_estimate": "ottobre stimato",
+      "status": "OUT_OR_DOUBT"
+    }
+  ],
+  "form_leaders": [
+    {
+      "name": "Malen",
+      "team": "Roma",
+      "pv": 3,
+      "mv": 7.5,
+      "fm": 12.33,
+      "goals": 5,
+      "assists": 0,
+      "trend": "ELITE"
+    },
+    {
+      "name": "Raimondo",
+      "team": "Frosinone",
+      "pv": 3,
+      "mv": 7,
+      "fm": 10.83,
+      "goals": 4,
+      "assists": 0,
+      "trend": "ELITE"
+    },
+    {
+      "name": "Frattesi",
+      "team": "Lazio",
+      "pv": 2,
+      "mv": 7.25,
+      "fm": 10.25,
+      "goals": 2,
+      "assists": 0,
+      "trend": "HOT"
+    },
+    {
+      "name": "Varela G.",
+      "team": "Monza",
+      "pv": 2,
+      "mv": 7,
+      "fm": 10,
+      "goals": 2,
+      "assists": 0,
+      "trend": "HOT"
+    },
+    {
+      "name": "Kamara H.",
+      "team": "Udinese",
+      "pv": 2,
+      "mv": 7,
+      "fm": 10,
+      "goals": 2,
+      "assists": 0,
+      "trend": "HOT"
+    },
+    {
+      "name": "Soulè",
+      "team": "Roma",
+      "pv": 3,
+      "mv": 6.83,
+      "fm": 9.17,
+      "goals": 2,
+      "assists": 1,
+      "trend": "HOT"
+    },
+    {
+      "name": "Diao",
+      "team": "Como",
+      "pv": 3,
+      "mv": 6.67,
+      "fm": 9,
+      "goals": 2,
+      "assists": 1,
+      "trend": "HOT"
+    },
+    {
+      "name": "Ekkelenkamp",
+      "team": "Udinese",
+      "pv": 2,
+      "mv": 7,
+      "fm": 9,
+      "goals": 1,
+      "assists": 1,
+      "trend": "HOT"
+    },
+    {
+      "name": "Gatti",
+      "team": "Juventus",
+      "pv": 1,
+      "mv": 7,
+      "fm": 9.5,
+      "goals": 1,
+      "assists": 0,
+      "trend": "POSITIVE"
+    },
+    {
+      "name": "Diouf",
+      "team": "Inter",
+      "pv": 1,
+      "mv": 7,
+      "fm": 9,
+      "goals": 0,
+      "assists": 2,
+      "trend": "ASSIST_HOT"
+    },
+    {
+      "name": "Dybala",
+      "team": "Roma",
+      "pv": 2,
+      "mv": 7.5,
+      "fm": 9,
+      "goals": 0,
+      "assists": 3,
+      "trend": "ASSIST_ELITE"
+    },
+    {
+      "name": "Esposito F.P.",
+      "team": "Inter",
+      "pv": 2,
+      "mv": 7,
+      "fm": 9,
+      "goals": 1,
+      "assists": 1,
+      "trend": "HOT"
+    },
+    {
+      "name": "De Bruyne",
+      "team": "Napoli",
+      "pv": 2,
+      "mv": 7,
+      "fm": 9,
+      "goals": 1,
+      "assists": 1,
+      "trend": "HOT"
+    },
+    {
+      "name": "Dimarco",
+      "team": "Inter",
+      "pv": 3,
+      "mv": 6.33,
+      "fm": 6.67,
+      "goals": 0,
+      "assists": 1,
+      "trend": "STEADY"
+    }
+  ],
+  "matchday3": {
+    "completed_matches": 8,
+    "remaining_matches": [
+      {
+        "match": "Cagliari-Lecce",
+        "kickoff": "2026-09-07T18:30:00+02:00"
+      },
+      {
+        "match": "Udinese-Lazio",
+        "kickoff": "2026-09-07T20:45:00+02:00"
+      }
+    ],
+    "provisional_best_observed": [
+      {
+        "name": "Chalobah T.",
+        "team": "Como",
+        "vote": 9,
+        "match": "Genoa-Como 1-4"
+      },
+      {
+        "name": "N'Dicka",
+        "team": "Roma",
+        "vote": 8.5,
+        "match": "Roma-Atalanta 2-1"
+      },
+      {
+        "name": "Castro S.",
+        "team": "Roma",
+        "vote": 8.5,
+        "match": "Roma-Atalanta 2-1"
+      },
+      {
+        "name": "Bijlow",
+        "team": "Genoa",
+        "vote": 8.5,
+        "match": "Genoa-Como 1-4"
+      }
+    ]
+  }
+}
