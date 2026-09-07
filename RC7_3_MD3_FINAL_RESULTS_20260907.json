@@ -1,0 +1,17 @@
+{
+  "version": "V3.9.6-RC7.3-MD3-FINAL",
+  "as_of": "2026-09-07T23:14:00+02:00",
+  "status": "FINAL",
+  "matchday": 3,
+  "matches": [
+    {"home":"Cagliari","away":"Lecce","score":"1-0","scorers":[{"player":"Maldini","minute":29}],"assists":[{"player":"Fazzini","type":"soft","minute":29}]},
+    {"home":"Udinese","away":"Lazio","score":"1-2","scorers":[{"player":"Karlstrom","minute":49},{"player":"Frattesi","minute":75},{"player":"Gudmundsson","minute":88}],"notes":"Davis assist on Karlstrom goal confirmed by match report; official Fantacalcio assist reconciliation source captured separately."}
+  ],
+  "sources": [
+    "Fantacalcio Cagliari-Lecce votes/assist pages 2026-09-07",
+    "Fantacalcio Udinese-Lazio votes/pagelle/assist article 2026-09-07",
+    "ANSA Udinese-Lazio 2026-09-07",
+    "Lazio official match report 2026-09-07"
+  ],
+  "release_seal":"BLOCKED_FULL_STATS_INGEST_AND_REGRESSION"
+}
