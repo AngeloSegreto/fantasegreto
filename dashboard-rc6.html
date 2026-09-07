@@ -21,7 +21,7 @@ main{padding:10px 12px}.notice{border:1px solid var(--gold);border-radius:10px;p
 .dec{font-size:10px;font-weight:900;text-align:center;border:1px solid currentColor;border-radius:6px;padding:5px 2px}.BUY{color:var(--green)}.WATCH{color:var(--amber)}.PASS{color:var(--red)}
 .detail{border-top:1px solid var(--line);background:var(--panel);padding:11px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:9px}
 .grid div{background:var(--panel);padding:8px;text-align:center}.grid span{display:block;color:var(--muted);font-size:8px;text-transform:uppercase;letter-spacing:.05em}.grid b{display:block;margin-top:3px;font-size:18px}
-.pivots{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pivot{border:1px solid var(--line);border-radius:8px;padding:9px;background:var(--panel2)}.pivot b{display:block}.pivot small{color:var(--muted);font-size:10px}
+.pivots{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pivot{border:1px solid var(--line);border-radius:8px;padding:9px;background:var(--panel2)}.pivot b{display:block}.pivot small{color:var(--muted);font-size:10px}.medical{margin-top:9px;padding:9px;border-left:3px solid var(--red);background:rgba(207,95,80,.08);border-radius:6px;font-size:10.5px;line-height:1.45}.medical small{color:var(--muted)}
 @media(max-width:390px){.player summary{grid-template-columns:32px minmax(0,1fr) 54px 64px}.pivots{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr 1fr}}
 </style>
 </head>
@@ -38,13 +38,16 @@ main{padding:10px 12px}.notice{border:1px solid var(--gold);border-radius:10px;p
 <input id="q" class="search" type="search" placeholder="Cerca giocatore o squadra…">
 </header>
 <main>
-<div class="notice"><b>RC6 FIXED WEB:</b> la pagina ora carica i 531 giocatori da file dati separati, evitando il troncamento del precedente HTML monolitico su GitHub Pages.</div>
+<div class="notice"><b>RC6.1 MEDICAL RECONCILIATION:</b> 531 giocatori + medical overlay 07/09. Gli infortuni aggiornano Risk, BUY/WATCH/PASS e MAX LIVE senza alterare il Market500 osservato.</div>
 <div class="status" id="status">Caricamento…</div>
 <section id="list" class="list"></section>
 </main>
 <script>
 (()=>{
 const files=["rc6-P.json","rc6-D1.json","rc6-D2.json","rc6-C1.json","rc6-C2.json","rc6-A.json"];
+const medicalFile="rc6-medical-07sep.json";
+const nkey=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+let medicalMap=new Map(), medicalPolicy={};
 let rows=[],role="ALL",decision="ALL";
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
 function norm(r){
@@ -53,9 +56,26 @@ function norm(r){
    a1:nested?r[8][0]:r[8],a1max:nested?Number(r[8][2]):Number(r[9]),
    a2:nested?r[9][0]:r[10],a2max:nested?Number(r[9][2]):Number(r[11])};
 }
+function applyMedical(x){
+ const m=medicalMap.get(nkey(x.name));
+ if(!m) return {...x,medical:null,adjRisk:x.risk,adjMax:x.max,adjDecision:x.decision};
+ const pol=medicalPolicy[m.status]||{risk_floor:x.risk,max_factor:1};
+ const adjRisk=Math.max(x.risk,Number(pol.risk_floor||x.risk));
+ const adjMax=Math.max(1,Math.round(x.max*Number(pol.max_factor||1)));
+ let adjDecision=x.decision;
+ if(m.status==="OUT_LONG") adjDecision="PASS";
+ else if(m.status==="OUT_MEDIUM") adjDecision=(x.market<=adjMax*0.90 && adjRisk<82)?"WATCH":"PASS";
+ else if(m.status==="OUT_SHORT") adjDecision=(x.market<=adjMax*1.05 && adjRisk<72)?"WATCH":"PASS";
+ else if(m.status==="QUESTIONABLE"){
+   if(adjRisk>=70) adjDecision="PASS";
+   else if(x.decision==="BUY" && x.market<=adjMax) adjDecision="BUY";
+   else adjDecision="WATCH";
+ }
+ return {...x,medical:m,adjRisk,adjMax,adjDecision};
+}
 function render(){
  const q=document.getElementById("q").value.trim().toLowerCase();
- const v=rows.filter(x=>(role==="ALL"||x.role===role)&&(decision==="ALL"||x.decision===decision)&&(!q||(x.name+" "+x.team).toLowerCase().includes(q)));
+ const v=rows.filter(x=>(role==="ALL"||x.role===role)&&(decision==="ALL"||x.adjDecision===decision)&&(!q||(x.name+" "+x.team).toLowerCase().includes(q)));
  document.getElementById("status").textContent=v.length+" giocatori visualizzati";
  document.getElementById("list").innerHTML=v.map(x=>`
  <details class="player">
@@ -71,8 +91,12 @@ function render(){
   </div>
  </details>`).join("");
 }
-Promise.all(files.map(f=>fetch(f,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(f+" "+r.status);return r.json()})))
-.then(parts=>{rows=parts.flat().map(norm);const c={P:0,D:0,C:0,A:0,BUY:0,WATCH:0,PASS:0};rows.forEach(x=>{c[x.role]++;c[x.decision]++});
+Promise.all([
+ Promise.all(files.map(f=>fetch(f,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(f+" "+r.status);return r.json()}))),
+ fetch(medicalFile,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(medicalFile+" "+r.status);return r.json()})
+])
+.then(([parts,med])=>{medicalPolicy=med.policy||{};medicalMap=new Map((med.players||[]).map(r=>[nkey(r[0]),{team:r[1],status:r[2],detail:r[3],source:r[4]}]));
+rows=parts.flat().map(norm).map(applyMedical);const c={P:0,D:0,C:0,A:0,BUY:0,WATCH:0,PASS:0};rows.forEach(x=>{c[x.role]++;c[x.adjDecision]++});
  document.getElementById("meta").textContent=`${rows.length} giocatori · P ${c.P} / D ${c.D} / C ${c.C} / A ${c.A} · BUY ${c.BUY} · WATCH ${c.WATCH} · PASS ${c.PASS} · 500 crediti · 10 partecipanti`;render();})
 .catch(e=>{document.getElementById("status").textContent="Errore caricamento dati: "+e.message;});
 document.getElementById("roles").addEventListener("click",e=>{if(!e.target.dataset.role)return;role=e.target.dataset.role;document.querySelectorAll("#roles button").forEach(b=>b.classList.toggle("on",b===e.target));render();});
