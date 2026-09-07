@@ -1,17 +1,27 @@
 {
-  "app": "V4.1.8.2",
-  "build": "FANTASEGRETO_V4_1_8_2_ENGINE_PARITY_STATE_HARDENING_18AGO2026",
-  "engine": "V4.0.23.1 LINEAGE / HARDENED PARITY",
+  "app": "V3.9.6-RC1",
+  "build": "FANTASEGRETO_V3_9_6_CURRENT_REGISTRY_REFRESH_07SEP2026_RC1",
+  "engine": "V4.0.23.1 LOCK",
   "pwa": "R9.1.1",
   "state_schema": "FS_STATE_V2",
-  "news_cutoff": "2026-08-18T19:45:00+02:00",
+  "news_cutoff": "2026-09-07T05:06:00+02:00",
   "base_registry": 492,
   "effective_registry": 493,
   "canonical_news_additions": 1,
   "calibration_writes": 0,
   "gold": false,
   "blockers": [
+    "OFFICIAL_LISTONE_XLSX_SHA256",
+    "FULL_REGISTRY_ID_RECONCILIATION",
+    "MATCHDAY3_COMPLETE_STATS",
+    "POST_REFRESH_FOS_RISK_MAX_CALIBRATION",
+    "DATA_WEB_BYTE_PARITY",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
     "CURRENT_ENGINE_CERTIFIED_TEMPORAL_REAL_AUCTION_REPLAY"
-  ]
+  ],
+  "registry_refresh": "BLOCKED_PENDING_OFFICIAL_LISTONE_XLSX_SHA256",
+  "stats_refresh": "PARTIAL_MATCHDAY3_INCOMPLETE",
+  "health_form_overlay": "FS_FORM_HEALTH_INTELLIGENCE_20260907.json",
+  "calibration_gate": "FS_CALIBRATION_GATE_V3_9_6_20260907.json",
+  "source_manifest": "FS_V3_9_6_SOURCE_MANIFEST_20260907.json"
 }
