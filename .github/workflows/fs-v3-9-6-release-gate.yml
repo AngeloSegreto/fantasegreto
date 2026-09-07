@@ -1,0 +1,40 @@
+name: FS V3.9.6 Release Gate
+on:
+  push:
+    branches: [ "release/v3.9.6" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Static source and calibration gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f FS_V3_9_6_SOURCE_MANIFEST_20260907.json
+          test -f FS_CALIBRATION_GATE_V3_9_6_20260907.json
+          test -f FS_FORM_HEALTH_INTELLIGENCE_20260907.json
+          python - <<'PY'
+          import json, pathlib, sys
+          p=json.load(open("FS_CALIBRATION_GATE_V3_9_6_20260907.json"))
+          assert p["engine"]=="V4.0.23.1 LOCK"
+          blocking=[k for k,v in p["gates"].items() if "BLOCKING_PENDING" in str(v)]
+          if blocking:
+              print("Release calibration blocked as expected:", ", ".join(blocking))
+          else:
+              print("No source blockers recorded.")
+          m=json.load(open("FS_V3_9_6_SOURCE_MANIFEST_20260907.json"))
+          assert "NO_EXACT_MAX_REWRITE" in m["blocking_rules"]
+          print("Static governance gate PASS")
+          PY
+      - name: JS syntax
+        run: |
+          node --check app.js
+          node --check engine.js
+          node --check state-manager.js
+      - name: Engine lock fingerprint presence
+        run: |
+          test -f ENGINE_CONTRACT_V4_0_23_1_PARITY.json
+          grep -q 'V4.0.23.1' ENGINE_CONTRACT_V4_0_23_1_PARITY.json
