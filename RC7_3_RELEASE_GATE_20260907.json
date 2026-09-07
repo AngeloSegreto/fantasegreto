@@ -1,0 +1,19 @@
+{
+  "version":"V3.9.6-RC7.3-RELEASE-GATE",
+  "as_of":"2026-09-07T23:14:00+02:00",
+  "gates":{
+    "MD3_FINAL_RESULTS":"PASS",
+    "MD3_LAST_MATCH_SCORERS":"PASS",
+    "OFFICIAL_FANTACALCIO_STATS_ENDPOINT":"AVAILABLE",
+    "FULL_531_PV_MV_FM_GOL_ASSIST_SNAPSHOT":"PENDING",
+    "FOS_V2_REFRESH_FROM_FULL_MD3_STATS":"PENDING",
+    "RISK_REFRESH_POST_MD3":"PENDING",
+    "MAX_LIVE_REFRESH_POST_MD3":"PENDING",
+    "GOLDEN_TEMPORAL_REPLAY":"PENDING",
+    "REGRESSION":"PENDING",
+    "RELEASE_SEAL":"BLOCKED"
+  },
+  "reason":"Both MD3 matches are final, but a complete machine-verifiable 531-player PV/MV/FM/Gol/Assist snapshot has not yet been ingested. Existing FOS/Risk/MAX data are therefore not overwritten with partial match data, and no GOLD/Release Seal is claimed.",
+  "data_source":"https://www.fantacalcio.it/statistiche-serie-a/2026-27/fantacalcio/riepilogo",
+  "integrity_rule":"No partial performance ingest may overwrite the canonical 531-player valuation registry."
+}
