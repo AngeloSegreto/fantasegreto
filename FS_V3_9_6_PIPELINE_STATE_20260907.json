@@ -1,0 +1,109 @@
+{
+  "schema": "FS_V3_9_6_PIPELINE_STATE_V1",
+  "as_of": "2026-09-07T05:06:00+02:00",
+  "branch": "release/v3.9.6",
+  "engine": "V4.0.23.1 LOCK",
+  "stages": [
+    {
+      "id": "S01",
+      "name": "V3.9.5 baseline pin",
+      "status": "PASS",
+      "evidence": "audit/baseline/V3_9_5_BASELINE_RECEIPT.json"
+    },
+    {
+      "id": "S02",
+      "name": "Official Listone 07SEP XLSX acquisition",
+      "status": "BLOCKED_PENDING_AUTHENTICATED_DOWNLOAD",
+      "evidence": "tools/fetch_fantacalcio_snapshot.py"
+    },
+    {
+      "id": "S03",
+      "name": "SHA256 snapshot",
+      "status": "BLOCKED_BY_S02"
+    },
+    {
+      "id": "S04",
+      "name": "Canonical candidate import",
+      "status": "READY",
+      "evidence": "tools/importa_listone_ufficiale.py"
+    },
+    {
+      "id": "S05",
+      "name": "Diff V3.9.5 by official Id",
+      "status": "READY_AFTER_BASELINE_FILE_AND_S04",
+      "evidence": "tools/reconcile_registry.py"
+    },
+    {
+      "id": "S06",
+      "name": "ADD/REMOVE/TEAM/ROLE/QI/QA/FVM reconciliation",
+      "status": "BLOCKED_BY_S05"
+    },
+    {
+      "id": "S07",
+      "name": "Official transfer reconciliation",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "S08",
+      "name": "Injury availability reconciliation",
+      "status": "PASS_OVERLAY",
+      "evidence": "FS_FORM_HEALTH_INTELLIGENCE_20260907.json"
+    },
+    {
+      "id": "S09",
+      "name": "Tactical hierarchy reconciliation",
+      "status": "READY_FOR_POST_REGISTRY_ENTITY_RESOLUTION"
+    },
+    {
+      "id": "S10",
+      "name": "Matchday 1-3 statistics",
+      "status": "PARTIAL_MATCHDAY3_OPEN"
+    },
+    {
+      "id": "S11",
+      "name": "FOS V2 recalibration",
+      "status": "BLOCKED_BY_S06_S09_S10"
+    },
+    {
+      "id": "S12",
+      "name": "Risk recalibration",
+      "status": "BLOCKED_BY_S06_S08_S09_S10"
+    },
+    {
+      "id": "S13",
+      "name": "MAX recalibration",
+      "status": "BLOCKED_BY_S11_S12"
+    },
+    {
+      "id": "S14",
+      "name": "fs_master_scored.json",
+      "status": "BLOCKED_BY_S13"
+    },
+    {
+      "id": "S15",
+      "name": "listino_web.json byte-identical",
+      "status": "BLOCKED_BY_S14"
+    },
+    {
+      "id": "S16",
+      "name": "217+ regression tests",
+      "status": "BLOCKED_BY_S15"
+    },
+    {
+      "id": "S17",
+      "name": "GitHub Actions",
+      "status": "ACTIVE_GUARD"
+    },
+    {
+      "id": "S18",
+      "name": "Release Seal",
+      "status": "BLOCKED"
+    },
+    {
+      "id": "S19",
+      "name": "PR release/v3.9.6 -> main",
+      "status": "BLOCKED"
+    }
+  ],
+  "promotion_rule": "S02-S18 must be PASS; engine fingerprint unchanged; no blocking pending."
+}
