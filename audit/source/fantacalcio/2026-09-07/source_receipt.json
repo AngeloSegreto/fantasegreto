@@ -1,0 +1,26 @@
+{
+  "schema": "FS_SOURCE_RECEIPT_V1",
+  "source": "Fantacalcio.it official XLSX uploaded by user",
+  "original_filename": "Quotazioni_Fantacalcio_Stagione_2026_27(5).xlsx",
+  "sha256": "69154f3e423f18fa7e9c8393caade7c9c104b5e271669602c6bc26c4c2174e99",
+  "workbook_sheets": [
+    "Tutti",
+    "Portieri",
+    "Difensori",
+    "Centrocampisti",
+    "Attaccanti",
+    "Ceduti"
+  ],
+  "canonical_sheet": "Tutti",
+  "canonical_records": 531,
+  "role_counts": {
+    "P": 64,
+    "D": 189,
+    "C": 192,
+    "A": 86
+  },
+  "serie_a_teams": 20,
+  "acquired_for": "V3.9.6 CURRENT LISTONE FULL REGISTRY REFRESH",
+  "verified_at": "2026-09-07T06:08:00+02:00",
+  "gate": "G1_PASS"
+}
