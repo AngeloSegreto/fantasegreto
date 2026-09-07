@@ -1,0 +1,46 @@
+{
+  "version": "V3.9.6-RC7.3-MD3-FINAL-GATE",
+  "generated_at": "2026-09-07T09:05:00+02:00",
+  "status": "BLOCKED_MATCHES_PENDING",
+  "matchday": 3,
+  "pending_matches": [
+    {
+      "id": "71945228",
+      "home": "Cagliari",
+      "away": "Lecce",
+      "kickoff": "2026-09-07T18:30:00+02:00",
+      "status": "SCHEDULED"
+    },
+    {
+      "id": "71945244",
+      "home": "Udinese",
+      "away": "Lazio",
+      "kickoff": "2026-09-07T20:45:00+02:00",
+      "status": "SCHEDULED"
+    }
+  ],
+  "completed_sequence": [
+    "RC7.2_ENGINE_PARITY",
+    "REGISTRY_531",
+    "MEDICAL_07SEP",
+    "STATE_V2",
+    "EXACT_MAX",
+    "OPPONENT_PRESSURE",
+    "MODIFIER_CLEAN_SHEET",
+    "SHADOW_GUARD",
+    "PIVOT_SURVIVAL"
+  ],
+  "final_sequence": [
+    "MD3_FINAL_RESULTS",
+    "MD3_PLAYER_PERFORMANCE",
+    "SEASON_PV_MV_FM_GOALS_ASSISTS_REFRESH",
+    "FOS_V2_REFRESH",
+    "RISK_REFRESH",
+    "MAX_LIVE_REFRESH",
+    "GOLDEN_TEMPORAL_REPLAY",
+    "REGRESSION",
+    "RELEASE_SEAL"
+  ],
+  "release_seal": "BLOCKED",
+  "block_reason": "Cagliari-Lecce and Udinese-Lazio have not started yet."
+}
