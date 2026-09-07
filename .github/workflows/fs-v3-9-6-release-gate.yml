@@ -38,3 +38,28 @@ jobs:
         run: |
           test -f ENGINE_CONTRACT_V4_0_23_1_PARITY.json
           grep -q 'V4.0.23.1' ENGINE_CONTRACT_V4_0_23_1_PARITY.json
+
+      - name: Python refresh toolchain syntax
+        run: |
+          python -m py_compile tools/fetch_fantacalcio_snapshot.py
+          python -m py_compile tools/importa_listone_ufficiale.py
+          python -m py_compile tools/reconcile_registry.py
+      - name: Official snapshot gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          SNAPSHOT="$(find audit/source/fantacalcio/2026-09-07 -name 'Quotazioni_Fantacalcio_Stagione_2026_27.xlsx' -print -quit 2>/dev/null || true)"
+          if [ -z "$SNAPSHOT" ]; then
+            echo "OFFICIAL_LISTONE_XLSX_SHA256=PENDING"
+            if [ "${{ github.event_name }}" = "pull_request" ]; then
+              echo "Blocking promotion to main: official XLSX snapshot missing."
+              exit 1
+            fi
+            exit 0
+          fi
+          SHA_FILE="${SNAPSHOT}.sha256"
+          test -f "$SHA_FILE" || { echo "Missing SHA256 sidecar"; exit 1; }
+          (cd "$(dirname "$SNAPSHOT")" && sha256sum -c "$(basename "$SHA_FILE")")
+          python -m pip install --disable-pip-version-check -r requirements-v3.9.6.txt
+          python tools/importa_listone_ufficiale.py "$SNAPSHOT"             --output data/listone_ufficiale_2026_27.candidate.json             --receipt audit/source/fantacalcio/2026-09-07/import_receipt.json
+          echo "Official Listone candidate import PASS"
