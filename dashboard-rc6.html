@@ -87,7 +87,7 @@ function render(){
   </summary>
   <div class="detail">
    <div class="grid"><div><span>FOS V2</span><b>${x.fos}</b></div><div><span>Risk</span><b>${x.adjRisk}</b></div><div><span>MAX LIVE</span><b>${x.adjMax}</b></div></div>
-   <div class="pivots"><div class="pivot"><b>ALT 1 · ${esc(x.a1)}</b><small>MAX ${x.a1max}</small></div><div class="pivot"><b>ALT 2 · ${esc(x.a2)}</b><small>MAX ${x.a2max}</small></div></div>
+   <div class="pivots"><div class="pivot"><b>ALT 1 · ${esc(x.a1)}</b><small>MAX ${x.a1max}</small></div><div class="pivot"><b>ALT 2 · ${esc(x.a2)}</b><small>MAX ${x.a2max}</small></div></div>\n   ${x.medical?`<div class="medical"><b>MEDICAL · ${esc(x.medical.status)}</b><br>${esc(x.medical.detail)}<br><small>${esc(x.medical.source)}</small></div>`:""}
   </div>
  </details>`).join("");
 }
