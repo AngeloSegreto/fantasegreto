@@ -1,0 +1,413 @@
+{
+  "schema": "FS_RC3_PERFORMANCE_MEDICAL_OVERLAY_V1",
+  "as_of": "2026-09-07",
+  "status": "PROVISIONAL_MD3",
+  "sources": [
+    "Fantacalcio statistiche 2026/27",
+    "Fantacalcio probabili/infortunati",
+    "FantaLab user screenshots"
+  ],
+  "rules": {
+    "market": "FantaLab observed 1000 -> /2 for FS500",
+    "performance": "Only verified fields are populated",
+    "medical": "Separate risk layer; no automatic market overwrite"
+  },
+  "performance": [
+    [
+      "Malen",
+      5,
+      0,
+      7.5,
+      12.33
+    ],
+    [
+      "Raimondo",
+      4,
+      0,
+      null,
+      10.83
+    ],
+    [
+      "Adams C.",
+      2,
+      null,
+      null,
+      null
+    ],
+    [
+      "Dybala",
+      0,
+      4,
+      7.33,
+      null
+    ],
+    [
+      "Chukwueze",
+      0,
+      2,
+      null,
+      null
+    ],
+    [
+      "Mangas",
+      0,
+      2,
+      null,
+      null
+    ],
+    [
+      "Frattesi",
+      2,
+      0,
+      7.25,
+      10.25
+    ],
+    [
+      "Calhanoglu",
+      2,
+      0,
+      7,
+      9.75
+    ],
+    [
+      "Varela G.",
+      2,
+      0,
+      7,
+      10
+    ],
+    [
+      "Kamara H.",
+      2,
+      0,
+      7,
+      10
+    ],
+    [
+      "Diao",
+      2,
+      1,
+      6.67,
+      9
+    ],
+    [
+      "Diouf",
+      0,
+      2,
+      7,
+      9
+    ],
+    [
+      "Esposito F.P.",
+      1,
+      1,
+      7,
+      9
+    ],
+    [
+      "De Bruyne",
+      1,
+      1,
+      7,
+      9
+    ],
+    [
+      "Vergara",
+      1,
+      1,
+      7.5,
+      11.5
+    ],
+    [
+      "Gonzalez N.",
+      1,
+      0,
+      7.5,
+      10.5
+    ],
+    [
+      "Koopmeiners",
+      1,
+      0,
+      7,
+      10
+    ],
+    [
+      "Berardi",
+      1,
+      0,
+      7,
+      10
+    ],
+    [
+      "Odenthal",
+      1,
+      0,
+      7,
+      10
+    ],
+    [
+      "Volpato",
+      1,
+      0,
+      6.67,
+      7.5
+    ],
+    [
+      "Piotrowski",
+      1,
+      0,
+      6.25,
+      7.5
+    ],
+    [
+      "Yeboah J.",
+      1,
+      0,
+      6.5,
+      7.5
+    ],
+    [
+      "Lontani",
+      1,
+      0,
+      6.5,
+      7.5
+    ],
+    [
+      "Mora",
+      1,
+      0,
+      6.5,
+      7.5
+    ],
+    [
+      "Osmajic",
+      1,
+      0,
+      6,
+      7.5
+    ],
+    [
+      "Belghali",
+      0,
+      1,
+      6.5,
+      7.5
+    ],
+    [
+      "Samardzic",
+      1,
+      0,
+      6.33,
+      7.33
+    ],
+    [
+      "Paz N.",
+      1,
+      0,
+      6.17,
+      7.17
+    ],
+    [
+      "Wesley",
+      0,
+      1,
+      6.83,
+      7.17
+    ],
+    [
+      "Doig",
+      1,
+      0,
+      6.17,
+      7.17
+    ],
+    [
+      "Comuzzo",
+      1,
+      0,
+      6.17,
+      7.17
+    ],
+    [
+      "Ramos G.",
+      1,
+      0,
+      6,
+      7
+    ],
+    [
+      "Conceicao",
+      0,
+      1,
+      6.5,
+      6.83
+    ],
+    [
+      "Colpani",
+      1,
+      0,
+      5.83,
+      6.83
+    ],
+    [
+      "Miranda J.",
+      0,
+      1,
+      6.25,
+      6.75
+    ],
+    [
+      "Kean",
+      0,
+      1,
+      6.25,
+      6.75
+    ],
+    [
+      "Krstovic",
+      1,
+      0,
+      5.83,
+      6.67
+    ],
+    [
+      "Dovbyk",
+      1,
+      0,
+      5.83,
+      6.67
+    ],
+    [
+      "Valle",
+      0,
+      1,
+      6.33,
+      6.67
+    ],
+    [
+      "Piccoli",
+      1,
+      0,
+      5.83,
+      6.67
+    ],
+    [
+      "Dimarco",
+      0,
+      1,
+      6.33,
+      6.67
+    ]
+  ],
+  "performance_columns": [
+    "player",
+    "goals",
+    "assists",
+    "mv",
+    "fm"
+  ],
+  "injuries": [
+    [
+      "Hien",
+      "lesione tendine prossimale semimembranoso coscia sinistra",
+      "inizio ottobre"
+    ],
+    [
+      "Addai",
+      "rottura tendine d'Achille",
+      "ottobre"
+    ],
+    [
+      "Parisi",
+      "recupero infortunio legamento crociato",
+      "novembre"
+    ],
+    [
+      "Buongiorno",
+      "intervento menisco ginocchio destro",
+      "non prima di ottobre"
+    ],
+    [
+      "Marianucci",
+      "trauma contusivo-distorsivo ginocchio sinistro",
+      "da valutare"
+    ],
+    [
+      "Konè I.",
+      "rottura tibia e perone",
+      "dicembre"
+    ],
+    [
+      "Pieragnolo",
+      "recupero lesione LCA",
+      "ottobre"
+    ],
+    [
+      "Candè",
+      "recupero rottura LCA ginocchio destro",
+      "metà settembre"
+    ],
+    [
+      "Zanoli",
+      "recupero LCA ginocchio destro",
+      "ottobre"
+    ],
+    [
+      "Sverko",
+      "post intervento anca",
+      "fine ottobre"
+    ],
+    [
+      "Adorante",
+      "post intervento schiena",
+      "ottobre"
+    ],
+    [
+      "Cabal",
+      "lesione basso grado semimembranoso coscia sinistra",
+      "seconda metà settembre"
+    ],
+    [
+      "Cambiaso",
+      "fastidio caviglia",
+      "rivalutazione"
+    ],
+    [
+      "McKennie",
+      "affaticamento muscolare",
+      "rivalutazione"
+    ],
+    [
+      "Thuram K.",
+      "sindrome femoro-rotulea",
+      "da gennaio"
+    ],
+    [
+      "Ekhator",
+      "lesione medio grado semitendinoso",
+      "fine ottobre"
+    ],
+    [
+      "Yildiz",
+      "frattura metatarso piede sinistro",
+      "fine novembre"
+    ],
+    [
+      "Sarr P.",
+      "noie fisiche",
+      "dalla 4a giornata da valutare"
+    ],
+    [
+      "Gabbia",
+      "problema caviglia",
+      "da valutare"
+    ]
+  ],
+  "injury_columns": [
+    "player",
+    "issue",
+    "return_estimate"
+  ]
+}
