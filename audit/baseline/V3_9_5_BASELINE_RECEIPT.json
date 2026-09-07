@@ -1,0 +1,10 @@
+{
+  "schema": "FS_V3_9_5_BASELINE_RECEIPT_V1",
+  "source_artifact": "FS_Fantacalcio_Enterprise_V3_9_5(1).zip",
+  "extracted_path": "FS_Enterprise_V3/data/listone_ufficiale_2026_27.json",
+  "records": 494,
+  "sha256": "0947e7c49f204d3c7a793ad053fb9df98f4e08c55e196325bb6905a3dbe784a2",
+  "role": "ROLLBACK_AND_DIFF_BASELINE",
+  "immutable": true,
+  "note": "Receipt generated from the user-supplied V3.9.5 package. The full baseline file is not duplicated into GitHub by this receipt; the SHA identifies the exact canonical source used for V3.9.5 diff."
+}
