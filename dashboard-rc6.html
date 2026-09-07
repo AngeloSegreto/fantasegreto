@@ -83,10 +83,10 @@ function render(){
    <span class="role">${esc(x.role)}</span>
    <span class="who"><b>${esc(x.name)}</b><small>${esc(x.team)}</small></span>
    <span class="price"><b>${x.market}</b><small>MARKET500</small></span>
-   <span class="dec ${esc(x.decision)}">${esc(x.decision)}</span>
+   <span class="dec ${esc(x.adjDecision)}">${esc(x.adjDecision)}</span>
   </summary>
   <div class="detail">
-   <div class="grid"><div><span>FOS V2</span><b>${x.fos}</b></div><div><span>Risk</span><b>${x.risk}</b></div><div><span>MAX LIVE</span><b>${x.max}</b></div></div>
+   <div class="grid"><div><span>FOS V2</span><b>${x.fos}</b></div><div><span>Risk</span><b>${x.adjRisk}</b></div><div><span>MAX LIVE</span><b>${x.adjMax}</b></div></div>
    <div class="pivots"><div class="pivot"><b>ALT 1 · ${esc(x.a1)}</b><small>MAX ${x.a1max}</small></div><div class="pivot"><b>ALT 2 · ${esc(x.a2)}</b><small>MAX ${x.a2max}</small></div></div>
   </div>
  </details>`).join("");
