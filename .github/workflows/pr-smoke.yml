@@ -1,0 +1,130 @@
+name: FantaSegreto PR Smoke Gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fantasegreto-pr-smoke-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static-integrity:
+    name: JS syntax · JSON · static assets · HTTP smoke
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout without persisted credentials
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+
+      - name: Setup Node 22.19.0
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
+        with:
+          node-version: '22.19.0'
+
+      - name: Reject unresolved merge markers
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -nE '^(<<<<<<< |>>>>>>> )' -- '*.js' '*.html' '*.json' '*.md' '*.txt' '*.webmanifest'; then
+            echo 'Unresolved merge markers detected.' >&2
+            exit 1
+          fi
+
+      - name: Validate JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(find . -maxdepth 1 -type f -name '*.js' -printf '%P\n' | sort)
+          test "${#files[@]}" -gt 0
+          for file in "${files[@]}"; do
+            echo "node --check ${file}"
+            node --check "$file"
+          done
+
+      - name: Parse JSON and web manifests
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          files = sorted(Path('.').glob('*.json')) + sorted(Path('.').glob('*.webmanifest'))
+          if not files:
+              raise SystemExit('No JSON/webmanifest files found')
+
+          for path in files:
+              with path.open('r', encoding='utf-8') as handle:
+                  json.load(handle)
+              print(f'OK {path}')
+
+          print(f'Parsed {len(files)} JSON/webmanifest files')
+          PY
+
+      - name: Validate local HTML runtime assets
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlsplit
+
+          checked = 0
+          missing = []
+
+          class AssetParser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.assets = []
+
+              def handle_starttag(self, tag, attrs):
+                  values = dict(attrs)
+                  if tag == 'script' and values.get('src'):
+                      self.assets.append(values['src'])
+                  if tag == 'link' and values.get('href'):
+                      rel = set((values.get('rel') or '').lower().split())
+                      if rel & {'stylesheet', 'manifest', 'icon', 'apple-touch-icon'}:
+                          self.assets.append(values['href'])
+
+          for html in sorted(Path('.').glob('*.html')):
+              parser = AssetParser()
+              parser.feed(html.read_text(encoding='utf-8'))
+              for asset in parser.assets:
+                  parts = urlsplit(asset)
+                  if parts.scheme or parts.netloc or asset.startswith('//') or asset.startswith('data:'):
+                      continue
+                  raw = parts.path
+                  if not raw:
+                      continue
+                  target = Path(raw.lstrip('/')) if raw.startswith('/') else html.parent / raw
+                  target = Path(str(target).removeprefix('./'))
+                  checked += 1
+                  if not target.exists():
+                      missing.append(f'{html}: {asset} -> {target}')
+
+          if missing:
+              raise SystemExit('Missing local runtime assets:\n' + '\n'.join(missing))
+
+          print(f'Validated {checked} local HTML runtime asset references')
+          PY
+
+      - name: Serve and smoke-test canonical pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/fantasegreto-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          sleep 1
+          curl --fail --silent --show-error http://127.0.0.1:4173/index.html >/dev/null
+          curl --fail --silent --show-error http://127.0.0.1:4173/dashboard-rc7.html >/dev/null
+          echo 'HTTP smoke PASS: index.html + dashboard-rc7.html'
