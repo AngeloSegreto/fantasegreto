@@ -98,6 +98,7 @@ jobs:
           vp=Path('version.json')
           v=json.loads(vp.read_text())
           v['app_index_runtime_reconciliation']='PASS'
+          v['serie_a_membership_runtime_guard']='PASS'
           runtime_count=json.loads(Path('registry.json').read_text()).get('count')
           v['deployment_status']='CURRENT_562_APP_INDEX_RECONCILED_PENDING_MODEL_RECALC' if runtime_count==562 else 'APP_INDEX_RECONCILED_PENDING_MODEL_ACCEPTANCE'
           blockers=[x for x in v.get('blockers',[]) if x!='APP_INDEX_22SEP_RUNTIME_RECONCILIATION']
