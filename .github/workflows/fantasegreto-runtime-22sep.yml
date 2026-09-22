@@ -88,7 +88,8 @@ jobs:
           vp=Path('version.json')
           v=json.loads(vp.read_text())
           v['app_index_runtime_reconciliation']='PASS'
-          v['deployment_status']='APP_INDEX_RECONCILED_PENDING_MODEL_ACCEPTANCE'
+          runtime_count=json.loads(Path('registry.json').read_text()).get('count')
+          v['deployment_status']='CURRENT_562_APP_INDEX_RECONCILED_PENDING_MODEL_RECALC' if runtime_count==562 else 'APP_INDEX_RECONCILED_PENDING_MODEL_ACCEPTANCE'
           blockers=[x for x in v.get('blockers',[]) if x!='APP_INDEX_22SEP_RUNTIME_RECONCILIATION']
           for x in ['FOS_RISK_MAX_22SEP_RECALC']:
               if x not in blockers:
@@ -100,8 +101,9 @@ jobs:
           evidence={
             'gate':'APP_INDEX_22SEP_RUNTIME_RECONCILIATION',
             'status':'PASS',
-            'runtime_registry_count':json.loads(Path('registry.json').read_text()).get('count'),
+            'runtime_registry_count':runtime_count,
             'runtime_details_count':json.loads(Path('player-details.json').read_text()).get('count'),
+            'model_pending_count':sum(1 for p in json.loads(Path('registry.json').read_text()).get('players',[]) if not all(isinstance(p.get(k),(int,float)) for k in ['score','ideal','max'])),
             'runtime_overlay':'md5-22sep2026.json',
             'overlay_cutoff':'2026-09-22T09:12:00+02:00',
             'stale_august_news_runtime_disabled':True,
@@ -167,3 +169,5 @@ jobs:
           fi
           git commit -m "FS: seal 22SEP app-index runtime reconciliation"
           git push
+
+# Current 562 V2 reseal trigger
