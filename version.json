@@ -44,5 +44,12 @@
   "report_top_assists_rows": 20,
   "report_creative_chances_rows": 4,
   "report_medical_player_rows": 10,
-  "report_overlay_status": "CURRENT_READ_ONLY_CONTEXT"
+  "report_overlay_status": "CURRENT_READ_ONLY_CONTEXT",
+  "serie_a_membership_policy": "LISTONE_PRESENCE_IS_AUTHORITATIVE_22SEP",
+  "serie_a_membership_source": "LISTONE_22SEP2026",
+  "serie_a_membership_cutoff": "2026-09-22",
+  "serie_a_current_count": 562,
+  "model_pending_membership_effect": "NONE",
+  "archived_absent_from_current_listone_count": 3,
+  "membership_gate": "PASS"
 }

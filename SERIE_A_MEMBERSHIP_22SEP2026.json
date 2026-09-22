@@ -1,0 +1,18 @@
+{
+  "schema": "FS_SERIE_A_MEMBERSHIP_POLICY_V1",
+  "gate": "SERIE_A_MEMBERSHIP_22SEP",
+  "status": "PASS",
+  "cutoff": "2026-09-22",
+  "authority": "LISTONE_22SEP2026",
+  "rule": "Presence in the authoritative current Listone determines Serie A runtime membership. FOS/Risk/MAX model status has no membership effect.",
+  "runtime_members": 562,
+  "model_pending_count_at_freeze": 125,
+  "pending_members_still_active": 125,
+  "pending_membership_effect": "NONE",
+  "archived_absent_from_current_listone_count": 3,
+  "optimizerMax_mutated": false,
+  "pending_ids_sha256": "0b385c0111d3c83b5e7903e8fa4403e08185e83633beb0e393009e4fdeacb9f6",
+  "registry_sha256": "b32194a6f416c2d54760928ab333f5aab22456a66fec474576435b86422a7fbe",
+  "details_sha256": "6cd7eb79e270d6c951670355bb5d8c028e2aec39c4fe38374ea312774eedcfa4",
+  "archive_sha256": "cd2a69ca55909c2844338cfcc63fcbf2e0d368e098d313b62c9039568b8d24df"
+}
