@@ -1,0 +1,277 @@
+{
+  "gate": "LISTONE_22SEP_FULL_INGEST",
+  "status": "PASS",
+  "source_count": 562,
+  "materialized_count": 562,
+  "registry_count": 531,
+  "matched_registry_count": 525,
+  "same_team_matches": 525,
+  "team_changed_matches": 0,
+  "unmatched_external_count": 37,
+  "missing_registry_count": 6,
+  "entity_reconciliation_status": "PENDING_REVIEW",
+  "source_pdf_sha256": "20eb015e91349db6c4f2d33ff343a873f9cd6f9e1522865da41002ae5086da62",
+  "materialized_sha256": "fe7bee70b3768092eb6f73f3e624fe9c7bb845db96d747be939327b3c843974e",
+  "unmatched_external": [
+    {
+      "nome": "NUNO TAVARES -",
+      "squadra": "Lazio",
+      "ruolo": "D",
+      "kapitals": 12
+    },
+    {
+      "nome": "MONTEIRO PINTO LEITE Diogo Filipe",
+      "squadra": "Lazio",
+      "ruolo": "D",
+      "kapitals": 9
+    },
+    {
+      "nome": "SOTTIL Riccardo",
+      "squadra": "Fiorentina",
+      "ruolo": "A",
+      "kapitals": 6
+    },
+    {
+      "nome": "BONDO Warren",
+      "squadra": "Milan",
+      "ruolo": "C",
+      "kapitals": 6
+    },
+    {
+      "nome": "LOVRIC Sandi",
+      "squadra": "Udinese",
+      "ruolo": "C",
+      "kapitals": 5
+    },
+    {
+      "nome": "DOSSENA Alberto",
+      "squadra": "Como",
+      "ruolo": "D",
+      "kapitals": 5
+    },
+    {
+      "nome": "BALDE Keita",
+      "squadra": "Monza",
+      "ruolo": "A",
+      "kapitals": 5
+    },
+    {
+      "nome": "FERNANDEZ Antonio Casino",
+      "squadra": "Venezia",
+      "ruolo": "A",
+      "kapitals": 5
+    },
+    {
+      "nome": "DIALLO THIAO Ousmane",
+      "squadra": "Parma",
+      "ruolo": "A",
+      "kapitals": 4
+    },
+    {
+      "nome": "DE SOUZA JÚNIOR Robson",
+      "squadra": "Genoa",
+      "ruolo": "A",
+      "kapitals": 4
+    },
+    {
+      "nome": "GHION Andrea",
+      "squadra": "Sassuolo",
+      "ruolo": "C",
+      "kapitals": 3
+    },
+    {
+      "nome": "PIERINI Nicholas",
+      "squadra": "Sassuolo",
+      "ruolo": "A",
+      "kapitals": 2
+    },
+    {
+      "nome": "TERRACCIANO Pietro",
+      "squadra": "Milan",
+      "ruolo": "P",
+      "kapitals": 2
+    },
+    {
+      "nome": "PANADA Simone",
+      "squadra": "Venezia",
+      "ruolo": "C",
+      "kapitals": 2
+    },
+    {
+      "nome": "SKJELLERUP Laurs",
+      "squadra": "Sassuolo",
+      "ruolo": "A",
+      "kapitals": 2
+    },
+    {
+      "nome": "LUONGO Andrea",
+      "squadra": "Torino",
+      "ruolo": "C",
+      "kapitals": 2
+    },
+    {
+      "nome": "LIBRA ALVARADO Marco",
+      "squadra": "Bologna",
+      "ruolo": "C",
+      "kapitals": 2
+    },
+    {
+      "nome": "FURLANETTO Alessio",
+      "squadra": "Lazio",
+      "ruolo": "P",
+      "kapitals": 1
+    },
+    {
+      "nome": "ISRAEL Franco",
+      "squadra": "Torino",
+      "ruolo": "P",
+      "kapitals": 1
+    },
+    {
+      "nome": "PAZ Yeferson",
+      "squadra": "Sassuolo",
+      "ruolo": "D",
+      "kapitals": 1
+    },
+    {
+      "nome": "BORBEI Alexandru",
+      "squadra": "Lecce",
+      "ruolo": "P",
+      "kapitals": 1
+    },
+    {
+      "nome": "VASQUEZ Devis",
+      "squadra": "Roma",
+      "ruolo": "P",
+      "kapitals": 1
+    },
+    {
+      "nome": "ADDO Vernon",
+      "squadra": "Lecce",
+      "ruolo": "D",
+      "kapitals": 1
+    },
+    {
+      "nome": "SUGAMELE Alessandro",
+      "squadra": "Cagliari",
+      "ruolo": "A",
+      "kapitals": 1
+    },
+    {
+      "nome": "OBRIC Relja",
+      "squadra": "Atalanta",
+      "ruolo": "D",
+      "kapitals": 1
+    },
+    {
+      "nome": "SULEV Ivan",
+      "squadra": "Cagliari",
+      "ruolo": "C",
+      "kapitals": 1
+    },
+    {
+      "nome": "VINCIATI Giulio",
+      "squadra": "Udinese",
+      "ruolo": "A",
+      "kapitals": 1
+    },
+    {
+      "nome": "KOVAC Niko",
+      "squadra": "Lecce",
+      "ruolo": "C",
+      "kapitals": 1
+    },
+    {
+      "nome": "ARENA Antonio",
+      "squadra": "Roma",
+      "ruolo": "A",
+      "kapitals": 1
+    },
+    {
+      "nome": "FARCOMENI Valerio",
+      "squadra": "Lazio",
+      "ruolo": "C",
+      "kapitals": 1
+    },
+    {
+      "nome": "KONATE Abdou-Salam",
+      "squadra": "Parma",
+      "ruolo": "C",
+      "kapitals": 1
+    },
+    {
+      "nome": "DOUCOURé Mamedi",
+      "squadra": "Genoa",
+      "ruolo": "D",
+      "kapitals": 1
+    },
+    {
+      "nome": "DABO Lamine",
+      "squadra": "Venezia",
+      "ruolo": "C",
+      "kapitals": 1
+    },
+    {
+      "nome": "WIAFE Samuel",
+      "squadra": "Genoa",
+      "ruolo": "C",
+      "kapitals": 1
+    },
+    {
+      "nome": "GALASSI Bruno",
+      "squadra": "Lazio",
+      "ruolo": "C",
+      "kapitals": 1
+    },
+    {
+      "nome": "AKARAKIRI Demi",
+      "squadra": "Cagliari",
+      "ruolo": "C",
+      "kapitals": 1
+    },
+    {
+      "nome": "PEJICIC David",
+      "squadra": "Udinese",
+      "ruolo": "A",
+      "kapitals": 0
+    }
+  ],
+  "missing_registry": [
+    {
+      "id": "p-piana-udinese",
+      "name": "Piana",
+      "team": "Udinese",
+      "role": "P"
+    },
+    {
+      "id": "p-tavares-n-lazio",
+      "name": "Tavares N.",
+      "team": "Lazio",
+      "role": "D"
+    },
+    {
+      "id": "p-fc-5812",
+      "name": "Terracciano F.",
+      "team": "Milan",
+      "role": "D"
+    },
+    {
+      "id": "p-diallo-o-parma",
+      "name": "Diallo O.",
+      "team": "Parma",
+      "role": "C"
+    },
+    {
+      "id": "p-fc-7232",
+      "name": "Fernandez T.",
+      "team": "Venezia",
+      "role": "C"
+    },
+    {
+      "id": "p-fc-7622",
+      "name": "Robinho Junior",
+      "team": "Genoa",
+      "role": "A"
+    }
+  ]
+}
