@@ -51,8 +51,8 @@
     },
     {
       "file": "audit.js",
-      "bytes": 4308,
-      "sha256": "dd98bc78c98b389096a5ad9b4ec4b2e2bb49cbe2245cdd84ca7e69616f9c1bcc"
+      "bytes": 4294,
+      "sha256": "3222fe9e906162a3647fecddf01f2d592e8d922cd1435bfb2d9398bdf065341d"
     },
     {
       "file": "backup.js",
@@ -96,13 +96,13 @@
     },
     {
       "file": "player-details.json",
-      "bytes": 389314,
-      "sha256": "ebf1d61848ee21436c38fb1e709a9d750fa1c569f769add2d01a11d282e0b10a"
+      "bytes": 578145,
+      "sha256": "114563f36f85f5504611f97bf1da764cdf81cfa82df71e0ee5a9720b89ec9940"
     },
     {
       "file": "registry.json",
-      "bytes": 303905,
-      "sha256": "fed25f3ee420237ecfe9cdd4e165a7210ee9a291e75b98a2f7fa9898cbf1739a"
+      "bytes": 565554,
+      "sha256": "eea82c43b283f1d64c11aa4c7cf22e0c0ca1a5ccaaa965fcffcde802d8f1958f"
     },
     {
       "file": "state-manager.js",
@@ -121,8 +121,8 @@
     },
     {
       "file": "version.json",
-      "bytes": 1203,
-      "sha256": "c75166e96e206fa606edbf3e2352af45cfff58225bc9465a990a50012f5adf8e"
+      "bytes": 1518,
+      "sha256": "5bcd756e20191ef2b4cfa75608ad89c984a6cd0efeb9dac4653509fe70f8d39e"
     },
     {
       "file": "md5-22sep2026.json",
@@ -136,18 +136,28 @@
     },
     {
       "file": "APP_INDEX_RECONCILIATION_22SEP2026.json",
-      "bytes": 918,
-      "sha256": "ce76617f55c8b783d256026863cc8e6f24dcc041bafa3f8758ada10bb1007569"
+      "bytes": 948,
+      "sha256": "6052ad43844bf5a276b038edbc340df2181fe8cf8ab6c05af5aa8375821d7ef8"
     },
     {
       "file": "listone-22sep2026.json",
-      "bytes": 146714,
-      "sha256": "fe7bee70b3768092eb6f73f3e624fe9c7bb845db96d747be939327b3c843974e"
+      "bytes": 215289,
+      "sha256": "7b7ce0a53a9ae82d1b618bd7a46d511b8048fd3706d98e5aa5b77f745f665493"
     },
     {
       "file": "LISTONE_RECONCILIATION_22SEP2026.json",
       "bytes": 5452,
       "sha256": "f3b1f52d1584c24d50c4a42beff1060313e16055a56d319c0eaef5f07047f402"
+    },
+    {
+      "file": "CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json",
+      "bytes": 3224,
+      "sha256": "36732ef3c7ef6434e1aa704990ef565bc72d00f5901911b03331d5577e78bd28"
+    },
+    {
+      "file": "ARCHIVE_REMOVED_REGISTRY_22SEP2026.json",
+      "bytes": 5349,
+      "sha256": "cd2a69ca55909c2844338cfcc63fcbf2e0d368e098d313b62c9039568b8d24df"
     }
   ]
 }
