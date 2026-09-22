@@ -12,8 +12,9 @@
   "external_listone_count": 562,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "LISTONE_22SEP_INGESTED_PENDING_ENTITY_RECONCILIATION",
+  "deployment_status": "APP_INDEX_RECONCILED_PENDING_MODEL_ACCEPTANCE",
   "blockers": [
+    "LISTONE_22SEP_FULL_INGEST",
     "LISTONE_22SEP_ENTITY_RECONCILIATION",
     "FOS_RISK_MAX_22SEP_RECALC",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
