@@ -12,6 +12,7 @@ on:
       - 'md5-22sep2026.json'
       - 'version.json'
       - '.github/workflows/fantasegreto-runtime-22sep.yml'
+      - '.nojekyll'
   workflow_dispatch:
 
 permissions:
