@@ -1,0 +1,299 @@
+{
+  "schema": "FS_REMOVED_RUNTIME_ARCHIVE_22SEP_V1",
+  "reason": "ABSENT_FROM_AUTHORITATIVE_CURRENT_LISTONE_22SEP",
+  "count": 5,
+  "records": [
+    {
+      "player": {
+        "id": "p-piana-udinese",
+        "name": "Piana",
+        "team": "Udinese",
+        "role": "P",
+        "list_meta": "Udinese · Por · Q 1 · FVM 1",
+        "score": 43.5,
+        "ideal": 1.0,
+        "max": 1.0,
+        "quote": 1,
+        "fvm": 1,
+        "value_index": "1.00×",
+        "risk": 64.8,
+        "confidence": "48%",
+        "decision": "ATTENDI ≤ 1 · STOP 1",
+        "risk_line": "VI 1.00× · R 64.8",
+        "rank": {
+          "score": "353",
+          "value": "200",
+          "ideal": "367",
+          "quote": "430",
+          "risk": "15"
+        },
+        "registry_status": "CANONICAL",
+        "official_id": "5707",
+        "mantra_role": "Por",
+        "initial_quote": 1,
+        "quote_delta": 0,
+        "canonical_source": "FANTACALCIO_OFFICIAL_07SEP2026",
+        "reconciliation_match": "EXACT_NAME_TEAM"
+      },
+      "details": {
+        "id": "p-piana-udinese",
+        "name": "Piana",
+        "subtitle": "Udinese · Por",
+        "role": "P",
+        "metrics": {
+          "FS Score": "43.5",
+          "Prezzo ideale": "1",
+          "MAX": "1",
+          "Quotazione": "1",
+          "FVM": "1",
+          "Value Index": "1.00×",
+          "Rischio": "64.8",
+          "Confidence": "48%"
+        },
+        "instruction": "ATTENDI non significa aspettare per comprarlo più tardi. Se viene chiamato adesso, compralo solo se resta entro 1 crediti. Da 2 a 1 è zona prudenza. Oltre 1 : STOP.",
+        "blocks": [
+          {
+            "title": "Valutazione FS",
+            "text": "Fuori dai posti utili per ruolo: ha senso solo a 1 credito."
+          },
+          {
+            "title": "Fattori positivi",
+            "text": "Nessun fattore positivo rilevante rispetto alla mediana di ruolo."
+          },
+          {
+            "title": "Fattori di rischio",
+            "text": "posizione nelle gerarchie (-5.0); rischio complessivo (-1.2); solidità difensiva (-0.5)"
+          },
+          {
+            "title": "News / gerarchie",
+            "text": "Nessun overlay specifico."
+          }
+        ]
+      }
+    },
+    {
+      "player": {
+        "id": "p-fc-5812",
+        "name": "Terracciano F.",
+        "team": "Milan",
+        "role": "D",
+        "score": null,
+        "ideal": null,
+        "max": null,
+        "value_index": "—",
+        "risk": null,
+        "confidence": "PENDING",
+        "decision": "RECALC",
+        "risk_line": "CANONICAL · FS RECALC PENDING",
+        "rank": {
+          "score": "0",
+          "value": "0",
+          "ideal": "0",
+          "quote": "0",
+          "risk": "0"
+        },
+        "registry_status": "CANONICAL_07SEP_NEW_PENDING_FS_RECALC",
+        "official_id": "5812",
+        "mantra_role": "B;Dd;Ds",
+        "quote": 2,
+        "initial_quote": 2,
+        "quote_delta": 0,
+        "fvm": 4,
+        "list_meta": "Milan · B;Dd;Ds · Q 2 · FVM 4",
+        "canonical_source": "FANTACALCIO_OFFICIAL_07SEP2026",
+        "reconciliation_match": "NEW_CANONICAL"
+      },
+      "details": {
+        "id": "p-fc-5812",
+        "name": "Terracciano F.",
+        "subtitle": "Milan · B;Dd;Ds",
+        "role": "D",
+        "metrics": {
+          "Quotazione ufficiale": "2",
+          "FVM / 1000": "4",
+          "FS Score": "RECALC",
+          "MAX": "RECALC"
+        },
+        "instruction": "Valutazione FS da ricalcolare sulla nuova baseline canonica.",
+        "blocks": [
+          {
+            "title": "Data Truth",
+            "text": "Record materializzato dal Listone Fantacalcio canonico del 07/09/2026. FOS e MAX non sono inventati: restano PENDING_RECALC."
+          }
+        ]
+      }
+    },
+    {
+      "player": {
+        "id": "p-diallo-o-parma",
+        "name": "Diallo O.",
+        "team": "Parma",
+        "role": "C",
+        "list_meta": "Parma · W;A · Q 3 · FVM 12",
+        "score": 57.0,
+        "ideal": 4.0,
+        "max": 4.0,
+        "quote": 3,
+        "fvm": 12,
+        "value_index": "1.00×",
+        "risk": 42.8,
+        "confidence": "46%",
+        "decision": "ATTENDI ≤ 4 · STOP 4",
+        "risk_line": "VI 1.00× · R 42.8",
+        "rank": {
+          "score": "217",
+          "value": "127",
+          "ideal": "239",
+          "quote": "328",
+          "risk": "251"
+        },
+        "registry_status": "CANONICAL",
+        "official_id": "7536",
+        "mantra_role": "W;A",
+        "initial_quote": 3,
+        "quote_delta": 0,
+        "canonical_source": "FANTACALCIO_OFFICIAL_07SEP2026",
+        "reconciliation_match": "EXACT_NAME_TEAM"
+      },
+      "details": {
+        "id": "p-diallo-o-parma",
+        "name": "Diallo O.",
+        "subtitle": "Parma · W;A",
+        "role": "C",
+        "metrics": {
+          "FS Score": "57.0",
+          "Prezzo ideale": "4",
+          "MAX": "4",
+          "Quotazione": "3",
+          "FVM": "12",
+          "Value Index": "1.00×",
+          "Rischio": "42.8",
+          "Confidence": "46%"
+        },
+        "instruction": "ATTENDI non significa aspettare per comprarlo più tardi. Se viene chiamato adesso, compralo solo se resta entro 4 crediti. Da 5 a 4 è zona prudenza. Oltre 4 : STOP.",
+        "blocks": [
+          {
+            "title": "Valutazione FS",
+            "text": "Prezzo corretto: prenderlo solo se l'asta scende sotto il prezzo ideale."
+          },
+          {
+            "title": "Fattori positivi",
+            "text": "potenziale di bonus (+6.2); rapporto valore/prezzo (+3.0)"
+          },
+          {
+            "title": "Fattori di rischio",
+            "text": "posizione nelle gerarchie (-2.6); forza della squadra (-1.2); valore di mercato (-1.0)"
+          },
+          {
+            "title": "News / gerarchie",
+            "text": "Nessun overlay specifico."
+          }
+        ]
+      }
+    },
+    {
+      "player": {
+        "id": "p-fc-7232",
+        "name": "Fernandez T.",
+        "team": "Venezia",
+        "role": "C",
+        "score": null,
+        "ideal": null,
+        "max": null,
+        "value_index": "—",
+        "risk": null,
+        "confidence": "PENDING",
+        "decision": "RECALC",
+        "risk_line": "CANONICAL · FS RECALC PENDING",
+        "rank": {
+          "score": "0",
+          "value": "0",
+          "ideal": "0",
+          "quote": "0",
+          "risk": "0"
+        },
+        "registry_status": "CANONICAL_07SEP_NEW_PENDING_FS_RECALC",
+        "official_id": "7232",
+        "mantra_role": "T;A",
+        "quote": 3,
+        "initial_quote": 3,
+        "quote_delta": 0,
+        "fvm": 8,
+        "list_meta": "Venezia · T;A · Q 3 · FVM 8",
+        "canonical_source": "FANTACALCIO_OFFICIAL_07SEP2026",
+        "reconciliation_match": "NEW_CANONICAL"
+      },
+      "details": {
+        "id": "p-fc-7232",
+        "name": "Fernandez T.",
+        "subtitle": "Venezia · T;A",
+        "role": "C",
+        "metrics": {
+          "Quotazione ufficiale": "3",
+          "FVM / 1000": "8",
+          "FS Score": "RECALC",
+          "MAX": "RECALC"
+        },
+        "instruction": "Valutazione FS da ricalcolare sulla nuova baseline canonica.",
+        "blocks": [
+          {
+            "title": "Data Truth",
+            "text": "Record materializzato dal Listone Fantacalcio canonico del 07/09/2026. FOS e MAX non sono inventati: restano PENDING_RECALC."
+          }
+        ]
+      }
+    },
+    {
+      "player": {
+        "id": "p-fc-7622",
+        "name": "Robinho Junior",
+        "team": "Genoa",
+        "role": "A",
+        "score": null,
+        "ideal": null,
+        "max": null,
+        "value_index": "—",
+        "risk": null,
+        "confidence": "PENDING",
+        "decision": "RECALC",
+        "risk_line": "CANONICAL · FS RECALC PENDING",
+        "rank": {
+          "score": "0",
+          "value": "0",
+          "ideal": "0",
+          "quote": "0",
+          "risk": "0"
+        },
+        "registry_status": "CANONICAL_07SEP_NEW_PENDING_FS_RECALC",
+        "official_id": "7622",
+        "mantra_role": "A",
+        "quote": 1,
+        "initial_quote": 1,
+        "quote_delta": 0,
+        "fvm": 3,
+        "list_meta": "Genoa · A · Q 1 · FVM 3",
+        "canonical_source": "FANTACALCIO_OFFICIAL_07SEP2026",
+        "reconciliation_match": "NEW_CANONICAL"
+      },
+      "details": {
+        "id": "p-fc-7622",
+        "name": "Robinho Junior",
+        "subtitle": "Genoa · A",
+        "role": "A",
+        "metrics": {
+          "Quotazione ufficiale": "1",
+          "FVM / 1000": "3",
+          "FS Score": "RECALC",
+          "MAX": "RECALC"
+        },
+        "instruction": "Valutazione FS da ricalcolare sulla nuova baseline canonica.",
+        "blocks": [
+          {
+            "title": "Data Truth",
+            "text": "Record materializzato dal Listone Fantacalcio canonico del 07/09/2026. FOS e MAX non sono inventati: restano PENDING_RECALC."
+          }
+        ]
+      }
+    }
+  ]
+}

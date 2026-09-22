@@ -12,10 +12,8 @@
   "external_listone_count": 562,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "APP_INDEX_RECONCILED_PENDING_MODEL_ACCEPTANCE",
+  "deployment_status": "CURRENT_562_REGISTRY_RECONCILED_PENDING_MODEL_RECALC",
   "blockers": [
-    "LISTONE_22SEP_FULL_INGEST",
-    "LISTONE_22SEP_ENTITY_RECONCILIATION",
     "FOS_RISK_MAX_22SEP_RECALC",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
     "CURRENT_ENGINE_CERTIFIED_TEMPORAL_REAL_AUCTION_REPLAY"
@@ -23,7 +21,12 @@
   "canonical_registry_runtime_count": 531,
   "runtime_overlay": "md5-22sep2026.json",
   "stale_august_news_runtime_disabled": true,
-  "app_index_runtime_reconciliation": "PASS",
+  "app_index_runtime_reconciliation": "PENDING_562_RESEAL",
   "external_listone_materialized_count": 562,
-  "external_listone_source_pdf_sha256": "20eb015e91349db6c4f2d33ff343a873f9cd6f9e1522865da41002ae5086da62"
+  "external_listone_source_pdf_sha256": "20eb015e91349db6c4f2d33ff343a873f9cd6f9e1522865da41002ae5086da62",
+  "runtime_registry_count": 562,
+  "current_listone_target": 562,
+  "runtime_registry_source": "LISTONE_22SEP2026",
+  "runtime_registry_source_pdf_sha256": "20eb015e91349db6c4f2d33ff343a873f9cd6f9e1522865da41002ae5086da62",
+  "canonical_registry_07sep_count": 531
 }
