@@ -12,7 +12,7 @@
   "external_listone_count": 562,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "CURRENT_562_REGISTRY_RECONCILED_PENDING_MODEL_RECALC",
+  "deployment_status": "CURRENT_562_REGISTRY_V2_RECONCILED_PENDING_MODEL_RECALC",
   "blockers": [
     "FOS_RISK_MAX_22SEP_RECALC",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
@@ -28,5 +28,7 @@
   "current_listone_target": 562,
   "runtime_registry_source": "LISTONE_22SEP2026",
   "runtime_registry_source_pdf_sha256": "20eb015e91349db6c4f2d33ff343a873f9cd6f9e1522865da41002ae5086da62",
-  "canonical_registry_07sep_count": 531
+  "canonical_registry_07sep_count": 531,
+  "runtime_role_basis_22sep": "RUOLO_FANTACALCIO_IT_WITH_STANDARD_FALLBACK",
+  "fantacalcio_role_fallback_count": 20
 }

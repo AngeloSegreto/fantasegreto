@@ -1,542 +1,76 @@
 {
   "gate": "CURRENT_REGISTRY_RECONCILIATION_22SEP",
   "status": "PASS",
+  "version": "V2_FANTACALCIO_ROLE_BASIS",
   "source_current_count": 562,
   "previous_runtime_count": 531,
   "runtime_count": 562,
-  "preserved_previous_ids": 526,
-  "new_current_records": 36,
-  "removed_previous_records": 5,
-  "role_changed_count": 73,
+  "preserved_previous_ids": 528,
+  "new_current_records": 34,
+  "removed_previous_records": 3,
+  "role_changed_count": 0,
   "role_counts": {
-    "A": 127,
-    "C": 215,
-    "D": 153,
+    "A": 94,
+    "C": 206,
+    "D": 195,
     "P": 67
   },
+  "runtime_role_basis": "ruolo_fantacalcio; standard fallback only when unavailable",
+  "fantacalcio_role_fallback_count": 20,
+  "fantacalcio_role_fallback_names": [
+    "SOTTIL Riccardo",
+    "BONDO Warren",
+    "BALDE Keita",
+    "PANADA Simone",
+    "FURLANETTO Alessio",
+    "ISRAEL Franco",
+    "PAZ Yeferson",
+    "BORBEI Alexandru",
+    "VASQUEZ Devis",
+    "ADDO Vernon",
+    "OBRIC Relja",
+    "SULEV Ivan",
+    "VINCIATI Giulio",
+    "KOVAC Niko",
+    "ARENA Antonio",
+    "FARCOMENI Valerio",
+    "DOUCOURé Mamedi",
+    "GALASSI Bruno",
+    "AKARAKIRI Demi",
+    "PEJICIC David"
+  ],
   "unique_runtime_ids": 562,
   "optimizerMax_mutated": false,
   "model_recalculation_status": "PENDING_22SEP",
-  "manual_source_safe_aliases": [
+  "baseline_commit": "945f006a43fc61320a37f8dc09ae5b56aaa88910",
+  "source_safe_disambiguations": [
     {
-      "source_name": "NUNO TAVARES -",
-      "source_team": "Lazio",
-      "registry_id": "p-tavares-n-lazio"
+      "source": "NUNO TAVARES - / Lazio",
+      "registry_id": "p-tavares-n-lazio",
+      "method": "surname-order same-team"
+    },
+    {
+      "source": "TERRACCIANO Filippo / Milan",
+      "registry_id": "p-fc-5812",
+      "method": "surname + initial F + same-team pair"
+    },
+    {
+      "source": "TERRACCIANO Pietro / Milan",
+      "registry_id": "p-terracciano-milan",
+      "method": "same-surname goalkeeper pair"
+    },
+    {
+      "source": "DIALLO THIAO Ousmane / Parma",
+      "registry_id": "p-diallo-o-parma",
+      "method": "surname + initial O + same-team"
     }
   ],
-  "role_changed": [
-    {
-      "id": "p-paz-n-como",
-      "name": "PAZ Nico",
-      "team": "Como",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-pulisic-milan",
-      "name": "PULISIC Christian",
-      "team": "Milan",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-orsolini-bologna",
-      "name": "ORSOLINI Riccardo",
-      "team": "Bologna",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-zaccagni-lazio",
-      "name": "ZACCAGNI Mattia",
-      "team": "Lazio",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-dimarco-inter",
-      "name": "DIMARCO Federico",
-      "team": "Inter",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-zaniolo-udinese",
-      "name": "ZANIOLO Nicolò",
-      "team": "Udinese",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-fc-7556",
-      "name": "MORA CARVALHO Rodrigo",
-      "team": "Roma",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-gudmundsson-a-fiorentina",
-      "name": "GUDMUNDSSON Albert",
-      "team": "Lazio",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-wesley-roma",
-      "name": "WESLEY França Lima",
-      "team": "Roma",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-politano-napoli",
-      "name": "POLITANO Matteo",
-      "team": "Napoli",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-molina-n-roma",
-      "name": "MOLINA Nahuel",
-      "team": "Roma",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-rodriguez-je-como",
-      "name": "RODRIGUEZ Jesús",
-      "team": "Como",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-rowe-bologna",
-      "name": "ROWE Jonathan",
-      "team": "Atalanta",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-alajbegovic-juventus",
-      "name": "ALAJBEGOVIC Kerim-Sam",
-      "team": "Juventus",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-bernardeschi-bologna",
-      "name": "BERNARDESCHI Federico",
-      "team": "Bologna",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-cancellieri-lazio",
-      "name": "CANCELLIERI Matteo",
-      "team": "Lazio",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-spence-inter",
-      "name": "SPENCE Djed",
-      "team": "Inter",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-odgaard-bologna",
-      "name": "ODGAARD Jens",
-      "team": "Bologna",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-cambiaghi-bologna",
-      "name": "CAMBIAGHI Nicolo",
-      "team": "Bologna",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-isaksen-lazio",
-      "name": "ISAKSEN Gustav",
-      "team": "Lazio",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-cambiaso-juventus",
-      "name": "CAMBIASO Andrea",
-      "team": "Juventus",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-carlos-augusto-inter",
-      "name": "CARLOS AUGUSTO -",
-      "team": "Inter",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-zappacosta-atalanta",
-      "name": "ZAPPACOSTA Davide",
-      "team": "Atalanta",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-kamara-h-udinese",
-      "name": "KAMARA Hassane",
-      "team": "Udinese",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-spinazzola-napoli",
-      "name": "SPINAZZOLA Leonardo",
-      "team": "Napoli",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-dodo-fiorentina",
-      "name": "DODO -",
-      "team": "Fiorentina",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-pierotti-lecce",
-      "name": "PIEROTTI Santiago",
-      "team": "Lecce",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-mangas-monza",
-      "name": "MANGAS Ricardo Luís Chaby",
-      "team": "Monza",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-795",
-      "name": "EL SHAARAWY Stephan",
-      "team": "Genoa",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-oristanio-torino",
-      "name": "ORISTANIO Gaetano Pio",
-      "team": "Torino",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-fc-4179",
-      "name": "GONZALEZ Nicolas",
-      "team": "Juventus",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-almqvist-parma",
-      "name": "ALMQVIST Pontus",
-      "team": "Parma",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-zortea-bologna",
-      "name": "ZORTEA Nadir",
-      "team": "Bologna",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-njie-torino",
-      "name": "NJIE Alieu",
-      "team": "Fiorentina",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-fc-7220",
-      "name": "BELGHALI Rafik",
-      "team": "Torino",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-bellanova-atalanta",
-      "name": "BELLANOVA Raoul",
-      "team": "Atalanta",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-birindelli-monza",
-      "name": "BIRINDELLI Samuele",
-      "team": "Monza",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-7563",
-      "name": "FAVASULI Costantino",
-      "team": "Napoli",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-6833",
-      "name": "MBANGULA Samuel",
-      "team": "Bologna",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-bernasconi-atalanta",
-      "name": "BERNASCONI Lorenzo",
-      "team": "Atalanta",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-dominguez-b-bologna",
-      "name": "DOMINGUEZ Benjamín",
-      "team": "Sassuolo",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-addai-como",
-      "name": "ADDAI Jayden",
-      "team": "Como",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-fc-5751",
-      "name": "PATTERSON Nathan",
-      "team": "Torino",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-7621",
-      "name": "SUGAWARA Yukinari",
-      "team": "Cagliari",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-olivera-napoli",
-      "name": "OLIVERA Mathías",
-      "team": "Napoli",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-6618",
-      "name": "CISSE Alphadjo",
-      "team": "Milan",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-kristensen-t-atalanta",
-      "name": "KRISTENSEN Thomas",
-      "team": "Atalanta",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-haps-venezia",
-      "name": "HAPS Ridgeciano",
-      "team": "Venezia",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fini-frosinone",
-      "name": "FINI Seydou",
-      "team": "Frosinone",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-sagrado-venezia",
-      "name": "SAGRADO Richie",
-      "team": "Venezia",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-7069",
-      "name": "FORTINI Niccolo",
-      "team": "Torino",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-7619",
-      "name": "MONTEIRO Joel Almada",
-      "team": "Lecce",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-fc-2169",
-      "name": "RODRIGUEZ Ricardo",
-      "team": "Torino",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-parisi-fiorentina",
-      "name": "PARISI Fabiano",
-      "team": "Fiorentina",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-6047",
-      "name": "EHIZIBUE Kingsley",
-      "team": "Genoa",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-joao-mario-fiorentina",
-      "name": "JOAO MARIO Neto Lopes",
-      "team": "Fiorentina",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-7092",
-      "name": "JOVANOVIC Lazar",
-      "team": "Udinese",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-terracciano-milan",
-      "name": "TERRACCIANO Filippo",
-      "team": "Milan",
-      "from_role": "P",
-      "to_role": "C"
-    },
-    {
-      "id": "p-zanoli-udinese",
-      "name": "ZANOLI Alessandro",
-      "team": "Udinese",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-floriani-mussolini-lazio",
-      "name": "FLORIANI MUSSOLINI Romano",
-      "team": "Lazio",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-aboukhlal-torino",
-      "name": "ABOUKHLAL Zakaria",
-      "team": "Torino",
-      "from_role": "C",
-      "to_role": "A"
-    },
-    {
-      "id": "p-arizala-udinese",
-      "name": "ARIZALA Juan",
-      "team": "Udinese",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-5742",
-      "name": "DRAMEH Cody",
-      "team": "Genoa",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-biraghi-torino",
-      "name": "BIRAGHI Cristiano",
-      "team": "Torino",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-sabelli-genoa",
-      "name": "SABELLI Stefano",
-      "team": "Genoa",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-7548",
-      "name": "AURELIO Giuseppe",
-      "team": "Cagliari",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-cabal-juventus",
-      "name": "CABAL Juan",
-      "team": "Juventus",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-bakoune-monza",
-      "name": "BAKOUNE Adam",
-      "team": "Monza",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-idrissi-r-cagliari",
-      "name": "IDRISSI Riyad",
-      "team": "Cagliari",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-7599",
-      "name": "LULLI Emanuele",
-      "team": "Roma",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-mazzocchi-napoli",
-      "name": "MAZZOCCHI Pasquale",
-      "team": "Venezia",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-6826",
-      "name": "DEMBELE Ali",
-      "team": "Lecce",
-      "from_role": "D",
-      "to_role": "C"
-    },
-    {
-      "id": "p-fc-7571",
-      "name": "LAERKE Hjalte",
-      "team": "Lecce",
-      "from_role": "C",
-      "to_role": "A"
-    }
+  "not_merged_previous_ids": [
+    "p-piana-udinese",
+    "p-fc-7232",
+    "p-fc-7622"
   ],
+  "not_merged_reason": "No source-safe identity link in supplied Listone material.",
   "new_current_ids": [
     "p-l22-9a1fe06e9074de",
     "p-l22-55953c0df55117",
@@ -545,11 +79,9 @@
     "p-l22-be3f63d2feddd1",
     "p-l22-4037bebcb254e8",
     "p-l22-08522f5f82fd65",
-    "p-l22-d45669f57d896e",
     "p-l22-8a34df869d3ad1",
     "p-l22-eba3d1798823e0",
     "p-l22-32451686f6e4b2",
-    "p-l22-7fc4f01329270f",
     "p-l22-6efff26ecede35",
     "p-l22-eafc3a9e91cbe7",
     "p-l22-f0ab77511e26a1",
@@ -575,15 +107,7 @@
     "p-l22-b8f8b0246d72fb",
     "p-l22-739f90f480c33c"
   ],
-  "removed_previous_ids": [
-    "p-piana-udinese",
-    "p-fc-5812",
-    "p-diallo-o-parma",
-    "p-fc-7232",
-    "p-fc-7622"
-  ],
-  "identity_nonmerge_policy": "No guessed merge when current full-name row cannot be source-safely bound to a 07SEP abbreviated runtime record.",
-  "registry_sha256": "98bddac09f263a8d32c64dfc795f95d2a464a04367180695e3c3ea0659e997d7",
-  "details_sha256": "e2a1b576a63dbc59eb2f6df7e1ac5d75f64f3e89ac026eb374c72c192dd09e71",
-  "listone_sha256": "844140d2177434f12697a199cdf6ccd1783d8822e57b62661186520af7b3481a"
+  "registry_sha256": "eea82c43b283f1d64c11aa4c7cf22e0c0ca1a5ccaaa965fcffcde802d8f1958f",
+  "details_sha256": "114563f36f85f5504611f97bf1da764cdf81cfa82df71e0ee5a9720b89ec9940",
+  "listone_sha256": "7b7ce0a53a9ae82d1b618bd7a46d511b8048fd3706d98e5aa5b77f745f665493"
 }
