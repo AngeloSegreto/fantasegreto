@@ -1,0 +1,25 @@
+{
+  "schema": "FS_REPORT22_SOURCE_COVERAGE_V1",
+  "gate": "REPORT22_SOURCE_MATERIALIZATION",
+  "status": "PASS_WITH_DECLARED_LIMITS",
+  "source_pdf_sha256": "8750038002a14025bfb89c8f620a6337a7f7634695b6b2f1bf30f98cbd11d0a4",
+  "cutoff": "2026-09-22T09:12:00+02:00",
+  "runtime_registry_count": 562,
+  "source_rows": {
+    "standings": 20,
+    "top_scorers": 20,
+    "top_assists": 20,
+    "creative_chances": 4,
+    "medical_player_rows": 10,
+    "advanced_team_provider_records": 3
+  },
+  "explicit_limits": [
+    "Minutes are not specified in the supplied report.",
+    "Goal/assist per 90 rates are not published because minutes are unavailable.",
+    "Medical coverage is partial and 'non specificato' is not interpreted as healthy.",
+    "Current probable XI, ballots, set-piece hierarchies and full tactical roles are not covered by the supplied report."
+  ],
+  "model_effect": "READ_ONLY_CONTEXT_ONLY",
+  "optimizerMax_mutated": false,
+  "fos_risk_max_authority": false
+}

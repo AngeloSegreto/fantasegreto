@@ -1,1 +1,723 @@
-{"schema":"FS_MD5_22SEP2026_OVERLAY_V1","cutoff":"2026-09-22T09:12:00+02:00","league":{"matches":50,"goals":145,"goals_per_match":2.9},"standings_top":[{"team":"Roma","pts":13,"gf":14,"ga":3,"gd":11},{"team":"Inter","pts":13,"gf":15,"ga":8,"gd":7},{"team":"Lazio","pts":13,"gf":8,"ga":3,"gd":5},{"team":"Cagliari","pts":12,"gf":5,"ga":2,"gd":3},{"team":"Milan","pts":11,"gf":10,"ga":4,"gd":6}],"leaders":{"goals":[{"name":"Malen","team":"Roma","value":6},{"name":"Raimondo","team":"Frosinone","value":4},{"name":"Varela","team":"Monza","value":4},{"name":"Lautaro Martinez","team":"Inter","value":4}],"assists":[{"name":"Dybala","team":"Roma","value":4},{"name":"Schmid","team":"Frosinone","value":3},{"name":"Diouf","team":"Inter","value":3}]},"medical_verified":[{"team":"Juventus","name":"Grabara","status":"OUT","issue":"ACL"},{"team":"Juventus","name":"Boga","status":"OUT","issue":"medium-grade left hamstring"},{"team":"Juventus","name":"Locatelli","status":"OUT_POST_OP","issue":"meniscus surgery"},{"team":"Juventus","name":"Yildiz","status":"OUT","issue":"foot fracture surgery"},{"team":"Juventus","name":"Thuram K.","status":"VERIFY","issue":"post-surgery; accessible diagnosis not specified"},{"team":"Juventus","name":"Kolo Muani","status":"AVAILABLE_POST_OP","issue":"right little-finger fracture"}],"discipline":{"post_md5_judge_report":"NOT_YET_VISIBLE_AT_CUTOFF"},"quality":{"medical":"PARTIAL_CONSERVATIVE","minutes":"NOT_SPECIFIED","rates90":"NOT_SPECIFIED"}}
+{
+  "schema": "FS_REPORT_22SEP2026_OVERLAY_V2",
+  "cutoff": "2026-09-22T09:12:00+02:00",
+  "source": "Serie A Enilive 2026/27 — Report statistico e sanitario aggiornato al 22 settembre 2026",
+  "source_pdf_sha256": "8750038002a14025bfb89c8f620a6337a7f7634695b6b2f1bf30f98cbd11d0a4",
+  "source_policy": "Only facts explicitly present in the supplied report are materialized. Missing minutes/tactical/medical coverage remains unspecified.",
+  "league": {
+    "matches": 50,
+    "goals": 145,
+    "goals_per_match": 2.9
+  },
+  "standings": [
+    {
+      "pos": 1,
+      "team": "Roma",
+      "played": 5,
+      "pts": 13,
+      "gf": 14,
+      "ga": 3,
+      "gd": 11,
+      "form": "4V-1N-0P"
+    },
+    {
+      "pos": 2,
+      "team": "Inter",
+      "played": 5,
+      "pts": 13,
+      "gf": 15,
+      "ga": 8,
+      "gd": 7,
+      "form": "4V-1N-0P"
+    },
+    {
+      "pos": 3,
+      "team": "Lazio",
+      "played": 5,
+      "pts": 13,
+      "gf": 8,
+      "ga": 3,
+      "gd": 5,
+      "form": "4V-1N-0P"
+    },
+    {
+      "pos": 4,
+      "team": "Cagliari",
+      "played": 5,
+      "pts": 12,
+      "gf": 5,
+      "ga": 2,
+      "gd": 3,
+      "form": "4V-0N-1P"
+    },
+    {
+      "pos": 5,
+      "team": "Milan",
+      "played": 5,
+      "pts": 11,
+      "gf": 10,
+      "ga": 4,
+      "gd": 6,
+      "form": "3V-2N-0P"
+    },
+    {
+      "pos": 6,
+      "team": "Frosinone",
+      "played": 5,
+      "pts": 10,
+      "gf": 9,
+      "ga": 4,
+      "gd": 5,
+      "form": "3V-1N-1P"
+    },
+    {
+      "pos": 7,
+      "team": "Juventus",
+      "played": 5,
+      "pts": 10,
+      "gf": 8,
+      "ga": 4,
+      "gd": 4,
+      "form": "3V-1N-1P"
+    },
+    {
+      "pos": 8,
+      "team": "Como",
+      "played": 5,
+      "pts": 10,
+      "gf": 9,
+      "ga": 6,
+      "gd": 3,
+      "form": "3V-1N-1P"
+    },
+    {
+      "pos": 9,
+      "team": "Napoli",
+      "played": 5,
+      "pts": 7,
+      "gf": 7,
+      "ga": 6,
+      "gd": 1,
+      "form": "2V-1N-2P"
+    },
+    {
+      "pos": 10,
+      "team": "Sassuolo",
+      "played": 5,
+      "pts": 7,
+      "gf": 9,
+      "ga": 9,
+      "gd": 0,
+      "form": "2V-1N-2P"
+    },
+    {
+      "pos": 11,
+      "team": "Atalanta",
+      "played": 5,
+      "pts": 6,
+      "gf": 5,
+      "ga": 7,
+      "gd": -2,
+      "form": "2V-0N-3P"
+    },
+    {
+      "pos": 12,
+      "team": "Lecce",
+      "played": 5,
+      "pts": 6,
+      "gf": 5,
+      "ga": 10,
+      "gd": -5,
+      "form": "2V-0N-3P"
+    },
+    {
+      "pos": 13,
+      "team": "Udinese",
+      "played": 5,
+      "pts": 4,
+      "gf": 8,
+      "ga": 11,
+      "gd": -3,
+      "form": "1V-1N-3P",
+      "tie_order_note": true
+    },
+    {
+      "pos": 14,
+      "team": "Torino",
+      "played": 5,
+      "pts": 4,
+      "gf": 5,
+      "ga": 8,
+      "gd": -3,
+      "form": "1V-1N-3P",
+      "tie_order_note": true
+    },
+    {
+      "pos": 15,
+      "team": "Parma",
+      "played": 5,
+      "pts": 4,
+      "gf": 4,
+      "ga": 7,
+      "gd": -3,
+      "form": "1V-1N-3P",
+      "tie_order_note": true
+    },
+    {
+      "pos": 16,
+      "team": "Monza",
+      "played": 5,
+      "pts": 4,
+      "gf": 8,
+      "ga": 12,
+      "gd": -4,
+      "form": "1V-1N-3P",
+      "tie_order_note": true
+    },
+    {
+      "pos": 17,
+      "team": "Fiorentina",
+      "played": 5,
+      "pts": 4,
+      "gf": 6,
+      "ga": 12,
+      "gd": -6,
+      "form": "1V-1N-3P",
+      "tie_order_note": true
+    },
+    {
+      "pos": 18,
+      "team": "Bologna",
+      "played": 5,
+      "pts": 2,
+      "gf": 3,
+      "ga": 6,
+      "gd": -3,
+      "form": "0V-2N-3P"
+    },
+    {
+      "pos": 19,
+      "team": "Genoa",
+      "played": 5,
+      "pts": 1,
+      "gf": 3,
+      "ga": 10,
+      "gd": -7,
+      "form": "0V-1N-4P"
+    },
+    {
+      "pos": 20,
+      "team": "Venezia",
+      "played": 5,
+      "pts": 0,
+      "gf": 4,
+      "ga": 13,
+      "gd": -9,
+      "form": "0V-0N-5P"
+    }
+  ],
+  "secondary_provider_context": {
+    "status": "NON_OFFICIAL_PROVIDER_METRICS",
+    "teams": [
+      {
+        "team": "Como",
+        "shots_per_match": 23.4,
+        "shots_in_box_per_match": 15.2
+      },
+      {
+        "team": "Inter",
+        "big_chances_created_per_match": 5.6
+      },
+      {
+        "team": "Juventus",
+        "xg_conceded_per_match_approx": 0.6,
+        "opponent_shots_per_match": 7.8
+      }
+    ]
+  },
+  "leaders": {
+    "goals": [
+      {
+        "rank": "1",
+        "player_id": "p-malen-roma",
+        "name": "Donyell Malen",
+        "team": "Roma",
+        "appearances": 5,
+        "value": 6
+      },
+      {
+        "rank": "2=",
+        "player_id": "p-raimondo-frosinone",
+        "name": "Antonio Raimondo",
+        "team": "Frosinone",
+        "appearances": 5,
+        "value": 4
+      },
+      {
+        "rank": "2=",
+        "player_id": "p-varela-g-monza",
+        "name": "Gustavo Varela",
+        "team": "Monza",
+        "appearances": 4,
+        "value": 4
+      },
+      {
+        "rank": "2=",
+        "player_id": "p-martinez-l-inter",
+        "name": "Lautaro Martínez",
+        "team": "Inter",
+        "appearances": 4,
+        "value": 4
+      },
+      {
+        "rank": "5=",
+        "player_id": "p-kvernadze-frosinone",
+        "name": "Giorgi Kvernadze",
+        "team": "Frosinone",
+        "appearances": 5,
+        "value": 3
+      },
+      {
+        "rank": "5=",
+        "player_id": "p-frattesi-lazio",
+        "name": "Davide Frattesi",
+        "team": "Lazio",
+        "appearances": 5,
+        "value": 3
+      },
+      {
+        "rank": "5=",
+        "player_id": "p-fc-7078",
+        "name": "Franco Mastantuono",
+        "team": "Fiorentina",
+        "appearances": 5,
+        "value": 3
+      },
+      {
+        "rank": "5=",
+        "player_id": "p-maldini-atalanta",
+        "name": "Daniel Maldini",
+        "team": "Cagliari",
+        "appearances": 5,
+        "value": 3
+      },
+      {
+        "rank": "5=",
+        "player_id": "p-adzic-sassuolo",
+        "name": "Vasilije Adžić",
+        "team": "Sassuolo",
+        "appearances": 5,
+        "value": 3
+      },
+      {
+        "rank": "5=",
+        "player_id": "p-fc-6372",
+        "name": "Diego Moreira",
+        "team": "Milan",
+        "appearances": 3,
+        "value": 3
+      },
+      {
+        "rank": "11=",
+        "player_id": "p-bremer-juventus",
+        "name": "Bremer",
+        "team": "Juventus",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "11=",
+        "player_id": "p-coulibaly-l-lecce",
+        "name": "Lassana Coulibaly",
+        "team": "Lecce",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "11=",
+        "player_id": "p-ekkelenkamp-udinese",
+        "name": "Jurgen Ekkelenkamp",
+        "team": "Udinese",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "11=",
+        "player_id": "p-kamara-h-udinese",
+        "name": "Hassane Kamara",
+        "team": "Udinese",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "11=",
+        "player_id": "p-hojlund-napoli",
+        "name": "Rasmus Højlund",
+        "team": "Napoli",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "11=",
+        "player_id": "p-pellegrino-m-fiorentina",
+        "name": "Mateo Pellegrino",
+        "team": "Fiorentina",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "11=",
+        "player_id": "p-diao-como",
+        "name": "Assane Diao",
+        "team": "Como",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "11=",
+        "player_id": "p-kone-m-roma",
+        "name": "Manu Koné",
+        "team": "Roma",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "11=",
+        "player_id": "p-douvikas-como",
+        "name": "Anastasios Douvikas",
+        "team": "Como",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "11=",
+        "player_id": "p-rabiot-milan",
+        "name": "Adrien Rabiot",
+        "team": "Milan",
+        "appearances": 5,
+        "value": 2
+      }
+    ],
+    "assists": [
+      {
+        "rank": "1",
+        "player_id": "p-dybala-roma",
+        "name": "Paulo Dybala",
+        "team": "Roma",
+        "appearances": 5,
+        "value": 4
+      },
+      {
+        "rank": "2=",
+        "player_id": "p-fc-7551",
+        "name": "Romano Schmid",
+        "team": "Frosinone",
+        "appearances": 5,
+        "value": 3
+      },
+      {
+        "rank": "2=",
+        "player_id": "p-diouf-inter",
+        "name": "Andy Diouf",
+        "team": "Inter",
+        "appearances": 4,
+        "value": 3
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-adopo-cagliari",
+        "name": "Michel Adopo",
+        "team": "Cagliari",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-zaccagni-lazio",
+        "name": "Mattia Zaccagni",
+        "team": "Lazio",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-birindelli-monza",
+        "name": "Samuele Birindelli",
+        "team": "Monza",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-mancini-roma",
+        "name": "Gianluca Mancini",
+        "team": "Roma",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-chukwueze-milan",
+        "name": "Samuel Chukwueze",
+        "team": "Milan",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-mangas-monza",
+        "name": "Ricardo Mangas",
+        "team": "Monza",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-tavares-n-lazio",
+        "name": "Nuno Tavares",
+        "team": "Lazio",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-colombo-genoa",
+        "name": "Lorenzo Colombo",
+        "team": "Genoa",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-rabiot-milan",
+        "name": "Adrien Rabiot",
+        "team": "Milan",
+        "appearances": 5,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-busio-venezia",
+        "name": "Gianluca Busio",
+        "team": "Venezia",
+        "appearances": 4,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-davis-k-udinese",
+        "name": "Keinan Davis",
+        "team": "Udinese",
+        "appearances": 4,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-thuram-inter",
+        "name": "Marcus Thuram",
+        "team": "Inter",
+        "appearances": 4,
+        "value": 2
+      },
+      {
+        "rank": "4=",
+        "player_id": "p-ilic-torino",
+        "name": "Ivan Ilić",
+        "team": "Lecce",
+        "appearances": 4,
+        "value": 2
+      },
+      {
+        "rank": "17=",
+        "player_id": "p-veiga-d-lecce",
+        "name": "Danilo Veiga",
+        "team": "Lecce",
+        "appearances": 5,
+        "value": 1
+      },
+      {
+        "rank": "17=",
+        "player_id": "p-dragusin-fiorentina",
+        "name": "Radu Drăgușin",
+        "team": "Fiorentina",
+        "appearances": 5,
+        "value": 1
+      },
+      {
+        "rank": "17=",
+        "player_id": "p-pavlovic-milan",
+        "name": "Strahinja Pavlović",
+        "team": "Milan",
+        "appearances": 5,
+        "value": 1
+      },
+      {
+        "rank": "17=",
+        "player_id": "p-lauriente-sassuolo",
+        "name": "Armand Laurienté",
+        "team": "Sassuolo",
+        "appearances": 5,
+        "value": 1
+      }
+    ]
+  },
+  "creative_chances": [
+    {
+      "player_id": "p-dybala-roma",
+      "name": "Paulo Dybala",
+      "team": "Roma",
+      "value": 24
+    },
+    {
+      "player_id": "p-calo-frosinone",
+      "name": "Giacomo Calò",
+      "team": "Frosinone",
+      "value": 21
+    },
+    {
+      "player_id": "p-barella-inter",
+      "name": "Nicolò Barella",
+      "team": "Inter",
+      "value": 15
+    },
+    {
+      "player_id": "p-dimarco-inter",
+      "name": "Federico Dimarco",
+      "team": "Inter",
+      "value": 14
+    }
+  ],
+  "medical_verified": [
+    {
+      "player_id": "p-el-azzouzi-o-bologna",
+      "name": "Oussama El Azzouzi",
+      "team": "Bologna",
+      "status": "REPORTED_INJURED",
+      "badge": "INFORTUNATO",
+      "source_status": "segnalato infortunato",
+      "issue": "bicipite femorale",
+      "injury_date": "non specificato",
+      "prognosis": "non specificato con certezza"
+    },
+    {
+      "player_id": "p-fc-7603",
+      "name": "Kamil Grabara",
+      "team": "Juventus",
+      "status": "UNAVAILABLE",
+      "badge": "OUT",
+      "source_status": "indisponibile",
+      "issue": "lesione legamento crociato",
+      "injury_date": "data esatta non specificata",
+      "prognosis": "diversi mesi; stampa indica possibile rientro aprile-maggio 2027"
+    },
+    {
+      "player_id": "p-boga-juventus",
+      "name": "Jérémie Boga",
+      "team": "Juventus",
+      "status": "UNAVAILABLE",
+      "badge": "OUT",
+      "source_status": "indisponibile",
+      "issue": "lesione di medio grado del bicipite femorale sinistro",
+      "injury_date": "08/09/2026",
+      "prognosis": "nuova valutazione dopo due settimane; almeno circa un mese riportato"
+    },
+    {
+      "player_id": "p-locatelli-juventus",
+      "name": "Manuel Locatelli",
+      "team": "Juventus",
+      "status": "UNAVAILABLE_POST_OP",
+      "badge": "OUT/POST-OP",
+      "source_status": "indisponibile/post-operatorio",
+      "issue": "problema al menisco, trattato chirurgicamente",
+      "injury_date": "circa 08/09/2026",
+      "prognosis": "non specificato dal club nella fonte accessibile"
+    },
+    {
+      "player_id": "p-yildiz-juventus",
+      "name": "Kenan Yildiz",
+      "team": "Juventus",
+      "status": "UNAVAILABLE",
+      "badge": "OUT",
+      "source_status": "indisponibile",
+      "issue": "frattura ossea al piede, intervento chirurgico",
+      "injury_date": "inizio settembre; data esatta non specificata",
+      "prognosis": "atteso non prima del periodo successivo alla sosta di novembre secondo fonte secondaria"
+    },
+    {
+      "player_id": "p-thuram-k-juventus",
+      "name": "Khéphren Thuram",
+      "team": "Juventus",
+      "status": "UNAVAILABLE_VERIFY",
+      "badge": "VERIFY",
+      "source_status": "indisponibilità da verificare",
+      "issue": "intervento chirurgico; dettaglio diagnostico non specificato nella fonte accessibile",
+      "injury_date": "non specificato",
+      "prognosis": "non specificato"
+    },
+    {
+      "player_id": "p-kolo-muani-juventus",
+      "name": "Randal Kolo Muani",
+      "team": "Juventus",
+      "status": "AVAILABLE_POST_OP",
+      "badge": "AVAILABLE",
+      "source_status": "operato ma disponibile",
+      "issue": "frattura falange prossimale del mignolo destro",
+      "injury_date": "20/09/2026; operato 21/09",
+      "prognosis": "nessuna gara prevista persa"
+    },
+    {
+      "player_id": "p-patric-lazio",
+      "name": "Patric",
+      "team": "Lazio",
+      "status": "INJURY_INDEX_PRESENT",
+      "badge": "MEDICAL INDEX",
+      "source_status": "presente nell'indice infortuni Transfermarkt",
+      "issue": "non specificato",
+      "injury_date": "non specificato",
+      "prognosis": "non specificato"
+    },
+    {
+      "player_id": "p-giovane-napoli",
+      "name": "Giovane",
+      "team": "Napoli",
+      "status": "INJURY_INDEX_PRESENT",
+      "badge": "MEDICAL INDEX",
+      "source_status": "presente nell'indice Transfermarkt",
+      "issue": "non specificato nel frammento accessibile",
+      "injury_date": "non specificato",
+      "prognosis": "non specificato"
+    },
+    {
+      "player_id": "p-basic-venezia",
+      "name": "Toma Bašić",
+      "team": "Venezia",
+      "status": "INJURY_INDEX_PRESENT",
+      "badge": "MEDICAL INDEX",
+      "source_status": "presente nell'indice Transfermarkt",
+      "issue": "non specificato",
+      "injury_date": "non specificato",
+      "prognosis": "non specificato"
+    }
+  ],
+  "discipline": {
+    "judge_report_post_md5": "NOT_YET_VISIBLE_AT_CUTOFF",
+    "latest_indexed_serie_a_measure": "4ª giornata, documento n. 33 del 15/09/2026",
+    "roma_before_roma_inter": {
+      "suspended": "nessuno",
+      "warnings": "nessuno"
+    },
+    "inter_before_roma_inter": {
+      "suspended": "nessuno",
+      "warnings": "nessuno"
+    },
+    "new_md5_suspensions": "non specificato fino a pubblicazione del nuovo comunicato"
+  },
+  "quality": {
+    "minutes": "NOT_SPECIFIED",
+    "rates90": "NOT_SPECIFIED",
+    "medical": "PARTIAL_BY_SOURCE_ACCESS",
+    "tactical_hierarchy": "NOT_COVERED",
+    "set_piece_hierarchy": "NOT_COVERED",
+    "source_derived_separation": true
+  }
+}

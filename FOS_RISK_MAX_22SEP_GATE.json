@@ -1,5 +1,5 @@
 {
-  "schema": "FS_FOS_RISK_MAX_22SEP_GATE_V1",
+  "schema": "FS_FOS_RISK_MAX_22SEP_GATE_V2",
   "gate": "FOS_RISK_MAX_22SEP_RECALC",
   "status": "BLOCKED_SOURCE_INCOMPLETE",
   "as_of": "2026-09-22T09:12:00+02:00",
@@ -24,10 +24,27 @@
       "status": "COMPLETE_FOR_LISTONE_SCOPE"
     },
     "performance_health_22sep": {
-      "leaders_goals": 4,
-      "leaders_assists": 3,
-      "medical_verified": 6,
-      "status": "PARTIAL_BY_REPORT_DESIGN"
+      "standings_rows": 20,
+      "leaders_goals_rows": 20,
+      "leaders_assists_rows": 20,
+      "creative_chances_rows": 4,
+      "medical_verified_player_rows": 10,
+      "advanced_team_provider_records": 3,
+      "source_pdf_sha256": "8750038002a14025bfb89c8f620a6337a7f7634695b6b2f1bf30f98cbd11d0a4",
+      "status": "EXPANDED_CURRENT_REPORT_COVERAGE_WITH_DECLARED_LIMITS"
+    },
+    "team_environment_observed": {
+      "teams": 20,
+      "fields": [
+        "played",
+        "points",
+        "goals_for",
+        "goals_against",
+        "goal_difference",
+        "five_match_form"
+      ],
+      "status": "PARTIAL_STATISTICAL_CONTEXT_ONLY",
+      "note": "Observed 5-round team context is current, but it does not substitute for lineup stability, tactical roles, set-piece hierarchy or full availability."
     }
   },
   "fos_v2_required_but_not_fully_current": [
@@ -35,7 +52,7 @@
     "Current starter/ballot hierarchy for all 20 clubs",
     "Current penalty/free-kick/corner hierarchy",
     "Current tactical centrality/attacking role",
-    "Current team attack/defense environment",
+    "Full Team Fantasy Environment beyond observed GF/GA and provider context",
     "Current lineup stability/rotation risk",
     "Complete availability layer across all clubs",
     "Independent confidence/cross-validation coverage"
@@ -46,7 +63,8 @@
     "pending_policy": "125 records remain PENDING_RECALC.",
     "optimizerMax_mutated": false,
     "gold": false,
-    "publish_22sep_fos_as_current": false
+    "publish_22sep_fos_as_current": false,
+    "report_overlay_v2": "CURRENT_CONTEXT_MATERIALIZED_READ_ONLY"
   },
-  "next_valid_gate": "Acquire current tactical/availability coverage sufficient for FOS V2, then recalculate FOS → Risk → MAX and run temporal regression."
+  "next_valid_gate": "Acquire source-backed current tactical hierarchy, expected minutes, set pieces and complete availability coverage; then recalculate FOS → Risk → MAX and run temporal regression."
 }

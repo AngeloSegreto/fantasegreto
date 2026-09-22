@@ -9,8 +9,11 @@ function run(){
  add('REG03',Object.keys(details).length===EXPECTED_REGISTRY,`Dettagli ${Object.keys(details).length}/${EXPECTED_REGISTRY}`);
  add('REG04',reg.every(p=>p.current_listone_source==='LISTONE_22SEP2026'),'Tutti i record runtime legati al Listone corrente 22/09');
  add('DATA22-01',String(overlay?.cutoff||'').startsWith('2026-09-22'),'Overlay performance/sanitario 22/09 caricato');
- add('DATA22-02',(overlay?.medical_verified||[]).length===6,`Medical verificati ${(overlay?.medical_verified||[]).length}/6`);
- add('DATA22-03',(overlay?.leaders?.goals||[]).length===4&&(overlay?.leaders?.assists||[]).length===3,'Leader gol/assist 22/09 presenti');
+ add('DATA22-02',(overlay?.medical_verified||[]).length===10,`Righe sanitarie verificate ${(overlay?.medical_verified||[]).length}/10`);
+ add('DATA22-03',(overlay?.leaders?.goals||[]).length===20&&(overlay?.leaders?.assists||[]).length===20,'Top 20 gol + Top 20 assist 22/09 presenti');
+ add('DATA22-04',(overlay?.standings||[]).length===20,'Classifica 20/20 con GF/GS e forma');
+ add('DATA22-05',(overlay?.creative_chances||[]).length===4,'Occasioni create: 4 record esplicitamente riportati');
+ add('DATA22-06',overlay?.source_pdf_sha256==='8750038002a14025bfb89c8f620a6337a7f7634695b6b2f1bf30f98cbd11d0a4','Binding SHA-256 al report 22/09');
  add('STALE01',!reg.some(p=>p._news),'Overlay runtime 18/08 disabilitato');
  const recalc=reg.filter(p=>![p.score,p.ideal,p.max].every(v=>Number.isFinite(Number(v))));
  add('MODEL01',recalc.length===0,`Record in attesa FOS/Risk/MAX recalculation: ${recalc.length}`,'WARN');

@@ -12,7 +12,7 @@
   "external_listone_count": 562,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "CURRENT_562_APP_INDEX_RECONCILED_PENDING_MODEL_RECALC",
+  "deployment_status": "CURRENT_562_REPORT22_V2_OVERLAY_PENDING_MODEL_RECALC",
   "blockers": [
     "FOS_RISK_MAX_22SEP_RECALC",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
@@ -36,5 +36,13 @@
   "model_pending_new_current_count": 34,
   "model_pending_baseline_count": 91,
   "model_22sep_status": "BLOCKED_SOURCE_INCOMPLETE",
-  "model_22sep_authority": false
+  "model_22sep_authority": false,
+  "report_overlay_schema": "FS_REPORT_22SEP2026_OVERLAY_V2",
+  "report_source_pdf_sha256": "8750038002a14025bfb89c8f620a6337a7f7634695b6b2f1bf30f98cbd11d0a4",
+  "report_standings_rows": 20,
+  "report_top_scorers_rows": 20,
+  "report_top_assists_rows": 20,
+  "report_creative_chances_rows": 4,
+  "report_medical_player_rows": 10,
+  "report_overlay_status": "CURRENT_READ_ONLY_CONTEXT"
 }

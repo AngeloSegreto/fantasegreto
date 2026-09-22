@@ -61,9 +61,12 @@ jobs:
           assert det.get('count')==expected
           assert len(det.get('details',{}))==expected
           assert str(md5.get('cutoff','')).startswith('2026-09-22')
-          assert len(md5.get('medical_verified',[]))==6
-          assert len(md5.get('leaders',{}).get('goals',[]))==4
-          assert len(md5.get('leaders',{}).get('assists',[]))==3
+          assert len(md5.get('medical_verified',[]))==10
+          assert len(md5.get('leaders',{}).get('goals',[]))==20
+          assert len(md5.get('leaders',{}).get('assists',[]))==20
+          assert len(md5.get('standings',[]))==20
+          assert len(md5.get('creative_chances',[]))==4
+          assert md5.get('source_pdf_sha256')=='8750038002a14025bfb89c8f620a6337a7f7634695b6b2f1bf30f98cbd11d0a4'
           assert 'md5-22sep2026.json' in app
           assert 'FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json' not in app
           assert 'md5-22sep2026.json' in sw
@@ -104,6 +107,11 @@ jobs:
             'runtime_registry_count':runtime_count,
             'runtime_details_count':json.loads(Path('player-details.json').read_text()).get('count'),
             'model_pending_count':sum(1 for p in json.loads(Path('registry.json').read_text()).get('players',[]) if not all(isinstance(p.get(k),(int,float)) for k in ['score','ideal','max'])),
+            'report_overlay_schema':json.loads(Path('md5-22sep2026.json').read_text()).get('schema'),
+            'report_standings_count':len(json.loads(Path('md5-22sep2026.json').read_text()).get('standings',[])),
+            'report_goals_rows':len(json.loads(Path('md5-22sep2026.json').read_text()).get('leaders',{}).get('goals',[])),
+            'report_assists_rows':len(json.loads(Path('md5-22sep2026.json').read_text()).get('leaders',{}).get('assists',[])),
+            'report_medical_rows':len(json.loads(Path('md5-22sep2026.json').read_text()).get('medical_verified',[])),
             'runtime_overlay':'md5-22sep2026.json',
             'overlay_cutoff':'2026-09-22T09:12:00+02:00',
             'stale_august_news_runtime_disabled':True,
@@ -128,7 +136,7 @@ jobs:
             'md5-22sep2026.json','REGISTRY_RECONCILIATION_22SEP2026.json',
             'APP_INDEX_RECONCILIATION_22SEP2026.json'
           ]
-          for optional in ['listone-22sep2026.json','LISTONE_RECONCILIATION_22SEP2026.json','CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json','ARCHIVE_REMOVED_REGISTRY_22SEP2026.json','FOS_RISK_MAX_22SEP_GATE.json']:
+          for optional in ['listone-22sep2026.json','LISTONE_RECONCILIATION_22SEP2026.json','CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json','ARCHIVE_REMOVED_REGISTRY_22SEP2026.json','FOS_RISK_MAX_22SEP_GATE.json','REPORT22_OVERLAY_AUDIT.json']:
               if Path(optional).exists():
                   files.append(optional)
           rows=[]

@@ -8,25 +8,9 @@ function applyCurrentOverlay(base,details,overlay){
  const players=base.map(p=>({...p})),byId=new Map(players.map(p=>[p.id,p]));
  const outDetails={};
  for(const [id,d] of Object.entries(details||{}))outDetails[id]={...d,metrics:{...(d.metrics||{})},blocks:[...(d.blocks||[])]};
- const aliases=new Map([
-  ['Roma|Malen','p-malen-roma'],
-  ['Frosinone|Raimondo','p-raimondo-frosinone'],
-  ['Monza|Varela','p-varela-g-monza'],
-  ['Inter|Lautaro Martinez','p-martinez-l-inter'],
-  ['Roma|Dybala','p-dybala-roma'],
-  ['Frosinone|Schmid','p-fc-7551'],
-  ['Inter|Diouf','p-diouf-inter'],
-  ['Juventus|Grabara','p-fc-7603'],
-  ['Juventus|Boga','p-boga-juventus'],
-  ['Juventus|Locatelli','p-locatelli-juventus'],
-  ['Juventus|Yildiz','p-yildiz-juventus'],
-  ['Juventus|Thuram K.','p-thuram-k-juventus'],
-  ['Juventus|Kolo Muani','p-kolo-muani-juventus']
- ]);
- const find=(name,team)=>{
-   const aid=aliases.get(`${team}|${name}`);
-   if(aid&&byId.has(aid))return byId.get(aid);
-   const nn=normName(name),nt=normName(team);
+ const find=rec=>{
+   if(rec?.player_id&&byId.has(rec.player_id))return byId.get(rec.player_id);
+   const nn=normName(rec?.name),nt=normName(rec?.team);
    const exact=players.filter(p=>normName(p.team)===nt&&normName(p.name)===nn);
    return exact.length===1?exact[0]:null;
  };
@@ -36,22 +20,30 @@ function applyCurrentOverlay(base,details,overlay){
    d.blocks=[...(d.blocks||[]).filter(x=>x.title!==title),{title,text}];
    outDetails[p.id]=d;
  };
- for(const g of overlay?.leaders?.goals||[]){
-   const p=find(g.name,g.team); if(!p)continue;
-   p._performance22={...(p._performance22||{}),goals:g.value,cutoff:overlay.cutoff};
-   addBlock(p,'Performance 22/09',`Dato verificato al 22/09/2026: ${g.value} gol. Overlay informativo; FOS/Risk/MAX base non vengono riscritti automaticamente.`);
- }
- for(const a of overlay?.leaders?.assists||[]){
-   const p=find(a.name,a.team); if(!p)continue;
-   p._performance22={...(p._performance22||{}),assists:a.value,cutoff:overlay.cutoff};
-   const perf=p._performance22;
-   const bits=[]; if(perf.goals!=null)bits.push(`${perf.goals} gol`); if(perf.assists!=null)bits.push(`${perf.assists} assist`);
-   addBlock(p,'Performance 22/09',`Dato verificato al 22/09/2026: ${bits.join(' · ')}. Overlay informativo; FOS/Risk/MAX base non vengono riscritti automaticamente.`);
+ const teamMap=new Map((overlay?.standings||[]).map(x=>[x.team,x]));
+ for(const p of players){const t=teamMap.get(p.team);if(t)p._team22={...t,cutoff:overlay.cutoff}}
+ const touchPerf=(rec,key,val)=>{
+   const p=find(rec);if(!p)return;
+   const prev=p._performance22||{cutoff:overlay.cutoff};
+   const apps=rec.appearances!=null?Math.max(Number(prev.appearances||0),Number(rec.appearances)):prev.appearances;
+   p._performance22={...prev,[key]:val,appearances:apps};
+ };
+ for(const g of overlay?.leaders?.goals||[])touchPerf(g,'goals',g.value);
+ for(const a of overlay?.leaders?.assists||[])touchPerf(a,'assists',a.value);
+ for(const c of overlay?.creative_chances||[])touchPerf(c,'chances_created',c.value);
+ for(const p of players){
+   const perf=p._performance22;if(!perf)continue;
+   const bits=[];
+   if(perf.appearances!=null)bits.push(`${perf.appearances} presenze`);
+   if(perf.goals!=null)bits.push(`${perf.goals} gol`);
+   if(perf.assists!=null)bits.push(`${perf.assists} assist`);
+   if(perf.chances_created!=null)bits.push(`${perf.chances_created} occasioni create`);
+   addBlock(p,'Performance 22/09',`Dati esplicitamente riportati nel report al 22/09/2026: ${bits.join(' · ')}. Minuti e rate/90 restano non specificati; nessun FOS/Risk/MAX viene riscritto automaticamente.`);
  }
  for(const m of overlay?.medical_verified||[]){
-   const p=find(m.name,m.team); if(!p)continue;
-   p._medical22={status:m.status,issue:m.issue,cutoff:overlay.cutoff};
-   addBlock(p,'Disponibilità 22/09',`${m.status} · ${m.issue}. Fonte corrente verificata; nessuna percentuale MAX viene inventata.`);
+   const p=find(m);if(!p)continue;
+   p._medical22={...m,cutoff:overlay.cutoff};
+   addBlock(p,'Disponibilità 22/09',`${m.source_status} · ${m.issue}. Prognosi: ${m.prognosis}. Copertura sanitaria parziale della fonte; nessuna assenza o percentuale MAX viene inventata oltre il dato verificato.`);
  }
  for(const p of players)if(!outDetails[p.id])outDetails[p.id]={id:p.id,name:p.name,subtitle:`${p.team} · ${p.role}`,role:p.role,metrics:{},instruction:'',blocks:[]};
  return{players,details:outDetails};
@@ -81,10 +73,10 @@ function filter(){let a=S.registry.filter(p=>S.role==='ALL'||p.role===S.role);if
 function state(){try{return window.FS_AUCTION_ENGINE?.state?.()}catch(e){return null}}
 function soldIds(){const st=state();return st?st.soldIds:new Set()}
 function dynamicMax(p,st){try{return window.FS_AUCTION_ENGINE?.exactMax?.(p,st)??0}catch(e){return 0}}
-function runtimeLabel(p,st){const lm=st?dynamicMax(p,st):0,med=p._medical22?.status;let label;if(!st)label=p.decision||'—';else if(lm<=0)label='PASS · RECALC';else{const ideal=Number(p.ideal||0);label=lm<=ideal?`BUY/WAIT ≤ ${lm}`:`BUY ≤ ${ideal} · WAIT ≤ ${lm}`}const stale=p.model_status==='STALE_PRE_22SEP_RECALC';if(stale)label+=` · PRE22`;return med?`${label} · ${med}`:label}
+function runtimeLabel(p,st){const lm=st?dynamicMax(p,st):0,med=p._medical22?.badge||p._medical22?.status;let label;if(!st)label=p.decision||'—';else if(lm<=0)label='PASS · RECALC';else{const ideal=Number(p.ideal||0);label=lm<=ideal?`BUY/WAIT ≤ ${lm}`:`BUY ≤ ${ideal} · WAIT ≤ ${lm}`}const stale=p.model_status==='STALE_PRE_22SEP_RECALC';if(stale)label+=` · PRE22`;return med?`${label} · ${med}`:label}
 function renderList(){const sold=soldIds(),avail=S.filtered.filter(p=>!sold.has(p.id)),a=avail.slice(0,S.shown);$('#count').textContent=`${avail.length} disponibili · ${a.length} renderizzati`;const st=state();$('#list').innerHTML=a.map(p=>{const label=runtimeLabel(p,st),k=label.startsWith('BUY')?'BUY':label.startsWith('PASS')?'PASS':'WAIT',lm=st?dynamicMax(p,st):0,score=num(p.score);return `<article class="row" data-id="${esc(p.id)}"><span class="role ${esc(p.role)}">${esc(p.role)}</span><div class="name"><b>${esc(p.name)}</b><small>${esc(p.team)} · ${esc((p.list_meta||'').replace(p.team+' · ','')||p.role)}</small><span class="decision ${k}">${esc(label)}</span></div><div class="nums"><b>${score===null?'—':esc(score.toFixed(1))}</b><small>${lm>0?'MAX LIVE '+esc(lm):'MAX RECALC'}</small></div></article>`}).join('')||'<div class="empty">Nessun giocatore disponibile.</div>';$('#more').hidden=a.length>=avail.length}
 function syncState(){const st=state();if(!st)return;$('#budget').textContent=st.budget??500;$('#slots-total').textContent=st.slots??25;for(const r of ['P','D','C','A']){const need=st.managerStates?.ME?.needs?.[r]??CAPS[r];$('#slot-'+r).textContent=`${CAPS[r]-need}/${CAPS[r]}`}$('#league-budget').textContent=st.leagueBudget??5000;$('#league-sold').textContent=st.leagueSold??0}
-function open(id){const p=S.registry.find(x=>x.id===id),d=S.details[id];if(!p||!d)return;S.selected=p;const st=state();$('#s-role').className='role '+p.role;$('#s-role').textContent=p.role;$('#s-name').textContent=p.name;$('#s-sub').textContent=d.subtitle||`${p.team} · ${p.role}`;const lm=st?dynamicMax(p,st):0,metrics={'FS Score':num(p.score)===null?'RECALC':Number(p.score).toFixed(1),'Prezzo ideale':num(p.ideal)===null?'RECALC':p.ideal,'MAX base':num(p.max)===null?'RECALC':p.max,'Quotazione':num(p.quote)===null?'—':p.quote,'FVM':num(p.fvm)===null?'—':p.fvm,'Rischio':num(p.risk)===null?'—':p.risk,'Confidence':p.confidence||'—'};metrics['Model status']=p.model_status||'—';metrics['Kapitals 22/09']=p.kapitals_22sep??'—';if(p._performance22?.goals!=null)metrics['Gol 22/09']=p._performance22.goals;if(p._performance22?.assists!=null)metrics['Assist 22/09']=p._performance22.assists;if(p._medical22)metrics['Medical 22/09']=p._medical22.status;if(st){metrics['MAX LIVE']=lm>0?lm:'RECALC';const op=window.FS_AUCTION_ENGINE?.opponentPressure?.(p,st);if(op){metrics['Pressione']=op.pressure+'/100';metrics['Rivali attivi']=op.activeCount+'/9'}}$('#metrics').innerHTML=Object.entries(metrics).map(([k,v])=>`<div class="metric"><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('');const inst=window.FS_AUCTION_ENGINE?.instruction?.(p,st)||(d.instruction||p.decision);$('#instruction').innerHTML=`<b>Istruzione d’asta LIVE</b><p>${esc(inst)}</p>`;$('#blocks').innerHTML=(d.blocks||[]).map(x=>`<div class="block"><b>${esc(x.title)}</b><p>${esc(x.text)}</p></div>`).join('');renderPressure(p,st);$('#price').value='';renderOwnerOptions();$('#owner').value='';$('#runtime').textContent='Engine V4.0.23.1 LINEAGE · V4.1.9 22SEP RUNTIME · SHADOW GUARD · '+(lm>0?'MAX ESATTO '+lm:'MAX RECALC');$('#sheet').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>$('#price').focus({preventScroll:true}),80)}
+function open(id){const p=S.registry.find(x=>x.id===id),d=S.details[id];if(!p||!d)return;S.selected=p;const st=state();$('#s-role').className='role '+p.role;$('#s-role').textContent=p.role;$('#s-name').textContent=p.name;$('#s-sub').textContent=d.subtitle||`${p.team} · ${p.role}`;const lm=st?dynamicMax(p,st):0,metrics={'FS Score':num(p.score)===null?'RECALC':Number(p.score).toFixed(1),'Prezzo ideale':num(p.ideal)===null?'RECALC':p.ideal,'MAX base':num(p.max)===null?'RECALC':p.max,'Quotazione':num(p.quote)===null?'—':p.quote,'FVM':num(p.fvm)===null?'—':p.fvm,'Rischio':num(p.risk)===null?'—':p.risk,'Confidence':p.confidence||'—'};metrics['Model status']=p.model_status||'—';metrics['Kapitals 22/09']=p.kapitals_22sep??'—';if(p._performance22?.appearances!=null)metrics['Presenze report']=p._performance22.appearances;if(p._performance22?.goals!=null)metrics['Gol 22/09']=p._performance22.goals;if(p._performance22?.assists!=null)metrics['Assist 22/09']=p._performance22.assists;if(p._performance22?.chances_created!=null)metrics['Occasioni create']=p._performance22.chances_created;if(p._team22)metrics['Team 5G']=`${p._team22.pts} pt · GF ${p._team22.gf} · GS ${p._team22.ga}`;if(p._medical22)metrics['Medical 22/09']=p._medical22.source_status;if(st){metrics['MAX LIVE']=lm>0?lm:'RECALC';const op=window.FS_AUCTION_ENGINE?.opponentPressure?.(p,st);if(op){metrics['Pressione']=op.pressure+'/100';metrics['Rivali attivi']=op.activeCount+'/9'}}$('#metrics').innerHTML=Object.entries(metrics).map(([k,v])=>`<div class="metric"><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('');const inst=window.FS_AUCTION_ENGINE?.instruction?.(p,st)||(d.instruction||p.decision);$('#instruction').innerHTML=`<b>Istruzione d’asta LIVE</b><p>${esc(inst)}</p>`;$('#blocks').innerHTML=(d.blocks||[]).map(x=>`<div class="block"><b>${esc(x.title)}</b><p>${esc(x.text)}</p></div>`).join('');renderPressure(p,st);$('#price').value='';renderOwnerOptions();$('#owner').value='';$('#runtime').textContent='Engine V4.0.23.1 LINEAGE · V4.1.9 22SEP RUNTIME · SHADOW GUARD · '+(lm>0?'MAX ESATTO '+lm:'MAX RECALC');$('#sheet').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>$('#price').focus({preventScroll:true}),80)}
 function renderOwnerOptions(){const names=window.FS_STATE?.managerNames?.()||{};$('#owner').innerHTML='<option value="">Se PERSO: scegli rivale</option>'+Array.from({length:9},(_,i)=>{const id='R'+(i+1);return `<option value="${id}">${esc(names[id]||('Manager '+(i+1)))}</option>`}).join('')}
 function renderPressure(p,st){const el=$('#pressure');if(!st){el.innerHTML='';return}const op=window.FS_AUCTION_ENGINE?.opponentPressure?.(p,st);if(!op){el.innerHTML='';return}const top=op.details.slice(0,3);el.innerHTML=`<div class="pressure-head"><b>PRESSIONE LIVE</b><strong>${op.pressure}/100</strong></div><div class="pressure-sub">${op.activeCount}/9 rivali possono competere · domanda ${op.totalDemand} · supply ${op.supply}</div>${top.map(x=>`<div class="pressure-rival"><span><b>${esc(x.name||x.owner)}</b><small>${x.budget} cr · ${x.need} ${p.role} mancanti · ceiling ${x.safe}</small></span><strong>${x.score}</strong></div>`).join('')}`}
 function close(){$('#sheet').classList.remove('open');document.body.style.overflow='';S.selected=null}
