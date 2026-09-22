@@ -1,8 +1,8 @@
 {
-  "build": "V4.1.8.2 ENGINE PARITY + STATE HARDENING",
-  "generated_at": "2026-08-18T20:13:00+02:00",
+  "build": "V4.1.9 22SEP RUNTIME RECONCILIATION",
+  "generated_at": "2026-09-22T12:00:00Z",
   "algorithm": "SHA-256",
-  "scope": "GITHUB_ROOT_PRODUCTION_FILES",
+  "scope": "GITHUB_ROOT_PRODUCTION_FILES_22SEP",
   "files": [
     {
       "file": ".nojekyll",
@@ -25,11 +25,6 @@
       "sha256": "a7f5b4e0bfccfed9e86c5f54807a719e7fe86becd19dd015c23dcfe18729dadd"
     },
     {
-      "file": "FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json",
-      "bytes": 4049,
-      "sha256": "7f59878b5a52ad13b54f12704ab21288b1326e21ded817c4d4b57c00c32708db"
-    },
-    {
       "file": "README_GITHUB_DEPLOY.txt",
       "bytes": 3103,
       "sha256": "86aa2cd05e86dd30190f62e420b542dbe69353a4c86ee2f71e0ecb609eeaad87"
@@ -46,8 +41,8 @@
     },
     {
       "file": "app.js",
-      "bytes": 13763,
-      "sha256": "a86d683de94930d8614653618b171e3f1d54f01dd3a25a1d20b79d4d2d2a511a"
+      "bytes": 14021,
+      "sha256": "3c5a0ee3afd62598a23798a56477054a2f729dccce5907c06d9a078fdd4a7184"
     },
     {
       "file": "apple-touch-icon.png",
@@ -56,8 +51,8 @@
     },
     {
       "file": "audit.js",
-      "bytes": 5485,
-      "sha256": "af7e3ecfd81d3a20a51e22a03f9ef5438b650e49fa263308684c1a85714d1350"
+      "bytes": 4186,
+      "sha256": "888edfae533bb59f575611d21a5a2ebe40b460c95b6a90aa0e9b64347fdcbc3b"
     },
     {
       "file": "backup.js",
@@ -81,8 +76,8 @@
     },
     {
       "file": "index.html",
-      "bytes": 16304,
-      "sha256": "fa473eef5904f1131470e04e9cec2330ddf27a4585f42a65203af5562c1ad2ca"
+      "bytes": 16269,
+      "sha256": "4799826ccaac8142d58c5cf1ebf0647046f50f49fdb4043c36225cb24621a0b0"
     },
     {
       "file": "manifest.webmanifest",
@@ -101,13 +96,13 @@
     },
     {
       "file": "player-details.json",
-      "bytes": 392836,
-      "sha256": "d919e47f1702570f071fc1d5219291b4339c86a0fe377f4e0c4110a918745d14"
+      "bytes": 389314,
+      "sha256": "ebf1d61848ee21436c38fb1e709a9d750fa1c569f769add2d01a11d282e0b10a"
     },
     {
       "file": "registry.json",
-      "bytes": 197526,
-      "sha256": "247ae8cf30ac4ea4be45e13ff4cb7be9b6b617fa65975f0caf95c23f0f75935d"
+      "bytes": 303905,
+      "sha256": "fed25f3ee420237ecfe9cdd4e165a7210ee9a291e75b98a2f7fa9898cbf1739a"
     },
     {
       "file": "state-manager.js",
@@ -121,13 +116,28 @@
     },
     {
       "file": "sw.js",
-      "bytes": 1902,
-      "sha256": "725b55dd9ecaaa1b922818890ee4c751a0214059db1fd9a3ee4d140f08aebc4f"
+      "bytes": 2147,
+      "sha256": "7f836ab27ecf4619508ec2d7c671548c8d36808b91765f5c372585311882b212"
     },
     {
       "file": "version.json",
-      "bytes": 501,
-      "sha256": "da72eeeeab93c9ca9fbce286c06357d09bf311e10ab080629d6c9ca62477f9ae"
+      "bytes": 1006,
+      "sha256": "d34cfa313259852cb1c19d010244051208fe65c623c4a567825f6efa902442d3"
+    },
+    {
+      "file": "md5-22sep2026.json",
+      "bytes": 1479,
+      "sha256": "c275aea9711e5666c20e3705b130f55491442c5722846632466862d883c475eb"
+    },
+    {
+      "file": "REGISTRY_RECONCILIATION_22SEP2026.json",
+      "bytes": 2005,
+      "sha256": "2d56bb19d790a82809768b45f7a57e90c00483bf064f73a7c7018737b1bd90a7"
+    },
+    {
+      "file": "APP_INDEX_RECONCILIATION_22SEP2026.json",
+      "bytes": 918,
+      "sha256": "f41fad1eff46e660dccbb0a68cbbe2d2024f9a89bba6dd48b57d387315b9353e"
     }
   ]
 }
