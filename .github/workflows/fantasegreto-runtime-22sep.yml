@@ -128,7 +128,7 @@ jobs:
             'md5-22sep2026.json','REGISTRY_RECONCILIATION_22SEP2026.json',
             'APP_INDEX_RECONCILIATION_22SEP2026.json'
           ]
-          for optional in ['listone-22sep2026.json','LISTONE_RECONCILIATION_22SEP2026.json','CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json','ARCHIVE_REMOVED_REGISTRY_22SEP2026.json']:
+          for optional in ['listone-22sep2026.json','LISTONE_RECONCILIATION_22SEP2026.json','CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json','ARCHIVE_REMOVED_REGISTRY_22SEP2026.json','FOS_RISK_MAX_22SEP_GATE.json']:
               if Path(optional).exists():
                   files.append(optional)
           rows=[]

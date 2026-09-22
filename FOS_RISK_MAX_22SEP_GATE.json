@@ -1,0 +1,52 @@
+{
+  "schema": "FS_FOS_RISK_MAX_22SEP_GATE_V1",
+  "gate": "FOS_RISK_MAX_22SEP_RECALC",
+  "status": "BLOCKED_SOURCE_INCOMPLETE",
+  "as_of": "2026-09-22T09:12:00+02:00",
+  "runtime_registry_count": 562,
+  "model_numeric_pre22_count": 437,
+  "model_pending_count": 125,
+  "model_pending_new_current_count": 34,
+  "model_pending_baseline_count": 91,
+  "current_source_coverage": {
+    "listone_22sep": {
+      "count": 562,
+      "fields": [
+        "name",
+        "age",
+        "role_standard",
+        "role_trequartista",
+        "role_fantacalcio",
+        "position",
+        "team",
+        "kapitals"
+      ],
+      "status": "COMPLETE_FOR_LISTONE_SCOPE"
+    },
+    "performance_health_22sep": {
+      "leaders_goals": 4,
+      "leaders_assists": 3,
+      "medical_verified": 6,
+      "status": "PARTIAL_BY_REPORT_DESIGN"
+    }
+  },
+  "fos_v2_required_but_not_fully_current": [
+    "Expected Minutes for all players",
+    "Current starter/ballot hierarchy for all 20 clubs",
+    "Current penalty/free-kick/corner hierarchy",
+    "Current tactical centrality/attacking role",
+    "Current team attack/defense environment",
+    "Current lineup stability/rotation risk",
+    "Complete availability layer across all clubs",
+    "Independent confidence/cross-validation coverage"
+  ],
+  "enforcement": {
+    "missing_data_rule": "Missing data stay null; no automatic fabricated estimates.",
+    "stale_numeric_policy": "Existing numeric FOS/Risk/MAX values are retained only as PRE_22SEP lineage and labelled stale.",
+    "pending_policy": "125 records remain PENDING_RECALC.",
+    "optimizerMax_mutated": false,
+    "gold": false,
+    "publish_22sep_fos_as_current": false
+  },
+  "next_valid_gate": "Acquire current tactical/availability coverage sufficient for FOS V2, then recalculate FOS → Risk → MAX and run temporal regression."
+}

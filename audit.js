@@ -14,6 +14,8 @@ function run(){
  add('STALE01',!reg.some(p=>p._news),'Overlay runtime 18/08 disabilitato');
  const recalc=reg.filter(p=>![p.score,p.ideal,p.max].every(v=>Number.isFinite(Number(v))));
  add('MODEL01',recalc.length===0,`Record in attesa FOS/Risk/MAX recalculation: ${recalc.length}`,'WARN');
+ const stale=reg.filter(p=>p.model_status==='STALE_PRE_22SEP_RECALC');
+ add('MODEL02',stale.length===0,`Record con modello numerico pre-22SEP ancora da ricalcolare: ${stale.length}`,'WARN');
  if(!S){add('ENG00',false,'Engine state non disponibile');return out}
  add('ENG01',typeof window.FS_AUCTION_ENGINE?.exactMax==='function'&&typeof window.FS_AUCTION_ENGINE?.shadowRawMax==='function','Exact MAX + Shadow APIs presenti');
  add('TX01',new Set(S.tx.map(x=>x.id)).size===S.tx.length,'Ownership univoca');

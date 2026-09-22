@@ -30,5 +30,11 @@
   "runtime_registry_source_pdf_sha256": "20eb015e91349db6c4f2d33ff343a873f9cd6f9e1522865da41002ae5086da62",
   "canonical_registry_07sep_count": 531,
   "runtime_role_basis_22sep": "RUOLO_FANTACALCIO_IT_WITH_STANDARD_FALLBACK",
-  "fantacalcio_role_fallback_count": 20
+  "fantacalcio_role_fallback_count": 20,
+  "model_numeric_pre22_count": 437,
+  "model_pending_22sep_count": 125,
+  "model_pending_new_current_count": 34,
+  "model_pending_baseline_count": 91,
+  "model_22sep_status": "BLOCKED_SOURCE_INCOMPLETE",
+  "model_22sep_authority": false
 }
