@@ -41,8 +41,8 @@
     },
     {
       "file": "app.js",
-      "bytes": 14574,
-      "sha256": "c8ad701b10d7c3e460da5b53a46d95e07c278a0e41d298c307b6506639c54a98"
+      "bytes": 14898,
+      "sha256": "064751792ea9ef6157347a0cdc8d697dfd7f38cd53ffac6b383a0359b130c104"
     },
     {
       "file": "apple-touch-icon.png",
@@ -51,8 +51,8 @@
     },
     {
       "file": "audit.js",
-      "bytes": 4864,
-      "sha256": "ef3eebe3849063355a96e04fd60154c03cae6308ca7a08fff98aba87ae5d84e3"
+      "bytes": 5413,
+      "sha256": "5316656de0c4c48c92b97e7c27ede744cae65671e105480647353dae0cd0b54c"
     },
     {
       "file": "backup.js",
@@ -96,13 +96,13 @@
     },
     {
       "file": "player-details.json",
-      "bytes": 578145,
-      "sha256": "114563f36f85f5504611f97bf1da764cdf81cfa82df71e0ee5a9720b89ec9940"
+      "bytes": 615381,
+      "sha256": "6cd7eb79e270d6c951670355bb5d8c028e2aec39c4fe38374ea312774eedcfa4"
     },
     {
       "file": "registry.json",
-      "bytes": 565554,
-      "sha256": "eea82c43b283f1d64c11aa4c7cf22e0c0ca1a5ccaaa965fcffcde802d8f1958f"
+      "bytes": 673472,
+      "sha256": "b32194a6f416c2d54760928ab333f5aab22456a66fec474576435b86422a7fbe"
     },
     {
       "file": "state-manager.js",
@@ -121,8 +121,8 @@
     },
     {
       "file": "version.json",
-      "bytes": 2141,
-      "sha256": "2efdc0981c6fb189ccd87cd948f38c427679e8e400a230ac8e32a735538b308e"
+      "bytes": 2525,
+      "sha256": "87de28278e08128b5702dd4d16c5237c162e7def5c62f1591941f36dac9cf0f6"
     },
     {
       "file": "md5-22sep2026.json",
@@ -136,8 +136,8 @@
     },
     {
       "file": "APP_INDEX_RECONCILIATION_22SEP2026.json",
-      "bytes": 1126,
-      "sha256": "b5f556e9ffb72c17148642cdca02bb95a298aa88721ed6f323ff1711e9255ff1"
+      "bytes": 1243,
+      "sha256": "88f8f3772d195b5c2a4301df009f7f6fc409a32806f4f4f52357dab2553fe478"
     },
     {
       "file": "listone-22sep2026.json",
@@ -168,6 +168,11 @@
       "file": "REPORT22_OVERLAY_AUDIT.json",
       "bytes": 978,
       "sha256": "dfed93a5a3a562b75a148ef4fe75b8838b46a887fe3a4639edeff9a43f44a7d4"
+    },
+    {
+      "file": "SERIE_A_MEMBERSHIP_22SEP2026.json",
+      "bytes": 904,
+      "sha256": "aaebdff4761c843a401f57e34f30c69bc3eee3e656e0b94831ac386267f8b61d"
     }
   ]
 }
