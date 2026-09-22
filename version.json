@@ -12,11 +12,13 @@
   "external_listone_count": 562,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "REGISTRY_MATERIALIZED_PENDING_APP_RECONCILIATION",
+  "deployment_status": "APP_INDEX_22SEP_RUNTIME_RECONCILIATION_RUNNING",
   "blockers": [
     "APP_INDEX_22SEP_RUNTIME_RECONCILIATION",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
     "CURRENT_ENGINE_CERTIFIED_TEMPORAL_REAL_AUCTION_REPLAY"
   ],
-  "canonical_registry_runtime_count": 531
+  "canonical_registry_runtime_count": 531,
+  "runtime_overlay": "md5-22sep2026.json",
+  "stale_august_news_runtime_disabled": true
 }

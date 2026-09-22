@@ -1,0 +1,163 @@
+name: FantaSegreto Runtime 22SEP Gate
+
+on:
+  push:
+    paths:
+      - 'app.js'
+      - 'index.html'
+      - 'audit.js'
+      - 'sw.js'
+      - 'registry.json'
+      - 'player-details.json'
+      - 'md5-22sep2026.json'
+      - 'version.json'
+      - '.github/workflows/fantasegreto-runtime-22sep.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  runtime-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate runtime assets and 22SEP binding
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            index.html app.js engine.js state-manager.js registry.json
+            player-details.json version.json sw.js styles.css md5-22sep2026.json
+          )
+          for f in "${required[@]}"; do
+            test -f "$f" || { echo "MISSING: $f"; exit 1; }
+          done
+          node --check app.js
+          node --check engine.js
+          node --check state-manager.js
+          node --check audit.js
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          reg=json.loads(Path('registry.json').read_text())
+          det=json.loads(Path('player-details.json').read_text())
+          md5=json.loads(Path('md5-22sep2026.json').read_text())
+          ver=json.loads(Path('version.json').read_text())
+          app=Path('app.js').read_text()
+          sw=Path('sw.js').read_text()
+          idx=Path('index.html').read_text()
+
+          assert reg.get('count')==531
+          assert len(reg.get('players',[]))==531
+          assert len({p['id'] for p in reg['players']})==531
+          assert len({str(p['official_id']) for p in reg['players']})==531
+          assert det.get('count')==531
+          assert len(det.get('details',{}))==531
+          assert str(md5.get('cutoff','')).startswith('2026-09-22')
+          assert len(md5.get('medical_verified',[]))==6
+          assert len(md5.get('leaders',{}).get('goals',[]))==4
+          assert len(md5.get('leaders',{}).get('assists',[]))==3
+          assert 'md5-22sep2026.json' in app
+          assert 'FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json' not in app
+          assert 'md5-22sep2026.json' in sw
+          assert 'FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json' not in sw
+          assert 'V4.1.9' in idx
+          assert './app.js' in idx
+          assert ver.get('optimizerMax_mutated') is False
+          print('FS_APP_INDEX_22SEP_RUNTIME_PASS')
+          PY
+
+      - name: Seal runtime reconciliation metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          def sha(path):
+              return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+          vp=Path('version.json')
+          v=json.loads(vp.read_text())
+          v['app_index_runtime_reconciliation']='PASS'
+          v['deployment_status']='APP_INDEX_RECONCILED_PENDING_MODEL_ACCEPTANCE'
+          blockers=[x for x in v.get('blockers',[]) if x!='APP_INDEX_22SEP_RUNTIME_RECONCILIATION']
+          for x in ['LISTONE_22SEP_FULL_INGEST','FOS_RISK_MAX_22SEP_RECALC']:
+              if x not in blockers:
+                  blockers.insert(0,x)
+          v['blockers']=blockers
+          vp.write_text(json.dumps(v,ensure_ascii=False,indent=2))
+
+          evidence={
+            'gate':'APP_INDEX_22SEP_RUNTIME_RECONCILIATION',
+            'status':'PASS',
+            'runtime_registry_count':531,
+            'runtime_details_count':531,
+            'runtime_overlay':'md5-22sep2026.json',
+            'overlay_cutoff':'2026-09-22T09:12:00+02:00',
+            'stale_august_news_runtime_disabled':True,
+            'optimizerMax_mutated':False,
+            'app_sha256':sha('app.js'),
+            'index_sha256':sha('index.html'),
+            'audit_sha256':sha('audit.js'),
+            'sw_sha256':sha('sw.js'),
+            'registry_sha256':sha('registry.json'),
+            'details_sha256':sha('player-details.json'),
+            'md5_overlay_sha256':sha('md5-22sep2026.json')
+          }
+          Path('APP_INDEX_RECONCILIATION_22SEP2026.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2))
+
+          files=[
+            '.nojekyll','BUILD_METADATA.json','ENGINE_CONTRACT_V4_0_23_1_PARITY.json',
+            'FS_GOLDEN_CONTRACT_V1_1_DELTA_20260818.json','README_GITHUB_DEPLOY.txt',
+            'REGRESSION_GATE_REPORT.json','STATE_MIGRATION_REPORT.json','app.js',
+            'apple-touch-icon.png','audit.js','backup.js','engine.js','icon-192.png','icon-512.png',
+            'index.html','manifest.webmanifest','opponents.js','piano25.js','player-details.json',
+            'registry.json','state-manager.js','styles.css','sw.js','version.json',
+            'md5-22sep2026.json','REGISTRY_RECONCILIATION_22SEP2026.json',
+            'APP_INDEX_RECONCILIATION_22SEP2026.json'
+          ]
+          rows=[]
+          for f in files:
+              p=Path(f)
+              if not p.exists():
+                  raise SystemExit(f'MISSING MANIFEST FILE: {f}')
+              rows.append({'file':f,'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+
+          Path('CHECKSUMS.txt').write_text(''.join(f"{r['sha256']}  {r['file']}\n" for r in rows))
+          manifest={
+            'build':'V4.1.9 22SEP RUNTIME RECONCILIATION',
+            'generated_at':'2026-09-22T12:00:00Z',
+            'algorithm':'SHA-256',
+            'scope':'GITHUB_ROOT_PRODUCTION_FILES_22SEP',
+            'files':rows
+          }
+          Path('SHA256_MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
+          print('FS_RUNTIME_MANIFEST_22SEP_PASS',len(rows))
+          PY
+
+      - name: Verify checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum -c CHECKSUMS.txt
+
+      - name: Commit runtime evidence and manifests
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "fantasegreto-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add version.json APP_INDEX_RECONCILIATION_22SEP2026.json CHECKSUMS.txt SHA256_MANIFEST.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "FS: seal 22SEP app-index runtime reconciliation"
+          git push

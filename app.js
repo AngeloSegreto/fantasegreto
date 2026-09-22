@@ -3,25 +3,87 @@ const S={registry:[],details:{},news:null,filtered:[],role:'ALL',q:'',shown:24,s
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const CAPS={P:3,D:8,C:8,A:6};
 const num=x=>Number.isFinite(Number(x))?Number(x):null;
-function roleComparableBridge(players,target,{scoreDelta=0,repriceScore=true}={}){const peers=players.filter(p=>p.id!==target.id&&p.role===target.role&&num(p.fvm)!==null&&num(p.score)!==null&&num(p.ideal)!==null&&num(p.max)!==null&&p._valuation?.status!=='PROVISIONAL_ROLE_COMPARABLE_BRIDGE').sort((a,b)=>Math.abs(Number(a.fvm)-Number(target.fvm))-Math.abs(Number(b.fvm)-Number(target.fvm))).slice(0,5);if(!peers.length)return null;const wavg=attr=>{let a=0,w=0;for(const p of peers){const q=1/(1+Math.abs(Number(p.fvm)-Number(target.fvm)));a+=Number(p[attr])*q;w+=q}return a/w};return{score:Math.round(((repriceScore?wavg('score'):(num(target.score)??wavg('score')))+Number(scoreDelta||0))*10)/10,ideal:Math.max(1,Math.round(wavg('ideal'))),max:Math.max(1,Math.round(wavg('max'))),peers:peers.map(p=>p.id),method:'ROLE_FVM_INVERSE_DISTANCE_K5'}}
-function mergeNews(base,details,news){const players=base.map(p=>({...p})),byId=new Map(players.map(p=>[p.id,p]));for(const ev of news?.events||[]){if(ev.canonical_write==='ADD'&&!byId.has(ev.player_id)){const p={id:ev.player_id,name:ev.name,team:ev.team,role:ev.role,list_meta:`${ev.team} · ${ev.role} · NEWS CANONICAL`,score:null,ideal:null,max:null,quote:ev.quote,fvm:ev.fvm,value_index:'—',risk:30,confidence:Math.round((ev.confidence||0)*100)+'%',decision:'BUY · RECALC',risk_line:'NEWS · RECALC',rank:{score:'0',value:'0',ideal:'0',quote:'0',risk:'0'},registry_status:'CANONICAL_NEWS_WRITE',_news:ev};players.push(p);byId.set(p.id,p)}else{const p=byId.get(ev.player_id);if(!p)continue;p._news=ev;if(ev.canonical_write==='PATCH'||ev.canonical_write==='ADD'){if(num(ev.quote)!==null)p.quote=Number(ev.quote);if(num(ev.fvm)!==null)p.fvm=Number(ev.fvm)}if(num(ev.score_delta)!==null&&num(p.score)!==null)p.score=Math.round((Number(p.score)+Number(ev.score_delta))*100)/100}}
- for(const ev of news?.events||[]){const p=byId.get(ev.player_id);if(!p)continue;if(ev.valuation_mode==='PROVISIONAL_ROLE_COMPARABLE_BRIDGE'){const b=roleComparableBridge(players,p,{scoreDelta:ev.score_delta||0,repriceScore:true});if(b){p.score=b.score;p.ideal=b.ideal;p.max=b.max;p.value_index='MODEL';p.decision=`BUY ≤ ${p.ideal} · STOP ${p.max}`;p._valuation={status:'PROVISIONAL_ROLE_COMPARABLE_BRIDGE',bridge_max:b.max,bridge_ideal:b.ideal,method:b.method,peers:b.peers,hard_cap:false}}}else if(ev.valuation_mode==='REPRICE_FROM_CURRENT_FVM_ROLE_COMPARABLE_BRIDGE'){const b=roleComparableBridge(players,p,{scoreDelta:0,repriceScore:false});if(b){p.ideal=b.ideal;p.max=b.max;p.value_index='MODEL';p.decision=`WAIT ≤ ${p.ideal} · STOP ${p.max}`;p._valuation={status:'REPRICE_FROM_CURRENT_FVM_ROLE_COMPARABLE_BRIDGE',bridge_max:b.max,bridge_ideal:b.ideal,method:b.method,peers:b.peers,hard_cap:!!ev.hard_cap_to_bridge_max}}}if(num(ev.applied_max_pct)!==null)p._news={...ev,applied_max_pct:Number(ev.applied_max_pct)};if(ev.news_note){p.news_note=ev.news_note}}
- const outDetails={...details};for(const p of players){if(!outDetails[p.id])outDetails[p.id]={id:p.id,name:p.name,subtitle:`${p.team} · ${p.role}`,role:p.role,metrics:{},instruction:'',blocks:[]};if(p._news){const d=outDetails[p.id];d.blocks=[...(d.blocks||[]).filter(x=>x.title!=='FS NEWS 18/08'),{title:'FS NEWS 18/08',text:p._news.news_note||p.news_note||p._news.action||'Overlay FS NEWS'}]}}
- return{players,details:outDetails}}
-async function fetchData(){const [r,d,n]=await Promise.all([fetch('./registry.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('registry.json '+x.status);return x.json()}),fetch('./player-details.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('player-details.json '+x.status);return x.json()}),fetch('./FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('FS_NEWS delta '+x.status);return x.json()})]);const merged=mergeNews(r.players||[],d.details||{},n);S.registry=merged.players;S.details=merged.details;S.news=n;window.FS_NEWS=n;window.FS_APP={registry:()=>S.registry,details:()=>S.details,news:()=>S.news,refresh:refreshAll,open,close,selected:()=>S.selected,player:id=>S.registry.find(x=>x.id===id)};window.dispatchEvent(new CustomEvent('fs:registry-ready',{detail:{players:S.registry.length,base_players:(r.players||[]).length,news_additions:S.registry.length-(r.players||[]).length}}));}
+function normName(s){return String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'')}
+function applyCurrentOverlay(base,details,overlay){
+ const players=base.map(p=>({...p})),byId=new Map(players.map(p=>[p.id,p]));
+ const outDetails={};
+ for(const [id,d] of Object.entries(details||{}))outDetails[id]={...d,metrics:{...(d.metrics||{})},blocks:[...(d.blocks||[])]};
+ const aliases=new Map([
+  ['Roma|Malen','p-malen-roma'],
+  ['Frosinone|Raimondo','p-raimondo-frosinone'],
+  ['Monza|Varela','p-varela-g-monza'],
+  ['Inter|Lautaro Martinez','p-martinez-l-inter'],
+  ['Roma|Dybala','p-dybala-roma'],
+  ['Frosinone|Schmid','p-fc-7551'],
+  ['Inter|Diouf','p-diouf-inter'],
+  ['Juventus|Grabara','p-fc-7603'],
+  ['Juventus|Boga','p-boga-juventus'],
+  ['Juventus|Locatelli','p-locatelli-juventus'],
+  ['Juventus|Yildiz','p-yildiz-juventus'],
+  ['Juventus|Thuram K.','p-thuram-k-juventus'],
+  ['Juventus|Kolo Muani','p-kolo-muani-juventus']
+ ]);
+ const find=(name,team)=>{
+   const aid=aliases.get(`${team}|${name}`);
+   if(aid&&byId.has(aid))return byId.get(aid);
+   const nn=normName(name),nt=normName(team);
+   const exact=players.filter(p=>normName(p.team)===nt&&normName(p.name)===nn);
+   return exact.length===1?exact[0]:null;
+ };
+ const addBlock=(p,title,text)=>{
+   if(!p)return;
+   const d=outDetails[p.id]||{id:p.id,name:p.name,subtitle:`${p.team} · ${p.role}`,role:p.role,metrics:{},instruction:'',blocks:[]};
+   d.blocks=[...(d.blocks||[]).filter(x=>x.title!==title),{title,text}];
+   outDetails[p.id]=d;
+ };
+ for(const g of overlay?.leaders?.goals||[]){
+   const p=find(g.name,g.team); if(!p)continue;
+   p._performance22={...(p._performance22||{}),goals:g.value,cutoff:overlay.cutoff};
+   addBlock(p,'Performance 22/09',`Dato verificato al 22/09/2026: ${g.value} gol. Overlay informativo; FOS/Risk/MAX base non vengono riscritti automaticamente.`);
+ }
+ for(const a of overlay?.leaders?.assists||[]){
+   const p=find(a.name,a.team); if(!p)continue;
+   p._performance22={...(p._performance22||{}),assists:a.value,cutoff:overlay.cutoff};
+   const perf=p._performance22;
+   const bits=[]; if(perf.goals!=null)bits.push(`${perf.goals} gol`); if(perf.assists!=null)bits.push(`${perf.assists} assist`);
+   addBlock(p,'Performance 22/09',`Dato verificato al 22/09/2026: ${bits.join(' · ')}. Overlay informativo; FOS/Risk/MAX base non vengono riscritti automaticamente.`);
+ }
+ for(const m of overlay?.medical_verified||[]){
+   const p=find(m.name,m.team); if(!p)continue;
+   p._medical22={status:m.status,issue:m.issue,cutoff:overlay.cutoff};
+   addBlock(p,'Disponibilità 22/09',`${m.status} · ${m.issue}. Fonte corrente verificata; nessuna percentuale MAX viene inventata.`);
+ }
+ for(const p of players)if(!outDetails[p.id])outDetails[p.id]={id:p.id,name:p.name,subtitle:`${p.team} · ${p.role}`,role:p.role,metrics:{},instruction:'',blocks:[]};
+ return{players,details:outDetails};
+}
+async function fetchData(){
+ const [r,d,o,v]=await Promise.all([
+  fetch('./registry.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('registry.json '+x.status);return x.json()}),
+  fetch('./player-details.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('player-details.json '+x.status);return x.json()}),
+  fetch('./md5-22sep2026.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('md5-22sep2026.json '+x.status);return x.json()}),
+  fetch('./version.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('version.json '+x.status);return x.json()})
+ ]);
+ if(Number(r.count)!==531||(r.players||[]).length!==531)throw Error('Registry runtime non riconciliato a 531');
+ if(Number(d.count)!==531||Object.keys(d.details||{}).length!==531)throw Error('Player details runtime non riconciliati a 531');
+ const merged=applyCurrentOverlay(r.players||[],d.details||{},o);
+ S.registry=merged.players;S.details=merged.details;S.news=o;
+ window.FS_MD5=o;window.FS_VERSION=v;
+ window.FS_APP={registry:()=>S.registry,details:()=>S.details,news:()=>S.news,refresh:refreshAll,open,close,selected:()=>S.selected,player:id=>S.registry.find(x=>x.id===id)};
+ window.dispatchEvent(new CustomEvent('fs:registry-ready',{detail:{players:S.registry.length,base_players:(r.players||[]).length,overlay:'MD5_22SEP2026',news_additions:0}}));
+}
 function finishBoot(){if(S.bound)return;S.bound=true;bind();filter();refreshAll();document.body.dataset.ready='1';window.dispatchEvent(new CustomEvent('fs:ready',{detail:{players:S.registry.length}}));}
 function bind(){$('#q').addEventListener('input',e=>{S.q=e.target.value.trim().toLowerCase();S.shown=24;filter()});$('#clear').onclick=()=>{$('#q').value='';S.q='';S.shown=24;filter()};document.querySelectorAll('[data-role]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-role]').forEach(x=>x.classList.remove('on'));b.classList.add('on');S.role=b.dataset.role;S.shown=24;filter()});$('#more').onclick=()=>{S.shown+=24;renderList()};$('#list').addEventListener('click',e=>{const row=e.target.closest('.row');if(row)open(row.dataset.id)});$('#shade').onclick=close;$('#close').onclick=close;$('#sheet').addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(b)transact(b.dataset.act)});$('#nav-list').onclick=()=>{showMain();close();window.scrollTo({top:$('.toolbar').offsetTop-6,behavior:'smooth'})};$('#nav-auction').onclick=()=>{showMain();const p=S.filtered.find(p=>!soldIds().has(p.id))||S.registry[0];if(p)open(p.id)};$('#nav-managers').onclick=()=>openPanel('managers');$('#nav-roster').onclick=()=>openPanel('roster');$('#nav-more').onclick=()=>openPanel('more');document.querySelectorAll('[data-panel-close]').forEach(b=>b.onclick=closePanels);window.addEventListener('fs:state-changed',refreshAll);window.addEventListener('storage',refreshAll)}
 function showMain(){closePanels();document.querySelectorAll('.bottom button').forEach(x=>x.classList.remove('primary'));$('#nav-list').classList.add('primary')}
 function openPanel(name){close();document.querySelectorAll('.panel').forEach(x=>x.classList.remove('open'));const p=$('#panel-'+name);if(p)p.classList.add('open');document.body.style.overflow='hidden';document.querySelectorAll('.bottom button').forEach(x=>x.classList.remove('primary'));$('#nav-'+name)?.classList.add('primary');refreshAll()}
 function closePanels(){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('open'));document.body.style.overflow='';document.querySelectorAll('.bottom button').forEach(x=>x.classList.remove('primary'));$('#nav-list')?.classList.add('primary')}
-function filter(){let a=S.registry.filter(p=>S.role==='ALL'||p.role===S.role);if(S.q)a=a.filter(p=>(p.name+' '+p.team+' '+(p.list_meta||'')+' '+(p.news_note||'')).toLowerCase().includes(S.q));a.sort((x,y)=>(num(y.score)??-999)-(num(x.score)??-999));S.filtered=a;renderList()}
+function filter(){let a=S.registry.filter(p=>S.role==='ALL'||p.role===S.role);if(S.q)a=a.filter(p=>(p.name+' '+p.team+' '+(p.list_meta||'')+' '+(p._medical22?.issue||'')+' '+(p._medical22?.status||'')).toLowerCase().includes(S.q));a.sort((x,y)=>(num(y.score)??-999)-(num(x.score)??-999));S.filtered=a;renderList()}
 function state(){try{return window.FS_AUCTION_ENGINE?.state?.()}catch(e){return null}}
 function soldIds(){const st=state();return st?st.soldIds:new Set()}
 function dynamicMax(p,st){try{return window.FS_AUCTION_ENGINE?.exactMax?.(p,st)??0}catch(e){return 0}}
-function runtimeLabel(p,st){const lm=st?dynamicMax(p,st):0;if(!st)return p.decision||'—';if(lm<=0)return p._news?.action==='REGISTRY_WRITE_BUY'?'BUY · RECALC':'PASS · RECALC';const ideal=Number(p.ideal||0);return lm<=ideal?`BUY/WAIT ≤ ${lm}`:`BUY ≤ ${ideal} · WAIT ≤ ${lm}`}
+function runtimeLabel(p,st){const lm=st?dynamicMax(p,st):0,med=p._medical22?.status;let label;if(!st)label=p.decision||'—';else if(lm<=0)label='PASS · RECALC';else{const ideal=Number(p.ideal||0);label=lm<=ideal?`BUY/WAIT ≤ ${lm}`:`BUY ≤ ${ideal} · WAIT ≤ ${lm}`}return med?`${label} · ${med}`:label}
 function renderList(){const sold=soldIds(),avail=S.filtered.filter(p=>!sold.has(p.id)),a=avail.slice(0,S.shown);$('#count').textContent=`${avail.length} disponibili · ${a.length} renderizzati`;const st=state();$('#list').innerHTML=a.map(p=>{const label=runtimeLabel(p,st),k=label.startsWith('BUY')?'BUY':label.startsWith('PASS')?'PASS':'WAIT',lm=st?dynamicMax(p,st):0,score=num(p.score);return `<article class="row" data-id="${esc(p.id)}"><span class="role ${esc(p.role)}">${esc(p.role)}</span><div class="name"><b>${esc(p.name)}</b><small>${esc(p.team)} · ${esc((p.list_meta||'').replace(p.team+' · ','')||p.role)}</small><span class="decision ${k}">${esc(label)}</span></div><div class="nums"><b>${score===null?'—':esc(score.toFixed(1))}</b><small>${lm>0?'MAX LIVE '+esc(lm):'MAX RECALC'}</small></div></article>`}).join('')||'<div class="empty">Nessun giocatore disponibile.</div>';$('#more').hidden=a.length>=avail.length}
 function syncState(){const st=state();if(!st)return;$('#budget').textContent=st.budget??500;$('#slots-total').textContent=st.slots??25;for(const r of ['P','D','C','A']){const need=st.managerStates?.ME?.needs?.[r]??CAPS[r];$('#slot-'+r).textContent=`${CAPS[r]-need}/${CAPS[r]}`}$('#league-budget').textContent=st.leagueBudget??5000;$('#league-sold').textContent=st.leagueSold??0}
-function open(id){const p=S.registry.find(x=>x.id===id),d=S.details[id];if(!p||!d)return;S.selected=p;const st=state();$('#s-role').className='role '+p.role;$('#s-role').textContent=p.role;$('#s-name').textContent=p.name;$('#s-sub').textContent=d.subtitle||`${p.team} · ${p.role}`;const lm=st?dynamicMax(p,st):0,metrics={'FS Score':num(p.score)===null?'RECALC':Number(p.score).toFixed(1),'Prezzo ideale':num(p.ideal)===null?'RECALC':p.ideal,'MAX base':num(p.max)===null?'RECALC':p.max,'Quotazione':num(p.quote)===null?'—':p.quote,'FVM':num(p.fvm)===null?'—':p.fvm,'Rischio':num(p.risk)===null?'—':p.risk,'Confidence':p.confidence||'—'};if(st){metrics['MAX LIVE']=lm>0?lm:'RECALC';const op=window.FS_AUCTION_ENGINE?.opponentPressure?.(p,st);if(op){metrics['Pressione']=op.pressure+'/100';metrics['Rivali attivi']=op.activeCount+'/9'}}$('#metrics').innerHTML=Object.entries(metrics).map(([k,v])=>`<div class="metric"><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('');const inst=window.FS_AUCTION_ENGINE?.instruction?.(p,st)||(d.instruction||p.decision);$('#instruction').innerHTML=`<b>Istruzione d’asta LIVE</b><p>${esc(inst)}</p>`;$('#blocks').innerHTML=(d.blocks||[]).map(x=>`<div class="block"><b>${esc(x.title)}</b><p>${esc(x.text)}</p></div>`).join('');renderPressure(p,st);$('#price').value='';renderOwnerOptions();$('#owner').value='';$('#runtime').textContent='Engine V4.0.23.1 LINEAGE · V4.1.8.2 HARDENED PARITY · SHADOW GUARD · '+(lm>0?'MAX ESATTO '+lm:'MAX RECALC');$('#sheet').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>$('#price').focus({preventScroll:true}),80)}
+function open(id){const p=S.registry.find(x=>x.id===id),d=S.details[id];if(!p||!d)return;S.selected=p;const st=state();$('#s-role').className='role '+p.role;$('#s-role').textContent=p.role;$('#s-name').textContent=p.name;$('#s-sub').textContent=d.subtitle||`${p.team} · ${p.role}`;const lm=st?dynamicMax(p,st):0,metrics={'FS Score':num(p.score)===null?'RECALC':Number(p.score).toFixed(1),'Prezzo ideale':num(p.ideal)===null?'RECALC':p.ideal,'MAX base':num(p.max)===null?'RECALC':p.max,'Quotazione':num(p.quote)===null?'—':p.quote,'FVM':num(p.fvm)===null?'—':p.fvm,'Rischio':num(p.risk)===null?'—':p.risk,'Confidence':p.confidence||'—'};if(p._performance22?.goals!=null)metrics['Gol 22/09']=p._performance22.goals;if(p._performance22?.assists!=null)metrics['Assist 22/09']=p._performance22.assists;if(p._medical22)metrics['Medical 22/09']=p._medical22.status;if(st){metrics['MAX LIVE']=lm>0?lm:'RECALC';const op=window.FS_AUCTION_ENGINE?.opponentPressure?.(p,st);if(op){metrics['Pressione']=op.pressure+'/100';metrics['Rivali attivi']=op.activeCount+'/9'}}$('#metrics').innerHTML=Object.entries(metrics).map(([k,v])=>`<div class="metric"><small>${esc(k)}</small><b>${esc(v)}</b></div>`).join('');const inst=window.FS_AUCTION_ENGINE?.instruction?.(p,st)||(d.instruction||p.decision);$('#instruction').innerHTML=`<b>Istruzione d’asta LIVE</b><p>${esc(inst)}</p>`;$('#blocks').innerHTML=(d.blocks||[]).map(x=>`<div class="block"><b>${esc(x.title)}</b><p>${esc(x.text)}</p></div>`).join('');renderPressure(p,st);$('#price').value='';renderOwnerOptions();$('#owner').value='';$('#runtime').textContent='Engine V4.0.23.1 LINEAGE · V4.1.9 22SEP RUNTIME · SHADOW GUARD · '+(lm>0?'MAX ESATTO '+lm:'MAX RECALC');$('#sheet').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>$('#price').focus({preventScroll:true}),80)}
 function renderOwnerOptions(){const names=window.FS_STATE?.managerNames?.()||{};$('#owner').innerHTML='<option value="">Se PERSO: scegli rivale</option>'+Array.from({length:9},(_,i)=>{const id='R'+(i+1);return `<option value="${id}">${esc(names[id]||('Manager '+(i+1)))}</option>`}).join('')}
 function renderPressure(p,st){const el=$('#pressure');if(!st){el.innerHTML='';return}const op=window.FS_AUCTION_ENGINE?.opponentPressure?.(p,st);if(!op){el.innerHTML='';return}const top=op.details.slice(0,3);el.innerHTML=`<div class="pressure-head"><b>PRESSIONE LIVE</b><strong>${op.pressure}/100</strong></div><div class="pressure-sub">${op.activeCount}/9 rivali possono competere · domanda ${op.totalDemand} · supply ${op.supply}</div>${top.map(x=>`<div class="pressure-rival"><span><b>${esc(x.name||x.owner)}</b><small>${x.budget} cr · ${x.need} ${p.role} mancanti · ceiling ${x.safe}</small></span><strong>${x.score}</strong></div>`).join('')}`}
 function close(){$('#sheet').classList.remove('open');document.body.style.overflow='';S.selected=null}
