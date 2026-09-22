@@ -41,8 +41,8 @@
     },
     {
       "file": "app.js",
-      "bytes": 14178,
-      "sha256": "4fae2e3fd24ad328d5f7fbf6119a7c278cbefddff18cc7739a370f440040a0d7"
+      "bytes": 14356,
+      "sha256": "0720e87cd8cb3aef668ee9bad5f7dd2d34b7c8970ec9da0b98f8949fcf9a5c06"
     },
     {
       "file": "apple-touch-icon.png",
@@ -51,8 +51,8 @@
     },
     {
       "file": "audit.js",
-      "bytes": 4294,
-      "sha256": "3222fe9e906162a3647fecddf01f2d592e8d922cd1435bfb2d9398bdf065341d"
+      "bytes": 4485,
+      "sha256": "8adbed5fcc065b00799a35096769e0f63e370a87f38eeed214e9d6fc54f084c1"
     },
     {
       "file": "backup.js",
@@ -121,8 +121,8 @@
     },
     {
       "file": "version.json",
-      "bytes": 1518,
-      "sha256": "5bcd756e20191ef2b4cfa75608ad89c984a6cd0efeb9dac4653509fe70f8d39e"
+      "bytes": 1756,
+      "sha256": "555de65c96b09cebfa9be751ab4f1ea4826d6b187147d61b2542c91c201db429"
     },
     {
       "file": "md5-22sep2026.json",
@@ -137,7 +137,7 @@
     {
       "file": "APP_INDEX_RECONCILIATION_22SEP2026.json",
       "bytes": 948,
-      "sha256": "6052ad43844bf5a276b038edbc340df2181fe8cf8ab6c05af5aa8375821d7ef8"
+      "sha256": "658aae2118e4176e5d426eb0467a02f9c8a12d3677fecdb1aef5d1bb25a229f3"
     },
     {
       "file": "listone-22sep2026.json",
@@ -158,6 +158,11 @@
       "file": "ARCHIVE_REMOVED_REGISTRY_22SEP2026.json",
       "bytes": 5349,
       "sha256": "cd2a69ca55909c2844338cfcc63fcbf2e0d368e098d313b62c9039568b8d24df"
+    },
+    {
+      "file": "FOS_RISK_MAX_22SEP_GATE.json",
+      "bytes": 1839,
+      "sha256": "ce635e4ea2ad5f10e0b98261a89735c6e22c23940f91a5bcb4619a2049267008"
     }
   ]
 }
