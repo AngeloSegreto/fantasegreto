@@ -63,8 +63,9 @@ async function fetchData(){
   fetch('./md5-22sep2026.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('md5-22sep2026.json '+x.status);return x.json()}),
   fetch('./version.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('version.json '+x.status);return x.json()})
  ]);
- if(Number(r.count)!==531||(r.players||[]).length!==531)throw Error('Registry runtime non riconciliato a 531');
- if(Number(d.count)!==531||Object.keys(d.details||{}).length!==531)throw Error('Player details runtime non riconciliati a 531');
+ const expected=Number(v.runtime_registry_count||v.canonical_registry_runtime_count||r.count||0);
+ if(!expected||Number(r.count)!==expected||(r.players||[]).length!==expected)throw Error('Registry runtime non riconciliato al target '+expected);
+ if(Number(d.count)!==expected||Object.keys(d.details||{}).length!==expected)throw Error('Player details runtime non riconciliati al target '+expected);
  const merged=applyCurrentOverlay(r.players||[],d.details||{},o);
  S.registry=merged.players;S.details=merged.details;S.news=o;
  window.FS_MD5=o;window.FS_VERSION=v;

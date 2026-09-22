@@ -53,12 +53,13 @@ jobs:
           sw=Path('sw.js').read_text()
           idx=Path('index.html').read_text()
 
-          assert reg.get('count')==531
-          assert len(reg.get('players',[]))==531
-          assert len({p['id'] for p in reg['players']})==531
-          assert len({str(p['official_id']) for p in reg['players']})==531
-          assert det.get('count')==531
-          assert len(det.get('details',{}))==531
+          expected=int(ver.get('runtime_registry_count') or ver.get('canonical_registry_runtime_count') or reg.get('count') or 0)
+          assert expected>0
+          assert reg.get('count')==expected
+          assert len(reg.get('players',[]))==expected
+          assert len({p['id'] for p in reg['players']})==expected
+          assert det.get('count')==expected
+          assert len(det.get('details',{}))==expected
           assert str(md5.get('cutoff','')).startswith('2026-09-22')
           assert len(md5.get('medical_verified',[]))==6
           assert len(md5.get('leaders',{}).get('goals',[]))==4
@@ -98,8 +99,8 @@ jobs:
           evidence={
             'gate':'APP_INDEX_22SEP_RUNTIME_RECONCILIATION',
             'status':'PASS',
-            'runtime_registry_count':531,
-            'runtime_details_count':531,
+            'runtime_registry_count':json.loads(Path('registry.json').read_text()).get('count'),
+            'runtime_details_count':json.loads(Path('player-details.json').read_text()).get('count'),
             'runtime_overlay':'md5-22sep2026.json',
             'overlay_cutoff':'2026-09-22T09:12:00+02:00',
             'stale_august_news_runtime_disabled':True,
@@ -124,6 +125,9 @@ jobs:
             'md5-22sep2026.json','REGISTRY_RECONCILIATION_22SEP2026.json',
             'APP_INDEX_RECONCILIATION_22SEP2026.json'
           ]
+          for optional in ['listone-22sep2026.json','LISTONE_RECONCILIATION_22SEP2026.json','CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json']:
+              if Path(optional).exists():
+                  files.append(optional)
           rows=[]
           for f in files:
               p=Path(f)

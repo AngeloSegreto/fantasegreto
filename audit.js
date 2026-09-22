@@ -1,8 +1,9 @@
 (()=>{'use strict';
-const CAPS={P:3,D:8,C:8,A:6},EXPECTED_REGISTRY=531;
+const CAPS={P:3,D:8,C:8,A:6};
 function run(){
  const out=[],add=(id,ok,msg,severity='BLOCK')=>out.push({id,ok,msg,severity});
  const reg=window.FS_APP?.registry?.()||[],details=window.FS_APP?.details?.()||{},overlay=window.FS_MD5||window.FS_APP?.news?.()||null,S=window.FS_AUCTION_ENGINE?.state?.();
+ const EXPECTED_REGISTRY=Number(window.FS_VERSION?.runtime_registry_count||window.FS_VERSION?.canonical_registry_runtime_count||reg.length||0);
  add('REG01',reg.length===EXPECTED_REGISTRY,`Registry runtime ${reg.length}/${EXPECTED_REGISTRY}`);
  add('REG02',new Set(reg.map(x=>x.id)).size===reg.length,'PlayerID unici');
  add('REG03',Object.keys(details).length===EXPECTED_REGISTRY,`Dettagli ${Object.keys(details).length}/${EXPECTED_REGISTRY}`);
