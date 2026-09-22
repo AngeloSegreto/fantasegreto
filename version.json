@@ -52,5 +52,5 @@
   "model_pending_membership_effect": "NONE",
   "archived_absent_from_current_listone_count": 3,
   "membership_gate": "PASS",
-  "serie_a_membership_runtime_guard": "PENDING_RESEAL"
+  "serie_a_membership_runtime_guard": "PASS"
 }
