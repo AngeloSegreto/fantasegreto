@@ -2,10 +2,12 @@
 const S={registry:[],details:{},news:null,filtered:[],role:'ALL',q:'',shown:24,selected:null,bound:false};
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const CAPS={P:3,D:8,C:8,A:6};
-const num=x=>Number.isFinite(Number(x))?Number(x):null;
+const num=x=>x===null||x===undefined||x===''?null:(Number.isFinite(Number(x))?Number(x):null);
 function normName(s){return String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'')}
 function applyCurrentOverlay(base,details,overlay){
- const players=base.map(p=>({...p})),byId=new Map(players.map(p=>[p.id,p]));
+ const players=base.map(p=>({...p}));
+ for(const p of players)for(const k of ['score','ideal','max','risk'])if(p[k]===null)p[k]=Number.NaN;
+ const byId=new Map(players.map(p=>[p.id,p]));
  const outDetails={};
  for(const [id,d] of Object.entries(details||{}))outDetails[id]={...d,metrics:{...(d.metrics||{})},blocks:[...(d.blocks||[])]};
  const find=rec=>{

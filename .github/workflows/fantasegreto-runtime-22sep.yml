@@ -74,6 +74,13 @@ jobs:
           assert 'V4.1.9' in idx
           assert './app.js' in idx
           assert ver.get('optimizerMax_mutated') is False
+          pending=[p for p in reg['players'] if not all(isinstance(p.get(k),(int,float)) and not isinstance(p.get(k),bool) for k in ['score','ideal','max'])]
+          assert len(pending)==int(ver.get('model_pending_22sep_count',len(pending)))
+          assert all(p.get('serie_a_membership')=='ACTIVE_CURRENT_LISTONE_22SEP' for p in reg['players'])
+          assert all(p.get('serie_a_membership')=='ACTIVE_CURRENT_LISTONE_22SEP' for p in pending)
+          assert ver.get('model_pending_membership_effect')=='NONE'
+          assert ver.get('membership_gate')=='PASS'
+          print('FS_SERIE_A_MEMBERSHIP_RUNTIME_PASS',len(reg['players']),len(pending))
           print('FS_APP_INDEX_22SEP_RUNTIME_PASS')
           PY
 
@@ -106,7 +113,10 @@ jobs:
             'status':'PASS',
             'runtime_registry_count':runtime_count,
             'runtime_details_count':json.loads(Path('player-details.json').read_text()).get('count'),
-            'model_pending_count':sum(1 for p in json.loads(Path('registry.json').read_text()).get('players',[]) if not all(isinstance(p.get(k),(int,float)) for k in ['score','ideal','max'])),
+            'model_pending_count':sum(1 for p in json.loads(Path('registry.json').read_text()).get('players',[]) if not all(isinstance(p.get(k),(int,float)) and not isinstance(p.get(k),bool) for k in ['score','ideal','max'])),
+            'serie_a_membership_gate':v.get('membership_gate'),
+            'serie_a_membership_count':v.get('serie_a_current_count'),
+            'model_pending_membership_effect':v.get('model_pending_membership_effect'),
             'report_overlay_schema':json.loads(Path('md5-22sep2026.json').read_text()).get('schema'),
             'report_standings_count':len(json.loads(Path('md5-22sep2026.json').read_text()).get('standings',[])),
             'report_goals_rows':len(json.loads(Path('md5-22sep2026.json').read_text()).get('leaders',{}).get('goals',[])),

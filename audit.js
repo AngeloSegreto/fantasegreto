@@ -15,7 +15,7 @@ function run(){
  add('DATA22-05',(overlay?.creative_chances||[]).length===4,'Occasioni create: 4 record esplicitamente riportati');
  add('DATA22-06',overlay?.source_pdf_sha256==='8750038002a14025bfb89c8f620a6337a7f7634695b6b2f1bf30f98cbd11d0a4','Binding SHA-256 al report 22/09');
  add('STALE01',!reg.some(p=>p._news),'Overlay runtime 18/08 disabilitato');
- const recalc=reg.filter(p=>![p.score,p.ideal,p.max].every(v=>Number.isFinite(Number(v))));
+ const recalc=reg.filter(p=>![p.score,p.ideal,p.max].every(v=>typeof v==='number'&&Number.isFinite(v)));
  add('REG05',reg.every(p=>p.serie_a_membership==='ACTIVE_CURRENT_LISTONE_22SEP'),'Tutti i 562 record runtime sono membri Serie A dal Listone corrente');
  add('REG06',recalc.every(p=>p.serie_a_membership==='ACTIVE_CURRENT_LISTONE_22SEP'),`Pending modello ancora in Serie A: ${recalc.length}/${recalc.length}`);
  const expectedPending=Number(window.FS_VERSION?.model_pending_22sep_count??recalc.length);
