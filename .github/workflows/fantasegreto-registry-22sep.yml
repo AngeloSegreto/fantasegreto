@@ -3,7 +3,7 @@ name: FantaSegreto Registry 22SEP Reconciliation
 on:
   push:
     paths:
-      - 'data/canonical-listone-07sep2026.json.gz.b64'
+      - 'data/canonical-parts/**'
       - '.github/workflows/fantasegreto-registry-22sep.yml'
   workflow_dispatch:
 
@@ -23,12 +23,42 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import json, base64, gzip, re, unicodedata, hashlib
+          import json, re, unicodedata, hashlib
           from pathlib import Path
 
           root=Path('.')
-          src=root/'data/canonical-listone-07sep2026.json.gz.b64'
-          canonical=json.loads(gzip.decompress(base64.b64decode(src.read_text().strip())).decode())
+
+          part_dir=root/'data'/'canonical-parts'
+          parts=sorted(part_dir.glob('part-*.json'))
+          assert len(parts)==6, f'Expected 6 canonical parts, found {len(parts)}'
+
+          players_canonical=[]
+          source_hasher=hashlib.sha256()
+
+          for path in parts:
+              raw=path.read_bytes()
+              source_hasher.update(path.name.encode('utf-8'))
+              source_hasher.update(b'\0')
+              source_hasher.update(raw)
+              source_hasher.update(b'\0')
+              chunk=json.loads(raw.decode('utf-8'))
+              assert isinstance(chunk,list), f'{path} is not a JSON list'
+              players_canonical.extend(chunk)
+
+          assert len(players_canonical)==531, f'Expected 531 canonical players, found {len(players_canonical)}'
+          source_official_ids=[str(p['id_ufficiale']) for p in players_canonical]
+          assert len(source_official_ids)==len(set(source_official_ids)), 'Duplicate official IDs in canonical parts'
+
+          canonical={
+            'schema':'FS_CANONICAL_LISTONE_V1',
+            'source_sha256':source_hasher.hexdigest(),
+            'players':players_canonical
+          }
+
+          print('FS_CANONICAL_PARTS_6_PASS')
+          print('FS_CANONICAL_PLAYERS',len(players_canonical))
+          print('FS_CANONICAL_SOURCE_SHA256',canonical['source_sha256'])
+
           old=json.loads((root/'registry.json').read_text())
           details_doc=json.loads((root/'player-details.json').read_text())
           old_players=old.get('players',[])
