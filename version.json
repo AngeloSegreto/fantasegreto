@@ -12,10 +12,11 @@
   "external_listone_count": 562,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "DATA_REFRESH_IN_PROGRESS",
+  "deployment_status": "REGISTRY_MATERIALIZED_PENDING_APP_RECONCILIATION",
   "blockers": [
-    "REGISTRY_22SEP_RUNTIME_RECONCILIATION",
+    "APP_INDEX_22SEP_RUNTIME_RECONCILIATION",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
     "CURRENT_ENGINE_CERTIFIED_TEMPORAL_REAL_AUCTION_REPLAY"
-  ]
+  ],
+  "canonical_registry_runtime_count": 531
 }
