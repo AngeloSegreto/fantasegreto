@@ -90,9 +90,10 @@ jobs:
           v['app_index_runtime_reconciliation']='PASS'
           v['deployment_status']='APP_INDEX_RECONCILED_PENDING_MODEL_ACCEPTANCE'
           blockers=[x for x in v.get('blockers',[]) if x!='APP_INDEX_22SEP_RUNTIME_RECONCILIATION']
-          for x in ['LISTONE_22SEP_FULL_INGEST','FOS_RISK_MAX_22SEP_RECALC']:
+          for x in ['FOS_RISK_MAX_22SEP_RECALC']:
               if x not in blockers:
                   blockers.insert(0,x)
+          blockers=[x for x in blockers if x not in ['LISTONE_22SEP_FULL_INGEST','LISTONE_22SEP_ENTITY_RECONCILIATION']]
           v['blockers']=blockers
           vp.write_text(json.dumps(v,ensure_ascii=False,indent=2))
 
@@ -125,7 +126,7 @@ jobs:
             'md5-22sep2026.json','REGISTRY_RECONCILIATION_22SEP2026.json',
             'APP_INDEX_RECONCILIATION_22SEP2026.json'
           ]
-          for optional in ['listone-22sep2026.json','LISTONE_RECONCILIATION_22SEP2026.json','CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json']:
+          for optional in ['listone-22sep2026.json','LISTONE_RECONCILIATION_22SEP2026.json','CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json','ARCHIVE_REMOVED_REGISTRY_22SEP2026.json']:
               if Path(optional).exists():
                   files.append(optional)
           rows=[]

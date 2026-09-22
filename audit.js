@@ -7,7 +7,7 @@ function run(){
  add('REG01',reg.length===EXPECTED_REGISTRY,`Registry runtime ${reg.length}/${EXPECTED_REGISTRY}`);
  add('REG02',new Set(reg.map(x=>x.id)).size===reg.length,'PlayerID unici');
  add('REG03',Object.keys(details).length===EXPECTED_REGISTRY,`Dettagli ${Object.keys(details).length}/${EXPECTED_REGISTRY}`);
- add('REG04',reg.every(p=>p.official_id&&p.canonical_source==='FANTACALCIO_OFFICIAL_07SEP2026'),'Binding official_id + canonical source presente');
+ add('REG04',reg.every(p=>p.current_listone_source==='LISTONE_22SEP2026'),'Tutti i record runtime legati al Listone corrente 22/09');
  add('DATA22-01',String(overlay?.cutoff||'').startsWith('2026-09-22'),'Overlay performance/sanitario 22/09 caricato');
  add('DATA22-02',(overlay?.medical_verified||[]).length===6,`Medical verificati ${(overlay?.medical_verified||[]).length}/6`);
  add('DATA22-03',(overlay?.leaders?.goals||[]).length===4&&(overlay?.leaders?.assists||[]).length===3,'Leader gol/assist 22/09 presenti');
