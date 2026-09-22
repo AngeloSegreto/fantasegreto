@@ -1,0 +1,132 @@
+name: FantaSegreto Serie A Membership 22SEP
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fantasegreto-membership-22sep.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  membership:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Freeze membership independently from FOS model status
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          regp=Path('registry.json')
+          detp=Path('player-details.json')
+          verp=Path('version.json')
+          listp=Path('listone-22sep2026.json')
+          archp=Path('ARCHIVE_REMOVED_REGISTRY_22SEP2026.json')
+
+          reg=json.loads(regp.read_text())
+          det=json.loads(detp.read_text())
+          ver=json.loads(verp.read_text())
+          current=json.loads(listp.read_text())
+          archive=json.loads(archp.read_text())
+
+          players=reg.get('players',[])
+          details=det.get('details',{})
+          assert reg.get('count')==562 and len(players)==562
+          assert det.get('count')==562 and len(details)==562
+          assert current.get('count')==562 and len(current.get('players',[]))==562
+          assert archive.get('count')==3
+
+          current_ids={p['id'] for p in players}
+          archived_ids={r['player']['id'] for r in archive.get('records',[])}
+          assert not (current_ids & archived_ids)
+
+          pending=[]
+          for p in players:
+              p['serie_a_membership']='ACTIVE_CURRENT_LISTONE_22SEP'
+              p['serie_a_membership_source']='LISTONE_22SEP2026'
+              p['serie_a_membership_cutoff']='2026-09-22'
+              p['model_pending_membership_effect']='NONE'
+              is_pending=not all(isinstance(p.get(k),(int,float)) for k in ('score','ideal','max'))
+              if is_pending:
+                  pending.append(p['id'])
+                  p['pending_scope']='MODEL_ONLY_NOT_MEMBERSHIP'
+              elif p.get('pending_scope')=='MODEL_ONLY_NOT_MEMBERSHIP':
+                  p.pop('pending_scope',None)
+
+              d=details[p['id']]
+              m=dict(d.get('metrics') or {})
+              m['Serie A 22/09']='PRESENTE'
+              d['metrics']=m
+              blocks=[x for x in (d.get('blocks') or []) if x.get('title')!='Membership Serie A 22/09']
+              if is_pending:
+                  blocks.append({
+                    'title':'Membership Serie A 22/09',
+                    'text':'PRESENTE nel Listone corrente del 22/09. PENDING_RECALC riguarda esclusivamente FOS/Risk/MAX e non l’appartenenza alla Serie A.'
+                  })
+              d['blocks']=blocks
+
+          assert len(pending)==125, len(pending)
+          assert all(p.get('serie_a_membership')=='ACTIVE_CURRENT_LISTONE_22SEP' for p in players)
+
+          reg['membership_policy']='LISTONE_PRESENCE_IS_AUTHORITATIVE_22SEP'
+          reg['serie_a_membership_count']=562
+          reg['model_pending_membership_effect']='NONE'
+          regp.write_text(json.dumps(reg,ensure_ascii=False,separators=(',',':')))
+
+          det['membership_policy']='LISTONE_PRESENCE_IS_AUTHORITATIVE_22SEP'
+          detp.write_text(json.dumps(det,ensure_ascii=False,separators=(',',':')))
+
+          ver['serie_a_membership_policy']='LISTONE_PRESENCE_IS_AUTHORITATIVE_22SEP'
+          ver['serie_a_membership_source']='LISTONE_22SEP2026'
+          ver['serie_a_membership_cutoff']='2026-09-22'
+          ver['serie_a_current_count']=562
+          ver['model_pending_22sep_count']=len(pending)
+          ver['model_pending_membership_effect']='NONE'
+          ver['archived_absent_from_current_listone_count']=len(archived_ids)
+          ver['membership_gate']='PASS'
+          verp.write_text(json.dumps(ver,ensure_ascii=False,indent=2))
+
+          evidence={
+            'schema':'FS_SERIE_A_MEMBERSHIP_POLICY_V1',
+            'gate':'SERIE_A_MEMBERSHIP_22SEP',
+            'status':'PASS',
+            'cutoff':'2026-09-22',
+            'authority':'LISTONE_22SEP2026',
+            'rule':'Presence in the authoritative current Listone determines Serie A runtime membership. FOS/Risk/MAX model status has no membership effect.',
+            'runtime_members':562,
+            'model_pending_count_at_freeze':len(pending),
+            'pending_members_still_active':len(pending),
+            'pending_membership_effect':'NONE',
+            'archived_absent_from_current_listone_count':len(archived_ids),
+            'optimizerMax_mutated':False,
+            'pending_ids_sha256':hashlib.sha256(('\n'.join(sorted(pending))+'\n').encode()).hexdigest(),
+            'registry_sha256':hashlib.sha256(regp.read_bytes()).hexdigest(),
+            'details_sha256':hashlib.sha256(detp.read_bytes()).hexdigest(),
+            'archive_sha256':hashlib.sha256(archp.read_bytes()).hexdigest()
+          }
+          Path('SERIE_A_MEMBERSHIP_22SEP2026.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2))
+          print('FS_SERIE_A_MEMBERSHIP_562_PASS')
+          print('FS_PENDING_MODEL_ONLY',len(pending))
+          PY
+
+      - name: Commit membership policy and evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "fantasegreto-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add registry.json player-details.json version.json SERIE_A_MEMBERSHIP_22SEP2026.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "FS: freeze Listone-based Serie A membership for 562 runtime players"
+          git push

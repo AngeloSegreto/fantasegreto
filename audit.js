@@ -16,6 +16,10 @@ function run(){
  add('DATA22-06',overlay?.source_pdf_sha256==='8750038002a14025bfb89c8f620a6337a7f7634695b6b2f1bf30f98cbd11d0a4','Binding SHA-256 al report 22/09');
  add('STALE01',!reg.some(p=>p._news),'Overlay runtime 18/08 disabilitato');
  const recalc=reg.filter(p=>![p.score,p.ideal,p.max].every(v=>Number.isFinite(Number(v))));
+ add('REG05',reg.every(p=>p.serie_a_membership==='ACTIVE_CURRENT_LISTONE_22SEP'),'Tutti i 562 record runtime sono membri Serie A dal Listone corrente');
+ add('REG06',recalc.every(p=>p.serie_a_membership==='ACTIVE_CURRENT_LISTONE_22SEP'),`Pending modello ancora in Serie A: ${recalc.length}/${recalc.length}`);
+ const expectedPending=Number(window.FS_VERSION?.model_pending_22sep_count??recalc.length);
+ add('REG07',recalc.length===expectedPending,`Pending modello ${recalc.length}/${expectedPending}; membership separata dal modello`);
  add('MODEL01',recalc.length===0,`Record in attesa FOS/Risk/MAX recalculation: ${recalc.length}`,'WARN');
  const stale=reg.filter(p=>p.model_status==='STALE_PRE_22SEP_RECALC');
  add('MODEL02',stale.length===0,`Record con modello numerico pre-22SEP ancora da ricalcolare: ${stale.length}`,'WARN');

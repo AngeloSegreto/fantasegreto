@@ -129,6 +129,10 @@ jobs:
                   base['current_listone_source']='LISTONE_22SEP2026'
                   base['current_listone_cutoff']='2026-09-22'
                   base['current_reconciliation_match']=match_method
+                  base['serie_a_membership']='ACTIVE_CURRENT_LISTONE_22SEP'
+                  base['serie_a_membership_source']='LISTONE_22SEP2026'
+                  base['serie_a_membership_cutoff']='2026-09-22'
+                  base['model_pending_membership_effect']='NONE'
                   base['model_status']='STALE_PRE_22SEP_RECALC'
                   base['registry_status']='CURRENT_22SEP_MATCHED_MODEL_STALE_PENDING_RECALC'
 
@@ -180,6 +184,10 @@ jobs:
                     'kapitals_22sep':ext['kapitals'],'full_name_22sep':ext['nome'],
                     'current_listone_source':'LISTONE_22SEP2026','current_listone_cutoff':'2026-09-22',
                     'current_reconciliation_match':'NEW_CURRENT_22SEP',
+                    'serie_a_membership':'ACTIVE_CURRENT_LISTONE_22SEP',
+                    'serie_a_membership_source':'LISTONE_22SEP2026',
+                    'serie_a_membership_cutoff':'2026-09-22',
+                    'model_pending_membership_effect':'NONE',
                     'list_meta':f"{ext['squadra']} · {ext['posizione']} · FC {chosen_role} · K {ext['kapitals']}"
                   }
                   final_players.append(p)
@@ -191,6 +199,7 @@ jobs:
                       'Kapitals 22/09':str(ext['kapitals']),'Posizione 22/09':str(ext['posizione']),
                       'Ruolo Fantacalcio.it 22/09':str(ext['ruolo_fantacalcio']),
                       'Ruolo standard 22/09':str(ext['ruolo_standard']),
+                      'Serie A 22/09':'PRESENTE',
                       'FS Score':'RECALC','MAX':'RECALC','Rischio':'RECALC'
                     },
                     'instruction':'Valutazione FS 22/09 da ricalcolare.',
@@ -215,6 +224,7 @@ jobs:
           assert len(final_details)==562
           assert role_counts=={'P':67,'D':195,'C':206,'A':94}, role_counts
           assert all(p.get('current_listone_source')=='LISTONE_22SEP2026' for p in final_players)
+          assert all(p.get('serie_a_membership')=='ACTIVE_CURRENT_LISTONE_22SEP' for p in final_players)
 
           reg_out={
             'build':'V4.1.9 22SEP CURRENT REGISTRY V2',
@@ -259,6 +269,8 @@ jobs:
             'runtime_role_basis':'ruolo_fantacalcio; standard fallback only when unavailable',
             'fantacalcio_role_fallback_count':20,'fantacalcio_role_fallback_names':fallback_role,
             'unique_runtime_ids':562,'optimizerMax_mutated':False,
+            'serie_a_membership_count':562,'membership_source':'LISTONE_22SEP2026',
+            'model_pending_membership_effect':'NONE',
             'model_recalculation_status':'PENDING_22SEP','baseline_commit':BASELINE,
             'source_safe_disambiguations':[
               {'source':'NUNO TAVARES - / Lazio','registry_id':'p-tavares-n-lazio','method':'surname-order same-team'},
@@ -283,6 +295,10 @@ jobs:
           version['canonical_registry_runtime_count']=531
           version['runtime_role_basis_22sep']='RUOLO_FANTACALCIO_IT_WITH_STANDARD_FALLBACK'
           version['fantacalcio_role_fallback_count']=20
+          version['serie_a_membership_source']='LISTONE_22SEP2026'
+          version['serie_a_membership_cutoff']='2026-09-22'
+          version['serie_a_current_count']=562
+          version['model_pending_membership_effect']='NONE'
           version['optimizerMax_mutated']=False;version['gold']=False
           version['app_index_runtime_reconciliation']='PENDING_562_RESEAL'
           version['deployment_status']='CURRENT_562_REGISTRY_V2_RECONCILED_PENDING_MODEL_RECALC'
