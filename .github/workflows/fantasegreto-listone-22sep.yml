@@ -1,0 +1,170 @@
+name: FantaSegreto Listone 22SEP Ingest
+
+on:
+  push:
+    paths:
+      - 'data/listone-22sep2026.json.gz.b64'
+      - '.github/workflows/fantasegreto-listone-22sep.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Materialize and reconcile 22SEP Listone
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64, gzip, hashlib, json, re, unicodedata
+          from difflib import SequenceMatcher
+          from pathlib import Path
+
+          src=Path('data/listone-22sep2026.json.gz.b64')
+          raw=gzip.decompress(base64.b64decode(src.read_text().strip()))
+          doc=json.loads(raw.decode('utf-8'))
+          assert doc.get('count')==562, doc.get('count')
+          assert len(doc.get('players',[]))==562
+          required={'nome','eta','ruolo_standard','ruolo_trequartista','ruolo_fantacalcio','posizione','squadra','kapitals'}
+          assert all(required <= set(p) for p in doc['players'])
+
+          reg=json.loads(Path('registry.json').read_text())
+          players=reg.get('players',[])
+          assert len(players)==531
+
+          def norm(s):
+              s=unicodedata.normalize('NFKD',str(s or '')).encode('ascii','ignore').decode().lower()
+              return re.sub(r'[^a-z0-9]+','',s)
+
+          def ext_parts(name):
+              toks=str(name).split()
+              up=[]
+              rest=[]
+              switched=False
+              for t in toks:
+                  letters=''.join(ch for ch in t if ch.isalpha())
+                  is_up=bool(letters) and letters.upper()==letters
+                  if not switched and is_up:
+                      up.append(t)
+                  else:
+                      switched=True
+                      rest.append(t)
+              if not up:
+                  up=toks[:1]; rest=toks[1:]
+              return norm(' '.join(up)), [norm(x) for x in rest if norm(x)]
+
+          def score(ext,p,team_required=True):
+              if team_required and norm(ext['squadra'])!=norm(p.get('team')): return -1
+              en=norm(ext['nome']); rn=norm(p.get('name'))
+              surname,given=ext_parts(ext['nome'])
+              s=0.0
+              if en==rn: s+=220
+              if surname and surname==rn: s+=160
+              elif surname and (surname in rn or rn in surname): s+=105
+              if rn and rn in en: s+=75
+              s+=SequenceMatcher(None,en,rn).ratio()*55
+              if ext['ruolo_standard']==p.get('role'): s+=22
+              if surname and rn.startswith(surname):
+                  tail=rn[len(surname):]
+                  if tail and given:
+                      g0=given[0]
+                      if g0.startswith(tail) or tail.startswith(g0[:1]): s+=35
+              return s
+
+          used=set()
+          same_team=0
+          moved_team=0
+          ambiguous=[]
+          unmatched=[]
+
+          for ext in doc['players']:
+              candidates=[p for p in players if p['id'] not in used and norm(p.get('team'))==norm(ext['squadra'])]
+              ranked=sorted(((score(ext,p,True),p) for p in candidates), key=lambda x:x[0], reverse=True)
+              chosen=None; method=None
+              if ranked and ranked[0][0]>=150:
+                  margin=ranked[0][0]-(ranked[1][0] if len(ranked)>1 else 0)
+                  if margin>=15 or ranked[0][0]>=230:
+                      chosen=ranked[0][1]; method='NAME_TEAM'
+              if chosen is None:
+                  candidates=[p for p in players if p['id'] not in used]
+                  ranked=sorted(((score(ext,p,False),p) for p in candidates), key=lambda x:x[0], reverse=True)
+                  if ranked and ranked[0][0]>=210:
+                      margin=ranked[0][0]-(ranked[1][0] if len(ranked)>1 else 0)
+                      if margin>=25:
+                          chosen=ranked[0][1]; method='UNIQUE_NAME_TEAM_CHANGED'
+              if chosen is None:
+                  unmatched.append({'nome':ext['nome'],'squadra':ext['squadra'],'ruolo':ext['ruolo_standard'],'kapitals':ext['kapitals']})
+                  continue
+              ext['registry_id']=chosen['id']
+              ext['match_method']=method
+              ext['registry_name']=chosen.get('name')
+              ext['registry_team']=chosen.get('team')
+              used.add(chosen['id'])
+              if method=='NAME_TEAM': same_team+=1
+              else: moved_team+=1
+
+          missing=[{'id':p['id'],'name':p.get('name'),'team':p.get('team'),'role':p.get('role')} for p in players if p['id'] not in used]
+          doc['matched_registry_count']=len(used)
+          doc['unmatched_external_count']=len(unmatched)
+          doc['missing_registry_count']=len(missing)
+          doc['reconciliation_schema']='FS_LISTONE_22SEP_ENTITY_LINK_V1'
+          Path('listone-22sep2026.json').write_text(json.dumps(doc,ensure_ascii=False,separators=(',',':')))
+
+          report={
+            'gate':'LISTONE_22SEP_FULL_INGEST',
+            'status':'PASS',
+            'source_count':562,
+            'materialized_count':len(doc['players']),
+            'registry_count':531,
+            'matched_registry_count':len(used),
+            'same_team_matches':same_team,
+            'team_changed_matches':moved_team,
+            'unmatched_external_count':len(unmatched),
+            'missing_registry_count':len(missing),
+            'entity_reconciliation_status':'PASS' if not unmatched and not missing else 'PENDING_REVIEW',
+            'source_pdf_sha256':doc.get('source_pdf_sha256'),
+            'materialized_sha256':hashlib.sha256(Path('listone-22sep2026.json').read_bytes()).hexdigest(),
+            'unmatched_external':unmatched,
+            'missing_registry':missing
+          }
+          Path('LISTONE_RECONCILIATION_22SEP2026.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+
+          vp=Path('version.json')
+          v=json.loads(vp.read_text())
+          v['external_listone_materialized_count']=562
+          v['external_listone_source_pdf_sha256']=doc.get('source_pdf_sha256')
+          blockers=[x for x in v.get('blockers',[]) if x!='LISTONE_22SEP_FULL_INGEST']
+          if unmatched or missing:
+              if 'LISTONE_22SEP_ENTITY_RECONCILIATION' not in blockers:
+                  blockers.insert(0,'LISTONE_22SEP_ENTITY_RECONCILIATION')
+              v['deployment_status']='LISTONE_22SEP_INGESTED_PENDING_ENTITY_RECONCILIATION'
+          else:
+              blockers=[x for x in blockers if x!='LISTONE_22SEP_ENTITY_RECONCILIATION']
+              v['deployment_status']='LISTONE_22SEP_RECONCILED_PENDING_MODEL_ACCEPTANCE'
+          v['blockers']=blockers
+          vp.write_text(json.dumps(v,ensure_ascii=False,indent=2))
+
+          print('FS_LISTONE_22SEP_562_PASS')
+          print(json.dumps({k:report[k] for k in ['matched_registry_count','same_team_matches','team_changed_matches','unmatched_external_count','missing_registry_count','entity_reconciliation_status']},ensure_ascii=False))
+          PY
+
+      - name: Commit Listone materialization and reconciliation evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "fantasegreto-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add listone-22sep2026.json LISTONE_RECONCILIATION_22SEP2026.json version.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "FS: materialize and reconcile 562-player Listone 22SEP"
+          git push
