@@ -18,330 +18,260 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Materialize authoritative current 562-player runtime
+      - name: Rebuild current 562 runtime from pinned 07SEP lineage
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import copy, hashlib, json
+          import copy, hashlib, json, subprocess
           from collections import Counter
           from pathlib import Path
 
-          list_path=Path('listone-22sep2026.json')
-          reg_path=Path('registry.json')
-          det_path=Path('player-details.json')
-          ver_path=Path('version.json')
+          BASELINE='945f006a43fc61320a37f8dc09ae5b56aaa88910'
 
-          current=json.loads(list_path.read_text())
-          old=json.loads(reg_path.read_text())
-          old_det=json.loads(det_path.read_text())
-          version=json.loads(ver_path.read_text())
+          def git_json(path):
+              raw=subprocess.check_output(['git','show',f'{BASELINE}:{path}'])
+              return json.loads(raw.decode('utf-8'))
+
+          current=json.loads(Path('listone-22sep2026.json').read_text())
+          baseline=git_json('registry.json')
+          baseline_details=git_json('player-details.json')
+          version=json.loads(Path('version.json').read_text())
 
           rows=current.get('players',[])
-          old_players=old.get('players',[])
-          old_details=old_det.get('details',{})
+          old_players=baseline.get('players',[])
+          old_details=baseline_details.get('details',{})
+          by_id={p['id']:p for p in old_players}
 
           assert current.get('count')==562
           assert len(rows)==562
           assert len(old_players)==531
-          assert len({p['id'] for p in old_players})==531
+          assert len(by_id)==531
 
-          by_id={p['id']:p for p in old_players}
-          manual_alias={
-            ('NUNO TAVARES -','Lazio'):'p-tavares-n-lazio',
+          # Source-safe disambiguations from the two supplied Listone generations.
+          # No external identity is guessed beyond these same-team/surname/initial pairings.
+          explicit={
+            ('NUNO TAVARES -','Lazio'):('p-tavares-n-lazio','SURNAME_ORDER_SAME_TEAM'),
+            ('TERRACCIANO Filippo','Milan'):('p-fc-5812','SURNAME_INITIAL_F_SAME_TEAM_PAIR'),
+            ('TERRACCIANO Pietro','Milan'):('p-terracciano-milan','SAME_SURNAME_GOALKEEPER_PAIR'),
+            ('DIALLO THIAO Ousmane','Parma'):('p-diallo-o-parma','SURNAME_INITIAL_O_SAME_TEAM'),
           }
 
+          valid_roles={'P','D','C','A'}
           used_old=set()
-          new_players=[]
-          details={}
+          final_players=[]
+          final_details={}
           preserved=0
           new_count=0
           role_changed=[]
-          identity_nonmerge=[]
+          fallback_role=[]
+          new_ids=[]
 
-          def new_id(ext):
+          def current_role(ext):
+              fc=ext.get('ruolo_fantacalcio')
+              if fc in valid_roles:
+                  return fc,'RUOLO_FANTACALCIO_IT'
+              role=ext.get('ruolo_standard')
+              assert role in valid_roles, (ext.get('nome'),fc,role)
+              fallback_role.append(ext.get('nome'))
+              return role,'STANDARD_FALLBACK_NO_FC_ROLE'
+
+          def deterministic_new_id(ext):
+              existing=ext.get('registry_id')
+              if isinstance(existing,str) and existing.startswith('p-l22-') and existing not in by_id:
+                  return existing
               key=f"{ext['nome']}|{ext['squadra']}|{ext['ruolo_standard']}"
               return 'p-l22-'+hashlib.sha256(key.encode('utf-8')).hexdigest()[:14]
 
-          def reset_model(p,reason):
-              legacy={
-                'role':p.get('role'),
-                'score':p.get('score'),
-                'ideal':p.get('ideal'),
-                'max':p.get('max'),
-                'risk':p.get('risk'),
-                'value_index':p.get('value_index'),
-                'confidence':p.get('confidence'),
-                'decision':p.get('decision'),
-                'risk_line':p.get('risk_line'),
-                'rank':copy.deepcopy(p.get('rank')),
+          def reset_model(p,old_role,new_role):
+              p['legacy_model_07sep']={
+                'role':old_role,'score':p.get('score'),'ideal':p.get('ideal'),
+                'max':p.get('max'),'risk':p.get('risk'),'value_index':p.get('value_index'),
+                'confidence':p.get('confidence'),'decision':p.get('decision'),
+                'risk_line':p.get('risk_line'),'rank':copy.deepcopy(p.get('rank'))
               }
-              p['legacy_model_07sep']=legacy
-              p['score']=None
-              p['ideal']=None
-              p['max']=None
-              p['risk']=None
-              p['value_index']='—'
-              p['confidence']='PENDING'
-              p['decision']='RECALC'
-              p['risk_line']=reason
+              p['score']=None;p['ideal']=None;p['max']=None;p['risk']=None
+              p['value_index']='—';p['confidence']='PENDING';p['decision']='RECALC'
+              p['risk_line']='ROLE_CHANGED_22SEP · FS RECALC PENDING'
               p['rank']={'score':'0','value':'0','ideal':'0','quote':'0','risk':'0'}
+              role_changed.append({'id':p['id'],'name':p['name'],'from_role':old_role,'to_role':new_role})
 
           for ext in rows:
-              key=(ext['nome'],ext['squadra'])
-              pid=ext.get('registry_id')
-              method=ext.get('match_method') if pid else None
-              if (not pid or pid not in by_id or pid in used_old) and key in manual_alias:
-                  pid=manual_alias[key]
-                  method='MANUAL_ALIAS_SOURCE_SAFE'
+              source_key=(ext['nome'],ext['squadra'])
+              chosen_role,role_source=current_role(ext)
 
-              if pid and pid in by_id and pid not in used_old:
-                  p=copy.deepcopy(by_id[pid])
-                  used_old.add(pid)
-                  preserved+=1
-                  old_role=p.get('role')
-                  current_role=ext['ruolo_standard']
-                  changed=old_role!=current_role
-
-                  p['name']=ext['nome']
-                  p['team']=ext['squadra']
-                  p['role']=current_role
-                  p['age_22sep']=ext['eta']
-                  p['role_trequartista_22sep']=ext['ruolo_trequartista']
-                  p['role_fantacalcio_22sep']=ext['ruolo_fantacalcio']
-                  p['position_22sep']=ext['posizione']
-                  p['kapitals_22sep']=ext['kapitals']
-                  p['full_name_22sep']=ext['nome']
-                  p['current_listone_source']='LISTONE_22SEP2026'
-                  p['current_listone_cutoff']='2026-09-22'
-                  p['current_reconciliation_match']=method or 'PRELINKED_22SEP'
-                  p['model_status']='STALE_PRE_22SEP_RECALC'
-
-                  if changed:
-                      reset_model(p,'ROLE_CHANGED_22SEP · FS RECALC PENDING')
-                      p['registry_status']='CURRENT_22SEP_ROLE_CHANGED_PENDING_FS_RECALC'
-                      p['model_status']='PENDING_RECALC_ROLE_CHANGED'
-                      role_changed.append({
-                        'id':pid,'name':ext['nome'],'team':ext['squadra'],
-                        'from_role':old_role,'to_role':current_role
-                      })
+              if source_key in explicit:
+                  pid,match_method=explicit[source_key]
+              else:
+                  candidate=ext.get('registry_id')
+                  if candidate in by_id:
+                      pid,match_method=candidate,(ext.get('final_registry_match_method') or ext.get('match_method') or 'PRELINKED_22SEP')
                   else:
-                      p['registry_status']='CURRENT_22SEP_MATCHED_MODEL_STALE_PENDING_RECALC'
+                      pid,match_method=None,None
 
-                  meta=f"{ext['squadra']} · {ext['posizione']} · K {ext['kapitals']}"
-                  if p.get('quote') is not None:
-                      meta+=f" · Q {p.get('quote')}"
-                  if p.get('fvm') is not None:
-                      meta+=f" · FVM {p.get('fvm')}"
-                  p['list_meta']=meta
-
-                  d=copy.deepcopy(old_details.get(pid) or {})
-                  d['id']=pid
-                  d['name']=ext['nome']
-                  d['role']=current_role
-                  d['subtitle']=f"{ext['squadra']} · {ext['posizione']} · K {ext['kapitals']}"
-                  metrics=dict(d.get('metrics') or {})
-                  metrics['Kapitals 22/09']=str(ext['kapitals'])
-                  metrics['Posizione 22/09']=str(ext['posizione'])
-                  metrics['Ruolo standard 22/09']=str(current_role)
-                  if changed:
-                      metrics['FS Score']='RECALC'
-                      metrics['Prezzo ideale']='RECALC'
-                      metrics['MAX']='RECALC'
-                      metrics['Rischio']='RECALC'
-                  d['metrics']=metrics
-                  blocks=[x for x in (d.get('blocks') or []) if x.get('title')!='Listone 22/09']
-                  note='Record presente nel Listone corrente 22/09. Modello FS precedente conservato come lineage ma in attesa del ricalcolo 22/09.'
-                  if changed:
-                      note+=f" Ruolo standard cambiato {old_role}→{current_role}; valori FOS/Risk/MAX precedenti non sono usati."
-                  blocks.append({'title':'Listone 22/09','text':note})
-                  d['blocks']=blocks
-                  details[pid]=d
-              else:
-                  pid=new_id(ext)
-                  salt=0
-                  while pid in details or any(x['id']==pid for x in new_players):
-                      salt+=1
-                      pid='p-l22-'+hashlib.sha256((ext['nome']+'|'+ext['squadra']+'|'+str(salt)).encode()).hexdigest()[:14]
-
-                  p={
-                    'id':pid,
-                    'official_id':None,
-                    'name':ext['nome'],
-                    'team':ext['squadra'],
-                    'role':ext['ruolo_standard'],
-                    'score':None,'ideal':None,'max':None,'risk':None,
-                    'quote':None,'fvm':None,
-                    'value_index':'—','confidence':'PENDING',
-                    'decision':'RECALC',
-                    'risk_line':'CURRENT_22SEP_NEW · FS RECALC PENDING',
-                    'rank':{'score':'0','value':'0','ideal':'0','quote':'0','risk':'0'},
-                    'registry_status':'CURRENT_22SEP_NEW_PENDING_FS_RECALC',
-                    'model_status':'PENDING_RECALC_NEW_CURRENT',
-                    'age_22sep':ext['eta'],
-                    'role_trequartista_22sep':ext['ruolo_trequartista'],
-                    'role_fantacalcio_22sep':ext['ruolo_fantacalcio'],
-                    'position_22sep':ext['posizione'],
-                    'kapitals_22sep':ext['kapitals'],
-                    'full_name_22sep':ext['nome'],
-                    'current_listone_source':'LISTONE_22SEP2026',
-                    'current_listone_cutoff':'2026-09-22',
-                    'current_reconciliation_match':'NEW_CURRENT_22SEP',
-                    'list_meta':f"{ext['squadra']} · {ext['posizione']} · K {ext['kapitals']}",
-                  }
-                  new_players.append(p)
-                  new_count+=1
-                  details[pid]={
-                    'id':pid,'name':ext['nome'],
-                    'subtitle':f"{ext['squadra']} · {ext['posizione']} · K {ext['kapitals']}",
-                    'role':ext['ruolo_standard'],
-                    'metrics':{
-                      'Kapitals 22/09':str(ext['kapitals']),
-                      'Posizione 22/09':str(ext['posizione']),
-                      'Ruolo standard 22/09':str(ext['ruolo_standard']),
-                      'FS Score':'RECALC','MAX':'RECALC','Rischio':'RECALC'
-                    },
-                    'instruction':'Valutazione FS 22/09 da ricalcolare.',
-                    'blocks':[{
-                      'title':'Listone 22/09',
-                      'text':'Nuovo record del Listone corrente 22/09. Nessun FOS/Risk/MAX viene inventato: resta PENDING_RECALC.'
-                    }]
-                  }
-                  identity_nonmerge.append({
-                    'id':pid,'name':ext['nome'],'team':ext['squadra'],
-                    'reason':'NO_SOURCE_SAFE_LINK_TO_07SEP_RUNTIME'
-                  })
-
-              ext['registry_id']=pid
-              ext['final_registry_match_method']=method or ('NEW_CURRENT_22SEP' if pid.startswith('p-l22-') else 'PRELINKED_22SEP')
-
-          current_players=[]
-          for ext in rows:
-              pid=ext['registry_id']
-              if pid in used_old:
-                  current_players.append(next(p for p in [copy.deepcopy(by_id[pid])] if p))
-              else:
-                  pass
-
-          # Rebuild in exact current Listone order from the records already materialized above.
-          materialized={}
-          for pid in used_old:
-              pass
-
-          # We intentionally rebuild a second time from details of decisions above to preserve source order.
-          final_players=[]
-          matched_cache={}
-          for ext in rows:
-              pid=ext['registry_id']
-              if pid in by_id and pid in used_old:
-                  # Find the transformed matched record by reconstructing from the stored detail-adjacent fields.
+              if pid in by_id and pid not in used_old:
                   base=copy.deepcopy(by_id[pid])
                   old_role=base.get('role')
-                  current_role=ext['ruolo_standard']
-                  changed=old_role!=current_role
-                  base['name']=ext['nome']; base['team']=ext['squadra']; base['role']=current_role
-                  base['age_22sep']=ext['eta']; base['role_trequartista_22sep']=ext['ruolo_trequartista']
-                  base['role_fantacalcio_22sep']=ext['ruolo_fantacalcio']; base['position_22sep']=ext['posizione']
-                  base['kapitals_22sep']=ext['kapitals']; base['full_name_22sep']=ext['nome']
-                  base['current_listone_source']='LISTONE_22SEP2026'; base['current_listone_cutoff']='2026-09-22'
-                  base['current_reconciliation_match']=ext['final_registry_match_method']
+                  used_old.add(pid)
+                  preserved+=1
+
+                  base['name']=ext['nome']
+                  base['team']=ext['squadra']
+                  base['role']=chosen_role
+                  base['age_22sep']=ext['eta']
+                  base['role_standard_22sep']=ext['ruolo_standard']
+                  base['role_trequartista_22sep']=ext['ruolo_trequartista']
+                  base['role_fantacalcio_22sep']=ext['ruolo_fantacalcio']
+                  base['role_source_22sep']=role_source
+                  base['position_22sep']=ext['posizione']
+                  base['kapitals_22sep']=ext['kapitals']
+                  base['full_name_22sep']=ext['nome']
+                  base['current_listone_source']='LISTONE_22SEP2026'
+                  base['current_listone_cutoff']='2026-09-22'
+                  base['current_reconciliation_match']=match_method
                   base['model_status']='STALE_PRE_22SEP_RECALC'
-                  if changed:
-                      reset_model(base,'ROLE_CHANGED_22SEP · FS RECALC PENDING')
+                  base['registry_status']='CURRENT_22SEP_MATCHED_MODEL_STALE_PENDING_RECALC'
+
+                  if old_role!=chosen_role:
+                      reset_model(base,old_role,chosen_role)
                       base['registry_status']='CURRENT_22SEP_ROLE_CHANGED_PENDING_FS_RECALC'
                       base['model_status']='PENDING_RECALC_ROLE_CHANGED'
-                  else:
-                      base['registry_status']='CURRENT_22SEP_MATCHED_MODEL_STALE_PENDING_RECALC'
-                  meta=f"{ext['squadra']} · {ext['posizione']} · K {ext['kapitals']}"
+
+                  meta=f"{ext['squadra']} · {ext['posizione']} · FC {chosen_role} · K {ext['kapitals']}"
                   if base.get('quote') is not None: meta+=f" · Q {base.get('quote')}"
                   if base.get('fvm') is not None: meta+=f" · FVM {base.get('fvm')}"
                   base['list_meta']=meta
                   final_players.append(base)
+
+                  d=copy.deepcopy(old_details.get(pid) or {})
+                  d['id']=pid;d['name']=ext['nome'];d['role']=chosen_role
+                  d['subtitle']=f"{ext['squadra']} · {ext['posizione']} · K {ext['kapitals']}"
+                  metrics=dict(d.get('metrics') or {})
+                  metrics['Kapitals 22/09']=str(ext['kapitals'])
+                  metrics['Posizione 22/09']=str(ext['posizione'])
+                  metrics['Ruolo Fantacalcio.it 22/09']=str(ext['ruolo_fantacalcio'])
+                  metrics['Ruolo standard 22/09']=str(ext['ruolo_standard'])
+                  if old_role!=chosen_role:
+                      metrics['FS Score']='RECALC';metrics['Prezzo ideale']='RECALC'
+                      metrics['MAX']='RECALC';metrics['Rischio']='RECALC'
+                  d['metrics']=metrics
+                  blocks=[x for x in (d.get('blocks') or []) if x.get('title')!='Listone 22/09']
+                  text='Record riconciliato con il Listone corrente 22/09. Ruolo runtime basato sulla colonna Ruolo Fantacalcio.it; valori FS precedenti restano lineage in attesa del ricalcolo 22/09.'
+                  blocks.append({'title':'Listone 22/09','text':text})
+                  d['blocks']=blocks
+                  final_details[pid]=d
               else:
-                  final_players.append(next(p for p in new_players if p['id']==pid))
+                  pid=deterministic_new_id(ext)
+                  assert pid not in {p['id'] for p in final_players}, pid
+                  new_count+=1
+                  new_ids.append(pid)
+                  p={
+                    'id':pid,'official_id':None,'name':ext['nome'],'team':ext['squadra'],'role':chosen_role,
+                    'score':None,'ideal':None,'max':None,'risk':None,'quote':None,'fvm':None,
+                    'value_index':'—','confidence':'PENDING','decision':'RECALC',
+                    'risk_line':'CURRENT_22SEP_NEW · FS RECALC PENDING',
+                    'rank':{'score':'0','value':'0','ideal':'0','quote':'0','risk':'0'},
+                    'registry_status':'CURRENT_22SEP_NEW_PENDING_FS_RECALC',
+                    'model_status':'PENDING_RECALC_NEW_CURRENT',
+                    'age_22sep':ext['eta'],'role_standard_22sep':ext['ruolo_standard'],
+                    'role_trequartista_22sep':ext['ruolo_trequartista'],
+                    'role_fantacalcio_22sep':ext['ruolo_fantacalcio'],
+                    'role_source_22sep':role_source,'position_22sep':ext['posizione'],
+                    'kapitals_22sep':ext['kapitals'],'full_name_22sep':ext['nome'],
+                    'current_listone_source':'LISTONE_22SEP2026','current_listone_cutoff':'2026-09-22',
+                    'current_reconciliation_match':'NEW_CURRENT_22SEP',
+                    'list_meta':f"{ext['squadra']} · {ext['posizione']} · FC {chosen_role} · K {ext['kapitals']}"
+                  }
+                  final_players.append(p)
+                  final_details[pid]={
+                    'id':pid,'name':ext['nome'],
+                    'subtitle':f"{ext['squadra']} · {ext['posizione']} · K {ext['kapitals']}",
+                    'role':chosen_role,
+                    'metrics':{
+                      'Kapitals 22/09':str(ext['kapitals']),'Posizione 22/09':str(ext['posizione']),
+                      'Ruolo Fantacalcio.it 22/09':str(ext['ruolo_fantacalcio']),
+                      'Ruolo standard 22/09':str(ext['ruolo_standard']),
+                      'FS Score':'RECALC','MAX':'RECALC','Rischio':'RECALC'
+                    },
+                    'instruction':'Valutazione FS 22/09 da ricalcolare.',
+                    'blocks':[{'title':'Listone 22/09','text':'Nuovo record del Listone corrente. Nessun FOS/Risk/MAX viene inventato: resta PENDING_RECALC.'}]
+                  }
+
+              ext['registry_id']=pid
+              ext['final_registry_match_method']=match_method or 'NEW_CURRENT_22SEP'
+              ext['runtime_role_22sep']=chosen_role
+              ext['runtime_role_source_22sep']=role_source
 
           removed=[copy.deepcopy(p) for p in old_players if p['id'] not in used_old]
+          role_counts=dict(Counter(p['role'] for p in final_players))
 
-          assert len(final_players)==562, len(final_players)
-          assert preserved==526, preserved
-          assert new_count==36, new_count
-          assert len(removed)==5, len(removed)
+          assert len(final_players)==562
+          assert preserved==528, preserved
+          assert new_count==34, new_count
+          assert len(removed)==3, len(removed)
+          assert len(role_changed)==0, role_changed
+          assert len(fallback_role)==20, len(fallback_role)
           assert len({p['id'] for p in final_players})==562
-          assert len(details)==562
+          assert len(final_details)==562
+          assert role_counts=={'P':67,'D':195,'C':206,'A':94}, role_counts
           assert all(p.get('current_listone_source')=='LISTONE_22SEP2026' for p in final_players)
 
-          role_counts=dict(Counter(p['role'] for p in final_players))
-          source_role_counts=dict(Counter(x['ruolo_standard'] for x in rows))
-          assert role_counts==source_role_counts
-
           reg_out={
-            'build':'V4.1.9 22SEP CURRENT REGISTRY',
-            'engine':'V4.0.23.1 LOCK',
-            'count':562,
-            'schema_version':'FS_RUNTIME_REGISTRY_V4',
-            'data_cutoff':'2026-09-22',
-            'baseline_07sep_count':531,
-            'baseline_source_sha256':old.get('source_sha256'),
-            'current_listone_source':'Listone (5).pdf',
+            'build':'V4.1.9 22SEP CURRENT REGISTRY V2',
+            'engine':'V4.0.23.1 LOCK','count':562,'schema_version':'FS_RUNTIME_REGISTRY_V4',
+            'data_cutoff':'2026-09-22','baseline_07sep_count':531,
+            'baseline_source_sha256':baseline.get('source_sha256'),
+            'baseline_commit':BASELINE,'current_listone_source':'Listone (5).pdf',
             'current_listone_source_pdf_sha256':current.get('source_pdf_sha256'),
-            'optimizerMax_mutated':False,
-            'model_recalculation_status':'PENDING_22SEP',
+            'runtime_role_basis':'ruolo_fantacalcio; standard fallback only when unavailable',
+            'optimizerMax_mutated':False,'model_recalculation_status':'PENDING_22SEP',
             'players':final_players
           }
-          reg_path.write_text(json.dumps(reg_out,ensure_ascii=False,separators=(',',':')))
+          Path('registry.json').write_text(json.dumps(reg_out,ensure_ascii=False,separators=(',',':')))
 
-          det_out={
-            'build':'V4.1.9 22SEP CURRENT REGISTRY',
-            'count':562,
-            'schema_version':'FS_PLAYER_DETAILS_V4',
-            'data_cutoff':'2026-09-22',
-            'details':details
-          }
-          det_path.write_text(json.dumps(det_out,ensure_ascii=False,separators=(',',':')))
+          det_out={'build':'V4.1.9 22SEP CURRENT REGISTRY V2','count':562,
+                   'schema_version':'FS_PLAYER_DETAILS_V4','data_cutoff':'2026-09-22',
+                   'details':final_details}
+          Path('player-details.json').write_text(json.dumps(det_out,ensure_ascii=False,separators=(',',':')))
 
           current['current_registry_materialized_count']=562
-          current['matched_previous_runtime_count']=526
-          current['new_current_count']=36
-          current['removed_previous_runtime_count']=5
+          current['matched_previous_runtime_count']=528
+          current['new_current_count']=34
+          current['removed_previous_runtime_count']=3
           current['unresolved_entity_count']=0
-          current['entity_policy']='Only source-safe previous links are preserved; unresolved 07SEP abbreviations are not guessed.'
-          list_path.write_text(json.dumps(current,ensure_ascii=False,separators=(',',':')))
+          current['runtime_role_basis']='ruolo_fantacalcio; standard fallback only when unavailable'
+          current['fantacalcio_role_fallback_count']=20
+          current['entity_policy']='Only source-safe previous links are preserved; unsupported nickname/initial merges are not guessed.'
+          Path('listone-22sep2026.json').write_text(json.dumps(current,ensure_ascii=False,separators=(',',':')))
 
-          archive={
-            'schema':'FS_REMOVED_RUNTIME_ARCHIVE_22SEP_V1',
-            'reason':'ABSENT_FROM_AUTHORITATIVE_CURRENT_LISTONE_22SEP',
-            'count':len(removed),
-            'records':[{
-              'player':p,
-              'details':old_details.get(p['id'])
-            } for p in removed]
-          }
+          archive={'schema':'FS_REMOVED_RUNTIME_ARCHIVE_22SEP_V2',
+                   'reason':'ABSENT_FROM_AUTHORITATIVE_CURRENT_LISTONE_22SEP',
+                   'count':len(removed),
+                   'records':[{'player':p,'details':old_details.get(p['id'])} for p in removed]}
           Path('ARCHIVE_REMOVED_REGISTRY_22SEP2026.json').write_text(json.dumps(archive,ensure_ascii=False,indent=2))
 
           evidence={
-            'gate':'CURRENT_REGISTRY_RECONCILIATION_22SEP',
-            'status':'PASS',
-            'source_current_count':562,
-            'previous_runtime_count':531,
-            'runtime_count':562,
-            'preserved_previous_ids':526,
-            'new_current_records':36,
-            'removed_previous_records':5,
-            'role_changed_count':len(role_changed),
-            'role_counts':role_counts,
-            'unique_runtime_ids':len({p['id'] for p in final_players}),
-            'optimizerMax_mutated':False,
-            'model_recalculation_status':'PENDING_22SEP',
-            'manual_source_safe_aliases':[{
-              'source_name':'NUNO TAVARES -','source_team':'Lazio','registry_id':'p-tavares-n-lazio'
-            }],
-            'role_changed':role_changed,
-            'new_current_ids':[p['id'] for p in new_players],
-            'removed_previous_ids':[p['id'] for p in removed],
-            'identity_nonmerge_policy':'No guessed merge when current full-name row cannot be source-safely bound to a 07SEP abbreviated runtime record.',
-            'registry_sha256':hashlib.sha256(reg_path.read_bytes()).hexdigest(),
-            'details_sha256':hashlib.sha256(det_path.read_bytes()).hexdigest(),
-            'listone_sha256':hashlib.sha256(list_path.read_bytes()).hexdigest(),
+            'gate':'CURRENT_REGISTRY_RECONCILIATION_22SEP','status':'PASS',
+            'version':'V2_FANTACALCIO_ROLE_BASIS',
+            'source_current_count':562,'previous_runtime_count':531,'runtime_count':562,
+            'preserved_previous_ids':528,'new_current_records':34,'removed_previous_records':3,
+            'role_changed_count':0,'role_counts':role_counts,
+            'runtime_role_basis':'ruolo_fantacalcio; standard fallback only when unavailable',
+            'fantacalcio_role_fallback_count':20,'fantacalcio_role_fallback_names':fallback_role,
+            'unique_runtime_ids':562,'optimizerMax_mutated':False,
+            'model_recalculation_status':'PENDING_22SEP','baseline_commit':BASELINE,
+            'source_safe_disambiguations':[
+              {'source':'NUNO TAVARES - / Lazio','registry_id':'p-tavares-n-lazio','method':'surname-order same-team'},
+              {'source':'TERRACCIANO Filippo / Milan','registry_id':'p-fc-5812','method':'surname + initial F + same-team pair'},
+              {'source':'TERRACCIANO Pietro / Milan','registry_id':'p-terracciano-milan','method':'same-surname goalkeeper pair'},
+              {'source':'DIALLO THIAO Ousmane / Parma','registry_id':'p-diallo-o-parma','method':'surname + initial O + same-team'}
+            ],
+            'not_merged_previous_ids':[p['id'] for p in removed],
+            'not_merged_reason':'No source-safe identity link in supplied Listone material.',
+            'new_current_ids':new_ids,
+            'registry_sha256':hashlib.sha256(Path('registry.json').read_bytes()).hexdigest(),
+            'details_sha256':hashlib.sha256(Path('player-details.json').read_bytes()).hexdigest(),
+            'listone_sha256':hashlib.sha256(Path('listone-22sep2026.json').read_bytes()).hexdigest()
           }
           Path('CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2))
 
@@ -351,10 +281,11 @@ jobs:
           version['runtime_registry_source_pdf_sha256']=current.get('source_pdf_sha256')
           version['canonical_registry_07sep_count']=531
           version['canonical_registry_runtime_count']=531
-          version['optimizerMax_mutated']=False
-          version['gold']=False
+          version['runtime_role_basis_22sep']='RUOLO_FANTACALCIO_IT_WITH_STANDARD_FALLBACK'
+          version['fantacalcio_role_fallback_count']=20
+          version['optimizerMax_mutated']=False;version['gold']=False
           version['app_index_runtime_reconciliation']='PENDING_562_RESEAL'
-          version['deployment_status']='CURRENT_562_REGISTRY_RECONCILED_PENDING_MODEL_RECALC'
+          version['deployment_status']='CURRENT_562_REGISTRY_V2_RECONCILED_PENDING_MODEL_RECALC'
           blockers=[x for x in version.get('blockers',[]) if x not in [
             'LISTONE_22SEP_FULL_INGEST','LISTONE_22SEP_ENTITY_RECONCILIATION',
             'APP_INDEX_22SEP_RUNTIME_RECONCILIATION'
@@ -362,21 +293,23 @@ jobs:
           if 'FOS_RISK_MAX_22SEP_RECALC' not in blockers:
               blockers.insert(0,'FOS_RISK_MAX_22SEP_RECALC')
           version['blockers']=blockers
-          ver_path.write_text(json.dumps(version,ensure_ascii=False,indent=2))
+          Path('version.json').write_text(json.dumps(version,ensure_ascii=False,indent=2))
 
-          print('FS_CURRENT_REGISTRY_562_PASS')
-          print(json.dumps({
-            'runtime':562,'preserved':526,'new':36,'removed':5,
-            'role_changed':len(role_changed),'roles':role_counts
-          },ensure_ascii=False))
+          print('FS_CURRENT_REGISTRY_562_V2_PASS')
+          print(json.dumps({'runtime':562,'preserved':528,'new':34,'removed':3,
+                            'role_changed':0,'role_fallback':20,'roles':role_counts},ensure_ascii=False))
           PY
 
-      - name: Commit current registry and custody evidence
+      - name: Commit current registry V2 and custody evidence
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "fantasegreto-bot"
           git config user.email "actions@users.noreply.github.com"
           git add registry.json player-details.json listone-22sep2026.json version.json             CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json ARCHIVE_REMOVED_REGISTRY_22SEP2026.json
-          git commit -m "FS: promote authoritative 562-player Listone to current runtime"
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "FS: correct 562 runtime to Fantacalcio role basis"
           git push
