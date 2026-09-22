@@ -1,0 +1,199 @@
+name: FantaSegreto Registry 22SEP Reconciliation
+
+on:
+  push:
+    paths:
+      - 'data/canonical-listone-07sep2026.json.gz.b64'
+      - '.github/workflows/fantasegreto-registry-22sep.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Materialize canonical 531 registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, base64, gzip, re, unicodedata, hashlib
+          from pathlib import Path
+
+          root=Path('.')
+          src=root/'data/canonical-listone-07sep2026.json.gz.b64'
+          canonical=json.loads(gzip.decompress(base64.b64decode(src.read_text().strip())).decode())
+          old=json.loads((root/'registry.json').read_text())
+          details_doc=json.loads((root/'player-details.json').read_text())
+          old_players=old.get('players',[])
+          old_details=details_doc.get('details',{})
+
+          def norm(s):
+              s=unicodedata.normalize('NFKD',str(s or '')).encode('ascii','ignore').decode().lower()
+              s=s.replace('’',"'")
+              return re.sub(r'[^a-z0-9]+','',s)
+
+          by_exact={}
+          by_name={}
+          for p in old_players:
+              by_exact[(norm(p.get('name')),norm(p.get('team')))]=p
+              by_name.setdefault(norm(p.get('name')),[]).append(p)
+
+          players=[]
+          details={}
+          exact=name_only=new_count=0
+          used_old=set()
+          collisions=[]
+          for c in canonical['players']:
+              key=(norm(c['nome']),norm(c['squadra']))
+              p=by_exact.get(key)
+              match='EXACT_NAME_TEAM'
+              if p is not None:
+                  exact+=1
+              else:
+                  cand=by_name.get(norm(c['nome']),[])
+                  cand=[x for x in cand if x.get('id') not in used_old]
+                  if len(cand)==1:
+                      p=cand[0]
+                      name_only+=1
+                      match='UNIQUE_NAME_TEAM_CHANGED'
+                  else:
+                      p=None
+              if p is None:
+                  pid=f"p-fc-{c['id_ufficiale']}"
+                  p={
+                    'id':pid,'name':c['nome'],'team':c['squadra'],'role':c['ruolo'],
+                    'score':None,'ideal':None,'max':None,'value_index':'—','risk':None,
+                    'confidence':'PENDING','decision':'RECALC','risk_line':'CANONICAL · FS RECALC PENDING',
+                    'rank':{'score':'0','value':'0','ideal':'0','quote':'0','risk':'0'},
+                    'registry_status':'CANONICAL_07SEP_NEW_PENDING_FS_RECALC'
+                  }
+                  new_count+=1
+                  match='NEW_CANONICAL'
+              else:
+                  p=dict(p)
+                  used_old.add(p['id'])
+
+              p['official_id']=str(c['id_ufficiale'])
+              p['name']=c['nome']
+              p['team']=c['squadra']
+              p['role']=c['ruolo']
+              p['mantra_role']=c['ruolo_mantra']
+              p['quote']=c['quotazione']
+              p['initial_quote']=c['quotazione_iniziale']
+              p['quote_delta']=c['diff']
+              p['fvm']=c['fvm']
+              p['list_meta']=f"{c['squadra']} · {c['ruolo_mantra']} · Q {c['quotazione']} · FVM {c['fvm']}"
+              p['canonical_source']='FANTACALCIO_OFFICIAL_07SEP2026'
+              p['reconciliation_match']=match
+              players.append(p)
+
+              d=dict(old_details.get(p['id']) or {})
+              if not d:
+                  d={
+                    'id':p['id'],'name':c['nome'],'subtitle':f"{c['squadra']} · {c['ruolo_mantra']}",
+                    'role':c['ruolo'],
+                    'metrics':{
+                      'Quotazione ufficiale':str(c['quotazione']),
+                      'FVM / 1000':str(c['fvm']),
+                      'FS Score':'RECALC',
+                      'MAX':'RECALC'
+                    },
+                    'instruction':'Valutazione FS da ricalcolare sulla nuova baseline canonica.',
+                    'blocks':[{
+                      'title':'Data Truth',
+                      'text':'Record materializzato dal Listone Fantacalcio canonico del 07/09/2026. FOS e MAX non sono inventati: restano PENDING_RECALC.'
+                    }]
+                  }
+              else:
+                  d['id']=p['id']; d['name']=c['nome']; d['role']=c['ruolo']
+                  d['subtitle']=f"{c['squadra']} · {c['ruolo_mantra']}"
+                  m=dict(d.get('metrics') or {})
+                  m['Quotazione']=str(c['quotazione']); m['FVM']=str(c['fvm'])
+                  d['metrics']=m
+              details[p['id']]=d
+
+          ids=[p['id'] for p in players]
+          official=[p['official_id'] for p in players]
+          assert len(players)==531, len(players)
+          assert len(ids)==len(set(ids)), 'duplicate runtime ids'
+          assert len(official)==len(set(official)), 'duplicate official ids'
+          assert len(details)==531, len(details)
+
+          out={
+            'build':'V4.1.9 22SEP REGISTRY MATERIALIZED',
+            'engine':'V4.0.23.1 LOCK',
+            'count':531,
+            'schema_version':'FS_REGISTRY_V3',
+            'data_cutoff':'2026-09-07',
+            'source_schema':canonical.get('schema'),
+            'source_sha256':canonical.get('source_sha256'),
+            'optimizerMax_mutated':False,
+            'players':players
+          }
+          (root/'registry.json').write_text(json.dumps(out,ensure_ascii=False,separators=(',',':')))
+          det={
+            'build':'V4.1.9 22SEP REGISTRY MATERIALIZED',
+            'count':531,'details':details,
+            'schema_version':'FS_PLAYER_DETAILS_V3','data_cutoff':'2026-09-07'
+          }
+          (root/'player-details.json').write_text(json.dumps(det,ensure_ascii=False,separators=(',',':')))
+
+          removed=[p for p in old_players if p.get('id') not in used_old]
+          audit={
+            'gate':'REGISTRY_22SEP_RUNTIME_RECONCILIATION',
+            'status':'PASS',
+            'canonical_count':531,
+            'previous_runtime_count':len(old_players),
+            'exact_name_team_matches':exact,
+            'unique_name_team_changed_matches':name_only,
+            'new_canonical_players':new_count,
+            'old_runtime_not_reused':len(removed),
+            'registry_unique_ids':len(set(ids)),
+            'official_unique_ids':len(set(official)),
+            'details_count':len(details),
+            'optimizerMax_mutated':False,
+            'source_sha256':canonical.get('source_sha256'),
+            'registry_sha256':hashlib.sha256((root/'registry.json').read_bytes()).hexdigest(),
+            'details_sha256':hashlib.sha256((root/'player-details.json').read_bytes()).hexdigest(),
+            'removed_runtime_ids':[p.get('id') for p in removed],
+          }
+          (root/'REGISTRY_RECONCILIATION_22SEP2026.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2))
+          print('FS_REGISTRY_531_PASS')
+          print(json.dumps(audit,ensure_ascii=False))
+          PY
+
+      - name: Update version state without changing app version
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('version.json')
+          d=json.loads(p.read_text())
+          d['canonical_registry_runtime_count']=531
+          d['deployment_status']='REGISTRY_MATERIALIZED_PENDING_APP_RECONCILIATION'
+          d['blockers']=[x for x in d.get('blockers',[]) if x!='REGISTRY_22SEP_RUNTIME_RECONCILIATION']
+          d['blockers'].insert(0,'APP_INDEX_22SEP_RUNTIME_RECONCILIATION')
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2))
+          PY
+
+      - name: Commit materialized registry evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "fantasegreto-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add registry.json player-details.json REGISTRY_RECONCILIATION_22SEP2026.json version.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "FS: materialize reconciled 531-player registry"
+          git push
