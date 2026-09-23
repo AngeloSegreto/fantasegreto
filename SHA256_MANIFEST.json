@@ -121,8 +121,8 @@
     },
     {
       "file": "version.json",
-      "bytes": 2515,
-      "sha256": "5402499cc0c9653261e40f634a8577ba6d9fad7fb49e6cd26800667e069eacf4"
+      "bytes": 3030,
+      "sha256": "4b5715aedb60ddb6e87b7a8a3e829a0869e7386c5a86682fe665349765912036"
     },
     {
       "file": "md5-22sep2026.json",
@@ -161,8 +161,8 @@
     },
     {
       "file": "FOS_RISK_MAX_22SEP_GATE.json",
-      "bytes": 2678,
-      "sha256": "ba502de21b2d44094f64ca86f08f8f036dacbd5869da98e8b8fc2c63d8ace682"
+      "bytes": 3876,
+      "sha256": "a0a33b24675855ebbf032341df15ac718d552737999abbabfd8b0938012e6edf"
     },
     {
       "file": "REPORT22_OVERLAY_AUDIT.json",
@@ -173,6 +173,31 @@
       "file": "SERIE_A_MEMBERSHIP_22SEP2026.json",
       "bytes": 904,
       "sha256": "aaebdff4761c843a401f57e34f30c69bc3eee3e656e0b94831ac386267f8b61d"
+    },
+    {
+      "file": "PERFORMANCE_OVERLAY_V3.json",
+      "bytes": 7741,
+      "sha256": "2193fbba8b9f43f184e3fc6252b19c78ef0ab180db6981ecf4bcc028c07f70cf"
+    },
+    {
+      "file": "MEDICAL_V3_22SEP2026.json",
+      "bytes": 3332,
+      "sha256": "9a7661c9881ae5010c180b174f5e75eded745e1c757fb4781e0d2c9bd40aee77"
+    },
+    {
+      "file": "FOS_V2_EVIDENCE_MATRIX_22SEP2026.json",
+      "bytes": 678248,
+      "sha256": "74676a87473cbacf7c13271f203ca8c571c63fd3719ab5f41dd425ff1cebfefb"
+    },
+    {
+      "file": "FOS_V2_PLAYER_CANDIDATES_22SEP2026.json",
+      "bytes": 11588,
+      "sha256": "aacf5ee4bd7f5e33b599ea2e658d47f08fd640f318d5bf442fb5df1ec35e49eb"
+    },
+    {
+      "file": "data/FOS_V2_WEB_EVIDENCE_SNAPSHOT_22SEP2026.json",
+      "bytes": 6178,
+      "sha256": "c4e5ade34809455dbcc88b8a3fd4eba1102763d686c885b265d03451252725d8"
     }
   ]
 }

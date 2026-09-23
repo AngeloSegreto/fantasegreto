@@ -12,7 +12,7 @@
   "external_listone_count": 562,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "FOS_V2_EVIDENCE_MATRIX_READY_GLOBAL_CERT_BLOCKED",
+  "deployment_status": "CURRENT_562_APP_INDEX_RECONCILED_PENDING_MODEL_RECALC",
   "blockers": [
     "FOS_RISK_MAX_22SEP_RECALC",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
