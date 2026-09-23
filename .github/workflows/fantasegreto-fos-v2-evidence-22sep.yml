@@ -79,7 +79,7 @@ jobs:
           matrix=[]; counts=Counter()
           for p in players:
               pid=p['id']; pe=perf.get(pid); me=med.get(pid); ta=tact.get(pid); se=sp.get(pid); env=team_env.get(p.get('team'))
-              score=2+(1 if env else 0)+(3 if pe else 0)+(2 if ta else 0)+(1 if se else 0)+(1 if me else 0)
+              score=2+(1 if env else 0)+(3 if pe else 0)+(2 if ta else 0)+(1 if me else 0) # 10SEP tactical/set-piece priors are context-only and contribute zero promotion weight
               state='ADVANCED_CURRENT_EVIDENCE' if score>=8 else ('READY_FOR_RECALC' if score>=6 else 'PENDING_EVIDENCE')
               counts[state]+=1
               matrix.append({
@@ -87,12 +87,12 @@ jobs:
                 'membership':p.get('serie_a_membership'),
                 'identity_role':{'status':'READY','source':'LISTONE_22SEP2026','role_source':p.get('role_source_22sep'),'position':p.get('position_22sep'),'kapitals':p.get('kapitals_22sep')},
                 'performance_overlay_v3':{'status':'READY' if pe else 'NO_CURRENT_PLAYER_LEVEL_ROW_IN_PINNED_EVIDENCE','data':pe},
-                'fantacalcio_stats_binding':{'status':'BOUND' if pid in web.get('performance_rows',{}) else 'SOURCE_READY_UNBOUND_PLAYER_ROW','source':'fantacalcio_stats'},
+                'fantacalcio_stats_binding':{'status':'BOUND_CURRENT_23SEP' if pid in web.get('performance_rows',{}) else 'SOURCE_READY_UNBOUND_PLAYER_ROW','source':'fantacalcio_stats'},
                 'team_environment_5g':{'status':'READY' if env else 'MISSING','data':env},
                 'medical_v3':{'status':'READY_WITH_SOURCE_TIER' if me else 'UNKNOWN_NOT_HEALTHY','data':me},
                 'tactical_current':{'status':'CURRENT_CONTEXT' if ta else 'NO_PINNED_PLAYER_ROW','data':ta,'expected_minutes':None,'note':'Start probability is not converted to expected minutes.'},
-                'tactical_prior_10sep':{'status':'READY_CONTEXT_ONLY','source':'tactical_prior_10sep'},
-                'set_piece_prior_10sep':{'status':'READY_CONTEXT_ONLY' if se else 'SOURCE_READY_NO_PINNED_PLAYER_MATCH','data':se},
+                'tactical_prior_10sep':{'status':'STALE_CONTEXT_ONLY','source':'tactical_prior_10sep','promotion_weight':0},
+                'set_piece_prior_10sep':{'status':'STALE_CONTEXT_ONLY' if se else 'SOURCE_READY_NO_PINNED_PLAYER_MATCH','data':se,'promotion_weight':0},
                 'legacy_model':{'status':p.get('model_status'),'score':p.get('score'),'ideal':p.get('ideal'),'max':p.get('max'),'authority':'STALE_PRE_22SEP_ONLY'},
                 'evidence_score':score,'fos_v2_candidate_state':state,'fos_v2_global_certified':False
               })
@@ -133,17 +133,17 @@ jobs:
 
           gate['schema']='FS_FOS_RISK_MAX_22SEP_GATE_V3'; gate['status']='BLOCKED'
           gate['pipeline_status']={
-            'PERFORMANCE_OVERLAY_V3':'READY','FANTACALCIO_STATS_BINDING':'READY',
+            'PERFORMANCE_OVERLAY_V3':'READY','FANTACALCIO_STATS_BINDING':'SOURCE_READY_PARTIAL_BINDING',
             'MEDICAL_V3':'READY_WITH_SOURCE_TIERS','TEAM_ENVIRONMENT_5G':'READY',
-            'TACTICAL_PRIOR_10SEP':'READY_CONTEXT_ONLY','SET_PIECE_PRIOR_10SEP':'READY_CONTEXT_ONLY',
-            'FOS_V2_INPUT_ENRICHED':'READY','FOS_V2_PLAYER_CANDIDATES':'READY_FOR_RECALC',
-            'FOS_V2_GLOBAL_22SEP_CERTIFICATION':'BLOCKED'
+            'TACTICAL_PRIOR_10SEP':'STALE_CONTEXT_ONLY_EXCLUDED_FROM_PROMOTION','SET_PIECE_PRIOR_10SEP':'STALE_CONTEXT_ONLY_EXCLUDED_FROM_PROMOTION',
+            'FOS_V2_INPUT_ENRICHED':'READY_WITH_FRESHNESS_GUARD','FOS_V2_PLAYER_CANDIDATES':'READY_FOR_RECALC_CURRENT_EVIDENCE_ONLY',
+            'FOS_V2_GLOBAL_22SEP_CERTIFICATION':'BLOCKED','FRESHNESS_GUARD_23SEP':'PASS'
           }
           gate['evidence_matrix']={'runtime_count':562,'candidate_counts':dict(counts),'candidate_file':'FOS_V2_PLAYER_CANDIDATES_22SEP2026.json','matrix_file':'FOS_V2_EVIDENCE_MATRIX_22SEP2026.json'}
           gate['remaining_global_blockers']=[
             'Expected Minutes remain unavailable as a source-backed field for the complete runtime.',
             'Current tactical/start-probability coverage is not pinned player-by-player for all 562.',
-            'Current set-piece hierarchy is a 10SEP prior, not a 22SEP global authority.',
+            'Current set-piece hierarchy is not fully refreshed player-by-player; 10SEP prior is excluded from promotion.',
             'Medical V3 is source-tiered but not complete enough to classify every player as healthy/unhealthy.',
             'Independent cross-validation coverage is incomplete.'
           ]
@@ -151,10 +151,10 @@ jobs:
           Path('FOS_RISK_MAX_22SEP_GATE.json').write_text(json.dumps(gate,ensure_ascii=False,indent=2))
 
           ver.update({
-            'performance_overlay':'V3_READY','fantacalcio_stats_binding':'READY','medical_v3':'READY_WITH_SOURCE_TIERS',
-            'team_environment_5g':'READY','tactical_prior_10sep':'READY_CONTEXT_ONLY','set_piece_prior_10sep':'READY_CONTEXT_ONLY',
-            'fos_v2_input_enriched':'READY','fos_v2_player_candidates':'READY_FOR_RECALC','fos_v2_candidate_counts':dict(counts),
-            'fos_v2_global_22sep_certification':'BLOCKED','model_22sep_authority':False,'optimizerMax_mutated':False,'gold':False,
+            'performance_overlay':'V3_READY','fantacalcio_stats_binding':'SOURCE_READY_PARTIAL_BINDING','medical_v3':'READY_WITH_SOURCE_TIERS',
+            'team_environment_5g':'READY','tactical_prior_10sep':'STALE_CONTEXT_ONLY_EXCLUDED_FROM_PROMOTION','set_piece_prior_10sep':'STALE_CONTEXT_ONLY_EXCLUDED_FROM_PROMOTION',
+            'fos_v2_input_enriched':'READY_WITH_FRESHNESS_GUARD','fos_v2_player_candidates':'READY_FOR_RECALC_CURRENT_EVIDENCE_ONLY','fos_v2_candidate_counts':dict(counts),'freshness_guard_23sep':'PASS','stale_context_contributes_to_promotion':False,
+            'fos_v2_global_22sep_certification':'BLOCKED','fos_v2_global_23sep_certification':'BLOCKED','model_22sep_authority':False,'optimizerMax_mutated':False,'gold':False,
             'deployment_status':'FOS_V2_EVIDENCE_MATRIX_READY_GLOBAL_CERT_BLOCKED'
           })
           Path('version.json').write_text(json.dumps(ver,ensure_ascii=False,indent=2))
