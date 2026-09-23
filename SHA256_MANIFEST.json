@@ -1,8 +1,8 @@
 {
-  "build": "V4.1.9 22SEP RUNTIME RECONCILIATION",
+  "build": "V4.2.0 23SEP OPPONENT MARKET ENGINE",
   "generated_at": "2026-09-22T12:00:00Z",
   "algorithm": "SHA-256",
-  "scope": "GITHUB_ROOT_PRODUCTION_FILES_22SEP",
+  "scope": "GITHUB_ROOT_PRODUCTION_FILES_23SEP_MARKET_V1",
   "files": [
     {
       "file": ".nojekyll",
@@ -51,8 +51,8 @@
     },
     {
       "file": "audit.js",
-      "bytes": 5413,
-      "sha256": "5316656de0c4c48c92b97e7c27ede744cae65671e105480647353dae0cd0b54c"
+      "bytes": 6181,
+      "sha256": "12dd8a24f826ab5f86c90252efc9e7f1801748e5f98da7501d71d3ccae673a78"
     },
     {
       "file": "backup.js",
@@ -76,13 +76,18 @@
     },
     {
       "file": "index.html",
-      "bytes": 16273,
-      "sha256": "97d23b07ab466d47bd0ecbcb4405ecf667726d9da73f9babaaff90cbe74a5f6d"
+      "bytes": 16353,
+      "sha256": "b62d45975ba25db0fcada1596ac62d2ab14cb39cb164c9e6b6cc7a2f02750b0a"
     },
     {
       "file": "manifest.webmanifest",
       "bytes": 524,
       "sha256": "328eb5986d123a2514f293ab625af2760b949c1bab62f168983e40a5d0c201aa"
+    },
+    {
+      "file": "opponent-market-v1.js",
+      "bytes": 6712,
+      "sha256": "08650e9a56e635fb0040d139cfe62d5daff06c11d111495df39abf7c0d8704e9"
     },
     {
       "file": "opponents.js",
@@ -91,8 +96,8 @@
     },
     {
       "file": "piano25.js",
-      "bytes": 1222,
-      "sha256": "0113a558110f3a8777269d8f90e8c3a417227ce5ec2db964a425f6ae4e904606"
+      "bytes": 1267,
+      "sha256": "eb6fa6955e3c1c56d0f94cb50aa5bfcc3d059b510cb21ac440adbda8f23c2905"
     },
     {
       "file": "player-details.json",
@@ -116,13 +121,13 @@
     },
     {
       "file": "sw.js",
-      "bytes": 2147,
-      "sha256": "7f836ab27ecf4619508ec2d7c671548c8d36808b91765f5c372585311882b212"
+      "bytes": 2421,
+      "sha256": "57ecdab4eade07539a17b2c3fb158f70cbec06e3000804da7644c71fc7083cb9"
     },
     {
       "file": "version.json",
-      "bytes": 3280,
-      "sha256": "50f018bfb1c0aa10972e21818acadb5b569789055eac495f4ea082475c9dfbca"
+      "bytes": 3774,
+      "sha256": "73d0a76e1cc1a723eff1afd77e8f0ed75169a9116c3dea6f7b1432e4c239a9b9"
     },
     {
       "file": "md5-22sep2026.json",
@@ -137,7 +142,7 @@
     {
       "file": "APP_INDEX_RECONCILIATION_22SEP2026.json",
       "bytes": 1243,
-      "sha256": "54edff7512180232f457af2f3b20b69f79ec5a2efe9a6a36245ecf14935cef5a"
+      "sha256": "b46194bd99008327768091a09fa9123c223bd3a158d79fb2b03df35c2f2069ea"
     },
     {
       "file": "listone-22sep2026.json",
