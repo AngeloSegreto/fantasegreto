@@ -121,8 +121,8 @@
     },
     {
       "file": "version.json",
-      "bytes": 3030,
-      "sha256": "4b5715aedb60ddb6e87b7a8a3e829a0869e7386c5a86682fe665349765912036"
+      "bytes": 3280,
+      "sha256": "50f018bfb1c0aa10972e21818acadb5b569789055eac495f4ea082475c9dfbca"
     },
     {
       "file": "md5-22sep2026.json",
@@ -161,8 +161,8 @@
     },
     {
       "file": "FOS_RISK_MAX_22SEP_GATE.json",
-      "bytes": 3876,
-      "sha256": "a0a33b24675855ebbf032341df15ac718d552737999abbabfd8b0938012e6edf"
+      "bytes": 4060,
+      "sha256": "d3c928846ecf8447b48dc256883a03ee475c2f5d29522953dfc7e3456cc237e2"
     },
     {
       "file": "REPORT22_OVERLAY_AUDIT.json",
@@ -186,18 +186,18 @@
     },
     {
       "file": "FOS_V2_EVIDENCE_MATRIX_22SEP2026.json",
-      "bytes": 678248,
-      "sha256": "74676a87473cbacf7c13271f203ca8c571c63fd3719ab5f41dd425ff1cebfefb"
+      "bytes": 701920,
+      "sha256": "841c34a5d634e5fb281c2e87c71f9f08d29a803415e9e1576714a859016e279c"
     },
     {
       "file": "FOS_V2_PLAYER_CANDIDATES_22SEP2026.json",
-      "bytes": 11588,
-      "sha256": "aacf5ee4bd7f5e33b599ea2e658d47f08fd640f318d5bf442fb5df1ec35e49eb"
+      "bytes": 11586,
+      "sha256": "a8b565116398f8523cb38134a0097ae14657e27a800ef5b46f92d610e0911bda"
     },
     {
       "file": "data/FOS_V2_WEB_EVIDENCE_SNAPSHOT_22SEP2026.json",
-      "bytes": 6178,
-      "sha256": "c4e5ade34809455dbcc88b8a3fd4eba1102763d686c885b265d03451252725d8"
+      "bytes": 7019,
+      "sha256": "24bb2c5a9815c58adc3d36a2dba40647ba1cabcd173f142d57da65fb3f3f978f"
     }
   ]
 }
