@@ -1,0 +1,199 @@
+name: FantaSegreto FOS V2 Evidence Matrix 22SEP
+
+on:
+  push:
+    paths:
+      - 'registry.json'
+      - 'md5-22sep2026.json'
+      - 'data/FOS_V2_WEB_EVIDENCE_SNAPSHOT_22SEP2026.json'
+      - '.github/workflows/fantasegreto-fos-v2-evidence-22sep.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  evidence-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build 562-player evidence matrix
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import copy,json
+          from collections import Counter
+          from pathlib import Path
+
+          reg=json.loads(Path('registry.json').read_text())
+          rep=json.loads(Path('md5-22sep2026.json').read_text())
+          web=json.loads(Path('data/FOS_V2_WEB_EVIDENCE_SNAPSHOT_22SEP2026.json').read_text())
+          gate=json.loads(Path('FOS_RISK_MAX_22SEP_GATE.json').read_text())
+          ver=json.loads(Path('version.json').read_text())
+
+          players=reg['players']; ids={p['id'] for p in players}
+          assert reg.get('count')==562 and len(players)==562 and len(ids)==562
+          team_env={x['team']:x for x in rep.get('standings',[])}
+          assert len(team_env)==20
+
+          perf={}
+          for r in rep.get('leaders',{}).get('goals',[]):
+              perf.setdefault(r['player_id'],{}).update(goals=r['value'],appearances=r.get('appearances'),report_goals=True)
+          for r in rep.get('leaders',{}).get('assists',[]):
+              perf.setdefault(r['player_id'],{}).update(assists=r['value'],appearances=r.get('appearances'),report_assists=True)
+          for r in rep.get('creative_chances',[]):
+              perf.setdefault(r['player_id'],{})['creative_chances']=r['value']
+          for pid,row in web.get('performance_rows',{}).items():
+              assert pid in ids,pid
+              perf.setdefault(pid,{}).update(copy.deepcopy(row))
+          for pid in web['explicit_tied_beyond_top20']['goals_2']:
+              assert pid in ids,pid
+              perf.setdefault(pid,{}).setdefault('goals',2)
+              perf[pid]['explicit_tied_beyond_top20_goals']=True
+          for pid in web['explicit_tied_beyond_top20']['assists_1']:
+              assert pid in ids,pid
+              perf.setdefault(pid,{}).setdefault('assists',1)
+              perf[pid]['explicit_tied_beyond_top20_assists']=True
+
+          rank={'REPORT_INDEX':1,'SPECIALIZED_SECONDARY':2,'PRIMARY_FANTACALCIO':3,'CLUB_OFFICIAL':4}
+          med={}
+          for r in rep.get('medical_verified',[]):
+              med[r['player_id']]={'tier':'REPORT_INDEX','source':'report22','status':r.get('status'),'issue':r.get('issue'),'availability':r.get('source_status'),'confidence':'BOUNDED'}
+          for pid,row in web.get('medical_overrides',{}).items():
+              assert pid in ids,pid
+              if pid not in med or rank[row['tier']]>=rank.get(med[pid].get('tier'),0):
+                  med[pid]=copy.deepcopy(row)
+
+          tact=web.get('tactical_current_rows',{})
+          sp={}
+          for team,grp in web.get('set_piece_prior_10sep',{}).items():
+              for pid in grp.get('penalties',[]):
+                  if pid in ids: sp.setdefault(pid,{})['penalty_prior_10sep']=True
+              for pid in grp.get('set_pieces',[]):
+                  if pid in ids: sp.setdefault(pid,{})['set_piece_prior_10sep']=True
+
+          matrix=[]; counts=Counter()
+          for p in players:
+              pid=p['id']; pe=perf.get(pid); me=med.get(pid); ta=tact.get(pid); se=sp.get(pid); env=team_env.get(p.get('team'))
+              score=2+(1 if env else 0)+(3 if pe else 0)+(2 if ta else 0)+(1 if se else 0)+(1 if me else 0)
+              state='ADVANCED_CURRENT_EVIDENCE' if score>=8 else ('READY_FOR_RECALC' if score>=6 else 'PENDING_EVIDENCE')
+              counts[state]+=1
+              matrix.append({
+                'player_id':pid,'name':p.get('name'),'team':p.get('team'),'role':p.get('role'),
+                'membership':p.get('serie_a_membership'),
+                'identity_role':{'status':'READY','source':'LISTONE_22SEP2026','role_source':p.get('role_source_22sep'),'position':p.get('position_22sep'),'kapitals':p.get('kapitals_22sep')},
+                'performance_overlay_v3':{'status':'READY' if pe else 'NO_CURRENT_PLAYER_LEVEL_ROW_IN_PINNED_EVIDENCE','data':pe},
+                'fantacalcio_stats_binding':{'status':'BOUND' if pid in web.get('performance_rows',{}) else 'SOURCE_READY_UNBOUND_PLAYER_ROW','source':'fantacalcio_stats'},
+                'team_environment_5g':{'status':'READY' if env else 'MISSING','data':env},
+                'medical_v3':{'status':'READY_WITH_SOURCE_TIER' if me else 'UNKNOWN_NOT_HEALTHY','data':me},
+                'tactical_current':{'status':'CURRENT_CONTEXT' if ta else 'NO_PINNED_PLAYER_ROW','data':ta,'expected_minutes':None,'note':'Start probability is not converted to expected minutes.'},
+                'tactical_prior_10sep':{'status':'READY_CONTEXT_ONLY','source':'tactical_prior_10sep'},
+                'set_piece_prior_10sep':{'status':'READY_CONTEXT_ONLY' if se else 'SOURCE_READY_NO_PINNED_PLAYER_MATCH','data':se},
+                'legacy_model':{'status':p.get('model_status'),'score':p.get('score'),'ideal':p.get('ideal'),'max':p.get('max'),'authority':'STALE_PRE_22SEP_ONLY'},
+                'evidence_score':score,'fos_v2_candidate_state':state,'fos_v2_global_certified':False
+              })
+
+          assert len(matrix)==562
+          assert all(x['membership']=='ACTIVE_CURRENT_LISTONE_22SEP' for x in matrix)
+
+          Path('PERFORMANCE_OVERLAY_V3.json').write_text(json.dumps({
+            'schema':'FS_PERFORMANCE_OVERLAY_V3','status':'READY','cutoff':'2026-09-22','runtime_players':562,
+            'top20_goals_rows':len(rep.get('leaders',{}).get('goals',[])),
+            'top20_assists_rows':len(rep.get('leaders',{}).get('assists',[])),
+            'explicit_tied_goals_beyond_top20':len(web['explicit_tied_beyond_top20']['goals_2']),
+            'explicit_tied_assists_beyond_top20':len(web['explicit_tied_beyond_top20']['assists_1']),
+            'creative_chances_rows':len(rep.get('creative_chances',[])),
+            'fantacalcio_stats_bound_rows':len(web.get('performance_rows',{})),
+            'player_performance_records':perf,
+            'minutes_policy':'UNSPECIFIED_UNLESS_SOURCE_BACKED','per90_policy':'NOT_COMPUTED_WITHOUT_MINUTES'
+          },ensure_ascii=False,indent=2))
+
+          Path('MEDICAL_V3_22SEP2026.json').write_text(json.dumps({
+            'schema':'FS_MEDICAL_V3','status':'READY_WITH_SOURCE_TIERS',
+            'source_priority':web['policy']['source_priority'],'records':med,'record_count':len(med),
+            'unknown_policy':'No record means UNKNOWN, never automatically HEALTHY.',
+            'official_override_count':sum(1 for x in med.values() if x.get('tier')=='CLUB_OFFICIAL')
+          },ensure_ascii=False,indent=2))
+
+          Path('FOS_V2_EVIDENCE_MATRIX_22SEP2026.json').write_text(json.dumps({
+            'schema':'FS_FOS_V2_EVIDENCE_MATRIX_V1','status':'READY','runtime_count':562,
+            'global_certification':'BLOCKED','candidate_counts':dict(counts),'records':matrix
+          },ensure_ascii=False,separators=(',',':')))
+
+          candidates=[{'player_id':x['player_id'],'name':x['name'],'team':x['team'],'role':x['role'],'evidence_score':x['evidence_score'],'state':x['fos_v2_candidate_state']} for x in matrix if x['fos_v2_candidate_state']!='PENDING_EVIDENCE']
+          Path('FOS_V2_PLAYER_CANDIDATES_22SEP2026.json').write_text(json.dumps({
+            'schema':'FS_FOS_V2_PLAYER_CANDIDATES_V1','status':'READY_FOR_RECALC','candidate_count':len(candidates),
+            'advanced_count':sum(1 for x in candidates if x['state']=='ADVANCED_CURRENT_EVIDENCE'),
+            'pending_evidence_count':counts['PENDING_EVIDENCE'],'candidates':candidates
+          },ensure_ascii=False,indent=2))
+
+          gate['schema']='FS_FOS_RISK_MAX_22SEP_GATE_V3'; gate['status']='BLOCKED'
+          gate['pipeline_status']={
+            'PERFORMANCE_OVERLAY_V3':'READY','FANTACALCIO_STATS_BINDING':'READY',
+            'MEDICAL_V3':'READY_WITH_SOURCE_TIERS','TEAM_ENVIRONMENT_5G':'READY',
+            'TACTICAL_PRIOR_10SEP':'READY_CONTEXT_ONLY','SET_PIECE_PRIOR_10SEP':'READY_CONTEXT_ONLY',
+            'FOS_V2_INPUT_ENRICHED':'READY','FOS_V2_PLAYER_CANDIDATES':'READY_FOR_RECALC',
+            'FOS_V2_GLOBAL_22SEP_CERTIFICATION':'BLOCKED'
+          }
+          gate['evidence_matrix']={'runtime_count':562,'candidate_counts':dict(counts),'candidate_file':'FOS_V2_PLAYER_CANDIDATES_22SEP2026.json','matrix_file':'FOS_V2_EVIDENCE_MATRIX_22SEP2026.json'}
+          gate['remaining_global_blockers']=[
+            'Expected Minutes remain unavailable as a source-backed field for the complete runtime.',
+            'Current tactical/start-probability coverage is not pinned player-by-player for all 562.',
+            'Current set-piece hierarchy is a 10SEP prior, not a 22SEP global authority.',
+            'Medical V3 is source-tiered but not complete enough to classify every player as healthy/unhealthy.',
+            'Independent cross-validation coverage is incomplete.'
+          ]
+          gate['enforcement']['optimizerMax_mutated']=False; gate['enforcement']['gold']=False; gate['enforcement']['publish_22sep_fos_as_current']=False
+          Path('FOS_RISK_MAX_22SEP_GATE.json').write_text(json.dumps(gate,ensure_ascii=False,indent=2))
+
+          ver.update({
+            'performance_overlay':'V3_READY','fantacalcio_stats_binding':'READY','medical_v3':'READY_WITH_SOURCE_TIERS',
+            'team_environment_5g':'READY','tactical_prior_10sep':'READY_CONTEXT_ONLY','set_piece_prior_10sep':'READY_CONTEXT_ONLY',
+            'fos_v2_input_enriched':'READY','fos_v2_player_candidates':'READY_FOR_RECALC','fos_v2_candidate_counts':dict(counts),
+            'fos_v2_global_22sep_certification':'BLOCKED','model_22sep_authority':False,'optimizerMax_mutated':False,'gold':False,
+            'deployment_status':'FOS_V2_EVIDENCE_MATRIX_READY_GLOBAL_CERT_BLOCKED'
+          })
+          Path('version.json').write_text(json.dumps(ver,ensure_ascii=False,indent=2))
+
+          print('FS_FOS_V2_EVIDENCE_MATRIX_562_PASS')
+          print(json.dumps(dict(counts),sort_keys=True))
+          print('FS_FOS_V2_CANDIDATES',len(candidates))
+          PY
+
+      - name: Validate named advanced examples and global block
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.loads(Path('FOS_V2_EVIDENCE_MATRIX_22SEP2026.json').read_text())
+          by={x['player_id']:x for x in m['records']}
+          assert len(by)==562
+          for pid in ['p-malen-roma','p-dybala-roma','p-martinez-l-inter']:
+              assert by[pid]['fos_v2_candidate_state']=='ADVANCED_CURRENT_EVIDENCE',(pid,by[pid]['evidence_score'])
+              assert by[pid]['tactical_current']['expected_minutes'] is None
+          g=json.loads(Path('FOS_RISK_MAX_22SEP_GATE.json').read_text())
+          assert g['pipeline_status']['FOS_V2_GLOBAL_22SEP_CERTIFICATION']=='BLOCKED'
+          assert g['enforcement']['optimizerMax_mutated'] is False
+          print('FS_FOS_V2_NAMED_ADVANCED_PASS')
+          print('FS_GLOBAL_CERTIFICATION_BLOCKED_PASS')
+          PY
+
+      - name: Commit evidence matrix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "fantasegreto-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add PERFORMANCE_OVERLAY_V3.json MEDICAL_V3_22SEP2026.json FOS_V2_EVIDENCE_MATRIX_22SEP2026.json FOS_V2_PLAYER_CANDIDATES_22SEP2026.json FOS_RISK_MAX_22SEP_GATE.json version.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "FS: build 562-player FOS V2 evidence matrix"
+          git push
