@@ -1,5 +1,5 @@
 {
-  "schema": "FS_FOS_V2_WEB_EVIDENCE_SNAPSHOT_V1",
+  "schema": "FS_FOS_V2_WEB_EVIDENCE_SNAPSHOT_V2",
   "frozen_for": "22SEP2026 evidence enrichment",
   "policy": {
     "no_fabricated_minutes": true,
@@ -36,8 +36,9 @@
         "Amm",
         "Esp"
       ],
-      "status": "READY",
-      "note": "Current season table available. Snapshot only pins rows independently verified during this reconciliation."
+      "status": "SOURCE_READY_PARTIAL_BINDING",
+      "note": "Current season table available. Snapshot only pins rows independently verified during this reconciliation.",
+      "bound_player_rows": 5
     },
     "fantacalcio_probables_current": {
       "url": "https://www.fantacalcio.it/probabili-formazioni-serie-a",
@@ -48,20 +49,25 @@
         "2026-09-22T11:52:00+02:00",
         "2026-09-22T16:30:00+02:00"
       ],
-      "status": "READY_CONTEXT_ONLY",
-      "note": "Published start probabilities are not converted to expected minutes."
+      "status": "LATEST_AVAILABLE_CONTEXT_PARTIAL_BINDING",
+      "note": "Published start probabilities are not converted to expected minutes.",
+      "observed_date": "2026-09-23",
+      "decision_authority": "CURRENT_CONTEXT_ONLY"
     },
     "tactical_prior_10sep": {
       "url": "https://www.fantacalcio.it/news/calcio-italia/06_08_2026/asta-fantacalcio-le-probabili-formazioni-della-serie-a-enilive-2026-27-495558",
       "tier": "PRIMARY_FANTACALCIO",
       "updated_at": "2026-09-10T11:23:00+02:00",
-      "status": "READY_CONTEXT_ONLY"
+      "status": "STALE_CONTEXT_ONLY",
+      "decision_authority": false,
+      "promotion_weight": 0
     },
     "sosfanta_medical": {
       "url": "https://www.sosfanta.com/indisponibili-e-squalificati/tabella-indisponibili-seriea-fantacalcio-asta-infortunati-tempi-recupero-squalificati-diffidati/",
       "tier": "SPECIALIZED_SECONDARY",
       "published_at": "2026-09-22T09:45:00+02:00",
-      "status": "READY_WITH_SOURCE_TIER"
+      "status": "LATEST_AVAILABLE_SECONDARY_PARTIAL_COVERAGE",
+      "latest_available_verified_on": "2026-09-23"
     },
     "juventus_kolo_muani_official": {
       "url": "https://www.juventus.com/it/news/articoli/bollettino-medico-le-condizioni-di-kolo-muani-210926",
@@ -232,5 +238,17 @@
       "availability": "IN_DUBBIO_PER_6A",
       "confidence": "MEDIUM"
     }
+  },
+  "verified_as_of": "2026-09-23",
+  "freshness_policy": {
+    "rule": "Only latest-available evidence as of 2026-09-23 may contribute to candidate promotion. Older priors may remain for lineage/context but carry zero promotion weight.",
+    "stale_context_contributes_to_promotion": false,
+    "immutable_snapshot_allowed_for_lineage": true,
+    "latest_available_not_same_as_published_today": true
+  },
+  "set_piece_prior_10sep_status": {
+    "status": "STALE_CONTEXT_ONLY",
+    "decision_authority": false,
+    "promotion_weight": 0
   }
 }
