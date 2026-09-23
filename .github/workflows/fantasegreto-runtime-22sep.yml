@@ -15,6 +15,7 @@ on:
       - 'player-details.json'
       - 'md5-22sep2026.json'
       - 'version.json'
+      - 'AUCTION_SHORTLIST_63_23SEP2026.json'
       - '.github/workflows/fantasegreto-runtime-22sep.yml'
       - '.nojekyll'
   workflow_dispatch:
@@ -37,7 +38,7 @@ jobs:
           required=(
             index.html app.js engine.js state-manager.js registry.json
             player-details.json version.json sw.js styles.css md5-22sep2026.json opponent-market-v1.js
-            PERFORMANCE_OVERLAY_V3.json MEDICAL_V3_22SEP2026.json FOS_V2_PLAYER_CANDIDATES_22SEP2026.json
+            PERFORMANCE_OVERLAY_V3.json MEDICAL_V3_22SEP2026.json FOS_V2_PLAYER_CANDIDATES_22SEP2026.json AUCTION_SHORTLIST_63_23SEP2026.json
           )
           for f in "${required[@]}"; do
             test -f "$f" || { echo "MISSING: $f"; exit 1; }
@@ -57,6 +58,7 @@ jobs:
           det=json.loads(Path('player-details.json').read_text())
           md5=json.loads(Path('md5-22sep2026.json').read_text())
           ver=json.loads(Path('version.json').read_text())
+          sl63=json.loads(Path('AUCTION_SHORTLIST_63_23SEP2026.json').read_text())
           app=Path('app.js').read_text()
           sw=Path('sw.js').read_text()
           idx=Path('index.html').read_text()
@@ -79,7 +81,14 @@ jobs:
           assert 'FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json' not in app
           assert 'md5-22sep2026.json' in sw
           assert 'FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json' not in sw
-          assert 'V4.2.0' in idx
+          assert 'V4.2.1' in idx
+          assert 'TARGET 63' in idx
+          assert 'AUCTION_SHORTLIST_63_23SEP2026.json' in app
+          assert 'AUCTION_SHORTLIST_63_23SEP2026.json' in sw
+          assert sl63.get('schema')=='FS_AUCTION_SHORTLIST_63_V1'
+          assert sl63.get('total')==63
+          assert sl63.get('counts')=={'P':10,'D':12,'C':18,'A':23}
+          assert len(sl63.get('rows',[]))==63
           assert './opponent-market-v1.js' in idx
           assert 'opponent-market-v1.js' in sw
           assert 'auctionMax' in Path('engine.js').read_text()
@@ -159,7 +168,7 @@ jobs:
             'md5-22sep2026.json','REGISTRY_RECONCILIATION_22SEP2026.json',
             'APP_INDEX_RECONCILIATION_22SEP2026.json'
           ]
-          for optional in ['listone-22sep2026.json','LISTONE_RECONCILIATION_22SEP2026.json','CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json','ARCHIVE_REMOVED_REGISTRY_22SEP2026.json','FOS_RISK_MAX_22SEP_GATE.json','REPORT22_OVERLAY_AUDIT.json','SERIE_A_MEMBERSHIP_22SEP2026.json','PERFORMANCE_OVERLAY_V3.json','MEDICAL_V3_22SEP2026.json','FOS_V2_EVIDENCE_MATRIX_22SEP2026.json','FOS_V2_PLAYER_CANDIDATES_22SEP2026.json','data/FOS_V2_WEB_EVIDENCE_SNAPSHOT_22SEP2026.json']:
+          for optional in ['listone-22sep2026.json','LISTONE_RECONCILIATION_22SEP2026.json','CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json','ARCHIVE_REMOVED_REGISTRY_22SEP2026.json','FOS_RISK_MAX_22SEP_GATE.json','REPORT22_OVERLAY_AUDIT.json','SERIE_A_MEMBERSHIP_22SEP2026.json','PERFORMANCE_OVERLAY_V3.json','MEDICAL_V3_22SEP2026.json','FOS_V2_EVIDENCE_MATRIX_22SEP2026.json','FOS_V2_PLAYER_CANDIDATES_22SEP2026.json','data/FOS_V2_WEB_EVIDENCE_SNAPSHOT_22SEP2026.json','AUCTION_SHORTLIST_63_23SEP2026.json']:
               if Path(optional).exists():
                   files.append(optional)
           rows=[]
@@ -171,10 +180,10 @@ jobs:
 
           Path('CHECKSUMS.txt').write_text(''.join(f"{r['sha256']}  {r['file']}\n" for r in rows))
           manifest={
-            'build':'V4.2.0 23SEP OPPONENT MARKET ENGINE',
+            'build':'V4.2.1 23SEP TARGET 63 LIVE',
             'generated_at':'2026-09-22T12:00:00Z',
             'algorithm':'SHA-256',
-            'scope':'GITHUB_ROOT_PRODUCTION_FILES_23SEP_MARKET_V1',
+            'scope':'GITHUB_ROOT_PRODUCTION_FILES_23SEP_TARGET63',
             'files':rows
           }
           Path('SHA256_MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))

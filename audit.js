@@ -30,6 +30,7 @@ function run(){
  const profiles=window.FS_MARKET_ENGINE?.managerProfiles?.(S)||{};add('MKT03',Object.keys(profiles).length===9,'9/9 profili avversari T0/learned disponibili');
  const probe=reg.find(p=>p.role==='A'&&Number(p.fvm)>0),pq=probe?window.FS_MARKET_ENGINE?.quote?.(probe,S):null;add('MKT04',!!pq&&pq.market_t0>=1&&pq.expected>=1,'Market-clearing quote valida su attaccante probe');
  add('MKT05',window.FS_VERSION?.optimizerMax_mutated===false,'OptimizerMax LOCK non mutato; market layer post-engine');
+ const sl=window.FS_SHORTLIST63;add('SL63-01',sl?.total===63,'Target shortlist 63 caricata');add('SL63-02',sl?.counts?.P===10&&sl?.counts?.D===12&&sl?.counts?.C===18&&sl?.counts?.A===23,'Target 63 ruolo 10P/12D/18C/23A');add('SL63-03',(sl?.rows||[]).every(x=>Number.isFinite(x.buy)&&Array.isArray(x.wait)&&Number.isFinite(x.stop)&&x.stop>=x.wait[1]),'BUY/WAIT/STOP Target 63 validi');
  add('TX01',new Set(S.tx.map(x=>x.id)).size===S.tx.length,'Ownership univoca');
  add('TX02',S.tx.every(x=>Number.isInteger(Number(x.price))&&x.price>=1&&x.price<=500),'Prezzi interi 1..500');
  add('TX03',S.tx.every(x=>['ME','R1','R2','R3','R4','R5','R6','R7','R8','R9'].includes(x.owner)),'Owner validi');
