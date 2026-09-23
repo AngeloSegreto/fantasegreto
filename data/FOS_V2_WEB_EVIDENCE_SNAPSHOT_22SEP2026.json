@@ -1,0 +1,236 @@
+{
+  "schema": "FS_FOS_V2_WEB_EVIDENCE_SNAPSHOT_V1",
+  "frozen_for": "22SEP2026 evidence enrichment",
+  "policy": {
+    "no_fabricated_minutes": true,
+    "no_per90_without_minutes": true,
+    "tactical_probability_not_expected_minutes": true,
+    "source_priority": [
+      "CLUB_OFFICIAL",
+      "PRIMARY_FANTACALCIO",
+      "SPECIALIZED_SECONDARY",
+      "REPORT_INDEX"
+    ],
+    "optimizerMax_mutated": false
+  },
+  "sources": {
+    "report22": {
+      "url": "internal:Serie A Enilive 2026/27 report 22SEP2026 09:12 CEST",
+      "tier": "REPORT_INDEX",
+      "data_cutoff": "2026-09-22T09:12:00+02:00",
+      "status": "READY"
+    },
+    "fantacalcio_stats": {
+      "url": "https://www.fantacalcio.it/statistiche-serie-a",
+      "tier": "PRIMARY_FANTACALCIO",
+      "observed_date": "2026-09-23",
+      "fields": [
+        "PV",
+        "MV",
+        "FM",
+        "Gol",
+        "GS",
+        "Rig",
+        "RP",
+        "Ass",
+        "Amm",
+        "Esp"
+      ],
+      "status": "READY",
+      "note": "Current season table available. Snapshot only pins rows independently verified during this reconciliation."
+    },
+    "fantacalcio_probables_current": {
+      "url": "https://www.fantacalcio.it/probabili-formazioni-serie-a",
+      "tier": "PRIMARY_FANTACALCIO",
+      "source_label": "Giornata 6",
+      "source_updates_observed": [
+        "2026-09-22T09:01:00+02:00",
+        "2026-09-22T11:52:00+02:00",
+        "2026-09-22T16:30:00+02:00"
+      ],
+      "status": "READY_CONTEXT_ONLY",
+      "note": "Published start probabilities are not converted to expected minutes."
+    },
+    "tactical_prior_10sep": {
+      "url": "https://www.fantacalcio.it/news/calcio-italia/06_08_2026/asta-fantacalcio-le-probabili-formazioni-della-serie-a-enilive-2026-27-495558",
+      "tier": "PRIMARY_FANTACALCIO",
+      "updated_at": "2026-09-10T11:23:00+02:00",
+      "status": "READY_CONTEXT_ONLY"
+    },
+    "sosfanta_medical": {
+      "url": "https://www.sosfanta.com/indisponibili-e-squalificati/tabella-indisponibili-seriea-fantacalcio-asta-infortunati-tempi-recupero-squalificati-diffidati/",
+      "tier": "SPECIALIZED_SECONDARY",
+      "published_at": "2026-09-22T09:45:00+02:00",
+      "status": "READY_WITH_SOURCE_TIER"
+    },
+    "juventus_kolo_muani_official": {
+      "url": "https://www.juventus.com/it/news/articoli/bollettino-medico-le-condizioni-di-kolo-muani-210926",
+      "tier": "CLUB_OFFICIAL",
+      "published_at": "2026-09-21",
+      "status": "READY"
+    }
+  },
+  "performance_rows": {
+    "p-malen-roma": {
+      "pv": 5,
+      "mv": 7.1,
+      "fm": 10.6,
+      "goals": 6,
+      "assists": 0,
+      "yellow": 1,
+      "red": 0,
+      "source": "fantacalcio_stats"
+    },
+    "p-dybala-roma": {
+      "pv": 5,
+      "mv": 7.1,
+      "fm": 7.9,
+      "goals": 0,
+      "assists": 4,
+      "yellow": 0,
+      "red": 0,
+      "source": "fantacalcio_stats"
+    },
+    "p-martinez-l-inter": {
+      "pv": 4,
+      "mv": 6.75,
+      "fm": 9.5,
+      "goals": 4,
+      "assists": 0,
+      "yellow": 2,
+      "red": 0,
+      "source": "fantacalcio_stats"
+    },
+    "p-varela-g-monza": {
+      "pv": 4,
+      "mv": 6.88,
+      "fm": 9.75,
+      "goals": 4,
+      "assists": 0,
+      "penalties_scored": 1,
+      "penalties_taken": 1,
+      "yellow": 1,
+      "red": 0,
+      "source": "fantacalcio_stats"
+    },
+    "p-raimondo-frosinone": {
+      "pv": 5,
+      "mv": 6.6,
+      "fm": 8.8,
+      "goals": 4,
+      "assists": 0,
+      "yellow": 2,
+      "red": 0,
+      "source": "fantacalcio_stats"
+    }
+  },
+  "explicit_tied_beyond_top20": {
+    "goals_2": [
+      "p-esposito-f-p-inter",
+      "p-soule-roma",
+      "p-baturina-como",
+      "p-fc-7600",
+      "p-tiago-gabriel-lecce",
+      "p-fc-6618",
+      "p-thuram-inter",
+      "p-noslin-lazio",
+      "p-romero-d-parma",
+      "p-pisilli-roma",
+      "p-zhegrova-juventus",
+      "p-adams-c-torino",
+      "p-calhanoglu-inter"
+    ],
+    "assists_1": [
+      "p-barella-inter",
+      "p-di-lorenzo-napoli",
+      "p-kolo-muani-juventus",
+      "p-hainaut-venezia",
+      "p-ramos-g-milan",
+      "p-kvernadze-frosinone",
+      "p-ekkelenkamp-udinese",
+      "p-kamara-h-udinese",
+      "p-calo-frosinone",
+      "p-celik-juventus",
+      "p-paz-n-como"
+    ]
+  },
+  "tactical_current_rows": {
+    "p-malen-roma": {
+      "team": "Roma",
+      "start_probability_pct": 80,
+      "source": "fantacalcio_probables_current"
+    },
+    "p-dybala-roma": {
+      "team": "Roma",
+      "start_probability_pct": 80,
+      "source": "fantacalcio_probables_current"
+    },
+    "p-martinez-l-inter": {
+      "team": "Inter",
+      "start_probability_pct": 90,
+      "source": "fantacalcio_probables_current"
+    },
+    "p-kolo-muani-juventus": {
+      "team": "Juventus",
+      "start_probability_pct": 70,
+      "source": "fantacalcio_probables_current"
+    }
+  },
+  "set_piece_prior_10sep": {
+    "Roma": {
+      "penalties": [
+        "p-malen-roma",
+        "p-dybala-roma"
+      ],
+      "set_pieces": [
+        "p-dybala-roma",
+        "p-malen-roma"
+      ]
+    },
+    "Inter": {
+      "penalties": [
+        "p-calhanoglu-inter",
+        "p-martinez-l-inter"
+      ],
+      "set_pieces": [
+        "p-calhanoglu-inter",
+        "p-dimarco-inter"
+      ]
+    },
+    "Juventus": {
+      "penalties": [
+        "p-kolo-muani-juventus"
+      ],
+      "set_pieces": [
+        "p-yildiz-juventus",
+        "p-locatelli-juventus"
+      ]
+    },
+    "Lazio": {
+      "penalties": [
+        "p-zaccagni-lazio"
+      ],
+      "set_pieces": [
+        "p-zaccagni-lazio"
+      ]
+    }
+  },
+  "medical_overrides": {
+    "p-kolo-muani-juventus": {
+      "source": "juventus_kolo_muani_official",
+      "tier": "CLUB_OFFICIAL",
+      "status": "AVAILABLE_POST_OP",
+      "issue": "frattura della falange prossimale del quinto dito della mano destra; osteosintesi riuscita",
+      "availability": "REGOLARMENTE_A_DISPOSIZIONE",
+      "confidence": "HIGH"
+    },
+    "p-malen-roma": {
+      "source": "sosfanta_medical",
+      "tier": "SPECIALIZED_SECONDARY",
+      "status": "DOUBT",
+      "issue": "fastidio al ginocchio sinistro",
+      "availability": "IN_DUBBIO_PER_6A",
+      "confidence": "MEDIUM"
+    }
+  }
+}
