@@ -1,0 +1,2005 @@
+{
+  "schema": "FS_AUCTION_SHORTLIST_45_V1",
+  "generated_for": "23SEP2026 pre-auction T0",
+  "league": {
+    "managers": 10,
+    "budget_each": 500,
+    "roster": "3P_8D_8C_6A"
+  },
+  "algorithm": "AUCTION_MARKET_V1_10x500 + season_value blend",
+  "semantics": {
+    "buy": "acquisto conveniente",
+    "wait": "zona rilancio controllato",
+    "stop": "limite massimo T0; sopra PASS",
+    "dynamic_note": "Durante l'asta il MAX cambia dopo ogni transazione registrata."
+  },
+  "counts": {
+    "P": 6,
+    "D": 11,
+    "C": 12,
+    "A": 16
+  },
+  "total": 45,
+  "rows": [
+    {
+      "rank": 1,
+      "player_id": "p-svilar-roma",
+      "role": "P",
+      "name": "SVILAR Mile",
+      "team": "Roma",
+      "tier": "SUPERSTAR",
+      "market_t0": 21,
+      "buy": 18,
+      "wait": [
+        19,
+        20
+      ],
+      "stop": 20,
+      "season_value": 60,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-martinez-jo-inter",
+          "name": "MARTINEZ Josep",
+          "team": "Inter",
+          "buy": 15,
+          "wait": [
+            16,
+            18
+          ],
+          "stop": 18,
+          "market": 18
+        },
+        {
+          "player_id": "p-carnesecchi-atalanta",
+          "name": "CARNESECCHI Marco",
+          "team": "Atalanta",
+          "buy": 15,
+          "wait": [
+            16,
+            17
+          ],
+          "stop": 17,
+          "market": 17
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "player_id": "p-martinez-jo-inter",
+      "role": "P",
+      "name": "MARTINEZ Josep",
+      "team": "Inter",
+      "tier": "PREMIUM",
+      "market_t0": 18,
+      "buy": 15,
+      "wait": [
+        16,
+        18
+      ],
+      "stop": 18,
+      "season_value": 52.4,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-carnesecchi-atalanta",
+          "name": "CARNESECCHI Marco",
+          "team": "Atalanta",
+          "buy": 15,
+          "wait": [
+            16,
+            17
+          ],
+          "stop": 17,
+          "market": 17
+        },
+        {
+          "player_id": "p-maignan-milan",
+          "name": "MAIGNAN Mike",
+          "team": "Milan",
+          "buy": 14,
+          "wait": [
+            15,
+            16
+          ],
+          "stop": 16,
+          "market": 16
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "player_id": "p-carnesecchi-atalanta",
+      "role": "P",
+      "name": "CARNESECCHI Marco",
+      "team": "Atalanta",
+      "tier": "PREMIUM",
+      "market_t0": 17,
+      "buy": 15,
+      "wait": [
+        16,
+        17
+      ],
+      "stop": 17,
+      "season_value": 45.1,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-maignan-milan",
+          "name": "MAIGNAN Mike",
+          "team": "Milan",
+          "buy": 14,
+          "wait": [
+            15,
+            16
+          ],
+          "stop": 16,
+          "market": 16
+        },
+        {
+          "player_id": "p-butez-como",
+          "name": "BUTEZ Jean",
+          "team": "Como",
+          "buy": 13,
+          "wait": [
+            14,
+            16
+          ],
+          "stop": 16,
+          "market": 15
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "player_id": "p-maignan-milan",
+      "role": "P",
+      "name": "MAIGNAN Mike",
+      "team": "Milan",
+      "tier": "PREMIUM",
+      "market_t0": 16,
+      "buy": 14,
+      "wait": [
+        15,
+        16
+      ],
+      "stop": 16,
+      "season_value": 44.7,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-carnesecchi-atalanta",
+          "name": "CARNESECCHI Marco",
+          "team": "Atalanta",
+          "buy": 15,
+          "wait": [
+            16,
+            17
+          ],
+          "stop": 17,
+          "market": 17
+        },
+        {
+          "player_id": "p-butez-como",
+          "name": "BUTEZ Jean",
+          "team": "Como",
+          "buy": 13,
+          "wait": [
+            14,
+            16
+          ],
+          "stop": 16,
+          "market": 15
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "player_id": "p-butez-como",
+      "role": "P",
+      "name": "BUTEZ Jean",
+      "team": "Como",
+      "tier": "STANDARD",
+      "market_t0": 15,
+      "buy": 13,
+      "wait": [
+        14,
+        16
+      ],
+      "stop": 16,
+      "season_value": 42.6,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-meret-napoli",
+          "name": "MERET Alex",
+          "team": "Napoli",
+          "buy": 13,
+          "wait": [
+            14,
+            16
+          ],
+          "stop": 16,
+          "market": 15
+        },
+        {
+          "player_id": "p-maignan-milan",
+          "name": "MAIGNAN Mike",
+          "team": "Milan",
+          "buy": 14,
+          "wait": [
+            15,
+            16
+          ],
+          "stop": 16,
+          "market": 16
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "player_id": "p-meret-napoli",
+      "role": "P",
+      "name": "MERET Alex",
+      "team": "Napoli",
+      "tier": "STANDARD",
+      "market_t0": 15,
+      "buy": 13,
+      "wait": [
+        14,
+        16
+      ],
+      "stop": 16,
+      "season_value": 41.6,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-butez-como",
+          "name": "BUTEZ Jean",
+          "team": "Como",
+          "buy": 13,
+          "wait": [
+            14,
+            16
+          ],
+          "stop": 16,
+          "market": 15
+        },
+        {
+          "player_id": "p-maignan-milan",
+          "name": "MAIGNAN Mike",
+          "team": "Milan",
+          "buy": 14,
+          "wait": [
+            15,
+            16
+          ],
+          "stop": 16,
+          "market": 16
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "player_id": "p-dimarco-inter",
+      "role": "D",
+      "name": "DIMARCO Federico",
+      "team": "Inter",
+      "tier": "SUPERSTAR",
+      "market_t0": 28,
+      "buy": 24,
+      "wait": [
+        25,
+        28
+      ],
+      "stop": 28,
+      "season_value": 135.5,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-wesley-roma",
+          "name": "WESLEY França Lima",
+          "team": "Roma",
+          "buy": 15,
+          "wait": [
+            16,
+            18
+          ],
+          "stop": 18,
+          "market": 18
+        },
+        {
+          "player_id": "p-molina-n-roma",
+          "name": "MOLINA Nahuel",
+          "team": "Roma",
+          "buy": 15,
+          "wait": [
+            16,
+            18
+          ],
+          "stop": 18,
+          "market": 17
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "player_id": "p-wesley-roma",
+      "role": "D",
+      "name": "WESLEY França Lima",
+      "team": "Roma",
+      "tier": "SUPERSTAR",
+      "market_t0": 18,
+      "buy": 15,
+      "wait": [
+        16,
+        18
+      ],
+      "stop": 18,
+      "season_value": 61,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-molina-n-roma",
+          "name": "MOLINA Nahuel",
+          "team": "Roma",
+          "buy": 15,
+          "wait": [
+            16,
+            18
+          ],
+          "stop": 18,
+          "market": 17
+        },
+        {
+          "player_id": "p-bremer-juventus",
+          "name": "BREMER Gleison",
+          "team": "Juventus",
+          "buy": 14,
+          "wait": [
+            15,
+            16
+          ],
+          "stop": 16,
+          "market": 16
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "player_id": "p-molina-n-roma",
+      "role": "D",
+      "name": "MOLINA Nahuel",
+      "team": "Roma",
+      "tier": "SUPERSTAR",
+      "market_t0": 17,
+      "buy": 15,
+      "wait": [
+        16,
+        18
+      ],
+      "stop": 18,
+      "season_value": 51.9,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-bremer-juventus",
+          "name": "BREMER Gleison",
+          "team": "Juventus",
+          "buy": 14,
+          "wait": [
+            15,
+            16
+          ],
+          "stop": 16,
+          "market": 16
+        },
+        {
+          "player_id": "p-pavlovic-milan",
+          "name": "PAVLOVIC Strahinja",
+          "team": "Milan",
+          "buy": 12,
+          "wait": [
+            13,
+            14
+          ],
+          "stop": 14,
+          "market": 14
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "player_id": "p-bremer-juventus",
+      "role": "D",
+      "name": "BREMER Gleison",
+      "team": "Juventus",
+      "tier": "SUPERSTAR",
+      "market_t0": 16,
+      "buy": 14,
+      "wait": [
+        15,
+        16
+      ],
+      "stop": 16,
+      "season_value": 51,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-molina-n-roma",
+          "name": "MOLINA Nahuel",
+          "team": "Roma",
+          "buy": 15,
+          "wait": [
+            16,
+            18
+          ],
+          "stop": 18,
+          "market": 17
+        },
+        {
+          "player_id": "p-pavlovic-milan",
+          "name": "PAVLOVIC Strahinja",
+          "team": "Milan",
+          "buy": 12,
+          "wait": [
+            13,
+            14
+          ],
+          "stop": 14,
+          "market": 14
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "player_id": "p-pavlovic-milan",
+      "role": "D",
+      "name": "PAVLOVIC Strahinja",
+      "team": "Milan",
+      "tier": "PREMIUM",
+      "market_t0": 14,
+      "buy": 12,
+      "wait": [
+        13,
+        14
+      ],
+      "stop": 14,
+      "season_value": 45.3,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-mancini-roma",
+          "name": "MANCINI Gianluca",
+          "team": "Roma",
+          "buy": 12,
+          "wait": [
+            13,
+            15
+          ],
+          "stop": 15,
+          "market": 14
+        },
+        {
+          "player_id": "p-rrahmani-napoli",
+          "name": "RRAHMANI Amir",
+          "team": "Napoli",
+          "buy": 13,
+          "wait": [
+            14,
+            15
+          ],
+          "stop": 15,
+          "market": 15
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "player_id": "p-rrahmani-napoli",
+      "role": "D",
+      "name": "RRAHMANI Amir",
+      "team": "Napoli",
+      "tier": "SUPERSTAR",
+      "market_t0": 15,
+      "buy": 13,
+      "wait": [
+        14,
+        15
+      ],
+      "stop": 15,
+      "season_value": 45,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-pavlovic-milan",
+          "name": "PAVLOVIC Strahinja",
+          "team": "Milan",
+          "buy": 12,
+          "wait": [
+            13,
+            14
+          ],
+          "stop": 14,
+          "market": 14
+        },
+        {
+          "player_id": "p-mancini-roma",
+          "name": "MANCINI Gianluca",
+          "team": "Roma",
+          "buy": 12,
+          "wait": [
+            13,
+            15
+          ],
+          "stop": 15,
+          "market": 14
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "player_id": "p-mancini-roma",
+      "role": "D",
+      "name": "MANCINI Gianluca",
+      "team": "Roma",
+      "tier": "PREMIUM",
+      "market_t0": 14,
+      "buy": 12,
+      "wait": [
+        13,
+        15
+      ],
+      "stop": 15,
+      "season_value": 44.5,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-pavlovic-milan",
+          "name": "PAVLOVIC Strahinja",
+          "team": "Milan",
+          "buy": 12,
+          "wait": [
+            13,
+            14
+          ],
+          "stop": 14,
+          "market": 14
+        },
+        {
+          "player_id": "p-akanji-inter",
+          "name": "AKANJI Manuel",
+          "team": "Inter",
+          "buy": 12,
+          "wait": [
+            13,
+            14
+          ],
+          "stop": 14,
+          "market": 14
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "player_id": "p-akanji-inter",
+      "role": "D",
+      "name": "AKANJI Manuel",
+      "team": "Inter",
+      "tier": "PREMIUM",
+      "market_t0": 14,
+      "buy": 12,
+      "wait": [
+        13,
+        14
+      ],
+      "stop": 14,
+      "season_value": 42.7,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-kalulu-juventus",
+          "name": "KALULU Pierre",
+          "team": "Juventus",
+          "buy": 12,
+          "wait": [
+            13,
+            14
+          ],
+          "stop": 14,
+          "market": 14
+        },
+        {
+          "player_id": "p-mancini-roma",
+          "name": "MANCINI Gianluca",
+          "team": "Roma",
+          "buy": 12,
+          "wait": [
+            13,
+            15
+          ],
+          "stop": 15,
+          "market": 14
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "player_id": "p-kalulu-juventus",
+      "role": "D",
+      "name": "KALULU Pierre",
+      "team": "Juventus",
+      "tier": "PREMIUM",
+      "market_t0": 14,
+      "buy": 12,
+      "wait": [
+        13,
+        14
+      ],
+      "stop": 14,
+      "season_value": 41.5,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-akanji-inter",
+          "name": "AKANJI Manuel",
+          "team": "Inter",
+          "buy": 12,
+          "wait": [
+            13,
+            14
+          ],
+          "stop": 14,
+          "market": 14
+        },
+        {
+          "player_id": "p-solet-udinese",
+          "name": "SOLET Oumar",
+          "team": "Udinese",
+          "buy": 12,
+          "wait": [
+            13,
+            14
+          ],
+          "stop": 14,
+          "market": 14
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "player_id": "p-solet-udinese",
+      "role": "D",
+      "name": "SOLET Oumar",
+      "team": "Udinese",
+      "tier": "PREMIUM",
+      "market_t0": 14,
+      "buy": 12,
+      "wait": [
+        13,
+        14
+      ],
+      "stop": 14,
+      "season_value": 40.1,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-bastoni-inter",
+          "name": "BASTONI Alessandro",
+          "team": "Inter",
+          "buy": 11,
+          "wait": [
+            12,
+            14
+          ],
+          "stop": 14,
+          "market": 13
+        },
+        {
+          "player_id": "p-di-lorenzo-napoli",
+          "name": "DI LORENZO Giovanni",
+          "team": "Napoli",
+          "buy": 11,
+          "wait": [
+            12,
+            13
+          ],
+          "stop": 13,
+          "market": 13
+        }
+      ]
+    },
+    {
+      "rank": 17,
+      "player_id": "p-bastoni-inter",
+      "role": "D",
+      "name": "BASTONI Alessandro",
+      "team": "Inter",
+      "tier": "PREMIUM",
+      "market_t0": 13,
+      "buy": 11,
+      "wait": [
+        12,
+        14
+      ],
+      "stop": 14,
+      "season_value": 39.1,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-di-lorenzo-napoli",
+          "name": "DI LORENZO Giovanni",
+          "team": "Napoli",
+          "buy": 11,
+          "wait": [
+            12,
+            13
+          ],
+          "stop": 13,
+          "market": 13
+        },
+        {
+          "player_id": "p-n-dicka-roma",
+          "name": "NDICKA Evan",
+          "team": "Roma",
+          "buy": 11,
+          "wait": [
+            12,
+            14
+          ],
+          "stop": 14,
+          "market": 13
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "player_id": "p-paz-n-como",
+      "role": "C",
+      "name": "PAZ Nico",
+      "team": "Como",
+      "tier": "SUPERSTAR",
+      "market_t0": 40,
+      "buy": 34,
+      "wait": [
+        35,
+        40
+      ],
+      "stop": 40,
+      "season_value": 139.6,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-calhanoglu-inter",
+          "name": "CALHANOGLU Hakan",
+          "team": "Inter",
+          "buy": 34,
+          "wait": [
+            35,
+            39
+          ],
+          "stop": 39,
+          "market": 39
+        },
+        {
+          "player_id": "p-mctominay-napoli",
+          "name": "MCTOMINAY Scott",
+          "team": "Napoli",
+          "buy": 33,
+          "wait": [
+            34,
+            38
+          ],
+          "stop": 38,
+          "market": 38
+        }
+      ]
+    },
+    {
+      "rank": 19,
+      "player_id": "p-calhanoglu-inter",
+      "role": "C",
+      "name": "CALHANOGLU Hakan",
+      "team": "Inter",
+      "tier": "SUPERSTAR",
+      "market_t0": 39,
+      "buy": 34,
+      "wait": [
+        35,
+        39
+      ],
+      "stop": 39,
+      "season_value": 136,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-paz-n-como",
+          "name": "PAZ Nico",
+          "team": "Como",
+          "buy": 34,
+          "wait": [
+            35,
+            40
+          ],
+          "stop": 40,
+          "market": 40
+        },
+        {
+          "player_id": "p-mctominay-napoli",
+          "name": "MCTOMINAY Scott",
+          "team": "Napoli",
+          "buy": 33,
+          "wait": [
+            34,
+            38
+          ],
+          "stop": 38,
+          "market": 38
+        }
+      ]
+    },
+    {
+      "rank": 20,
+      "player_id": "p-mctominay-napoli",
+      "role": "C",
+      "name": "MCTOMINAY Scott",
+      "team": "Napoli",
+      "tier": "SUPERSTAR",
+      "market_t0": 38,
+      "buy": 33,
+      "wait": [
+        34,
+        38
+      ],
+      "stop": 38,
+      "season_value": 122.9,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-calhanoglu-inter",
+          "name": "CALHANOGLU Hakan",
+          "team": "Inter",
+          "buy": 34,
+          "wait": [
+            35,
+            39
+          ],
+          "stop": 39,
+          "market": 39
+        },
+        {
+          "player_id": "p-paz-n-como",
+          "name": "PAZ Nico",
+          "team": "Como",
+          "buy": 34,
+          "wait": [
+            35,
+            40
+          ],
+          "stop": 40,
+          "market": 40
+        }
+      ]
+    },
+    {
+      "rank": 21,
+      "player_id": "p-orsolini-bologna",
+      "role": "C",
+      "name": "ORSOLINI Riccardo",
+      "team": "Bologna",
+      "tier": "SUPERSTAR",
+      "market_t0": 34,
+      "buy": 29,
+      "wait": [
+        30,
+        34
+      ],
+      "stop": 34,
+      "season_value": 103.2,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-pulisic-milan",
+          "name": "PULISIC Christian",
+          "team": "Milan",
+          "buy": 27,
+          "wait": [
+            28,
+            32
+          ],
+          "stop": 32,
+          "market": 31
+        },
+        {
+          "player_id": "p-rabiot-milan",
+          "name": "RABIOT Adrien",
+          "team": "Milan",
+          "buy": 26,
+          "wait": [
+            27,
+            31
+          ],
+          "stop": 31,
+          "market": 30
+        }
+      ]
+    },
+    {
+      "rank": 22,
+      "player_id": "p-pulisic-milan",
+      "role": "C",
+      "name": "PULISIC Christian",
+      "team": "Milan",
+      "tier": "SUPERSTAR",
+      "market_t0": 31,
+      "buy": 27,
+      "wait": [
+        28,
+        32
+      ],
+      "stop": 32,
+      "season_value": 92.7,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-rabiot-milan",
+          "name": "RABIOT Adrien",
+          "team": "Milan",
+          "buy": 26,
+          "wait": [
+            27,
+            31
+          ],
+          "stop": 31,
+          "market": 30
+        },
+        {
+          "player_id": "p-orsolini-bologna",
+          "name": "ORSOLINI Riccardo",
+          "team": "Bologna",
+          "buy": 29,
+          "wait": [
+            30,
+            34
+          ],
+          "stop": 34,
+          "market": 34
+        }
+      ]
+    },
+    {
+      "rank": 23,
+      "player_id": "p-rabiot-milan",
+      "role": "C",
+      "name": "RABIOT Adrien",
+      "team": "Milan",
+      "tier": "PREMIUM",
+      "market_t0": 30,
+      "buy": 26,
+      "wait": [
+        27,
+        31
+      ],
+      "stop": 31,
+      "season_value": 91,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-pulisic-milan",
+          "name": "PULISIC Christian",
+          "team": "Milan",
+          "buy": 27,
+          "wait": [
+            28,
+            32
+          ],
+          "stop": 32,
+          "market": 31
+        },
+        {
+          "player_id": "p-orsolini-bologna",
+          "name": "ORSOLINI Riccardo",
+          "team": "Bologna",
+          "buy": 29,
+          "wait": [
+            30,
+            34
+          ],
+          "stop": 34,
+          "market": 34
+        }
+      ]
+    },
+    {
+      "rank": 24,
+      "player_id": "p-baturina-como",
+      "role": "C",
+      "name": "BATURINA Martin",
+      "team": "Como",
+      "tier": "PREMIUM",
+      "market_t0": 26,
+      "buy": 22,
+      "wait": [
+        23,
+        27
+      ],
+      "stop": 27,
+      "season_value": 72.7,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-de-bruyne-napoli",
+          "name": "DE BRUYNE Kevin",
+          "team": "Napoli",
+          "buy": 22,
+          "wait": [
+            23,
+            27
+          ],
+          "stop": 27,
+          "market": 26
+        },
+        {
+          "player_id": "p-zaccagni-lazio",
+          "name": "ZACCAGNI Mattia",
+          "team": "Lazio",
+          "buy": 21,
+          "wait": [
+            22,
+            25
+          ],
+          "stop": 25,
+          "market": 24
+        }
+      ]
+    },
+    {
+      "rank": 25,
+      "player_id": "p-de-bruyne-napoli",
+      "role": "C",
+      "name": "DE BRUYNE Kevin",
+      "team": "Napoli",
+      "tier": "PREMIUM",
+      "market_t0": 26,
+      "buy": 22,
+      "wait": [
+        23,
+        27
+      ],
+      "stop": 27,
+      "season_value": 70.5,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-baturina-como",
+          "name": "BATURINA Martin",
+          "team": "Como",
+          "buy": 22,
+          "wait": [
+            23,
+            27
+          ],
+          "stop": 27,
+          "market": 26
+        },
+        {
+          "player_id": "p-zaccagni-lazio",
+          "name": "ZACCAGNI Mattia",
+          "team": "Lazio",
+          "buy": 21,
+          "wait": [
+            22,
+            25
+          ],
+          "stop": 25,
+          "market": 24
+        }
+      ]
+    },
+    {
+      "rank": 26,
+      "player_id": "p-zaccagni-lazio",
+      "role": "C",
+      "name": "ZACCAGNI Mattia",
+      "team": "Lazio",
+      "tier": "PREMIUM",
+      "market_t0": 24,
+      "buy": 21,
+      "wait": [
+        22,
+        25
+      ],
+      "stop": 25,
+      "season_value": 63.1,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-da-cunha-como",
+          "name": "DA CUNHA Lucas",
+          "team": "Como",
+          "buy": 21,
+          "wait": [
+            22,
+            25
+          ],
+          "stop": 25,
+          "market": 24
+        },
+        {
+          "player_id": "p-barella-inter",
+          "name": "BARELLA Nicolò",
+          "team": "Inter",
+          "buy": 20,
+          "wait": [
+            21,
+            23
+          ],
+          "stop": 23,
+          "market": 23
+        }
+      ]
+    },
+    {
+      "rank": 27,
+      "player_id": "p-da-cunha-como",
+      "role": "C",
+      "name": "DA CUNHA Lucas",
+      "team": "Como",
+      "tier": "PREMIUM",
+      "market_t0": 24,
+      "buy": 21,
+      "wait": [
+        22,
+        25
+      ],
+      "stop": 25,
+      "season_value": 60.6,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-barella-inter",
+          "name": "BARELLA Nicolò",
+          "team": "Inter",
+          "buy": 20,
+          "wait": [
+            21,
+            23
+          ],
+          "stop": 23,
+          "market": 23
+        },
+        {
+          "player_id": "p-zaccagni-lazio",
+          "name": "ZACCAGNI Mattia",
+          "team": "Lazio",
+          "buy": 21,
+          "wait": [
+            22,
+            25
+          ],
+          "stop": 25,
+          "market": 24
+        }
+      ]
+    },
+    {
+      "rank": 28,
+      "player_id": "p-barella-inter",
+      "role": "C",
+      "name": "BARELLA Nicolò",
+      "team": "Inter",
+      "tier": "PREMIUM",
+      "market_t0": 23,
+      "buy": 20,
+      "wait": [
+        21,
+        23
+      ],
+      "stop": 23,
+      "season_value": 58.8,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-zaniolo-udinese",
+          "name": "ZANIOLO Nicolò",
+          "team": "Udinese",
+          "buy": 20,
+          "wait": [
+            21,
+            24
+          ],
+          "stop": 24,
+          "market": 23
+        },
+        {
+          "player_id": "p-atta-fiorentina",
+          "name": "ATTA Arthur",
+          "team": "Fiorentina",
+          "buy": 19,
+          "wait": [
+            20,
+            23
+          ],
+          "stop": 23,
+          "market": 22
+        }
+      ]
+    },
+    {
+      "rank": 29,
+      "player_id": "p-zaniolo-udinese",
+      "role": "C",
+      "name": "ZANIOLO Nicolò",
+      "team": "Udinese",
+      "tier": "PREMIUM",
+      "market_t0": 23,
+      "buy": 20,
+      "wait": [
+        21,
+        24
+      ],
+      "stop": 24,
+      "season_value": 58.1,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-barella-inter",
+          "name": "BARELLA Nicolò",
+          "team": "Inter",
+          "buy": 20,
+          "wait": [
+            21,
+            23
+          ],
+          "stop": 23,
+          "market": 23
+        },
+        {
+          "player_id": "p-atta-fiorentina",
+          "name": "ATTA Arthur",
+          "team": "Fiorentina",
+          "buy": 19,
+          "wait": [
+            20,
+            23
+          ],
+          "stop": 23,
+          "market": 22
+        }
+      ]
+    },
+    {
+      "rank": 30,
+      "player_id": "p-malen-roma",
+      "role": "A",
+      "name": "MALEN Donyell",
+      "team": "Roma",
+      "tier": "SUPERSTAR",
+      "market_t0": 124,
+      "buy": 107,
+      "wait": [
+        108,
+        124
+      ],
+      "stop": 124,
+      "season_value": 228.3,
+      "evidence": "ADVANCED_CURRENT_EVIDENCE",
+      "medical": "DOUBT",
+      "substitutes": [
+        {
+          "player_id": "p-martinez-l-inter",
+          "name": "MARTINEZ Lautaro",
+          "team": "Inter",
+          "buy": 96,
+          "wait": [
+            97,
+            121
+          ],
+          "stop": 121,
+          "market": 112
+        },
+        {
+          "player_id": "p-hojlund-napoli",
+          "name": "HOJLUND Rasmus",
+          "team": "Napoli",
+          "buy": 82,
+          "wait": [
+            83,
+            93
+          ],
+          "stop": 93,
+          "market": 95
+        }
+      ]
+    },
+    {
+      "rank": 31,
+      "player_id": "p-martinez-l-inter",
+      "role": "A",
+      "name": "MARTINEZ Lautaro",
+      "team": "Inter",
+      "tier": "SUPERSTAR",
+      "market_t0": 112,
+      "buy": 96,
+      "wait": [
+        97,
+        121
+      ],
+      "stop": 121,
+      "season_value": 204.4,
+      "evidence": "ADVANCED_CURRENT_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-malen-roma",
+          "name": "MALEN Donyell",
+          "team": "Roma",
+          "buy": 107,
+          "wait": [
+            108,
+            124
+          ],
+          "stop": 124,
+          "market": 124
+        },
+        {
+          "player_id": "p-hojlund-napoli",
+          "name": "HOJLUND Rasmus",
+          "team": "Napoli",
+          "buy": 82,
+          "wait": [
+            83,
+            93
+          ],
+          "stop": 93,
+          "market": 95
+        }
+      ]
+    },
+    {
+      "rank": 32,
+      "player_id": "p-hojlund-napoli",
+      "role": "A",
+      "name": "HOJLUND Rasmus",
+      "team": "Napoli",
+      "tier": "SUPERSTAR",
+      "market_t0": 95,
+      "buy": 82,
+      "wait": [
+        83,
+        93
+      ],
+      "stop": 93,
+      "season_value": 146.1,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-thuram-inter",
+          "name": "THURAM Marcus",
+          "team": "Inter",
+          "buy": 80,
+          "wait": [
+            81,
+            91
+          ],
+          "stop": 91,
+          "market": 93
+        },
+        {
+          "player_id": "p-ramos-g-milan",
+          "name": "RAMOS Goncalo Matias",
+          "team": "Milan",
+          "buy": 76,
+          "wait": [
+            77,
+            86
+          ],
+          "stop": 86,
+          "market": 88
+        }
+      ]
+    },
+    {
+      "rank": 33,
+      "player_id": "p-thuram-inter",
+      "role": "A",
+      "name": "THURAM Marcus",
+      "team": "Inter",
+      "tier": "SUPERSTAR",
+      "market_t0": 93,
+      "buy": 80,
+      "wait": [
+        81,
+        91
+      ],
+      "stop": 91,
+      "season_value": 139.7,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-ramos-g-milan",
+          "name": "RAMOS Goncalo Matias",
+          "team": "Milan",
+          "buy": 76,
+          "wait": [
+            77,
+            86
+          ],
+          "stop": 86,
+          "market": 88
+        },
+        {
+          "player_id": "p-hojlund-napoli",
+          "name": "HOJLUND Rasmus",
+          "team": "Napoli",
+          "buy": 82,
+          "wait": [
+            83,
+            93
+          ],
+          "stop": 93,
+          "market": 95
+        }
+      ]
+    },
+    {
+      "rank": 34,
+      "player_id": "p-ramos-g-milan",
+      "role": "A",
+      "name": "RAMOS Goncalo Matias",
+      "team": "Milan",
+      "tier": "PREMIUM",
+      "market_t0": 88,
+      "buy": 76,
+      "wait": [
+        77,
+        86
+      ],
+      "stop": 86,
+      "season_value": 133.9,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-thuram-inter",
+          "name": "THURAM Marcus",
+          "team": "Inter",
+          "buy": 80,
+          "wait": [
+            81,
+            91
+          ],
+          "stop": 91,
+          "market": 93
+        },
+        {
+          "player_id": "p-hojlund-napoli",
+          "name": "HOJLUND Rasmus",
+          "team": "Napoli",
+          "buy": 82,
+          "wait": [
+            83,
+            93
+          ],
+          "stop": 93,
+          "market": 95
+        }
+      ]
+    },
+    {
+      "rank": 35,
+      "player_id": "p-douvikas-como",
+      "role": "A",
+      "name": "DOUVIKAS Tasos",
+      "team": "Como",
+      "tier": "PREMIUM",
+      "market_t0": 78,
+      "buy": 67,
+      "wait": [
+        68,
+        80
+      ],
+      "stop": 80,
+      "season_value": 109.4,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-kolo-muani-juventus",
+          "name": "KOLO MUANI Randal",
+          "team": "Juventus",
+          "buy": 63,
+          "wait": [
+            64,
+            72
+          ],
+          "stop": 72,
+          "market": 74
+        },
+        {
+          "player_id": "p-ramos-g-milan",
+          "name": "RAMOS Goncalo Matias",
+          "team": "Milan",
+          "buy": 76,
+          "wait": [
+            77,
+            86
+          ],
+          "stop": 86,
+          "market": 88
+        }
+      ]
+    },
+    {
+      "rank": 36,
+      "player_id": "p-kean-fiorentina",
+      "role": "A",
+      "name": "KEAN Moise",
+      "team": "Como",
+      "tier": "PREMIUM",
+      "market_t0": 78,
+      "buy": 62,
+      "wait": [
+        63,
+        71
+      ],
+      "stop": 71,
+      "season_value": 105,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-douvikas-como",
+          "name": "DOUVIKAS Tasos",
+          "team": "Como",
+          "buy": 67,
+          "wait": [
+            68,
+            80
+          ],
+          "stop": 80,
+          "market": 78
+        },
+        {
+          "player_id": "p-kolo-muani-juventus",
+          "name": "KOLO MUANI Randal",
+          "team": "Juventus",
+          "buy": 63,
+          "wait": [
+            64,
+            72
+          ],
+          "stop": 72,
+          "market": 74
+        }
+      ]
+    },
+    {
+      "rank": 37,
+      "player_id": "p-kolo-muani-juventus",
+      "role": "A",
+      "name": "KOLO MUANI Randal",
+      "team": "Juventus",
+      "tier": "PREMIUM",
+      "market_t0": 74,
+      "buy": 63,
+      "wait": [
+        64,
+        72
+      ],
+      "stop": 72,
+      "season_value": 99.2,
+      "evidence": "ADVANCED_CURRENT_EVIDENCE",
+      "medical": "AVAILABLE_POST_OP",
+      "substitutes": [
+        {
+          "player_id": "p-douvikas-como",
+          "name": "DOUVIKAS Tasos",
+          "team": "Como",
+          "buy": 67,
+          "wait": [
+            68,
+            80
+          ],
+          "stop": 80,
+          "market": 78
+        },
+        {
+          "player_id": "p-davis-k-udinese",
+          "name": "DAVIS Keinan",
+          "team": "Udinese",
+          "buy": 51,
+          "wait": [
+            52,
+            61
+          ],
+          "stop": 61,
+          "market": 59
+        }
+      ]
+    },
+    {
+      "rank": 38,
+      "player_id": "p-fc-6752",
+      "role": "A",
+      "name": "WOLTEMADE Nick",
+      "team": "Juventus",
+      "tier": "PREMIUM",
+      "market_t0": 73,
+      "buy": 57,
+      "wait": [
+        58,
+        65
+      ],
+      "stop": 65,
+      "season_value": 79.3,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-davis-k-udinese",
+          "name": "DAVIS Keinan",
+          "team": "Udinese",
+          "buy": 51,
+          "wait": [
+            52,
+            61
+          ],
+          "stop": 61,
+          "market": 59
+        },
+        {
+          "player_id": "p-scamacca-atalanta",
+          "name": "SCAMACCA Gianluca",
+          "team": "Atalanta",
+          "buy": 52,
+          "wait": [
+            53,
+            62
+          ],
+          "stop": 62,
+          "market": 60
+        }
+      ]
+    },
+    {
+      "rank": 39,
+      "player_id": "p-davis-k-udinese",
+      "role": "A",
+      "name": "DAVIS Keinan",
+      "team": "Udinese",
+      "tier": "STANDARD",
+      "market_t0": 59,
+      "buy": 51,
+      "wait": [
+        52,
+        61
+      ],
+      "stop": 61,
+      "season_value": 72.4,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-scamacca-atalanta",
+          "name": "SCAMACCA Gianluca",
+          "team": "Atalanta",
+          "buy": 52,
+          "wait": [
+            53,
+            62
+          ],
+          "stop": 62,
+          "market": 60
+        },
+        {
+          "player_id": "p-berardi-sassuolo",
+          "name": "BERARDI Domenico",
+          "team": "Sassuolo",
+          "buy": 51,
+          "wait": [
+            52,
+            61
+          ],
+          "stop": 61,
+          "market": 59
+        }
+      ]
+    },
+    {
+      "rank": 40,
+      "player_id": "p-scamacca-atalanta",
+      "role": "A",
+      "name": "SCAMACCA Gianluca",
+      "team": "Atalanta",
+      "tier": "PREMIUM",
+      "market_t0": 60,
+      "buy": 52,
+      "wait": [
+        53,
+        62
+      ],
+      "stop": 62,
+      "season_value": 71.9,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-davis-k-udinese",
+          "name": "DAVIS Keinan",
+          "team": "Udinese",
+          "buy": 51,
+          "wait": [
+            52,
+            61
+          ],
+          "stop": 61,
+          "market": 59
+        },
+        {
+          "player_id": "p-berardi-sassuolo",
+          "name": "BERARDI Domenico",
+          "team": "Sassuolo",
+          "buy": 51,
+          "wait": [
+            52,
+            61
+          ],
+          "stop": 61,
+          "market": 59
+        }
+      ]
+    },
+    {
+      "rank": 41,
+      "player_id": "p-berardi-sassuolo",
+      "role": "A",
+      "name": "BERARDI Domenico",
+      "team": "Sassuolo",
+      "tier": "STANDARD",
+      "market_t0": 59,
+      "buy": 51,
+      "wait": [
+        52,
+        61
+      ],
+      "stop": 61,
+      "season_value": 69.2,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-esposito-f-p-inter",
+          "name": "ESPOSITO FP Francesco Pio",
+          "team": "Inter",
+          "buy": 50,
+          "wait": [
+            51,
+            57
+          ],
+          "stop": 57,
+          "market": 58
+        },
+        {
+          "player_id": "p-dybala-roma",
+          "name": "DYBALA Paulo",
+          "team": "Roma",
+          "buy": 49,
+          "wait": [
+            50,
+            60
+          ],
+          "stop": 60,
+          "market": 57
+        }
+      ]
+    },
+    {
+      "rank": 42,
+      "player_id": "p-esposito-f-p-inter",
+      "role": "A",
+      "name": "ESPOSITO FP Francesco Pio",
+      "team": "Inter",
+      "tier": "STANDARD",
+      "market_t0": 58,
+      "buy": 50,
+      "wait": [
+        51,
+        57
+      ],
+      "stop": 57,
+      "season_value": 67.5,
+      "evidence": "READY_FOR_RECALC",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-dybala-roma",
+          "name": "DYBALA Paulo",
+          "team": "Roma",
+          "buy": 49,
+          "wait": [
+            50,
+            60
+          ],
+          "stop": 60,
+          "market": 57
+        },
+        {
+          "player_id": "p-berardi-sassuolo",
+          "name": "BERARDI Domenico",
+          "team": "Sassuolo",
+          "buy": 51,
+          "wait": [
+            52,
+            61
+          ],
+          "stop": 61,
+          "market": 59
+        }
+      ]
+    },
+    {
+      "rank": 43,
+      "player_id": "p-dybala-roma",
+      "role": "A",
+      "name": "DYBALA Paulo",
+      "team": "Roma",
+      "tier": "STANDARD",
+      "market_t0": 57,
+      "buy": 49,
+      "wait": [
+        50,
+        60
+      ],
+      "stop": 60,
+      "season_value": 67.4,
+      "evidence": "ADVANCED_CURRENT_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-esposito-f-p-inter",
+          "name": "ESPOSITO FP Francesco Pio",
+          "team": "Inter",
+          "buy": 50,
+          "wait": [
+            51,
+            57
+          ],
+          "stop": 57,
+          "market": 58
+        },
+        {
+          "player_id": "p-berardi-sassuolo",
+          "name": "BERARDI Domenico",
+          "team": "Sassuolo",
+          "buy": 51,
+          "wait": [
+            52,
+            61
+          ],
+          "stop": 61,
+          "market": 59
+        }
+      ]
+    },
+    {
+      "rank": 44,
+      "player_id": "p-krstovic-atalanta",
+      "role": "A",
+      "name": "KRSTOVIC Nikola",
+      "team": "Atalanta",
+      "tier": "STANDARD",
+      "market_t0": 57,
+      "buy": 45,
+      "wait": [
+        46,
+        51
+      ],
+      "stop": 51,
+      "season_value": 64.2,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-dybala-roma",
+          "name": "DYBALA Paulo",
+          "team": "Roma",
+          "buy": 49,
+          "wait": [
+            50,
+            60
+          ],
+          "stop": 60,
+          "market": 57
+        },
+        {
+          "player_id": "p-esposito-f-p-inter",
+          "name": "ESPOSITO FP Francesco Pio",
+          "team": "Inter",
+          "buy": 50,
+          "wait": [
+            51,
+            57
+          ],
+          "stop": 57,
+          "market": 58
+        }
+      ]
+    },
+    {
+      "rank": 45,
+      "player_id": "p-de-ketelaere-atalanta",
+      "role": "A",
+      "name": "DE KETELAERE Charles",
+      "team": "Atalanta",
+      "tier": "STANDARD",
+      "market_t0": 56,
+      "buy": 44,
+      "wait": [
+        45,
+        50
+      ],
+      "stop": 50,
+      "season_value": 60.9,
+      "evidence": "PENDING_EVIDENCE",
+      "medical": null,
+      "substitutes": [
+        {
+          "player_id": "p-lauriente-sassuolo",
+          "name": "LAURIENTE Armand",
+          "team": "Sassuolo",
+          "buy": 44,
+          "wait": [
+            45,
+            50
+          ],
+          "stop": 50,
+          "market": 52
+        },
+        {
+          "player_id": "p-simeone-torino",
+          "name": "SIMEONE Giovanni",
+          "team": "Torino",
+          "buy": 44,
+          "wait": [
+            45,
+            53
+          ],
+          "stop": 53,
+          "market": 51
+        }
+      ]
+    }
+  ]
+}
