@@ -1,8 +1,8 @@
 {
-  "app": "V4.1.9",
-  "build": "FANTASEGRETO_V4_1_9_22SEP2026_DATA_REFRESH",
-  "engine": "V4.0.23.1 LOCK",
-  "pwa": "R9.2",
+  "app": "V4.2.0",
+  "build": "FANTASEGRETO_V4_2_0_OPPONENT_MARKET_ENGINE_23SEP2026",
+  "engine": "V4.0.23.1 LOCK + AUCTION_MARKET_V1",
+  "pwa": "R9.3",
   "state_schema": "FS_STATE_V2",
   "data_cutoff": "2026-09-22T09:12:00+02:00",
   "canonical_registry_source": "Fantacalcio.it official snapshot 07SEP2026",
@@ -12,7 +12,7 @@
   "external_listone_count": 562,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "CURRENT_562_APP_INDEX_RECONCILED_PENDING_MODEL_RECALC",
+  "deployment_status": "V4_2_0_OPPONENT_MARKET_ENGINE_PENDING_RUNTIME_SEAL",
   "blockers": [
     "FOS_RISK_MAX_22SEP_RECALC",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
@@ -69,5 +69,19 @@
   "fos_v2_global_22sep_certification": "BLOCKED",
   "freshness_guard_23sep": "PASS",
   "stale_context_contributes_to_promotion": false,
-  "fos_v2_global_23sep_certification": "BLOCKED"
+  "fos_v2_global_23sep_certification": "BLOCKED",
+  "opponent_market_engine": "AUCTION_MARKET_V1_10x500",
+  "opponent_market_status": "ACTIVE",
+  "opponent_prior_managers": 9,
+  "opponent_prior_budget": 500,
+  "opponent_prior_roster": "3P_8D_8C_6A",
+  "opponent_market_role_plan": {
+    "P": 30,
+    "D": 80,
+    "C": 135,
+    "A": 255
+  },
+  "opponent_learning": "TRANSACTION_DRIVEN_SHRINKAGE",
+  "expected_clearing_price": "TOP3_RIVAL_CEILING_WEIGHTED",
+  "dynamic_max_layer": "POST_LOCKED_ENGINE_MARKET_AWARE"
 }
