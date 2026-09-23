@@ -10,7 +10,7 @@
       "name": "MALEN Donyell",
       "team": "Roma",
       "role": "A",
-      "evidence_score": 10,
+      "evidence_score": 9,
       "state": "ADVANCED_CURRENT_EVIDENCE"
     },
     {
@@ -18,7 +18,7 @@
       "name": "MARTINEZ Lautaro",
       "team": "Inter",
       "role": "A",
-      "evidence_score": 9,
+      "evidence_score": 8,
       "state": "ADVANCED_CURRENT_EVIDENCE"
     },
     {
@@ -58,7 +58,7 @@
       "name": "KOLO MUANI Randal",
       "team": "Juventus",
       "role": "A",
-      "evidence_score": 10,
+      "evidence_score": 9,
       "state": "ADVANCED_CURRENT_EVIDENCE"
     },
     {
@@ -66,7 +66,7 @@
       "name": "CALHANOGLU Hakan",
       "team": "Inter",
       "role": "C",
-      "evidence_score": 7,
+      "evidence_score": 6,
       "state": "READY_FOR_RECALC"
     },
     {
@@ -106,7 +106,7 @@
       "name": "DYBALA Paulo",
       "team": "Roma",
       "role": "A",
-      "evidence_score": 9,
+      "evidence_score": 8,
       "state": "ADVANCED_CURRENT_EVIDENCE"
     },
     {
@@ -114,7 +114,7 @@
       "name": "ZACCAGNI Mattia",
       "team": "Lazio",
       "role": "C",
-      "evidence_score": 7,
+      "evidence_score": 6,
       "state": "READY_FOR_RECALC"
     },
     {
@@ -122,7 +122,7 @@
       "name": "DIMARCO Federico",
       "team": "Inter",
       "role": "D",
-      "evidence_score": 7,
+      "evidence_score": 6,
       "state": "READY_FOR_RECALC"
     },
     {

@@ -69,14 +69,15 @@
   "next_valid_gate": "Acquire source-backed current tactical hierarchy, expected minutes, set pieces and complete availability coverage; then recalculate FOS → Risk → MAX and run temporal regression.",
   "pipeline_status": {
     "PERFORMANCE_OVERLAY_V3": "READY",
-    "FANTACALCIO_STATS_BINDING": "READY",
+    "FANTACALCIO_STATS_BINDING": "SOURCE_READY_PARTIAL_BINDING",
     "MEDICAL_V3": "READY_WITH_SOURCE_TIERS",
     "TEAM_ENVIRONMENT_5G": "READY",
-    "TACTICAL_PRIOR_10SEP": "READY_CONTEXT_ONLY",
-    "SET_PIECE_PRIOR_10SEP": "READY_CONTEXT_ONLY",
-    "FOS_V2_INPUT_ENRICHED": "READY",
-    "FOS_V2_PLAYER_CANDIDATES": "READY_FOR_RECALC",
-    "FOS_V2_GLOBAL_22SEP_CERTIFICATION": "BLOCKED"
+    "TACTICAL_PRIOR_10SEP": "STALE_CONTEXT_ONLY_EXCLUDED_FROM_PROMOTION",
+    "SET_PIECE_PRIOR_10SEP": "STALE_CONTEXT_ONLY_EXCLUDED_FROM_PROMOTION",
+    "FOS_V2_INPUT_ENRICHED": "READY_WITH_FRESHNESS_GUARD",
+    "FOS_V2_PLAYER_CANDIDATES": "READY_FOR_RECALC_CURRENT_EVIDENCE_ONLY",
+    "FOS_V2_GLOBAL_22SEP_CERTIFICATION": "BLOCKED",
+    "FRESHNESS_GUARD_23SEP": "PASS"
   },
   "evidence_matrix": {
     "runtime_count": 562,
@@ -91,7 +92,7 @@
   "remaining_global_blockers": [
     "Expected Minutes remain unavailable as a source-backed field for the complete runtime.",
     "Current tactical/start-probability coverage is not pinned player-by-player for all 562.",
-    "Current set-piece hierarchy is a 10SEP prior, not a 22SEP global authority.",
+    "Current set-piece hierarchy is not fully refreshed player-by-player; 10SEP prior is excluded from promotion.",
     "Medical V3 is source-tiered but not complete enough to classify every player as healthy/unhealthy.",
     "Independent cross-validation coverage is incomplete."
   ]

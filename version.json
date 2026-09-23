@@ -54,17 +54,20 @@
   "membership_gate": "PASS",
   "serie_a_membership_runtime_guard": "PASS",
   "performance_overlay": "V3_READY",
-  "fantacalcio_stats_binding": "READY",
+  "fantacalcio_stats_binding": "SOURCE_READY_PARTIAL_BINDING",
   "medical_v3": "READY_WITH_SOURCE_TIERS",
   "team_environment_5g": "READY",
-  "tactical_prior_10sep": "READY_CONTEXT_ONLY",
-  "set_piece_prior_10sep": "READY_CONTEXT_ONLY",
-  "fos_v2_input_enriched": "READY",
-  "fos_v2_player_candidates": "READY_FOR_RECALC",
+  "tactical_prior_10sep": "STALE_CONTEXT_ONLY_EXCLUDED_FROM_PROMOTION",
+  "set_piece_prior_10sep": "STALE_CONTEXT_ONLY_EXCLUDED_FROM_PROMOTION",
+  "fos_v2_input_enriched": "READY_WITH_FRESHNESS_GUARD",
+  "fos_v2_player_candidates": "READY_FOR_RECALC_CURRENT_EVIDENCE_ONLY",
   "fos_v2_candidate_counts": {
     "ADVANCED_CURRENT_EVIDENCE": 4,
     "READY_FOR_RECALC": 56,
     "PENDING_EVIDENCE": 502
   },
-  "fos_v2_global_22sep_certification": "BLOCKED"
+  "fos_v2_global_22sep_certification": "BLOCKED",
+  "freshness_guard_23sep": "PASS",
+  "stale_context_contributes_to_promotion": false,
+  "fos_v2_global_23sep_certification": "BLOCKED"
 }
