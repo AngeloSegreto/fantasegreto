@@ -16,7 +16,7 @@
   "overlay_cutoff": "2026-09-22T09:12:00+02:00",
   "stale_august_news_runtime_disabled": true,
   "optimizerMax_mutated": false,
-  "app_sha256": "064751792ea9ef6157347a0cdc8d697dfd7f38cd53ffac6b383a0359b130c104",
+  "app_sha256": "4dd419d6114561e61a54de68a0111dd482f624ab322ce27f971a6b9d4d326b65",
   "index_sha256": "97d23b07ab466d47bd0ecbcb4405ecf667726d9da73f9babaaff90cbe74a5f6d",
   "audit_sha256": "5316656de0c4c48c92b97e7c27ede744cae65671e105480647353dae0cd0b54c",
   "sw_sha256": "7f836ab27ecf4619508ec2d7c671548c8d36808b91765f5c372585311882b212",
