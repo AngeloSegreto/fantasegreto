@@ -1,8 +1,8 @@
 {
-  "build": "V4.2.0 23SEP OPPONENT MARKET ENGINE",
+  "build": "V4.2.1 23SEP TARGET 63 LIVE",
   "generated_at": "2026-09-22T12:00:00Z",
   "algorithm": "SHA-256",
-  "scope": "GITHUB_ROOT_PRODUCTION_FILES_23SEP_MARKET_V1",
+  "scope": "GITHUB_ROOT_PRODUCTION_FILES_23SEP_TARGET63",
   "files": [
     {
       "file": ".nojekyll",
@@ -41,8 +41,8 @@
     },
     {
       "file": "app.js",
-      "bytes": 16681,
-      "sha256": "4dd419d6114561e61a54de68a0111dd482f624ab322ce27f971a6b9d4d326b65"
+      "bytes": 17945,
+      "sha256": "937ea26e33420f6f9436b38c3bd55d6a05dec1ab8a8d92a72853379dc069f507"
     },
     {
       "file": "apple-touch-icon.png",
@@ -51,8 +51,8 @@
     },
     {
       "file": "audit.js",
-      "bytes": 6181,
-      "sha256": "12dd8a24f826ab5f86c90252efc9e7f1801748e5f98da7501d71d3ccae673a78"
+      "bytes": 6566,
+      "sha256": "dcb4ff14c41e3bd4863ea5a578aaaef4b92b357c5030fa4e8ddfd8eec41f81d5"
     },
     {
       "file": "backup.js",
@@ -76,8 +76,8 @@
     },
     {
       "file": "index.html",
-      "bytes": 16353,
-      "sha256": "b62d45975ba25db0fcada1596ac62d2ab14cb39cb164c9e6b6cc7a2f02750b0a"
+      "bytes": 16485,
+      "sha256": "d4dd3798a09aa7e59fa6589619994539647a1a37a1e3e7b3f69e8e767d8ecc7f"
     },
     {
       "file": "manifest.webmanifest",
@@ -116,18 +116,18 @@
     },
     {
       "file": "styles.css",
-      "bytes": 9311,
-      "sha256": "45d8ce93ebbdf3c74f3df6b6aa02bb4eb65416945bcb3481c09a45fabfc0a123"
+      "bytes": 9792,
+      "sha256": "a41e7b422bd56017e1a6fb9bc3b022beeaa807fe8c59c195c6fb8a9541537484"
     },
     {
       "file": "sw.js",
-      "bytes": 2421,
-      "sha256": "57ecdab4eade07539a17b2c3fb158f70cbec06e3000804da7644c71fc7083cb9"
+      "bytes": 2513,
+      "sha256": "3a2b164eea745000b9c94519d59d56114f64eec461be7ac98eb06102e82a48b1"
     },
     {
       "file": "version.json",
-      "bytes": 3774,
-      "sha256": "73d0a76e1cc1a723eff1afd77e8f0ed75169a9116c3dea6f7b1432e4c239a9b9"
+      "bytes": 4109,
+      "sha256": "25f76d81a39911a905a94f57a2ecd8dfb669a76261d303a7c4064af033abd9d2"
     },
     {
       "file": "md5-22sep2026.json",
@@ -142,7 +142,7 @@
     {
       "file": "APP_INDEX_RECONCILIATION_22SEP2026.json",
       "bytes": 1243,
-      "sha256": "b46194bd99008327768091a09fa9123c223bd3a158d79fb2b03df35c2f2069ea"
+      "sha256": "b8d816e04eee17c1eb76f0cf279a5fa2241d778321e2a73232e721c912bd183c"
     },
     {
       "file": "listone-22sep2026.json",
@@ -203,6 +203,11 @@
       "file": "data/FOS_V2_WEB_EVIDENCE_SNAPSHOT_22SEP2026.json",
       "bytes": 7019,
       "sha256": "24bb2c5a9815c58adc3d36a2dba40647ba1cabcd173f142d57da65fb3f3f978f"
+    },
+    {
+      "file": "AUCTION_SHORTLIST_63_23SEP2026.json",
+      "bytes": 56958,
+      "sha256": "d82a336fc099b45f46aff919d496acf4d3e1ad880f556f31a59667c71b8c0cc6"
     }
   ]
 }
