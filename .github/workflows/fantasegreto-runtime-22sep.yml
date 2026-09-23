@@ -4,6 +4,10 @@ on:
   push:
     paths:
       - 'app.js'
+      - 'engine.js'
+      - 'opponent-market-v1.js'
+      - 'opponents.js'
+      - 'piano25.js'
       - 'index.html'
       - 'audit.js'
       - 'sw.js'
@@ -32,13 +36,17 @@ jobs:
           set -euo pipefail
           required=(
             index.html app.js engine.js state-manager.js registry.json
-            player-details.json version.json sw.js styles.css md5-22sep2026.json
+            player-details.json version.json sw.js styles.css md5-22sep2026.json opponent-market-v1.js
+            PERFORMANCE_OVERLAY_V3.json MEDICAL_V3_22SEP2026.json FOS_V2_PLAYER_CANDIDATES_22SEP2026.json
           )
           for f in "${required[@]}"; do
             test -f "$f" || { echo "MISSING: $f"; exit 1; }
           done
           node --check app.js
           node --check engine.js
+          node --check opponent-market-v1.js
+          node --check opponents.js
+          node --check piano25.js
           node --check state-manager.js
           node --check audit.js
           python3 - <<'PY'
@@ -71,7 +79,11 @@ jobs:
           assert 'FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json' not in app
           assert 'md5-22sep2026.json' in sw
           assert 'FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json' not in sw
-          assert 'V4.1.9' in idx
+          assert 'V4.2.0' in idx
+          assert './opponent-market-v1.js' in idx
+          assert 'opponent-market-v1.js' in sw
+          assert 'auctionMax' in Path('engine.js').read_text()
+          assert ver.get('opponent_market_engine')=='AUCTION_MARKET_V1_10x500'
           assert './app.js' in idx
           assert ver.get('optimizerMax_mutated') is False
           pending=[p for p in reg['players'] if not all(isinstance(p.get(k),(int,float)) and not isinstance(p.get(k),bool) for k in ['score','ideal','max'])]
@@ -142,7 +154,7 @@ jobs:
             'FS_GOLDEN_CONTRACT_V1_1_DELTA_20260818.json','README_GITHUB_DEPLOY.txt',
             'REGRESSION_GATE_REPORT.json','STATE_MIGRATION_REPORT.json','app.js',
             'apple-touch-icon.png','audit.js','backup.js','engine.js','icon-192.png','icon-512.png',
-            'index.html','manifest.webmanifest','opponents.js','piano25.js','player-details.json',
+            'index.html','manifest.webmanifest','opponent-market-v1.js','opponents.js','piano25.js','player-details.json',
             'registry.json','state-manager.js','styles.css','sw.js','version.json',
             'md5-22sep2026.json','REGISTRY_RECONCILIATION_22SEP2026.json',
             'APP_INDEX_RECONCILIATION_22SEP2026.json'
@@ -159,10 +171,10 @@ jobs:
 
           Path('CHECKSUMS.txt').write_text(''.join(f"{r['sha256']}  {r['file']}\n" for r in rows))
           manifest={
-            'build':'V4.1.9 22SEP RUNTIME RECONCILIATION',
+            'build':'V4.2.0 23SEP OPPONENT MARKET ENGINE',
             'generated_at':'2026-09-22T12:00:00Z',
             'algorithm':'SHA-256',
-            'scope':'GITHUB_ROOT_PRODUCTION_FILES_22SEP',
+            'scope':'GITHUB_ROOT_PRODUCTION_FILES_23SEP_MARKET_V1',
             'files':rows
           }
           Path('SHA256_MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
