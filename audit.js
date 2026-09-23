@@ -25,6 +25,11 @@ function run(){
  add('MODEL02',stale.length===0,`Record con modello numerico pre-22SEP ancora da ricalcolare: ${stale.length}`,'WARN');
  if(!S){add('ENG00',false,'Engine state non disponibile');return out}
  add('ENG01',typeof window.FS_AUCTION_ENGINE?.exactMax==='function'&&typeof window.FS_AUCTION_ENGINE?.shadowRawMax==='function','Exact MAX + Shadow APIs presenti');
+ add('MKT01',typeof window.FS_MARKET_ENGINE?.quote==='function'&&typeof window.FS_MARKET_ENGINE?.dynamicMax==='function','Opponent Market V1 APIs presenti');
+ add('MKT02',typeof window.FS_AUCTION_ENGINE?.auctionMax==='function','Auction MAX post-market overlay presente');
+ const profiles=window.FS_MARKET_ENGINE?.managerProfiles?.(S)||{};add('MKT03',Object.keys(profiles).length===9,'9/9 profili avversari T0/learned disponibili');
+ const probe=reg.find(p=>p.role==='A'&&Number(p.fvm)>0),pq=probe?window.FS_MARKET_ENGINE?.quote?.(probe,S):null;add('MKT04',!!pq&&pq.market_t0>=1&&pq.expected>=1,'Market-clearing quote valida su attaccante probe');
+ add('MKT05',window.FS_VERSION?.optimizerMax_mutated===false,'OptimizerMax LOCK non mutato; market layer post-engine');
  add('TX01',new Set(S.tx.map(x=>x.id)).size===S.tx.length,'Ownership univoca');
  add('TX02',S.tx.every(x=>Number.isInteger(Number(x.price))&&x.price>=1&&x.price<=500),'Prezzi interi 1..500');
  add('TX03',S.tx.every(x=>['ME','R1','R2','R3','R4','R5','R6','R7','R8','R9'].includes(x.owner)),'Owner validi');
