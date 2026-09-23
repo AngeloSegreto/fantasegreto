@@ -1,0 +1,103 @@
+{
+  "schema": "FS_MEDICAL_V3",
+  "status": "READY_WITH_SOURCE_TIERS",
+  "source_priority": [
+    "CLUB_OFFICIAL",
+    "PRIMARY_FANTACALCIO",
+    "SPECIALIZED_SECONDARY",
+    "REPORT_INDEX"
+  ],
+  "records": {
+    "p-el-azzouzi-o-bologna": {
+      "tier": "REPORT_INDEX",
+      "source": "report22",
+      "status": "REPORTED_INJURED",
+      "issue": "bicipite femorale",
+      "availability": "segnalato infortunato",
+      "confidence": "BOUNDED"
+    },
+    "p-fc-7603": {
+      "tier": "REPORT_INDEX",
+      "source": "report22",
+      "status": "UNAVAILABLE",
+      "issue": "lesione legamento crociato",
+      "availability": "indisponibile",
+      "confidence": "BOUNDED"
+    },
+    "p-boga-juventus": {
+      "tier": "REPORT_INDEX",
+      "source": "report22",
+      "status": "UNAVAILABLE",
+      "issue": "lesione di medio grado del bicipite femorale sinistro",
+      "availability": "indisponibile",
+      "confidence": "BOUNDED"
+    },
+    "p-locatelli-juventus": {
+      "tier": "REPORT_INDEX",
+      "source": "report22",
+      "status": "UNAVAILABLE_POST_OP",
+      "issue": "problema al menisco, trattato chirurgicamente",
+      "availability": "indisponibile/post-operatorio",
+      "confidence": "BOUNDED"
+    },
+    "p-yildiz-juventus": {
+      "tier": "REPORT_INDEX",
+      "source": "report22",
+      "status": "UNAVAILABLE",
+      "issue": "frattura ossea al piede, intervento chirurgico",
+      "availability": "indisponibile",
+      "confidence": "BOUNDED"
+    },
+    "p-thuram-k-juventus": {
+      "tier": "REPORT_INDEX",
+      "source": "report22",
+      "status": "UNAVAILABLE_VERIFY",
+      "issue": "intervento chirurgico; dettaglio diagnostico non specificato nella fonte accessibile",
+      "availability": "indisponibilità da verificare",
+      "confidence": "BOUNDED"
+    },
+    "p-kolo-muani-juventus": {
+      "source": "juventus_kolo_muani_official",
+      "tier": "CLUB_OFFICIAL",
+      "status": "AVAILABLE_POST_OP",
+      "issue": "frattura della falange prossimale del quinto dito della mano destra; osteosintesi riuscita",
+      "availability": "REGOLARMENTE_A_DISPOSIZIONE",
+      "confidence": "HIGH"
+    },
+    "p-patric-lazio": {
+      "tier": "REPORT_INDEX",
+      "source": "report22",
+      "status": "INJURY_INDEX_PRESENT",
+      "issue": "non specificato",
+      "availability": "presente nell'indice infortuni Transfermarkt",
+      "confidence": "BOUNDED"
+    },
+    "p-giovane-napoli": {
+      "tier": "REPORT_INDEX",
+      "source": "report22",
+      "status": "INJURY_INDEX_PRESENT",
+      "issue": "non specificato nel frammento accessibile",
+      "availability": "presente nell'indice Transfermarkt",
+      "confidence": "BOUNDED"
+    },
+    "p-basic-venezia": {
+      "tier": "REPORT_INDEX",
+      "source": "report22",
+      "status": "INJURY_INDEX_PRESENT",
+      "issue": "non specificato",
+      "availability": "presente nell'indice Transfermarkt",
+      "confidence": "BOUNDED"
+    },
+    "p-malen-roma": {
+      "source": "sosfanta_medical",
+      "tier": "SPECIALIZED_SECONDARY",
+      "status": "DOUBT",
+      "issue": "fastidio al ginocchio sinistro",
+      "availability": "IN_DUBBIO_PER_6A",
+      "confidence": "MEDIUM"
+    }
+  },
+  "record_count": 11,
+  "unknown_policy": "No record means UNKNOWN, never automatically HEALTHY.",
+  "official_override_count": 1
+}

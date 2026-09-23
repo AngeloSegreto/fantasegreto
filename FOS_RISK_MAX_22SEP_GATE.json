@@ -1,7 +1,7 @@
 {
-  "schema": "FS_FOS_RISK_MAX_22SEP_GATE_V2",
+  "schema": "FS_FOS_RISK_MAX_22SEP_GATE_V3",
   "gate": "FOS_RISK_MAX_22SEP_RECALC",
-  "status": "BLOCKED_SOURCE_INCOMPLETE",
+  "status": "BLOCKED",
   "as_of": "2026-09-22T09:12:00+02:00",
   "runtime_registry_count": 562,
   "model_numeric_pre22_count": 437,
@@ -66,5 +66,33 @@
     "publish_22sep_fos_as_current": false,
     "report_overlay_v2": "CURRENT_CONTEXT_MATERIALIZED_READ_ONLY"
   },
-  "next_valid_gate": "Acquire source-backed current tactical hierarchy, expected minutes, set pieces and complete availability coverage; then recalculate FOS → Risk → MAX and run temporal regression."
+  "next_valid_gate": "Acquire source-backed current tactical hierarchy, expected minutes, set pieces and complete availability coverage; then recalculate FOS → Risk → MAX and run temporal regression.",
+  "pipeline_status": {
+    "PERFORMANCE_OVERLAY_V3": "READY",
+    "FANTACALCIO_STATS_BINDING": "READY",
+    "MEDICAL_V3": "READY_WITH_SOURCE_TIERS",
+    "TEAM_ENVIRONMENT_5G": "READY",
+    "TACTICAL_PRIOR_10SEP": "READY_CONTEXT_ONLY",
+    "SET_PIECE_PRIOR_10SEP": "READY_CONTEXT_ONLY",
+    "FOS_V2_INPUT_ENRICHED": "READY",
+    "FOS_V2_PLAYER_CANDIDATES": "READY_FOR_RECALC",
+    "FOS_V2_GLOBAL_22SEP_CERTIFICATION": "BLOCKED"
+  },
+  "evidence_matrix": {
+    "runtime_count": 562,
+    "candidate_counts": {
+      "ADVANCED_CURRENT_EVIDENCE": 4,
+      "READY_FOR_RECALC": 56,
+      "PENDING_EVIDENCE": 502
+    },
+    "candidate_file": "FOS_V2_PLAYER_CANDIDATES_22SEP2026.json",
+    "matrix_file": "FOS_V2_EVIDENCE_MATRIX_22SEP2026.json"
+  },
+  "remaining_global_blockers": [
+    "Expected Minutes remain unavailable as a source-backed field for the complete runtime.",
+    "Current tactical/start-probability coverage is not pinned player-by-player for all 562.",
+    "Current set-piece hierarchy is a 10SEP prior, not a 22SEP global authority.",
+    "Medical V3 is source-tiered but not complete enough to classify every player as healthy/unhealthy.",
+    "Independent cross-validation coverage is incomplete."
+  ]
 }

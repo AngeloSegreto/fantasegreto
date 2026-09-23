@@ -1,0 +1,489 @@
+{
+  "schema": "FS_FOS_V2_PLAYER_CANDIDATES_V1",
+  "status": "READY_FOR_RECALC",
+  "candidate_count": 60,
+  "advanced_count": 4,
+  "pending_evidence_count": 502,
+  "candidates": [
+    {
+      "player_id": "p-malen-roma",
+      "name": "MALEN Donyell",
+      "team": "Roma",
+      "role": "A",
+      "evidence_score": 10,
+      "state": "ADVANCED_CURRENT_EVIDENCE"
+    },
+    {
+      "player_id": "p-martinez-l-inter",
+      "name": "MARTINEZ Lautaro",
+      "team": "Inter",
+      "role": "A",
+      "evidence_score": 9,
+      "state": "ADVANCED_CURRENT_EVIDENCE"
+    },
+    {
+      "player_id": "p-thuram-inter",
+      "name": "THURAM Marcus",
+      "team": "Inter",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-hojlund-napoli",
+      "name": "HOJLUND Rasmus",
+      "team": "Napoli",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-ramos-g-milan",
+      "name": "RAMOS Goncalo Matias",
+      "team": "Milan",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-paz-n-como",
+      "name": "PAZ Nico",
+      "team": "Como",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-kolo-muani-juventus",
+      "name": "KOLO MUANI Randal",
+      "team": "Juventus",
+      "role": "A",
+      "evidence_score": 10,
+      "state": "ADVANCED_CURRENT_EVIDENCE"
+    },
+    {
+      "player_id": "p-calhanoglu-inter",
+      "name": "CALHANOGLU Hakan",
+      "team": "Inter",
+      "role": "C",
+      "evidence_score": 7,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-douvikas-como",
+      "name": "DOUVIKAS Tasos",
+      "team": "Como",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-rabiot-milan",
+      "name": "RABIOT Adrien",
+      "team": "Milan",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-baturina-como",
+      "name": "BATURINA Martin",
+      "team": "Como",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-davis-k-udinese",
+      "name": "DAVIS Keinan",
+      "team": "Udinese",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-dybala-roma",
+      "name": "DYBALA Paulo",
+      "team": "Roma",
+      "role": "A",
+      "evidence_score": 9,
+      "state": "ADVANCED_CURRENT_EVIDENCE"
+    },
+    {
+      "player_id": "p-zaccagni-lazio",
+      "name": "ZACCAGNI Mattia",
+      "team": "Lazio",
+      "role": "C",
+      "evidence_score": 7,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-dimarco-inter",
+      "name": "DIMARCO Federico",
+      "team": "Inter",
+      "role": "D",
+      "evidence_score": 7,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-esposito-f-p-inter",
+      "name": "ESPOSITO FP Francesco Pio",
+      "team": "Inter",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-barella-inter",
+      "name": "BARELLA Nicolò",
+      "team": "Inter",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-soule-roma",
+      "name": "SOULE Matias",
+      "team": "Roma",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-lauriente-sassuolo",
+      "name": "LAURIENTE Armand",
+      "team": "Sassuolo",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-fc-7078",
+      "name": "MASTANTUONO Franco",
+      "team": "Fiorentina",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-bremer-juventus",
+      "name": "BREMER Gleison",
+      "team": "Juventus",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-kone-m-roma",
+      "name": "KONE Manu",
+      "team": "Roma",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-diao-como",
+      "name": "DIAO Assane",
+      "team": "Como",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-fc-6372",
+      "name": "DA SILVA MOREIRA Diego Manuel Jadon",
+      "team": "Milan",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-mancini-roma",
+      "name": "MANCINI Gianluca",
+      "team": "Roma",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-raimondo-frosinone",
+      "name": "RAIMONDO Antonio",
+      "team": "Frosinone",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-pavlovic-milan",
+      "name": "PAVLOVIC Strahinja",
+      "team": "Milan",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-ekkelenkamp-udinese",
+      "name": "EKKELENKAMP Jurgen",
+      "team": "Udinese",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-di-lorenzo-napoli",
+      "name": "DI LORENZO Giovanni",
+      "team": "Napoli",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-colombo-genoa",
+      "name": "COLOMBO Lorenzo",
+      "team": "Genoa",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-adams-c-torino",
+      "name": "ADAMS Che",
+      "team": "Torino",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-frattesi-lazio",
+      "name": "FRATTESI Davide",
+      "team": "Lazio",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-maldini-atalanta",
+      "name": "MALDINI Daniel",
+      "team": "Cagliari",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-kvernadze-frosinone",
+      "name": "KVERNADZE Giorgi",
+      "team": "Frosinone",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-pellegrino-m-fiorentina",
+      "name": "PELLEGRINO Mateo",
+      "team": "Fiorentina",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-romero-d-parma",
+      "name": "ROMERO José David",
+      "team": "Parma",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-calo-frosinone",
+      "name": "CALO Giacomo",
+      "team": "Frosinone",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-fc-7551",
+      "name": "SCHMID Romano",
+      "team": "Frosinone",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-noslin-lazio",
+      "name": "NOSLIN Tijjani",
+      "team": "Lazio",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-adzic-sassuolo",
+      "name": "ADZIC Vasilije",
+      "team": "Sassuolo",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-zhegrova-juventus",
+      "name": "ZHEGROVA Edon",
+      "team": "Juventus",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-coulibaly-l-lecce",
+      "name": "COULIBALY Lassana",
+      "team": "Lecce",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-pisilli-roma",
+      "name": "PISILLI Niccolo",
+      "team": "Roma",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-tiago-gabriel-lecce",
+      "name": "TIAGO GABRIEL Coelho Oliveira",
+      "team": "Lecce",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-varela-g-monza",
+      "name": "VARELA Gustavo Miguel Pereira De Sousa",
+      "team": "Monza",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-chukwueze-milan",
+      "name": "CHUKWUEZE Samuel",
+      "team": "Milan",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-adopo-cagliari",
+      "name": "ADOPO Ndary",
+      "team": "Cagliari",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-busio-venezia",
+      "name": "BUSIO Gianluca",
+      "team": "Venezia",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-kamara-h-udinese",
+      "name": "KAMARA Hassane",
+      "team": "Udinese",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-fc-7600",
+      "name": "OSMAJIC Milutin",
+      "team": "Genoa",
+      "role": "A",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-dragusin-fiorentina",
+      "name": "DRAGUSIN Radu",
+      "team": "Fiorentina",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-tavares-n-lazio",
+      "name": "NUNO TAVARES -",
+      "team": "Lazio",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-diouf-inter",
+      "name": "DIOUF Andy",
+      "team": "Inter",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-mangas-monza",
+      "name": "MANGAS Ricardo Luís Chaby",
+      "team": "Monza",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-celik-juventus",
+      "name": "CELIK Zeki",
+      "team": "Juventus",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-hainaut-venezia",
+      "name": "HAINAUT Antoine",
+      "team": "Venezia",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-birindelli-monza",
+      "name": "BIRINDELLI Samuele",
+      "team": "Monza",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-fc-6618",
+      "name": "CISSE Alphadjo",
+      "team": "Milan",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-veiga-d-lecce",
+      "name": "VEIGA Danilo de Melo",
+      "team": "Lecce",
+      "role": "D",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    },
+    {
+      "player_id": "p-ilic-torino",
+      "name": "ILIC Ivan",
+      "team": "Lecce",
+      "role": "C",
+      "evidence_score": 6,
+      "state": "READY_FOR_RECALC"
+    }
+  ]
+}

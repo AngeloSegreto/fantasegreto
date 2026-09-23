@@ -1,0 +1,344 @@
+{
+  "schema": "FS_PERFORMANCE_OVERLAY_V3",
+  "status": "READY",
+  "cutoff": "2026-09-22",
+  "runtime_players": 562,
+  "top20_goals_rows": 20,
+  "top20_assists_rows": 20,
+  "explicit_tied_goals_beyond_top20": 13,
+  "explicit_tied_assists_beyond_top20": 11,
+  "creative_chances_rows": 4,
+  "fantacalcio_stats_bound_rows": 5,
+  "player_performance_records": {
+    "p-malen-roma": {
+      "goals": 6,
+      "appearances": 5,
+      "report_goals": true,
+      "pv": 5,
+      "mv": 7.1,
+      "fm": 10.6,
+      "assists": 0,
+      "yellow": 1,
+      "red": 0,
+      "source": "fantacalcio_stats"
+    },
+    "p-raimondo-frosinone": {
+      "goals": 4,
+      "appearances": 5,
+      "report_goals": true,
+      "pv": 5,
+      "mv": 6.6,
+      "fm": 8.8,
+      "assists": 0,
+      "yellow": 2,
+      "red": 0,
+      "source": "fantacalcio_stats"
+    },
+    "p-varela-g-monza": {
+      "goals": 4,
+      "appearances": 4,
+      "report_goals": true,
+      "pv": 4,
+      "mv": 6.88,
+      "fm": 9.75,
+      "assists": 0,
+      "penalties_scored": 1,
+      "penalties_taken": 1,
+      "yellow": 1,
+      "red": 0,
+      "source": "fantacalcio_stats"
+    },
+    "p-martinez-l-inter": {
+      "goals": 4,
+      "appearances": 4,
+      "report_goals": true,
+      "pv": 4,
+      "mv": 6.75,
+      "fm": 9.5,
+      "assists": 0,
+      "yellow": 2,
+      "red": 0,
+      "source": "fantacalcio_stats"
+    },
+    "p-kvernadze-frosinone": {
+      "goals": 3,
+      "appearances": 5,
+      "report_goals": true,
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    },
+    "p-frattesi-lazio": {
+      "goals": 3,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-fc-7078": {
+      "goals": 3,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-maldini-atalanta": {
+      "goals": 3,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-adzic-sassuolo": {
+      "goals": 3,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-fc-6372": {
+      "goals": 3,
+      "appearances": 3,
+      "report_goals": true
+    },
+    "p-bremer-juventus": {
+      "goals": 2,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-coulibaly-l-lecce": {
+      "goals": 2,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-ekkelenkamp-udinese": {
+      "goals": 2,
+      "appearances": 5,
+      "report_goals": true,
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    },
+    "p-kamara-h-udinese": {
+      "goals": 2,
+      "appearances": 5,
+      "report_goals": true,
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    },
+    "p-hojlund-napoli": {
+      "goals": 2,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-pellegrino-m-fiorentina": {
+      "goals": 2,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-diao-como": {
+      "goals": 2,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-kone-m-roma": {
+      "goals": 2,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-douvikas-como": {
+      "goals": 2,
+      "appearances": 5,
+      "report_goals": true
+    },
+    "p-rabiot-milan": {
+      "goals": 2,
+      "appearances": 5,
+      "report_goals": true,
+      "assists": 2,
+      "report_assists": true
+    },
+    "p-dybala-roma": {
+      "assists": 4,
+      "appearances": 5,
+      "report_assists": true,
+      "creative_chances": 24,
+      "pv": 5,
+      "mv": 7.1,
+      "fm": 7.9,
+      "goals": 0,
+      "yellow": 0,
+      "red": 0,
+      "source": "fantacalcio_stats"
+    },
+    "p-fc-7551": {
+      "assists": 3,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-diouf-inter": {
+      "assists": 3,
+      "appearances": 4,
+      "report_assists": true
+    },
+    "p-adopo-cagliari": {
+      "assists": 2,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-zaccagni-lazio": {
+      "assists": 2,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-birindelli-monza": {
+      "assists": 2,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-mancini-roma": {
+      "assists": 2,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-chukwueze-milan": {
+      "assists": 2,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-mangas-monza": {
+      "assists": 2,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-tavares-n-lazio": {
+      "assists": 2,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-colombo-genoa": {
+      "assists": 2,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-busio-venezia": {
+      "assists": 2,
+      "appearances": 4,
+      "report_assists": true
+    },
+    "p-davis-k-udinese": {
+      "assists": 2,
+      "appearances": 4,
+      "report_assists": true
+    },
+    "p-thuram-inter": {
+      "assists": 2,
+      "appearances": 4,
+      "report_assists": true,
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-ilic-torino": {
+      "assists": 2,
+      "appearances": 4,
+      "report_assists": true
+    },
+    "p-veiga-d-lecce": {
+      "assists": 1,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-dragusin-fiorentina": {
+      "assists": 1,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-pavlovic-milan": {
+      "assists": 1,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-lauriente-sassuolo": {
+      "assists": 1,
+      "appearances": 5,
+      "report_assists": true
+    },
+    "p-calo-frosinone": {
+      "creative_chances": 21,
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    },
+    "p-barella-inter": {
+      "creative_chances": 15,
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    },
+    "p-dimarco-inter": {
+      "creative_chances": 14
+    },
+    "p-esposito-f-p-inter": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-soule-roma": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-baturina-como": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-fc-7600": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-tiago-gabriel-lecce": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-fc-6618": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-noslin-lazio": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-romero-d-parma": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-pisilli-roma": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-zhegrova-juventus": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-adams-c-torino": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-calhanoglu-inter": {
+      "goals": 2,
+      "explicit_tied_beyond_top20_goals": true
+    },
+    "p-di-lorenzo-napoli": {
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    },
+    "p-kolo-muani-juventus": {
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    },
+    "p-hainaut-venezia": {
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    },
+    "p-ramos-g-milan": {
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    },
+    "p-celik-juventus": {
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    },
+    "p-paz-n-como": {
+      "assists": 1,
+      "explicit_tied_beyond_top20_assists": true
+    }
+  },
+  "minutes_policy": "UNSPECIFIED_UNLESS_SOURCE_BACKED",
+  "per90_policy": "NOT_COMPUTED_WITHOUT_MINUTES"
+}
