@@ -1,19 +1,17 @@
 {
-  "schema": "FS_AUCTION_SHORTLIST_63_V1",
-  "generated_for": "24SEP2026 membership/pivot shortlist; pricing authority = RC4 audit baseline + Dynamic MAX live",
+  "schema": "FS_AUCTION_SHORTLIST_63_V2_RC4_AUDITED",
+  "generated_for": "24SEP2026 global audited MAX reconciliation",
   "league": {
     "managers": 10,
     "budget_each": 500,
     "roster": "3P_8D_8C_6A"
   },
-  "algorithm": "AUCTION_MARKET_V1_10x500 + season_value blend",
+  "algorithm": "RC4 audited max_live baseline + runtime current overlays; buy band=floor(90% audited MAX)",
   "semantics": {
-    "buy": "acquisto conveniente",
-    "wait": "zona rilancio controllato",
-    "stop": "limite massimo T0; sopra PASS",
-    "dynamic_note": "Durante l'asta il Dynamic MAX live prevale e cambia dopo ogni transazione registrata; Svilar ha floor audit MAX 58 a T0.",
-    "pricing_authority": "RC4 audit max_live baseline plus Dynamic MAX live; legacy buy/wait bands are non-authoritative browse hints.",
-    "kapitals_rule": "Kapitals is not MAX."
+    "buy": "T0 opportunistic BUY ceiling derived as floor(90% of audited MAX)",
+    "wait": "controlled range from BUY+1 through audited MAX",
+    "stop": "audited maximum T0; above this PASS before live overlay adjustments",
+    "dynamic_note": "During the auction, Dynamic MAX can move only through current allowed overlays and recorded auction state. Kapitals/market500 never substitute for MAX."
   },
   "counts": {
     "P": 10,
@@ -30,45 +28,49 @@
       "team": "Roma",
       "tier": "SUPERSTAR",
       "market_t0": 54.5,
-      "buy": 44,
+      "buy": 52,
       "wait": [
-        45,
+        53,
         58
       ],
       "stop": 58,
       "season_value": 60,
-      "evidence": "FS_RC4_DECISION_AUDIT_07SEP2026: market500 54.5, max_live 58; 22SEP current context retained",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-okoye-udinese",
           "name": "OKOYE Maduka",
           "team": "Udinese",
-          "buy": 10,
+          "buy": 21,
           "wait": [
-            11,
-            13
+            22,
+            24
           ],
-          "stop": 13,
-          "market": 12
+          "stop": 24,
+          "market": 23.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-caprile-cagliari",
           "name": "CAPRILE Elia",
           "team": "Cagliari",
-          "buy": 9,
+          "buy": 3,
           "wait": [
-            10,
-            10
+            4,
+            4
           ],
-          "stop": 10,
-          "market": 12
+          "stop": 4,
+          "market": 4,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 54.5,
       "audit_max_live": 58,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 82.32,
+      "audit_risk": 37
     },
     {
       "player_id": "p-martinez-jo-inter",
@@ -77,45 +79,49 @@
       "team": "Inter",
       "tier": "PREMIUM",
       "market_t0": 51.5,
-      "buy": 15,
+      "buy": 49,
       "wait": [
-        16,
+        50,
         55
       ],
       "stop": 55,
       "season_value": 52.4,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-okoye-udinese",
           "name": "OKOYE Maduka",
           "team": "Udinese",
-          "buy": 10,
+          "buy": 21,
           "wait": [
-            11,
-            13
+            22,
+            24
           ],
-          "stop": 13,
-          "market": 12
+          "stop": 24,
+          "market": 23.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-caprile-cagliari",
           "name": "CAPRILE Elia",
           "team": "Cagliari",
-          "buy": 9,
+          "buy": 3,
           "wait": [
-            10,
-            10
+            4,
+            4
           ],
-          "stop": 10,
-          "market": 12
+          "stop": 4,
+          "market": 4,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 51.5,
       "audit_max_live": 55,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 80.6,
+      "audit_risk": 37
     },
     {
       "player_id": "p-carnesecchi-atalanta",
@@ -124,45 +130,49 @@
       "team": "Atalanta",
       "tier": "PREMIUM",
       "market_t0": 47.5,
-      "buy": 15,
+      "buy": 45,
       "wait": [
-        16,
+        46,
         51
       ],
       "stop": 51,
       "season_value": 45.1,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-okoye-udinese",
           "name": "OKOYE Maduka",
           "team": "Udinese",
-          "buy": 10,
+          "buy": 21,
           "wait": [
-            11,
-            13
+            22,
+            24
           ],
-          "stop": 13,
-          "market": 12
+          "stop": 24,
+          "market": 23.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-caprile-cagliari",
           "name": "CAPRILE Elia",
           "team": "Cagliari",
-          "buy": 9,
+          "buy": 3,
           "wait": [
-            10,
-            10
+            4,
+            4
           ],
-          "stop": 10,
-          "market": 12
+          "stop": 4,
+          "market": 4,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 47.5,
       "audit_max_live": 51,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 80.13,
+      "audit_risk": 37
     },
     {
       "player_id": "p-maignan-milan",
@@ -171,45 +181,49 @@
       "team": "Milan",
       "tier": "PREMIUM",
       "market_t0": 56.5,
-      "buy": 14,
+      "buy": 54,
       "wait": [
-        15,
+        55,
         60
       ],
       "stop": 60,
       "season_value": 44.7,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-okoye-udinese",
           "name": "OKOYE Maduka",
           "team": "Udinese",
-          "buy": 10,
+          "buy": 21,
           "wait": [
-            11,
-            13
+            22,
+            24
           ],
-          "stop": 13,
-          "market": 12
+          "stop": 24,
+          "market": 23.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-caprile-cagliari",
           "name": "CAPRILE Elia",
           "team": "Cagliari",
-          "buy": 9,
+          "buy": 3,
           "wait": [
-            10,
-            10
+            4,
+            4
           ],
-          "stop": 10,
-          "market": 12
+          "stop": 4,
+          "market": 4,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 56.5,
       "audit_max_live": 60,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 78.69,
+      "audit_risk": 37
     },
     {
       "player_id": "p-butez-como",
@@ -218,45 +232,49 @@
       "team": "Como",
       "tier": "STANDARD",
       "market_t0": 50,
-      "buy": 13,
+      "buy": 47,
       "wait": [
-        14,
+        48,
         53
       ],
       "stop": 53,
       "season_value": 42.6,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-okoye-udinese",
           "name": "OKOYE Maduka",
           "team": "Udinese",
-          "buy": 10,
+          "buy": 21,
           "wait": [
-            11,
-            13
+            22,
+            24
           ],
-          "stop": 13,
-          "market": 12
+          "stop": 24,
+          "market": 23.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-caprile-cagliari",
           "name": "CAPRILE Elia",
           "team": "Cagliari",
-          "buy": 9,
+          "buy": 3,
           "wait": [
-            10,
-            10
+            4,
+            4
           ],
-          "stop": 10,
-          "market": 12
+          "stop": 4,
+          "market": 4,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 50,
       "audit_max_live": 53,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 78.22,
+      "audit_risk": 37
     },
     {
       "player_id": "p-meret-napoli",
@@ -265,45 +283,49 @@
       "team": "Napoli",
       "tier": "STANDARD",
       "market_t0": 48.5,
-      "buy": 13,
+      "buy": 45,
       "wait": [
-        14,
+        46,
         51
       ],
       "stop": 51,
       "season_value": 41.6,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-okoye-udinese",
           "name": "OKOYE Maduka",
           "team": "Udinese",
-          "buy": 10,
+          "buy": 21,
           "wait": [
-            11,
-            13
+            22,
+            24
           ],
-          "stop": 13,
-          "market": 12
+          "stop": 24,
+          "market": 23.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-caprile-cagliari",
           "name": "CAPRILE Elia",
           "team": "Cagliari",
-          "buy": 9,
+          "buy": 3,
           "wait": [
-            10,
-            10
+            4,
+            4
           ],
-          "stop": 10,
-          "market": 12
+          "stop": 4,
+          "market": 4,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 48.5,
       "audit_max_live": 51,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 76.97,
+      "audit_risk": 37
     },
     {
       "player_id": "p-fc-4964",
@@ -312,45 +334,49 @@
       "team": "Juventus",
       "tier": "SUPERSTAR",
       "market_t0": 50.5,
-      "buy": 15,
+      "buy": 48,
       "wait": [
-        16,
+        49,
         54
       ],
       "stop": 54,
       "season_value": 35.9,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-okoye-udinese",
           "name": "OKOYE Maduka",
           "team": "Udinese",
-          "buy": 10,
+          "buy": 21,
           "wait": [
-            11,
-            13
+            22,
+            24
           ],
-          "stop": 13,
-          "market": 12
+          "stop": 24,
+          "market": 23.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-caprile-cagliari",
           "name": "CAPRILE Elia",
           "team": "Cagliari",
-          "buy": 9,
+          "buy": 3,
           "wait": [
-            10,
-            10
+            4,
+            4
           ],
-          "stop": 10,
-          "market": 12
+          "stop": 4,
+          "market": 4,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 50.5,
       "audit_max_live": 54,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 81.07,
+      "audit_risk": 37
     },
     {
       "player_id": "p-mandas-lazio",
@@ -359,45 +385,49 @@
       "team": "Lazio",
       "tier": "STANDARD",
       "market_t0": 22.5,
-      "buy": 11,
+      "buy": 21,
       "wait": [
-        12,
+        22,
         24
       ],
       "stop": 24,
       "season_value": 33.1,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-okoye-udinese",
           "name": "OKOYE Maduka",
           "team": "Udinese",
-          "buy": 10,
+          "buy": 21,
           "wait": [
-            11,
-            13
+            22,
+            24
           ],
-          "stop": 13,
-          "market": 12
+          "stop": 24,
+          "market": 23.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-caprile-cagliari",
           "name": "CAPRILE Elia",
           "team": "Cagliari",
-          "buy": 9,
+          "buy": 3,
           "wait": [
-            10,
-            10
+            4,
+            4
           ],
-          "stop": 10,
-          "market": 12
+          "stop": 4,
+          "market": 4,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 22.5,
       "audit_max_live": 24,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 75.52,
+      "audit_risk": 37
     },
     {
       "player_id": "p-skorupski-bologna",
@@ -406,45 +436,49 @@
       "team": "Bologna",
       "tier": "STANDARD",
       "market_t0": 8,
-      "buy": 8,
+      "buy": 7,
       "wait": [
         8,
         8
       ],
       "stop": 8,
       "season_value": 32.2,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-okoye-udinese",
           "name": "OKOYE Maduka",
           "team": "Udinese",
-          "buy": 10,
+          "buy": 21,
           "wait": [
-            11,
-            13
+            22,
+            24
           ],
-          "stop": 13,
-          "market": 12
+          "stop": 24,
+          "market": 23.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-caprile-cagliari",
           "name": "CAPRILE Elia",
           "team": "Cagliari",
-          "buy": 9,
+          "buy": 3,
           "wait": [
-            10,
-            10
+            4,
+            4
           ],
-          "stop": 10,
-          "market": 12
+          "stop": 4,
+          "market": 4,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 8,
       "audit_max_live": 8,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 75.05,
+      "audit_risk": 37
     },
     {
       "player_id": "p-de-gea-fiorentina",
@@ -453,45 +487,49 @@
       "team": "Fiorentina",
       "tier": "STANDARD",
       "market_t0": 29,
-      "buy": 10,
+      "buy": 27,
       "wait": [
-        11,
+        28,
         30
       ],
       "stop": 30,
       "season_value": 31.7,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-okoye-udinese",
           "name": "OKOYE Maduka",
           "team": "Udinese",
-          "buy": 10,
+          "buy": 21,
           "wait": [
-            11,
-            13
+            22,
+            24
           ],
-          "stop": 13,
-          "market": 12
+          "stop": 24,
+          "market": 23.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-caprile-cagliari",
           "name": "CAPRILE Elia",
           "team": "Cagliari",
-          "buy": 9,
+          "buy": 3,
           "wait": [
-            10,
-            10
+            4,
+            4
           ],
-          "stop": 10,
-          "market": 12
+          "stop": 4,
+          "market": 4,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 29,
       "audit_max_live": 30,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 75.56,
+      "audit_risk": 37
     },
     {
       "player_id": "p-dimarco-inter",
@@ -500,45 +538,49 @@
       "team": "Inter",
       "tier": "SUPERSTAR",
       "market_t0": 56.5,
-      "buy": 24,
+      "buy": 55,
       "wait": [
-        25,
+        56,
         62
       ],
       "stop": 62,
       "season_value": 135.5,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 56.5,
       "audit_max_live": 62,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 75.97,
+      "audit_risk": 25
     },
     {
       "player_id": "p-wesley-roma",
@@ -547,45 +589,49 @@
       "team": "Roma",
       "tier": "SUPERSTAR",
       "market_t0": 48,
-      "buy": 15,
+      "buy": 47,
       "wait": [
-        16,
+        48,
         53
       ],
       "stop": 53,
       "season_value": 61,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 48,
       "audit_max_live": 53,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 82.53,
+      "audit_risk": 25
     },
     {
       "player_id": "p-molina-n-roma",
@@ -594,45 +640,49 @@
       "team": "Roma",
       "tier": "SUPERSTAR",
       "market_t0": 20.5,
-      "buy": 15,
+      "buy": 19,
       "wait": [
-        16,
+        20,
         22
       ],
       "stop": 22,
       "season_value": 51.9,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 20.5,
       "audit_max_live": 22,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 82.09,
+      "audit_risk": 37
     },
     {
       "player_id": "p-bremer-juventus",
@@ -641,45 +691,49 @@
       "team": "Juventus",
       "tier": "SUPERSTAR",
       "market_t0": 22.5,
-      "buy": 14,
+      "buy": 21,
       "wait": [
-        15,
+        22,
         24
       ],
       "stop": 24,
       "season_value": 51,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 22.5,
       "audit_max_live": 24,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 81.67,
+      "audit_risk": 37
     },
     {
       "player_id": "p-pavlovic-milan",
@@ -688,45 +742,49 @@
       "team": "Milan",
       "tier": "PREMIUM",
       "market_t0": 24.5,
-      "buy": 12,
+      "buy": 23,
       "wait": [
-        13,
+        24,
         26
       ],
       "stop": 26,
       "season_value": 45.3,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 24.5,
       "audit_max_live": 26,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 80.59,
+      "audit_risk": 37
     },
     {
       "player_id": "p-rrahmani-napoli",
@@ -735,45 +793,49 @@
       "team": "Napoli",
       "tier": "SUPERSTAR",
       "market_t0": 12.5,
-      "buy": 13,
+      "buy": 11,
       "wait": [
-        13,
+        12,
         13
       ],
       "stop": 13,
       "season_value": 45,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 12.5,
       "audit_max_live": 13,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 81.24,
+      "audit_risk": 37
     },
     {
       "player_id": "p-mancini-roma",
@@ -782,45 +844,49 @@
       "team": "Roma",
       "tier": "PREMIUM",
       "market_t0": 28,
-      "buy": 12,
+      "buy": 27,
       "wait": [
-        13,
+        28,
         30
       ],
       "stop": 30,
       "season_value": 44.5,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 28,
       "audit_max_live": 30,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 81.35,
+      "audit_risk": 37
     },
     {
       "player_id": "p-akanji-inter",
@@ -829,45 +895,49 @@
       "team": "Inter",
       "tier": "PREMIUM",
       "market_t0": 30,
-      "buy": 12,
+      "buy": 28,
       "wait": [
-        13,
+        29,
         32
       ],
       "stop": 32,
       "season_value": 42.7,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 30,
       "audit_max_live": 32,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 80.69,
+      "audit_risk": 37
     },
     {
       "player_id": "p-kalulu-juventus",
@@ -876,45 +946,49 @@
       "team": "Juventus",
       "tier": "PREMIUM",
       "market_t0": 21,
-      "buy": 12,
+      "buy": 19,
       "wait": [
-        13,
+        20,
         22
       ],
       "stop": 22,
       "season_value": 41.5,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 21,
       "audit_max_live": 22,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 80.36,
+      "audit_risk": 37
     },
     {
       "player_id": "p-solet-udinese",
@@ -923,45 +997,49 @@
       "team": "Udinese",
       "tier": "PREMIUM",
       "market_t0": 25,
-      "buy": 12,
+      "buy": 24,
       "wait": [
-        13,
+        25,
         27
       ],
       "stop": 27,
       "season_value": 40.1,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 25,
       "audit_max_live": 27,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 79.72,
+      "audit_risk": 37
     },
     {
       "player_id": "p-bastoni-inter",
@@ -970,45 +1048,49 @@
       "team": "Inter",
       "tier": "PREMIUM",
       "market_t0": 25,
-      "buy": 11,
+      "buy": 24,
       "wait": [
-        12,
+        25,
         27
       ],
       "stop": 27,
       "season_value": 39.1,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 25,
       "audit_max_live": 27,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 79.96,
+      "audit_risk": 37
     },
     {
       "player_id": "p-di-lorenzo-napoli",
@@ -1017,45 +1099,49 @@
       "team": "Napoli",
       "tier": "STANDARD",
       "market_t0": 28.5,
-      "buy": 11,
+      "buy": 27,
       "wait": [
-        12,
+        28,
         30
       ],
       "stop": 30,
       "season_value": 39.1,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-n-dicka-roma",
           "name": "NDICKA Evan",
           "team": "Roma",
-          "buy": 11,
+          "buy": 12,
           "wait": [
-            12,
+            13,
             14
           ],
           "stop": 14,
-          "market": 13
+          "market": 13.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-ostigard-genoa",
           "name": "OSTIGARD Leo",
           "team": "Genoa",
-          "buy": 11,
+          "buy": 9,
           "wait": [
-            12,
-            13
+            10,
+            10
           ],
-          "stop": 13,
-          "market": 13
+          "stop": 10,
+          "market": 9,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 28.5,
       "audit_max_live": 30,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 78.69,
+      "audit_risk": 37
     },
     {
       "player_id": "p-paz-n-como",
@@ -1064,45 +1150,49 @@
       "team": "Como",
       "tier": "SUPERSTAR",
       "market_t0": 85.5,
-      "buy": 34,
+      "buy": 83,
       "wait": [
-        35,
+        84,
         93
       ],
       "stop": 93,
       "season_value": 139.6,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 85.5,
       "audit_max_live": 93,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 75.66,
+      "audit_risk": 25
     },
     {
       "player_id": "p-calhanoglu-inter",
@@ -1111,45 +1201,49 @@
       "team": "Inter",
       "tier": "SUPERSTAR",
       "market_t0": 90,
-      "buy": 34,
+      "buy": 91,
       "wait": [
-        35,
+        92,
         102
       ],
       "stop": 102,
       "season_value": 136,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 90,
       "audit_max_live": 102,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 88.34,
+      "audit_risk": 25
     },
     {
       "player_id": "p-mctominay-napoli",
@@ -1158,45 +1252,49 @@
       "team": "Napoli",
       "tier": "SUPERSTAR",
       "market_t0": 48.5,
-      "buy": 33,
+      "buy": 46,
       "wait": [
-        34,
+        47,
         52
       ],
       "stop": 52,
       "season_value": 122.9,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 48.5,
       "audit_max_live": 52,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 82.03,
+      "audit_risk": 37
     },
     {
       "player_id": "p-orsolini-bologna",
@@ -1205,45 +1303,49 @@
       "team": "Bologna",
       "tier": "SUPERSTAR",
       "market_t0": 41.5,
-      "buy": 29,
+      "buy": 39,
       "wait": [
-        30,
+        40,
         44
       ],
       "stop": 44,
       "season_value": 103.2,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 41.5,
       "audit_max_live": 44,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 81.75,
+      "audit_risk": 37
     },
     {
       "player_id": "p-pulisic-milan",
@@ -1252,45 +1354,49 @@
       "team": "Milan",
       "tier": "SUPERSTAR",
       "market_t0": 30.5,
-      "buy": 27,
+      "buy": 29,
       "wait": [
-        28,
+        30,
         33
       ],
       "stop": 33,
       "season_value": 92.7,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 30.5,
       "audit_max_live": 33,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 81.46,
+      "audit_risk": 37
     },
     {
       "player_id": "p-rabiot-milan",
@@ -1299,45 +1405,49 @@
       "team": "Milan",
       "tier": "PREMIUM",
       "market_t0": 36,
-      "buy": 26,
+      "buy": 34,
       "wait": [
-        27,
+        35,
         38
       ],
       "stop": 38,
       "season_value": 91,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 36,
       "audit_max_live": 38,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 81.17,
+      "audit_risk": 37
     },
     {
       "player_id": "p-baturina-como",
@@ -1346,45 +1456,49 @@
       "team": "Como",
       "tier": "PREMIUM",
       "market_t0": 77.5,
-      "buy": 22,
+      "buy": 74,
       "wait": [
-        23,
+        75,
         83
       ],
       "stop": 83,
       "season_value": 72.7,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 77.5,
       "audit_max_live": 83,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 80.67,
+      "audit_risk": 37
     },
     {
       "player_id": "p-de-bruyne-napoli",
@@ -1393,45 +1507,49 @@
       "team": "Napoli",
       "tier": "PREMIUM",
       "market_t0": 38,
-      "buy": 22,
+      "buy": 37,
       "wait": [
-        23,
+        38,
         42
       ],
       "stop": 42,
       "season_value": 70.5,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 38,
       "audit_max_live": 42,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 83.04,
+      "audit_risk": 25
     },
     {
       "player_id": "p-zaccagni-lazio",
@@ -1440,45 +1558,49 @@
       "team": "Lazio",
       "tier": "PREMIUM",
       "market_t0": 43.5,
-      "buy": 21,
+      "buy": 41,
       "wait": [
-        22,
+        42,
         46
       ],
       "stop": 46,
       "season_value": 63.1,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 43.5,
       "audit_max_live": 46,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 79.43,
+      "audit_risk": 37
     },
     {
       "player_id": "p-da-cunha-como",
@@ -1487,45 +1609,49 @@
       "team": "Como",
       "tier": "PREMIUM",
       "market_t0": 40.5,
-      "buy": 21,
+      "buy": 38,
       "wait": [
-        22,
+        39,
         43
       ],
       "stop": 43,
       "season_value": 60.6,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 40.5,
       "audit_max_live": 43,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 79.95,
+      "audit_risk": 37
     },
     {
       "player_id": "p-barella-inter",
@@ -1534,45 +1660,49 @@
       "team": "Inter",
       "tier": "PREMIUM",
       "market_t0": 37.5,
-      "buy": 20,
+      "buy": 36,
       "wait": [
-        21,
+        37,
         40
       ],
       "stop": 40,
       "season_value": 58.8,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 37.5,
       "audit_max_live": 40,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 79.72,
+      "audit_risk": 37
     },
     {
       "player_id": "p-zaniolo-udinese",
@@ -1581,45 +1711,49 @@
       "team": "Udinese",
       "tier": "PREMIUM",
       "market_t0": 6,
-      "buy": 6,
+      "buy": 5,
       "wait": [
         6,
         6
       ],
       "stop": 6,
       "season_value": 58.1,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 6,
       "audit_max_live": 6,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 79.56,
+      "audit_risk": 37
     },
     {
       "player_id": "p-atta-fiorentina",
@@ -1628,45 +1762,49 @@
       "team": "Fiorentina",
       "tier": "STANDARD",
       "market_t0": 30.5,
-      "buy": 19,
+      "buy": 28,
       "wait": [
-        20,
+        29,
         32
       ],
       "stop": 32,
       "season_value": 56.7,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 30.5,
       "audit_max_live": 32,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 78.75,
+      "audit_risk": 37
     },
     {
       "player_id": "p-vlasic-torino",
@@ -1675,45 +1813,49 @@
       "team": "Torino",
       "tier": "STANDARD",
       "market_t0": 27,
-      "buy": 19,
+      "buy": 26,
       "wait": [
-        20,
+        27,
         29
       ],
       "stop": 29,
       "season_value": 53.6,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 27,
       "audit_max_live": 29,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 78.11,
+      "audit_risk": 37
     },
     {
       "player_id": "p-conceicao-juventus",
@@ -1722,45 +1864,49 @@
       "team": "Juventus",
       "tier": "STANDARD",
       "market_t0": 43,
-      "buy": 18,
+      "buy": 41,
       "wait": [
-        19,
+        42,
         46
       ],
       "stop": 46,
       "season_value": 51.8,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 43,
       "audit_max_live": 46,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 68.96,
+      "audit_risk": 25
     },
     {
       "player_id": "p-mckennie-juventus",
@@ -1769,45 +1915,49 @@
       "team": "Juventus",
       "tier": "STANDARD",
       "market_t0": 29.5,
-      "buy": 18,
+      "buy": 27,
       "wait": [
-        19,
+        28,
         31
       ],
       "stop": 31,
       "season_value": 51.5,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 29.5,
       "audit_max_live": 31,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 78.61,
+      "audit_risk": 37
     },
     {
       "player_id": "p-fc-7556",
@@ -1816,45 +1966,49 @@
       "team": "Roma",
       "tier": "PREMIUM",
       "market_t0": 47,
-      "buy": 20,
+      "buy": 46,
       "wait": [
-        21,
+        47,
         52
       ],
       "stop": 52,
       "season_value": 50.2,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 47,
       "audit_max_live": 52,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 77.96,
+      "audit_risk": 25
     },
     {
       "player_id": "p-frattesi-lazio",
@@ -1863,45 +2017,49 @@
       "team": "Lazio",
       "tier": "STANDARD",
       "market_t0": 37.5,
-      "buy": 19,
+      "buy": 37,
       "wait": [
-        20,
+        38,
         42
       ],
       "stop": 42,
       "season_value": 49.6,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-ekkelenkamp-udinese",
           "name": "EKKELENKAMP Jurgen",
           "team": "Udinese",
-          "buy": 16,
+          "buy": 23,
           "wait": [
-            17,
-            20
+            24,
+            26
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 26,
+          "market": 25,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-taylor-k-lazio",
           "name": "TAYLOR Kenneth",
           "team": "Lazio",
-          "buy": 16,
+          "buy": 10,
           "wait": [
-            17,
-            20
+            11,
+            12
           ],
-          "stop": 20,
-          "market": 19
+          "stop": 12,
+          "market": 11.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 37.5,
       "audit_max_live": 42,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 84.55,
+      "audit_risk": 25
     },
     {
       "player_id": "p-malen-roma",
@@ -1910,45 +2068,49 @@
       "team": "Roma",
       "tier": "SUPERSTAR",
       "market_t0": 195,
-      "buy": 107,
+      "buy": 198,
       "wait": [
-        108,
+        199,
         220
       ],
       "stop": 220,
       "season_value": 228.3,
-      "evidence": "ADVANCED_CURRENT_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": "DOUBT",
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 195,
       "audit_max_live": 220,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 94.6,
+      "audit_risk": 25
     },
     {
       "player_id": "p-martinez-l-inter",
@@ -1957,45 +2119,49 @@
       "team": "Inter",
       "tier": "SUPERSTAR",
       "market_t0": 200.99,
-      "buy": 96,
+      "buy": 193,
       "wait": [
-        97,
+        194,
         215
       ],
       "stop": 215,
       "season_value": 204.4,
-      "evidence": "ADVANCED_CURRENT_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 200.99,
       "audit_max_live": 215,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 81.79,
+      "audit_risk": 37
     },
     {
       "player_id": "p-hojlund-napoli",
@@ -2004,45 +2170,49 @@
       "team": "Napoli",
       "tier": "SUPERSTAR",
       "market_t0": 188.5,
-      "buy": 82,
+      "buy": 180,
       "wait": [
-        83,
+        181,
         201
       ],
       "stop": 201,
       "season_value": 146.1,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 188.5,
       "audit_max_live": 201,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 81.01,
+      "audit_risk": 37
     },
     {
       "player_id": "p-thuram-inter",
@@ -2051,45 +2221,49 @@
       "team": "Inter",
       "tier": "SUPERSTAR",
       "market_t0": 165,
-      "buy": 80,
+      "buy": 158,
       "wait": [
-        81,
+        159,
         176
       ],
       "stop": 176,
       "season_value": 139.7,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 165,
       "audit_max_live": 176,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 80.66,
+      "audit_risk": 37
     },
     {
       "player_id": "p-ramos-g-milan",
@@ -2098,45 +2272,49 @@
       "team": "Milan",
       "tier": "PREMIUM",
       "market_t0": 174.5,
-      "buy": 76,
+      "buy": 171,
       "wait": [
-        77,
+        172,
         190
       ],
       "stop": 190,
       "season_value": 133.9,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 174.5,
       "audit_max_live": 190,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 75.07,
+      "audit_risk": 25
     },
     {
       "player_id": "p-douvikas-como",
@@ -2145,45 +2323,49 @@
       "team": "Como",
       "tier": "PREMIUM",
       "market_t0": 113,
-      "buy": 67,
+      "buy": 107,
       "wait": [
-        68,
+        108,
         119
       ],
       "stop": 119,
       "season_value": 109.4,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 113,
       "audit_max_live": 119,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 78.22,
+      "audit_risk": 37
     },
     {
       "player_id": "p-kean-fiorentina",
@@ -2192,45 +2374,49 @@
       "team": "Como",
       "tier": "PREMIUM",
       "market_t0": 68.5,
-      "buy": 62,
+      "buy": 66,
       "wait": [
-        63,
+        67,
         74
       ],
       "stop": 74,
       "season_value": 105,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 68.5,
       "audit_max_live": 74,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 72.29,
+      "audit_risk": 25
     },
     {
       "player_id": "p-kolo-muani-juventus",
@@ -2239,45 +2425,49 @@
       "team": "Juventus",
       "tier": "PREMIUM",
       "market_t0": 116,
-      "buy": 63,
+      "buy": 110,
       "wait": [
-        64,
+        111,
         123
       ],
       "stop": 123,
       "season_value": 99.2,
-      "evidence": "ADVANCED_CURRENT_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": "AVAILABLE_POST_OP",
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 116,
       "audit_max_live": 123,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 78.53,
+      "audit_risk": 37
     },
     {
       "player_id": "p-fc-6752",
@@ -2286,45 +2476,49 @@
       "team": "Juventus",
       "tier": "PREMIUM",
       "market_t0": 100,
-      "buy": 57,
+      "buy": 94,
       "wait": [
-        58,
+        95,
         105
       ],
       "stop": 105,
       "season_value": 79.3,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 100,
       "audit_max_live": 105,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 77.6,
+      "audit_risk": 37
     },
     {
       "player_id": "p-davis-k-udinese",
@@ -2333,45 +2527,49 @@
       "team": "Udinese",
       "tier": "STANDARD",
       "market_t0": 39.5,
-      "buy": 41,
+      "buy": 36,
       "wait": [
-        41,
+        37,
         41
       ],
       "stop": 41,
       "season_value": 72.4,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 39.5,
       "audit_max_live": 41,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 75.74,
+      "audit_risk": 37
     },
     {
       "player_id": "p-scamacca-atalanta",
@@ -2380,45 +2578,49 @@
       "team": "Atalanta",
       "tier": "PREMIUM",
       "market_t0": 57.5,
-      "buy": 52,
+      "buy": 54,
       "wait": [
-        53,
+        55,
         60
       ],
       "stop": 60,
       "season_value": 71.9,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 57.5,
       "audit_max_live": 60,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 76.09,
+      "audit_risk": 37
     },
     {
       "player_id": "p-berardi-sassuolo",
@@ -2427,45 +2629,49 @@
       "team": "Sassuolo",
       "tier": "STANDARD",
       "market_t0": 28.5,
-      "buy": 31,
+      "buy": 27,
       "wait": [
-        31,
+        28,
         31
       ],
       "stop": 31,
       "season_value": 69.2,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 28.5,
       "audit_max_live": 31,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 79.65,
+      "audit_risk": 25
     },
     {
       "player_id": "p-esposito-f-p-inter",
@@ -2474,45 +2680,49 @@
       "team": "Inter",
       "tier": "STANDARD",
       "market_t0": 49.5,
-      "buy": 50,
+      "buy": 48,
       "wait": [
-        51,
+        49,
         54
       ],
       "stop": 54,
       "season_value": 67.5,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 49.5,
       "audit_max_live": 54,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 77.75,
+      "audit_risk": 25
     },
     {
       "player_id": "p-dybala-roma",
@@ -2521,45 +2731,49 @@
       "team": "Roma",
       "tier": "STANDARD",
       "market_t0": 74.5,
-      "buy": 49,
+      "buy": 72,
       "wait": [
-        50,
+        73,
         80
       ],
       "stop": 80,
       "season_value": 67.4,
-      "evidence": "ADVANCED_CURRENT_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 74.5,
       "audit_max_live": 80,
       "audit_decision": "BUY",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 73.55,
+      "audit_risk": 28
     },
     {
       "player_id": "p-krstovic-atalanta",
@@ -2568,45 +2782,49 @@
       "team": "Atalanta",
       "tier": "STANDARD",
       "market_t0": 27,
-      "buy": 28,
+      "buy": 25,
       "wait": [
-        28,
+        26,
         28
       ],
       "stop": 28,
       "season_value": 64.2,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 27,
       "audit_max_live": 28,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 64.65,
+      "audit_risk": 25
     },
     {
       "player_id": "p-de-ketelaere-atalanta",
@@ -2615,45 +2833,49 @@
       "team": "Atalanta",
       "tier": "STANDARD",
       "market_t0": 29,
-      "buy": 30,
+      "buy": 27,
       "wait": [
-        30,
+        28,
         30
       ],
       "stop": 30,
       "season_value": 60.9,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 29,
       "audit_max_live": 30,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 72.63,
+      "audit_risk": 37
     },
     {
       "player_id": "p-lauriente-sassuolo",
@@ -2662,45 +2884,49 @@
       "team": "Sassuolo",
       "tier": "STANDARD",
       "market_t0": 15,
-      "buy": 15,
+      "buy": 13,
       "wait": [
-        15,
+        14,
         15
       ],
       "stop": 15,
       "season_value": 57.9,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 15,
       "audit_max_live": 15,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 71.41,
+      "audit_risk": 37
     },
     {
       "player_id": "p-simeone-torino",
@@ -2709,45 +2935,49 @@
       "team": "Torino",
       "tier": "STANDARD",
       "market_t0": 33,
-      "buy": 34,
+      "buy": 30,
       "wait": [
-        34,
+        31,
         34
       ],
       "stop": 34,
       "season_value": 56.4,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 33,
       "audit_max_live": 34,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 69.9,
+      "audit_risk": 37
     },
     {
       "player_id": "p-castro-s-roma",
@@ -2756,45 +2986,49 @@
       "team": "Roma",
       "tier": "STANDARD",
       "market_t0": 21.5,
-      "buy": 22,
+      "buy": 19,
       "wait": [
-        22,
+        20,
         22
       ],
       "stop": 22,
       "season_value": 50.3,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 21.5,
       "audit_max_live": 22,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 69.2,
+      "audit_risk": 37
     },
     {
       "player_id": "p-raspadori-atalanta",
@@ -2803,45 +3037,49 @@
       "team": "Atalanta",
       "tier": "STANDARD",
       "market_t0": 14.5,
-      "buy": 15,
+      "buy": 13,
       "wait": [
-        15,
+        14,
         15
       ],
       "stop": 15,
       "season_value": 49.2,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 14.5,
       "audit_max_live": 15,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 69.55,
+      "audit_risk": 37
     },
     {
       "player_id": "p-santos-a-napoli",
@@ -2850,45 +3088,49 @@
       "team": "Napoli",
       "tier": "STANDARD",
       "market_t0": 26,
-      "buy": 27,
+      "buy": 24,
       "wait": [
-        27,
+        25,
         27
       ],
       "stop": 27,
       "season_value": 44.6,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 26,
       "audit_max_live": 27,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 68.85,
+      "audit_risk": 37
     },
     {
       "player_id": "p-colombo-genoa",
@@ -2897,45 +3139,49 @@
       "team": "Genoa",
       "tier": "STANDARD",
       "market_t0": 39.5,
-      "buy": 35,
+      "buy": 36,
       "wait": [
-        36,
+        37,
         40
       ],
       "stop": 40,
       "season_value": 43,
-      "evidence": "READY_FOR_RECALC",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 39.5,
       "audit_max_live": 40,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 65.54,
+      "audit_risk": 37
     },
     {
       "player_id": "p-dovbyk-bologna",
@@ -2944,45 +3190,49 @@
       "team": "Bologna",
       "tier": "STANDARD",
       "market_t0": 25,
-      "buy": 26,
+      "buy": 23,
       "wait": [
-        26,
+        24,
         26
       ],
       "stop": 26,
       "season_value": 42.5,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP",
       "medical": null,
       "substitutes": [
         {
           "player_id": "p-diao-como",
           "name": "DIAO Assane",
           "team": "Como",
-          "buy": 34,
+          "buy": 46,
           "wait": [
-            35,
-            39
+            47,
+            52
           ],
-          "stop": 39,
-          "market": 41
+          "stop": 52,
+          "market": 48,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         },
         {
           "player_id": "p-pinamonti-sassuolo",
           "name": "PINAMONTI Andrea",
           "team": "Lazio",
-          "buy": 33,
+          "buy": 43,
           "wait": [
-            34,
-            38
+            44,
+            48
           ],
-          "stop": 38,
-          "market": 42
+          "stop": 48,
+          "market": 47.5,
+          "evidence": "RC4_AUDITED_BASELINE_RECONCILED_24SEP"
         }
       ],
       "audit_market500": 25,
       "audit_max_live": 26,
       "audit_decision": "WATCH",
-      "legacy_static_band": true
+      "legacy_static_band": true,
+      "audit_fos_v2": 60.21,
+      "audit_risk": 25
     }
   ]
 }
