@@ -1,6 +1,6 @@
 {
   "schema": "FS_AUCTION_SHORTLIST_63_V1",
-  "generated_for": "23SEP2026 pre-auction T0",
+  "generated_for": "24SEP2026 hotfix Svilar audited MAX",
   "league": {
     "managers": 10,
     "budget_each": 500,
@@ -11,7 +11,7 @@
     "buy": "acquisto conveniente",
     "wait": "zona rilancio controllato",
     "stop": "limite massimo T0; sopra PASS",
-    "dynamic_note": "Durante l'asta il Dynamic MAX live prevale e cambia dopo ogni transazione registrata."
+    "dynamic_note": "Durante l'asta il Dynamic MAX live prevale e cambia dopo ogni transazione registrata; Svilar ha floor audit MAX 58 a T0."
   },
   "counts": {
     "P": 10,
@@ -27,15 +27,15 @@
       "name": "SVILAR Mile",
       "team": "Roma",
       "tier": "SUPERSTAR",
-      "market_t0": 21,
-      "buy": 18,
+      "market_t0": 54.5,
+      "buy": 44,
       "wait": [
-        19,
-        20
+        45,
+        58
       ],
-      "stop": 20,
+      "stop": 58,
       "season_value": 60,
-      "evidence": "PENDING_EVIDENCE",
+      "evidence": "FS_RC4_DECISION_AUDIT_07SEP2026: market500 54.5, max_live 58; 22SEP current context retained",
       "medical": null,
       "substitutes": [
         {
