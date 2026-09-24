@@ -9,6 +9,10 @@ on:
       - '.github/workflows/fantasegreto-fos-v2-evidence-22sep.yml'
   workflow_dispatch:
 
+concurrency:
+  group: fantasegreto-main-writer
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
