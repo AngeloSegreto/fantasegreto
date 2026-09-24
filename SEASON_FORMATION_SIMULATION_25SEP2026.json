@@ -1,0 +1,133 @@
+{
+  "schema": "FS_SEASON_FORMATION_SIMULATION_V1",
+  "generated_at": "2026-09-25",
+  "horizon": "Serie A MD6-MD38",
+  "roster_owner": "USER_CURRENT_ROSTER",
+  "source_runtime": "registry.json @ FantaSegreto V4.2.3 lineage",
+  "injury_context": {
+    "kolo_muani": "AVAILABLE_POST_OP; club says regularly available after hand surgery",
+    "khephren_thuram": "POST_KNEE_SURGERY_REHAB; return date not fixed in official club bulletin",
+    "boga": "MEDIUM_GRADE_BICEPS_FEMORIS; reassessment required",
+    "hien": "POST_SEMIMEMBRANOSUS_TENDON_SURGERY; therapy/recovery context",
+    "cambiaso": "RECENT_FITNESS_ISSUE; conservative early-round availability",
+    "raspadori": "AVAILABLE_ROTATION; available but not guaranteed starter"
+  },
+  "simulations": [
+    {
+      "label": "SIM_1_BASELINE_30K",
+      "job_id": "6ab5af676b030d633f68fb1e",
+      "model": "single-week Monte Carlo structural comparison",
+      "results": {
+        "moreira60": {
+          "3-4-3": 840.72,
+          "4-4-2": 871.33,
+          "4-3-3": 867.54,
+          "best_week_pct": {
+            "4-4-2": 68.7,
+            "4-3-3": 31.3,
+            "3-4-3": 0
+          }
+        },
+        "moreira70": {
+          "3-4-3": 848.61,
+          "4-4-2": 879.2,
+          "4-3-3": 871.46,
+          "best_week_pct": {
+            "4-4-2": 84.3,
+            "4-3-3": 15.6,
+            "3-4-3": 0
+          }
+        },
+        "moreira80": {
+          "3-4-3": 857.89,
+          "4-4-2": 888.39,
+          "4-3-3": 878.58,
+          "best_week_pct": {
+            "4-4-2": 89.5,
+            "4-3-3": 10.5,
+            "3-4-3": 0
+          }
+        }
+      }
+    },
+    {
+      "label": "SIM_2_BAYESIAN_AVAILABILITY_50K",
+      "job_id": "6ab5b29c52d0dbd7f1d8d3da",
+      "seasons": 50000,
+      "horizon": "MD6-MD38",
+      "results": {
+        "3-4-3": {
+          "mean": 27454.8,
+          "p10": 27084.5,
+          "median": 27451.4,
+          "p90": 27831.5
+        },
+        "4-4-2": {
+          "mean": 29029.1,
+          "p10": 28666,
+          "median": 29026.3,
+          "p90": 29397.7
+        },
+        "4-3-3": {
+          "mean": 28705.8,
+          "p10": 28362.9,
+          "median": 28703.4,
+          "p90": 29054.1
+        }
+      },
+      "best_week_share_pct": {
+        "3-4-3": 0.8,
+        "4-4-2": 77,
+        "4-3-3": 22.3
+      }
+    },
+    {
+      "label": "SIM_3_CVAR_MARKOV_CORRELATED_30K",
+      "job_id": "6ab5b2bd52d0dbd7f1d8d3e0",
+      "seasons": 30000,
+      "horizon": "MD6-MD38",
+      "results": {
+        "3-4-3": {
+          "mean": 27654.1,
+          "p10": 27138.2,
+          "median": 27654.9,
+          "cvar10": 26936.9,
+          "robust_score": 27403.1
+        },
+        "4-4-2": {
+          "mean": 29260.3,
+          "p10": 28745,
+          "median": 29261.6,
+          "cvar10": 28541.4,
+          "robust_score": 29008.7
+        },
+        "4-3-3": {
+          "mean": 28948.7,
+          "p10": 28436,
+          "median": 28953,
+          "cvar10": 28239.2,
+          "robust_score": 28700.4
+        },
+        "ADAPTIVE": {
+          "mean": 29413.8,
+          "p10": 28923.2,
+          "median": 29415.4,
+          "cvar10": 28735.2,
+          "robust_score": 29176.3
+        }
+      },
+      "adaptive_formation_share_pct": {
+        "3-4-3": 1.4,
+        "4-4-2": 70.1,
+        "4-3-3": 28.5
+      }
+    }
+  ],
+  "interpretation": {
+    "base_strategy": "4-4-2 with defense modifier as default",
+    "secondary_strategy": "4-3-3 when third attacker matchup/titularity materially improves",
+    "rare_strategy": "3-4-3 only exceptional weeks",
+    "adaptive_policy": "Prefer weekly adaptive selection; it outperforms any fixed formation in the stress simulation."
+  },
+  "caveat": "All reported totals are FS-relative utility, not official Fantacalcio points. Defense modifier uses the FantaSegreto proxy because the league's exact modifier scoring table was not supplied."
+}
