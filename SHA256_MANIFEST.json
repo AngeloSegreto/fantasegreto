@@ -86,8 +86,8 @@
     },
     {
       "file": "opponent-market-v1.js",
-      "bytes": 7000,
-      "sha256": "b00dcd0925c787f1f363e323a6cab1ab0b3a60ed6e342ceaf675720c987a4b20"
+      "bytes": 7061,
+      "sha256": "be028dce7b851d8a0421ffc205e183686ea79cbd38b28d38bcf4780367da014f"
     },
     {
       "file": "opponents.js",
@@ -101,8 +101,8 @@
     },
     {
       "file": "player-details.json",
-      "bytes": 814667,
-      "sha256": "4a016b4398256804d5225b662c9c71aa97a5da7d747f8cec18b2bff7882a564e"
+      "bytes": 892745,
+      "sha256": "3498bc77d606b684baf7e004bb64e14d08003beb4c016e3ccfc1f88b40cd5f5e"
     },
     {
       "file": "registry.json",
@@ -122,12 +122,12 @@
     {
       "file": "sw.js",
       "bytes": 2640,
-      "sha256": "26fbdf137e4467f57d8fb9b3c8c2ecbdf0ad2abe78b897914ca39aed623a85e3"
+      "sha256": "675c021027edb66ecfc4acd5b37836e134dfb51e6cd92421a493138155cccac2"
     },
     {
       "file": "version.json",
-      "bytes": 4700,
-      "sha256": "ccf117a0f12428837ee4aa897e831b8e18ece168aa1e7a1b741ce84a1ae52746"
+      "bytes": 4994,
+      "sha256": "c64f048eb95dfa2450e688b0ed2a76afb523b1e5d80ce5eb5ff95684681d2987"
     },
     {
       "file": "md5-22sep2026.json",
@@ -142,7 +142,7 @@
     {
       "file": "APP_INDEX_RECONCILIATION_22SEP2026.json",
       "bytes": 1243,
-      "sha256": "5d34292cd4fb57befe9c35c2adc9281bcebf4faf3492f526f0f3fd7b77a5e9c4"
+      "sha256": "5da32229054b2d36dae98047c60d743f0fff39740aa2c235837f24f7685f7b0e"
     },
     {
       "file": "listone-22sep2026.json",
@@ -177,7 +177,7 @@
     {
       "file": "SERIE_A_MEMBERSHIP_22SEP2026.json",
       "bytes": 904,
-      "sha256": "aaebdff4761c843a401f57e34f30c69bc3eee3e656e0b94831ac386267f8b61d"
+      "sha256": "282c7e23f3ed63ca68c2b2a831c6ec043475d05ac79e9d82470659cf56c370d4"
     },
     {
       "file": "PERFORMANCE_OVERLAY_V3.json",
@@ -206,8 +206,8 @@
     },
     {
       "file": "AUCTION_SHORTLIST_63_23SEP2026.json",
-      "bytes": 65204,
-      "sha256": "fe28c7ed6b8d61b1cf40d31f1f8101a133f9b98b68d5feec39c87f3abdf60f4a"
+      "bytes": 77719,
+      "sha256": "146b67645d818a97382f24793241057ca943d70ee04dad695da683f7c2ac6c96"
     }
   ]
 }
