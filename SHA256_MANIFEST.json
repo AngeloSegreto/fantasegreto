@@ -106,8 +106,8 @@
     },
     {
       "file": "registry.json",
-      "bytes": 764117,
-      "sha256": "4aed81ecc6afc63c48c3b748761c8e366075aaa50fdba0566a0e016bdbeaf274"
+      "bytes": 852016,
+      "sha256": "f37016c5a3dcf2439a520e8c381dac0ce745ae91b7576fff7e91f1f07c5556d4"
     },
     {
       "file": "state-manager.js",
@@ -142,7 +142,7 @@
     {
       "file": "APP_INDEX_RECONCILIATION_22SEP2026.json",
       "bytes": 1243,
-      "sha256": "1fed5c1ecf7dc376940109e3b803a62b55989323c7842fe31ecd65fc6366b87f"
+      "sha256": "5d34292cd4fb57befe9c35c2adc9281bcebf4faf3492f526f0f3fd7b77a5e9c4"
     },
     {
       "file": "listone-22sep2026.json",
