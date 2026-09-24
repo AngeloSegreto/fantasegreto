@@ -1,6 +1,6 @@
 {
   "schema": "FS_AUCTION_SHORTLIST_63_V1",
-  "generated_for": "24SEP2026 hotfix Svilar audited MAX",
+  "generated_for": "24SEP2026 membership/pivot shortlist; pricing authority = RC4 audit baseline + Dynamic MAX live",
   "league": {
     "managers": 10,
     "budget_each": 500,
@@ -11,7 +11,9 @@
     "buy": "acquisto conveniente",
     "wait": "zona rilancio controllato",
     "stop": "limite massimo T0; sopra PASS",
-    "dynamic_note": "Durante l'asta il Dynamic MAX live prevale e cambia dopo ogni transazione registrata; Svilar ha floor audit MAX 58 a T0."
+    "dynamic_note": "Durante l'asta il Dynamic MAX live prevale e cambia dopo ogni transazione registrata; Svilar ha floor audit MAX 58 a T0.",
+    "pricing_authority": "RC4 audit max_live baseline plus Dynamic MAX live; legacy buy/wait bands are non-authoritative browse hints.",
+    "kapitals_rule": "Kapitals is not MAX."
   },
   "counts": {
     "P": 10,
@@ -62,7 +64,11 @@
           "stop": 10,
           "market": 12
         }
-      ]
+      ],
+      "audit_market500": 54.5,
+      "audit_max_live": 58,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-martinez-jo-inter",
@@ -70,13 +76,13 @@
       "name": "MARTINEZ Josep",
       "team": "Inter",
       "tier": "PREMIUM",
-      "market_t0": 18,
+      "market_t0": 51.5,
       "buy": 15,
       "wait": [
         16,
-        18
+        55
       ],
-      "stop": 18,
+      "stop": 55,
       "season_value": 52.4,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -105,7 +111,11 @@
           "stop": 10,
           "market": 12
         }
-      ]
+      ],
+      "audit_market500": 51.5,
+      "audit_max_live": 55,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-carnesecchi-atalanta",
@@ -113,13 +123,13 @@
       "name": "CARNESECCHI Marco",
       "team": "Atalanta",
       "tier": "PREMIUM",
-      "market_t0": 17,
+      "market_t0": 47.5,
       "buy": 15,
       "wait": [
         16,
-        17
+        51
       ],
-      "stop": 17,
+      "stop": 51,
       "season_value": 45.1,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -148,7 +158,11 @@
           "stop": 10,
           "market": 12
         }
-      ]
+      ],
+      "audit_market500": 47.5,
+      "audit_max_live": 51,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-maignan-milan",
@@ -156,13 +170,13 @@
       "name": "MAIGNAN Mike",
       "team": "Milan",
       "tier": "PREMIUM",
-      "market_t0": 16,
+      "market_t0": 56.5,
       "buy": 14,
       "wait": [
         15,
-        16
+        60
       ],
-      "stop": 16,
+      "stop": 60,
       "season_value": 44.7,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -191,7 +205,11 @@
           "stop": 10,
           "market": 12
         }
-      ]
+      ],
+      "audit_market500": 56.5,
+      "audit_max_live": 60,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-butez-como",
@@ -199,13 +217,13 @@
       "name": "BUTEZ Jean",
       "team": "Como",
       "tier": "STANDARD",
-      "market_t0": 15,
+      "market_t0": 50,
       "buy": 13,
       "wait": [
         14,
-        16
+        53
       ],
-      "stop": 16,
+      "stop": 53,
       "season_value": 42.6,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -234,7 +252,11 @@
           "stop": 10,
           "market": 12
         }
-      ]
+      ],
+      "audit_market500": 50,
+      "audit_max_live": 53,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-meret-napoli",
@@ -242,13 +264,13 @@
       "name": "MERET Alex",
       "team": "Napoli",
       "tier": "STANDARD",
-      "market_t0": 15,
+      "market_t0": 48.5,
       "buy": 13,
       "wait": [
         14,
-        16
+        51
       ],
-      "stop": 16,
+      "stop": 51,
       "season_value": 41.6,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -277,7 +299,11 @@
           "stop": 10,
           "market": 12
         }
-      ]
+      ],
+      "audit_market500": 48.5,
+      "audit_max_live": 51,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-fc-4964",
@@ -285,13 +311,13 @@
       "name": "VICARIO Guglielmo",
       "team": "Juventus",
       "tier": "SUPERSTAR",
-      "market_t0": 19,
+      "market_t0": 50.5,
       "buy": 15,
       "wait": [
         16,
-        17
+        54
       ],
-      "stop": 17,
+      "stop": 54,
       "season_value": 35.9,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -320,7 +346,11 @@
           "stop": 10,
           "market": 12
         }
-      ]
+      ],
+      "audit_market500": 50.5,
+      "audit_max_live": 54,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-mandas-lazio",
@@ -328,13 +358,13 @@
       "name": "MANDAS Christos",
       "team": "Lazio",
       "tier": "STANDARD",
-      "market_t0": 13,
+      "market_t0": 22.5,
       "buy": 11,
       "wait": [
         12,
-        14
+        24
       ],
-      "stop": 14,
+      "stop": 24,
       "season_value": 33.1,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -363,7 +393,11 @@
           "stop": 10,
           "market": 12
         }
-      ]
+      ],
+      "audit_market500": 22.5,
+      "audit_max_live": 24,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-skorupski-bologna",
@@ -371,13 +405,13 @@
       "name": "SKORUPSKI Lukasz",
       "team": "Bologna",
       "tier": "STANDARD",
-      "market_t0": 13,
-      "buy": 11,
+      "market_t0": 8,
+      "buy": 8,
       "wait": [
-        12,
-        13
+        8,
+        8
       ],
-      "stop": 13,
+      "stop": 8,
       "season_value": 32.2,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -406,7 +440,11 @@
           "stop": 10,
           "market": 12
         }
-      ]
+      ],
+      "audit_market500": 8,
+      "audit_max_live": 8,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-de-gea-fiorentina",
@@ -414,13 +452,13 @@
       "name": "DE GEA David",
       "team": "Fiorentina",
       "tier": "STANDARD",
-      "market_t0": 12,
+      "market_t0": 29,
       "buy": 10,
       "wait": [
         11,
-        13
+        30
       ],
-      "stop": 13,
+      "stop": 30,
       "season_value": 31.7,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -449,7 +487,11 @@
           "stop": 10,
           "market": 12
         }
-      ]
+      ],
+      "audit_market500": 29,
+      "audit_max_live": 30,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-dimarco-inter",
@@ -457,13 +499,13 @@
       "name": "DIMARCO Federico",
       "team": "Inter",
       "tier": "SUPERSTAR",
-      "market_t0": 28,
+      "market_t0": 56.5,
       "buy": 24,
       "wait": [
         25,
-        28
+        62
       ],
-      "stop": 28,
+      "stop": 62,
       "season_value": 135.5,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -492,7 +534,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 56.5,
+      "audit_max_live": 62,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-wesley-roma",
@@ -500,13 +546,13 @@
       "name": "WESLEY França Lima",
       "team": "Roma",
       "tier": "SUPERSTAR",
-      "market_t0": 18,
+      "market_t0": 48,
       "buy": 15,
       "wait": [
         16,
-        18
+        53
       ],
-      "stop": 18,
+      "stop": 53,
       "season_value": 61,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -535,7 +581,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 48,
+      "audit_max_live": 53,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-molina-n-roma",
@@ -543,13 +593,13 @@
       "name": "MOLINA Nahuel",
       "team": "Roma",
       "tier": "SUPERSTAR",
-      "market_t0": 17,
+      "market_t0": 20.5,
       "buy": 15,
       "wait": [
         16,
-        18
+        22
       ],
-      "stop": 18,
+      "stop": 22,
       "season_value": 51.9,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -578,7 +628,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 20.5,
+      "audit_max_live": 22,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-bremer-juventus",
@@ -586,13 +640,13 @@
       "name": "BREMER Gleison",
       "team": "Juventus",
       "tier": "SUPERSTAR",
-      "market_t0": 16,
+      "market_t0": 22.5,
       "buy": 14,
       "wait": [
         15,
-        16
+        24
       ],
-      "stop": 16,
+      "stop": 24,
       "season_value": 51,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -621,7 +675,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 22.5,
+      "audit_max_live": 24,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-pavlovic-milan",
@@ -629,13 +687,13 @@
       "name": "PAVLOVIC Strahinja",
       "team": "Milan",
       "tier": "PREMIUM",
-      "market_t0": 14,
+      "market_t0": 24.5,
       "buy": 12,
       "wait": [
         13,
-        14
+        26
       ],
-      "stop": 14,
+      "stop": 26,
       "season_value": 45.3,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -664,7 +722,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 24.5,
+      "audit_max_live": 26,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-rrahmani-napoli",
@@ -672,13 +734,13 @@
       "name": "RRAHMANI Amir",
       "team": "Napoli",
       "tier": "SUPERSTAR",
-      "market_t0": 15,
+      "market_t0": 12.5,
       "buy": 13,
       "wait": [
-        14,
-        15
+        13,
+        13
       ],
-      "stop": 15,
+      "stop": 13,
       "season_value": 45,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -707,7 +769,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 12.5,
+      "audit_max_live": 13,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-mancini-roma",
@@ -715,13 +781,13 @@
       "name": "MANCINI Gianluca",
       "team": "Roma",
       "tier": "PREMIUM",
-      "market_t0": 14,
+      "market_t0": 28,
       "buy": 12,
       "wait": [
         13,
-        15
+        30
       ],
-      "stop": 15,
+      "stop": 30,
       "season_value": 44.5,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -750,7 +816,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 28,
+      "audit_max_live": 30,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-akanji-inter",
@@ -758,13 +828,13 @@
       "name": "AKANJI Manuel",
       "team": "Inter",
       "tier": "PREMIUM",
-      "market_t0": 14,
+      "market_t0": 30,
       "buy": 12,
       "wait": [
         13,
-        14
+        32
       ],
-      "stop": 14,
+      "stop": 32,
       "season_value": 42.7,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -793,7 +863,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 30,
+      "audit_max_live": 32,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-kalulu-juventus",
@@ -801,13 +875,13 @@
       "name": "KALULU Pierre",
       "team": "Juventus",
       "tier": "PREMIUM",
-      "market_t0": 14,
+      "market_t0": 21,
       "buy": 12,
       "wait": [
         13,
-        14
+        22
       ],
-      "stop": 14,
+      "stop": 22,
       "season_value": 41.5,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -836,7 +910,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 21,
+      "audit_max_live": 22,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-solet-udinese",
@@ -844,13 +922,13 @@
       "name": "SOLET Oumar",
       "team": "Udinese",
       "tier": "PREMIUM",
-      "market_t0": 14,
+      "market_t0": 25,
       "buy": 12,
       "wait": [
         13,
-        14
+        27
       ],
-      "stop": 14,
+      "stop": 27,
       "season_value": 40.1,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -879,7 +957,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 25,
+      "audit_max_live": 27,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-bastoni-inter",
@@ -887,13 +969,13 @@
       "name": "BASTONI Alessandro",
       "team": "Inter",
       "tier": "PREMIUM",
-      "market_t0": 13,
+      "market_t0": 25,
       "buy": 11,
       "wait": [
         12,
-        14
+        27
       ],
-      "stop": 14,
+      "stop": 27,
       "season_value": 39.1,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -922,7 +1004,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 25,
+      "audit_max_live": 27,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-di-lorenzo-napoli",
@@ -930,13 +1016,13 @@
       "name": "DI LORENZO Giovanni",
       "team": "Napoli",
       "tier": "STANDARD",
-      "market_t0": 13,
+      "market_t0": 28.5,
       "buy": 11,
       "wait": [
         12,
-        13
+        30
       ],
-      "stop": 13,
+      "stop": 30,
       "season_value": 39.1,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -965,7 +1051,11 @@
           "stop": 13,
           "market": 13
         }
-      ]
+      ],
+      "audit_market500": 28.5,
+      "audit_max_live": 30,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-paz-n-como",
@@ -973,13 +1063,13 @@
       "name": "PAZ Nico",
       "team": "Como",
       "tier": "SUPERSTAR",
-      "market_t0": 40,
+      "market_t0": 85.5,
       "buy": 34,
       "wait": [
         35,
-        40
+        93
       ],
-      "stop": 40,
+      "stop": 93,
       "season_value": 139.6,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1008,7 +1098,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 85.5,
+      "audit_max_live": 93,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-calhanoglu-inter",
@@ -1016,13 +1110,13 @@
       "name": "CALHANOGLU Hakan",
       "team": "Inter",
       "tier": "SUPERSTAR",
-      "market_t0": 39,
+      "market_t0": 90,
       "buy": 34,
       "wait": [
         35,
-        39
+        102
       ],
-      "stop": 39,
+      "stop": 102,
       "season_value": 136,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1051,7 +1145,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 90,
+      "audit_max_live": 102,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-mctominay-napoli",
@@ -1059,13 +1157,13 @@
       "name": "MCTOMINAY Scott",
       "team": "Napoli",
       "tier": "SUPERSTAR",
-      "market_t0": 38,
+      "market_t0": 48.5,
       "buy": 33,
       "wait": [
         34,
-        38
+        52
       ],
-      "stop": 38,
+      "stop": 52,
       "season_value": 122.9,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1094,7 +1192,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 48.5,
+      "audit_max_live": 52,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-orsolini-bologna",
@@ -1102,13 +1204,13 @@
       "name": "ORSOLINI Riccardo",
       "team": "Bologna",
       "tier": "SUPERSTAR",
-      "market_t0": 34,
+      "market_t0": 41.5,
       "buy": 29,
       "wait": [
         30,
-        34
+        44
       ],
-      "stop": 34,
+      "stop": 44,
       "season_value": 103.2,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1137,7 +1239,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 41.5,
+      "audit_max_live": 44,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-pulisic-milan",
@@ -1145,13 +1251,13 @@
       "name": "PULISIC Christian",
       "team": "Milan",
       "tier": "SUPERSTAR",
-      "market_t0": 31,
+      "market_t0": 30.5,
       "buy": 27,
       "wait": [
         28,
-        32
+        33
       ],
-      "stop": 32,
+      "stop": 33,
       "season_value": 92.7,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1180,7 +1286,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 30.5,
+      "audit_max_live": 33,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-rabiot-milan",
@@ -1188,13 +1298,13 @@
       "name": "RABIOT Adrien",
       "team": "Milan",
       "tier": "PREMIUM",
-      "market_t0": 30,
+      "market_t0": 36,
       "buy": 26,
       "wait": [
         27,
-        31
+        38
       ],
-      "stop": 31,
+      "stop": 38,
       "season_value": 91,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1223,7 +1333,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 36,
+      "audit_max_live": 38,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-baturina-como",
@@ -1231,13 +1345,13 @@
       "name": "BATURINA Martin",
       "team": "Como",
       "tier": "PREMIUM",
-      "market_t0": 26,
+      "market_t0": 77.5,
       "buy": 22,
       "wait": [
         23,
-        27
+        83
       ],
-      "stop": 27,
+      "stop": 83,
       "season_value": 72.7,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1266,7 +1380,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 77.5,
+      "audit_max_live": 83,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-de-bruyne-napoli",
@@ -1274,13 +1392,13 @@
       "name": "DE BRUYNE Kevin",
       "team": "Napoli",
       "tier": "PREMIUM",
-      "market_t0": 26,
+      "market_t0": 38,
       "buy": 22,
       "wait": [
         23,
-        27
+        42
       ],
-      "stop": 27,
+      "stop": 42,
       "season_value": 70.5,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1309,7 +1427,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 38,
+      "audit_max_live": 42,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-zaccagni-lazio",
@@ -1317,13 +1439,13 @@
       "name": "ZACCAGNI Mattia",
       "team": "Lazio",
       "tier": "PREMIUM",
-      "market_t0": 24,
+      "market_t0": 43.5,
       "buy": 21,
       "wait": [
         22,
-        25
+        46
       ],
-      "stop": 25,
+      "stop": 46,
       "season_value": 63.1,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1352,7 +1474,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 43.5,
+      "audit_max_live": 46,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-da-cunha-como",
@@ -1360,13 +1486,13 @@
       "name": "DA CUNHA Lucas",
       "team": "Como",
       "tier": "PREMIUM",
-      "market_t0": 24,
+      "market_t0": 40.5,
       "buy": 21,
       "wait": [
         22,
-        25
+        43
       ],
-      "stop": 25,
+      "stop": 43,
       "season_value": 60.6,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1395,7 +1521,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 40.5,
+      "audit_max_live": 43,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-barella-inter",
@@ -1403,13 +1533,13 @@
       "name": "BARELLA Nicolò",
       "team": "Inter",
       "tier": "PREMIUM",
-      "market_t0": 23,
+      "market_t0": 37.5,
       "buy": 20,
       "wait": [
         21,
-        23
+        40
       ],
-      "stop": 23,
+      "stop": 40,
       "season_value": 58.8,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1438,7 +1568,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 37.5,
+      "audit_max_live": 40,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-zaniolo-udinese",
@@ -1446,13 +1580,13 @@
       "name": "ZANIOLO Nicolò",
       "team": "Udinese",
       "tier": "PREMIUM",
-      "market_t0": 23,
-      "buy": 20,
+      "market_t0": 6,
+      "buy": 6,
       "wait": [
-        21,
-        24
+        6,
+        6
       ],
-      "stop": 24,
+      "stop": 6,
       "season_value": 58.1,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1481,7 +1615,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 6,
+      "audit_max_live": 6,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-atta-fiorentina",
@@ -1489,13 +1627,13 @@
       "name": "ATTA Arthur",
       "team": "Fiorentina",
       "tier": "STANDARD",
-      "market_t0": 22,
+      "market_t0": 30.5,
       "buy": 19,
       "wait": [
         20,
-        23
+        32
       ],
-      "stop": 23,
+      "stop": 32,
       "season_value": 56.7,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1524,7 +1662,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 30.5,
+      "audit_max_live": 32,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-vlasic-torino",
@@ -1532,13 +1674,13 @@
       "name": "VLASIC Nikola",
       "team": "Torino",
       "tier": "STANDARD",
-      "market_t0": 22,
+      "market_t0": 27,
       "buy": 19,
       "wait": [
         20,
-        23
+        29
       ],
-      "stop": 23,
+      "stop": 29,
       "season_value": 53.6,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1567,7 +1709,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 27,
+      "audit_max_live": 29,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-conceicao-juventus",
@@ -1575,13 +1721,13 @@
       "name": "CONCEICAO Fernandes Francisco",
       "team": "Juventus",
       "tier": "STANDARD",
-      "market_t0": 21,
+      "market_t0": 43,
       "buy": 18,
       "wait": [
         19,
-        22
+        46
       ],
-      "stop": 22,
+      "stop": 46,
       "season_value": 51.8,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1610,7 +1756,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 43,
+      "audit_max_live": 46,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-mckennie-juventus",
@@ -1618,13 +1768,13 @@
       "name": "MCKENNIE Weston",
       "team": "Juventus",
       "tier": "STANDARD",
-      "market_t0": 21,
+      "market_t0": 29.5,
       "buy": 18,
       "wait": [
         19,
-        22
+        31
       ],
-      "stop": 22,
+      "stop": 31,
       "season_value": 51.5,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1653,7 +1803,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 29.5,
+      "audit_max_live": 31,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-fc-7556",
@@ -1661,13 +1815,13 @@
       "name": "MORA CARVALHO Rodrigo",
       "team": "Roma",
       "tier": "PREMIUM",
-      "market_t0": 25,
+      "market_t0": 47,
       "buy": 20,
       "wait": [
         21,
-        23
+        52
       ],
-      "stop": 23,
+      "stop": 52,
       "season_value": 50.2,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -1696,7 +1850,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 47,
+      "audit_max_live": 52,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-frattesi-lazio",
@@ -1704,13 +1862,13 @@
       "name": "FRATTESI Davide",
       "team": "Lazio",
       "tier": "STANDARD",
-      "market_t0": 22,
+      "market_t0": 37.5,
       "buy": 19,
       "wait": [
         20,
-        22
+        42
       ],
-      "stop": 22,
+      "stop": 42,
       "season_value": 49.6,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1739,7 +1897,11 @@
           "stop": 20,
           "market": 19
         }
-      ]
+      ],
+      "audit_market500": 37.5,
+      "audit_max_live": 42,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-malen-roma",
@@ -1747,13 +1909,13 @@
       "name": "MALEN Donyell",
       "team": "Roma",
       "tier": "SUPERSTAR",
-      "market_t0": 124,
+      "market_t0": 195,
       "buy": 107,
       "wait": [
         108,
-        124
+        220
       ],
-      "stop": 124,
+      "stop": 220,
       "season_value": 228.3,
       "evidence": "ADVANCED_CURRENT_EVIDENCE",
       "medical": "DOUBT",
@@ -1782,7 +1944,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 195,
+      "audit_max_live": 220,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-martinez-l-inter",
@@ -1790,13 +1956,13 @@
       "name": "MARTINEZ Lautaro",
       "team": "Inter",
       "tier": "SUPERSTAR",
-      "market_t0": 112,
+      "market_t0": 200.99,
       "buy": 96,
       "wait": [
         97,
-        121
+        215
       ],
-      "stop": 121,
+      "stop": 215,
       "season_value": 204.4,
       "evidence": "ADVANCED_CURRENT_EVIDENCE",
       "medical": null,
@@ -1825,7 +1991,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 200.99,
+      "audit_max_live": 215,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-hojlund-napoli",
@@ -1833,13 +2003,13 @@
       "name": "HOJLUND Rasmus",
       "team": "Napoli",
       "tier": "SUPERSTAR",
-      "market_t0": 95,
+      "market_t0": 188.5,
       "buy": 82,
       "wait": [
         83,
-        93
+        201
       ],
-      "stop": 93,
+      "stop": 201,
       "season_value": 146.1,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1868,7 +2038,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 188.5,
+      "audit_max_live": 201,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-thuram-inter",
@@ -1876,13 +2050,13 @@
       "name": "THURAM Marcus",
       "team": "Inter",
       "tier": "SUPERSTAR",
-      "market_t0": 93,
+      "market_t0": 165,
       "buy": 80,
       "wait": [
         81,
-        91
+        176
       ],
-      "stop": 91,
+      "stop": 176,
       "season_value": 139.7,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1911,7 +2085,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 165,
+      "audit_max_live": 176,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-ramos-g-milan",
@@ -1919,13 +2097,13 @@
       "name": "RAMOS Goncalo Matias",
       "team": "Milan",
       "tier": "PREMIUM",
-      "market_t0": 88,
+      "market_t0": 174.5,
       "buy": 76,
       "wait": [
         77,
-        86
+        190
       ],
-      "stop": 86,
+      "stop": 190,
       "season_value": 133.9,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1954,7 +2132,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 174.5,
+      "audit_max_live": 190,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-douvikas-como",
@@ -1962,13 +2144,13 @@
       "name": "DOUVIKAS Tasos",
       "team": "Como",
       "tier": "PREMIUM",
-      "market_t0": 78,
+      "market_t0": 113,
       "buy": 67,
       "wait": [
         68,
-        80
+        119
       ],
-      "stop": 80,
+      "stop": 119,
       "season_value": 109.4,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -1997,7 +2179,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 113,
+      "audit_max_live": 119,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-kean-fiorentina",
@@ -2005,13 +2191,13 @@
       "name": "KEAN Moise",
       "team": "Como",
       "tier": "PREMIUM",
-      "market_t0": 78,
+      "market_t0": 68.5,
       "buy": 62,
       "wait": [
         63,
-        71
+        74
       ],
-      "stop": 71,
+      "stop": 74,
       "season_value": 105,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2040,7 +2226,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 68.5,
+      "audit_max_live": 74,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-kolo-muani-juventus",
@@ -2048,13 +2238,13 @@
       "name": "KOLO MUANI Randal",
       "team": "Juventus",
       "tier": "PREMIUM",
-      "market_t0": 74,
+      "market_t0": 116,
       "buy": 63,
       "wait": [
         64,
-        72
+        123
       ],
-      "stop": 72,
+      "stop": 123,
       "season_value": 99.2,
       "evidence": "ADVANCED_CURRENT_EVIDENCE",
       "medical": "AVAILABLE_POST_OP",
@@ -2083,7 +2273,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 116,
+      "audit_max_live": 123,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-fc-6752",
@@ -2091,13 +2285,13 @@
       "name": "WOLTEMADE Nick",
       "team": "Juventus",
       "tier": "PREMIUM",
-      "market_t0": 73,
+      "market_t0": 100,
       "buy": 57,
       "wait": [
         58,
-        65
+        105
       ],
-      "stop": 65,
+      "stop": 105,
       "season_value": 79.3,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2126,7 +2320,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 100,
+      "audit_max_live": 105,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-davis-k-udinese",
@@ -2134,13 +2332,13 @@
       "name": "DAVIS Keinan",
       "team": "Udinese",
       "tier": "STANDARD",
-      "market_t0": 59,
-      "buy": 51,
+      "market_t0": 39.5,
+      "buy": 41,
       "wait": [
-        52,
-        61
+        41,
+        41
       ],
-      "stop": 61,
+      "stop": 41,
       "season_value": 72.4,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -2169,7 +2367,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 39.5,
+      "audit_max_live": 41,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-scamacca-atalanta",
@@ -2177,13 +2379,13 @@
       "name": "SCAMACCA Gianluca",
       "team": "Atalanta",
       "tier": "PREMIUM",
-      "market_t0": 60,
+      "market_t0": 57.5,
       "buy": 52,
       "wait": [
         53,
-        62
+        60
       ],
-      "stop": 62,
+      "stop": 60,
       "season_value": 71.9,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2212,7 +2414,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 57.5,
+      "audit_max_live": 60,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-berardi-sassuolo",
@@ -2220,13 +2426,13 @@
       "name": "BERARDI Domenico",
       "team": "Sassuolo",
       "tier": "STANDARD",
-      "market_t0": 59,
-      "buy": 51,
+      "market_t0": 28.5,
+      "buy": 31,
       "wait": [
-        52,
-        61
+        31,
+        31
       ],
-      "stop": 61,
+      "stop": 31,
       "season_value": 69.2,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2255,7 +2461,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 28.5,
+      "audit_max_live": 31,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-esposito-f-p-inter",
@@ -2263,13 +2473,13 @@
       "name": "ESPOSITO FP Francesco Pio",
       "team": "Inter",
       "tier": "STANDARD",
-      "market_t0": 58,
+      "market_t0": 49.5,
       "buy": 50,
       "wait": [
         51,
-        57
+        54
       ],
-      "stop": 57,
+      "stop": 54,
       "season_value": 67.5,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -2298,7 +2508,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 49.5,
+      "audit_max_live": 54,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-dybala-roma",
@@ -2306,13 +2520,13 @@
       "name": "DYBALA Paulo",
       "team": "Roma",
       "tier": "STANDARD",
-      "market_t0": 57,
+      "market_t0": 74.5,
       "buy": 49,
       "wait": [
         50,
-        60
+        80
       ],
-      "stop": 60,
+      "stop": 80,
       "season_value": 67.4,
       "evidence": "ADVANCED_CURRENT_EVIDENCE",
       "medical": null,
@@ -2341,7 +2555,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 74.5,
+      "audit_max_live": 80,
+      "audit_decision": "BUY",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-krstovic-atalanta",
@@ -2349,13 +2567,13 @@
       "name": "KRSTOVIC Nikola",
       "team": "Atalanta",
       "tier": "STANDARD",
-      "market_t0": 57,
-      "buy": 45,
+      "market_t0": 27,
+      "buy": 28,
       "wait": [
-        46,
-        51
+        28,
+        28
       ],
-      "stop": 51,
+      "stop": 28,
       "season_value": 64.2,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2384,7 +2602,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 27,
+      "audit_max_live": 28,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-de-ketelaere-atalanta",
@@ -2392,13 +2614,13 @@
       "name": "DE KETELAERE Charles",
       "team": "Atalanta",
       "tier": "STANDARD",
-      "market_t0": 56,
-      "buy": 44,
+      "market_t0": 29,
+      "buy": 30,
       "wait": [
-        45,
-        50
+        30,
+        30
       ],
-      "stop": 50,
+      "stop": 30,
       "season_value": 60.9,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2427,7 +2649,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 29,
+      "audit_max_live": 30,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-lauriente-sassuolo",
@@ -2435,13 +2661,13 @@
       "name": "LAURIENTE Armand",
       "team": "Sassuolo",
       "tier": "STANDARD",
-      "market_t0": 52,
-      "buy": 44,
+      "market_t0": 15,
+      "buy": 15,
       "wait": [
-        45,
-        50
+        15,
+        15
       ],
-      "stop": 50,
+      "stop": 15,
       "season_value": 57.9,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -2470,7 +2696,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 15,
+      "audit_max_live": 15,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-simeone-torino",
@@ -2478,13 +2708,13 @@
       "name": "SIMEONE Giovanni",
       "team": "Torino",
       "tier": "STANDARD",
-      "market_t0": 51,
-      "buy": 44,
+      "market_t0": 33,
+      "buy": 34,
       "wait": [
-        45,
-        53
+        34,
+        34
       ],
-      "stop": 53,
+      "stop": 34,
       "season_value": 56.4,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2513,7 +2743,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 33,
+      "audit_max_live": 34,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-castro-s-roma",
@@ -2521,13 +2755,13 @@
       "name": "CASTRO Santiago",
       "team": "Roma",
       "tier": "STANDARD",
-      "market_t0": 48,
-      "buy": 38,
+      "market_t0": 21.5,
+      "buy": 22,
       "wait": [
-        39,
-        43
+        22,
+        22
       ],
-      "stop": 43,
+      "stop": 22,
       "season_value": 50.3,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2556,7 +2790,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 21.5,
+      "audit_max_live": 22,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-raspadori-atalanta",
@@ -2564,13 +2802,13 @@
       "name": "RASPADORI Giacomo",
       "team": "Atalanta",
       "tier": "STANDARD",
-      "market_t0": 49,
-      "buy": 39,
+      "market_t0": 14.5,
+      "buy": 15,
       "wait": [
-        40,
-        44
+        15,
+        15
       ],
-      "stop": 44,
+      "stop": 15,
       "season_value": 49.2,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2599,7 +2837,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 14.5,
+      "audit_max_live": 15,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-santos-a-napoli",
@@ -2607,13 +2849,13 @@
       "name": "SANTOS Alisson",
       "team": "Napoli",
       "tier": "STANDARD",
-      "market_t0": 45,
-      "buy": 38,
+      "market_t0": 26,
+      "buy": 27,
       "wait": [
-        39,
-        43
+        27,
+        27
       ],
-      "stop": 43,
+      "stop": 27,
       "season_value": 44.6,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2642,7 +2884,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 26,
+      "audit_max_live": 27,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-colombo-genoa",
@@ -2650,13 +2896,13 @@
       "name": "COLOMBO Lorenzo",
       "team": "Genoa",
       "tier": "STANDARD",
-      "market_t0": 41,
+      "market_t0": 39.5,
       "buy": 35,
       "wait": [
         36,
-        43
+        40
       ],
-      "stop": 43,
+      "stop": 40,
       "season_value": 43,
       "evidence": "READY_FOR_RECALC",
       "medical": null,
@@ -2685,7 +2931,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 39.5,
+      "audit_max_live": 40,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     },
     {
       "player_id": "p-dovbyk-bologna",
@@ -2693,13 +2943,13 @@
       "name": "DOVBYK Artem",
       "team": "Bologna",
       "tier": "STANDARD",
-      "market_t0": 41,
-      "buy": 35,
+      "market_t0": 25,
+      "buy": 26,
       "wait": [
-        36,
-        42
+        26,
+        26
       ],
-      "stop": 42,
+      "stop": 26,
       "season_value": 42.5,
       "evidence": "PENDING_EVIDENCE",
       "medical": null,
@@ -2728,7 +2978,11 @@
           "stop": 38,
           "market": 42
         }
-      ]
+      ],
+      "audit_market500": 25,
+      "audit_max_live": 26,
+      "audit_decision": "WATCH",
+      "legacy_static_band": true
     }
   ]
 }
