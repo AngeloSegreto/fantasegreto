@@ -55,7 +55,7 @@ jobs:
           node --check state-manager.js
           node --check audit.js
           python3 - <<'PY'
-          import json
+          import json, re
           from pathlib import Path
 
           reg=json.loads(Path('registry.json').read_text())
@@ -100,7 +100,10 @@ jobs:
           assert './opponent-market-v1.js' in idx
           assert 'opponent-market-v1.js' in sw
           assert 'auctionMax' in Path('engine.js').read_text()
-          assert ver.get('opponent_market_engine')=='AUCTION_MARKET_V1_10x500'
+          market_js=Path('opponent-market-v1.js').read_text()
+          market_match=re.search(r"FS_MARKET_ENGINE=\\{version:'([^']+)'",market_js)
+          assert market_match, 'opponent-market-v1.js missing FS_MARKET_ENGINE version'
+          assert ver.get('opponent_market_engine')==market_match.group(1), (ver.get('opponent_market_engine'),market_match.group(1))
           assert './app.js' in idx
           assert ver.get('optimizerMax_mutated') is False
           pending=[p for p in reg['players'] if not all(isinstance(p.get(k),(int,float)) and not isinstance(p.get(k),bool) for k in ['score','ideal','max'])]
