@@ -7,6 +7,10 @@ on:
       - '.github/workflows/fantasegreto-current-registry-22sep.yml'
   workflow_dispatch:
 
+concurrency:
+  group: fantasegreto-main-writer
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
