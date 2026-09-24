@@ -12,7 +12,7 @@
   "external_listone_count": 562,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "CURRENT_562_APP_INDEX_RECONCILED_PENDING_MODEL_RECALC",
+  "deployment_status": "V4_2_3_GLOBAL_RC4_MAX_RUNTIME_RECONCILED_529_AUDITED_33_RECALC",
   "blockers": [
     "FOS_RISK_MAX_22SEP_RECALC",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
@@ -70,7 +70,7 @@
   "freshness_guard_23sep": "PASS",
   "stale_context_contributes_to_promotion": false,
   "fos_v2_global_23sep_certification": "BLOCKED",
-  "opponent_market_engine": "AUCTION_MARKET_V1_10x500",
+  "opponent_market_engine": "AUCTION_MARKET_V1_10x500_RC4_AUDIT_GLOBAL_R2",
   "opponent_market_status": "ACTIVE",
   "opponent_prior_managers": 9,
   "opponent_prior_budget": 500,
@@ -83,9 +83,9 @@
   },
   "opponent_learning": "TRANSACTION_DRIVEN_SHRINKAGE",
   "expected_clearing_price": "TOP3_RIVAL_CEILING_WEIGHTED",
-  "dynamic_max_layer": "POST_LOCKED_ENGINE_MARKET_AWARE",
+  "dynamic_max_layer": "RC4_AUDITED_BASELINE + CURRENT_PERFORMANCE_MEDICAL + TRANSACTION_STATE",
   "auction_shortlist": "AUCTION_SHORTLIST_63_23SEP2026.json",
-  "auction_shortlist_schema": "FS_AUCTION_SHORTLIST_63_V1",
+  "auction_shortlist_schema": "FS_AUCTION_SHORTLIST_63_V2_RC4_AUDITED",
   "auction_shortlist_status": "LIVE",
   "auction_shortlist_total": 63,
   "auction_shortlist_counts": {
@@ -106,12 +106,17 @@
     }
   },
   "global_max_reconciliation": {
-    "source": "FS_RC4_DECISION_AUDIT_07SEP2026",
+    "source": "RC4_DECISION_AUDIT_RECONCILED_24SEP2026.json",
+    "source_rows": 531,
+    "runtime_players": 562,
     "matched_current": 529,
     "current_without_audit": 33,
     "audit_absent_current": 2,
     "market500_not_max": true,
     "kapitals_not_max": true,
-    "full_current_fos_gate": "BLOCKED"
+    "audited_max_written_to_registry": true,
+    "target63_rebuilt_from_audited_max": true,
+    "no_rc4_policy": "RECALC_NO_SYNTHETIC_MAX",
+    "full_current_fos_gate": "BLOCKED_SOURCE_INCOMPLETE"
   }
 }
