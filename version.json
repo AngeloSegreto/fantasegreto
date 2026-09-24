@@ -1,8 +1,8 @@
 {
-  "app": "V4.2.1",
-  "build": "FANTASEGRETO_V4_2_1_TARGET63_LIVE_23SEP2026",
+  "app": "V4.2.2",
+  "build": "FANTASEGRETO_V4_2_2_SVILAR_AUDIT_FIX_24SEP2026",
   "engine": "V4.0.23.1 LOCK + AUCTION_MARKET_V1",
-  "pwa": "R9.4",
+  "pwa": "R9.4.1",
   "state_schema": "FS_STATE_V2",
   "data_cutoff": "2026-09-22T09:12:00+02:00",
   "canonical_registry_source": "Fantacalcio.it official snapshot 07SEP2026",
@@ -12,7 +12,7 @@
   "external_listone_count": 562,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "CURRENT_562_APP_INDEX_RECONCILED_PENDING_MODEL_RECALC",
+  "deployment_status": "V4_2_2_SVILAR_AUDIT_MAX58_DEPLOYED_PENDING_FULL_MODEL_RECALC",
   "blockers": [
     "FOS_RISK_MAX_22SEP_RECALC",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
@@ -94,5 +94,15 @@
     "C": 18,
     "A": 23
   },
-  "auction_shortlist_ui": "TARGET63_FILTER_AND_PLAYER_PIVOTS"
+  "auction_shortlist_ui": "TARGET63_FILTER_AND_PLAYER_PIVOTS",
+  "hotfixes": {
+    "svilar_24sep": {
+      "player_id": "p-svilar-roma",
+      "previous_market_layer_max": 21,
+      "audited_market500": 54.5,
+      "audited_max_live": 58,
+      "source": "FS_RC4_DECISION_AUDIT_07SEP2026",
+      "scope": "market overlay + runtime display; core optimizerMax unchanged"
+    }
+  }
 }
