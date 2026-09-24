@@ -23,6 +23,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: fantasegreto-main-writer
+  cancel-in-progress: false
+
 jobs:
   runtime-gate:
     runs-on: ubuntu-latest
@@ -212,8 +216,16 @@ jobs:
             exit 0
           fi
           git commit -m "FS: seal 22SEP app-index runtime reconciliation"
-          git push
-
+          # Serialize writers and reject stale checkout before publication.
+          git fetch origin main
+          REMOTE_SHA="$(git rev-parse origin/main)"
+          LOCAL_PARENT="$(git rev-parse HEAD^)"
+          if [ "$REMOTE_SHA" != "$LOCAL_PARENT" ]; then
+            echo "STALE_CHECKOUT: origin/main moved from $LOCAL_PARENT to $REMOTE_SHA"
+            echo "Refusing to publish stale manifests/evidence. Re-run on fresh main."
+            exit 75
+          fi
+          git push origin HEAD:main
 # Current 562 V2 reseal trigger
 
 # 23SEP freshness reseal trigger
