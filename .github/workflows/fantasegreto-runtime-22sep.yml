@@ -101,7 +101,7 @@ jobs:
           assert 'opponent-market-v1.js' in sw
           assert 'auctionMax' in Path('engine.js').read_text()
           market_js=Path('opponent-market-v1.js').read_text()
-          market_match=re.search(r"FS_MARKET_ENGINE=\\{version:'([^']+)'",market_js)
+          market_match=re.search(r"FS_MARKET_ENGINE=\{version:'([^']+)'",market_js)
           assert market_match, 'opponent-market-v1.js missing FS_MARKET_ENGINE version'
           assert ver.get('opponent_market_engine')==market_match.group(1), (ver.get('opponent_market_engine'),market_match.group(1))
           assert './app.js' in idx
