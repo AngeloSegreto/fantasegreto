@@ -1,6 +1,6 @@
 const PREFIX='fantasegreto-';
 const LEGACY_PREFIXES=['fs-control-room-'];
-const CACHE='fantasegreto-v4-2-3-24sep-global-audit-max-r1';
+const CACHE='fantasegreto-v4-2-3-24sep-global-audit-max-r2';
 const CRITICAL=['./','./index.html','./styles.css','./app.js','./engine.js','./state-manager.js','./opponent-market-v1.js','./opponents.js','./piano25.js','./backup.js','./audit.js','./registry.json','./player-details.json','./md5-22sep2026.json','./PERFORMANCE_OVERLAY_V3.json','./MEDICAL_V3_22SEP2026.json','./FOS_V2_PLAYER_CANDIDATES_22SEP2026.json','./AUCTION_SHORTLIST_63_23SEP2026.json','./RC4_DECISION_AUDIT_RECONCILED_24SEP2026.json','./version.json','./manifest.webmanifest'];
 const OPTIONAL=['./icon-192.png','./icon-512.png','./apple-touch-icon.png'];
 const NETWORK_FIRST=new Set(['/fantasegreto/registry.json','/fantasegreto/player-details.json','/fantasegreto/md5-22sep2026.json','/fantasegreto/PERFORMANCE_OVERLAY_V3.json','/fantasegreto/MEDICAL_V3_22SEP2026.json','/fantasegreto/FOS_V2_PLAYER_CANDIDATES_22SEP2026.json','/fantasegreto/AUCTION_SHORTLIST_63_23SEP2026.json','/fantasegreto/RC4_DECISION_AUDIT_RECONCILED_24SEP2026.json','/fantasegreto/version.json','/fantasegreto/app.js','/fantasegreto/index.html']);
