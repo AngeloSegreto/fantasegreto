@@ -12,7 +12,7 @@
   "archived_absent_from_current_listone_count": 3,
   "optimizerMax_mutated": false,
   "pending_ids_sha256": "0b385c0111d3c83b5e7903e8fa4403e08185e83633beb0e393009e4fdeacb9f6",
-  "registry_sha256": "b32194a6f416c2d54760928ab333f5aab22456a66fec474576435b86422a7fbe",
-  "details_sha256": "6cd7eb79e270d6c951670355bb5d8c028e2aec39c4fe38374ea312774eedcfa4",
+  "registry_sha256": "f37016c5a3dcf2439a520e8c381dac0ce745ae91b7576fff7e91f1f07c5556d4",
+  "details_sha256": "3498bc77d606b684baf7e004bb64e14d08003beb4c016e3ccfc1f88b40cd5f5e",
   "archive_sha256": "cd2a69ca55909c2844338cfcc63fcbf2e0d368e098d313b62c9039568b8d24df"
 }
