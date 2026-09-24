@@ -64,7 +64,9 @@
     "optimizerMax_mutated": false,
     "gold": false,
     "publish_22sep_fos_as_current": false,
-    "report_overlay_v2": "CURRENT_CONTEXT_MATERIALIZED_READ_ONLY"
+    "report_overlay_v2": "CURRENT_CONTEXT_MATERIALIZED_READ_ONLY",
+    "market_field_separation": "market500 and Kapitals are reference/market fields only; not MAX.",
+    "no_audit_policy": "Current players without RC4 audited baseline cannot receive a synthetic MAX from market_t0."
   },
   "next_valid_gate": "Acquire source-backed current tactical hierarchy, expected minutes, set pieces and complete availability coverage; then recalculate FOS → Risk → MAX and run temporal regression.",
   "pipeline_status": {
@@ -95,5 +97,15 @@
     "Current set-piece hierarchy is not fully refreshed player-by-player; 10SEP prior is excluded from promotion.",
     "Medical V3 is source-tiered but not complete enough to classify every player as healthy/unhealthy.",
     "Independent cross-validation coverage is incomplete."
-  ]
+  ],
+  "rc4_audit_max_reconciliation": {
+    "status": "PASS",
+    "as_of": "2026-09-24",
+    "source_rows": 531,
+    "matched_current_players": 529,
+    "audit_players_absent_current_listone": 2,
+    "current_players_without_rc4_baseline": 33,
+    "pricing_rule": "market500/Kapitals are never promoted to MAX; RC4 max_live is baseline where available; 33 current no-baseline players stay RECALC.",
+    "runtime_file": "RC4_DECISION_AUDIT_RECONCILED_24SEP2026.json"
+  }
 }
