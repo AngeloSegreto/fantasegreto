@@ -41,8 +41,8 @@
     },
     {
       "file": "app.js",
-      "bytes": 17945,
-      "sha256": "937ea26e33420f6f9436b38c3bd55d6a05dec1ab8a8d92a72853379dc069f507"
+      "bytes": 18353,
+      "sha256": "ec907c61437e211e088b76a0349231b9c6494ed94a11248054beeb18974a0f2d"
     },
     {
       "file": "apple-touch-icon.png",
@@ -86,8 +86,8 @@
     },
     {
       "file": "opponent-market-v1.js",
-      "bytes": 6960,
-      "sha256": "705ab35d052c1233f362dd97ce194700bf85d7ef1fdb693def660e72d8c31529"
+      "bytes": 7000,
+      "sha256": "b00dcd0925c787f1f363e323a6cab1ab0b3a60ed6e342ceaf675720c987a4b20"
     },
     {
       "file": "opponents.js",
@@ -101,13 +101,13 @@
     },
     {
       "file": "player-details.json",
-      "bytes": 615659,
-      "sha256": "7a7dfde83b909b851eca8c650242b5f7aa9599f28d1ef1915e82a8276b6bae2e"
+      "bytes": 814667,
+      "sha256": "4a016b4398256804d5225b662c9c71aa97a5da7d747f8cec18b2bff7882a564e"
     },
     {
       "file": "registry.json",
-      "bytes": 671558,
-      "sha256": "fe4be2ed5fa93ea0acd9b534caf90a483cc6506fdf87bd810ce5ca51d9ffca75"
+      "bytes": 764117,
+      "sha256": "4aed81ecc6afc63c48c3b748761c8e366075aaa50fdba0566a0e016bdbeaf274"
     },
     {
       "file": "state-manager.js",
@@ -121,13 +121,13 @@
     },
     {
       "file": "sw.js",
-      "bytes": 2520,
-      "sha256": "1bf8797bbb6f4d1cdb680dccb519faba663925889709eb12c7bc1a65ebc1a681"
+      "bytes": 2640,
+      "sha256": "26fbdf137e4467f57d8fb9b3c8c2ecbdf0ad2abe78b897914ca39aed623a85e3"
     },
     {
       "file": "version.json",
-      "bytes": 4431,
-      "sha256": "fd58b9c7b341786e164d2e5e45b3038427337e07fe68eef1936bf3a0c47f9c82"
+      "bytes": 4700,
+      "sha256": "ccf117a0f12428837ee4aa897e831b8e18ece168aa1e7a1b741ce84a1ae52746"
     },
     {
       "file": "md5-22sep2026.json",
@@ -142,7 +142,7 @@
     {
       "file": "APP_INDEX_RECONCILIATION_22SEP2026.json",
       "bytes": 1243,
-      "sha256": "575b50785abce8023e3017eb8e18e7ea171b02ee01f1be4dcd24c10970d76740"
+      "sha256": "1fed5c1ecf7dc376940109e3b803a62b55989323c7842fe31ecd65fc6366b87f"
     },
     {
       "file": "listone-22sep2026.json",
@@ -166,8 +166,8 @@
     },
     {
       "file": "FOS_RISK_MAX_22SEP_GATE.json",
-      "bytes": 4060,
-      "sha256": "d3c928846ecf8447b48dc256883a03ee475c2f5d29522953dfc7e3456cc237e2"
+      "bytes": 4746,
+      "sha256": "51b7258f7fea114b350a6eb3e9d586805ef775db83c3f12954db98a317b80133"
     },
     {
       "file": "REPORT22_OVERLAY_AUDIT.json",
@@ -206,8 +206,8 @@
     },
     {
       "file": "AUCTION_SHORTLIST_63_23SEP2026.json",
-      "bytes": 57083,
-      "sha256": "c0fb9437d8a320628dd2a5de3a8795a91028aa4c48581cecc88a6f7e3456e2d8"
+      "bytes": 65204,
+      "sha256": "fe28c7ed6b8d61b1cf40d31f1f8101a133f9b98b68d5feec39c87f3abdf60f4a"
     }
   ]
 }
