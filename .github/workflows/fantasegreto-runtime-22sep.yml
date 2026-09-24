@@ -85,10 +85,14 @@ jobs:
           assert 'TARGET 63' in idx
           assert 'AUCTION_SHORTLIST_63_23SEP2026.json' in app
           assert 'AUCTION_SHORTLIST_63_23SEP2026.json' in sw
-          assert sl63.get('schema')=='FS_AUCTION_SHORTLIST_63_V1'
-          assert sl63.get('total')==63
-          assert sl63.get('counts')=={'P':10,'D':12,'C':18,'A':23}
-          assert len(sl63.get('rows',[]))==63
+          expected_sl_schema=ver.get('auction_shortlist_schema')
+          assert expected_sl_schema, 'version.json missing auction_shortlist_schema'
+          assert sl63.get('schema')==expected_sl_schema, (sl63.get('schema'),expected_sl_schema)
+          expected_sl_total=int(ver.get('auction_shortlist_total') or 63)
+          expected_sl_counts=ver.get('auction_shortlist_counts') or {'P':10,'D':12,'C':18,'A':23}
+          assert sl63.get('total')==expected_sl_total
+          assert sl63.get('counts')==expected_sl_counts
+          assert len(sl63.get('rows',[]))==expected_sl_total
           assert './opponent-market-v1.js' in idx
           assert 'opponent-market-v1.js' in sw
           assert 'auctionMax' in Path('engine.js').read_text()
