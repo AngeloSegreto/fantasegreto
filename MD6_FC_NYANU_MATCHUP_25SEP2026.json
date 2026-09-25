@@ -1,0 +1,110 @@
+{
+  "schema": "FS_MD6_HEAD_TO_HEAD_SIMULATION_V1",
+  "generated_at": "2026-09-25",
+  "matchup": "Mall & Dealer vs FC Nyanu",
+  "matchday": 6,
+  "current_user_xi": [
+    "Svilar",
+    "Wesley",
+    "Solet",
+    "Dimarco",
+    "Spence",
+    "Ekkelenkamp",
+    "Thorstvedt",
+    "Modric",
+    "Moreira",
+    "Maldini",
+    "Kolo Muani"
+  ],
+  "opponent_xi": [
+    "Maignan",
+    "Bremer",
+    "Hermoso",
+    "Mancini",
+    "Chalobah T.",
+    "Frattesi",
+    "Baturina",
+    "McTominay",
+    "Orsolini",
+    "Malen",
+    "Diao"
+  ],
+  "algorithms": [
+    {
+      "name": "EXPECTED_VALUE_MATCHUP_V1",
+      "hf_job": "6ab62c026b030d633f690a09",
+      "best": "4-4-2",
+      "xi": [
+        "Svilar",
+        "Dimarco",
+        "Wesley",
+        "Solet",
+        "Zortea",
+        "Modric",
+        "Ekkelenkamp",
+        "Thorstvedt",
+        "Moreira",
+        "Kolo Muani",
+        "Geubbels"
+      ],
+      "utility": 744.39,
+      "opponent_utility": 695.97
+    },
+    {
+      "name": "BAYESIAN_INJURY_ROTATION_MONTE_CARLO_V2",
+      "hf_job": "6ab62c1f52d0dbd7f1d8ed23",
+      "scenarios": 100000,
+      "best": "SAFE_442_ZORTEA_GEUBBELS",
+      "win_pct": 64.4,
+      "current_screen_win_pct": 56.6,
+      "upside_433_win_pct": 58.7,
+      "cambiaso_442_win_pct": 59.3
+    },
+    {
+      "name": "OPPONENT_AWARE_MINIMAX_COVARIANCE_V1",
+      "hf_job": "6ab62c4352d0dbd7f1d8ed27",
+      "scenarios": 150000,
+      "best": "SAFE_442",
+      "win_pct": 64.8,
+      "current_screen_win_pct": 56.4,
+      "danger_cluster_win_pct": 47.4,
+      "opponent_core_risks": [
+        "Malen",
+        "Baturina",
+        "Orsolini",
+        "McTominay"
+      ]
+    }
+  ],
+  "recommendation": {
+    "formation": "4-4-2",
+    "xi": [
+      "Svilar",
+      "Dimarco",
+      "Wesley",
+      "Solet",
+      "Zortea",
+      "Ekkelenkamp",
+      "Thorstvedt",
+      "Modric",
+      "Moreira",
+      "Kolo Muani",
+      "Geubbels"
+    ],
+    "changes_from_screen": [
+      "Zortea IN, Spence OUT pending full fitness/titularity confirmation",
+      "Geubbels IN, Maldini OUT"
+    ],
+    "switch_conditions": {
+      "Spence": "Start over Zortea only if confirmed starter/strong minutes projection near deadline.",
+      "Cambiaso": "Can replace Zortea if confirmed starter after recovery.",
+      "Raspadori": "Switch to 4-3-3 only if upgraded to strong starter probability and Geubbels/Kolo remain confirmed.",
+      "Hien": "OUT, injury return targeted later in October."
+    }
+  },
+  "caveats": [
+    "Modifier scoring table is not visible in uploaded rules, therefore simulations use the FantaSegreto modifier proxy.",
+    "Captain multiplier/effect is not visible in uploaded rules and was not modeled.",
+    "Probable formations are preliminary on 25 September; final lineup must be re-evaluated close to 10 October."
+  ]
+}
