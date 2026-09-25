@@ -77,34 +77,145 @@
     }
   ],
   "recommendation": {
-    "formation": "4-4-2",
-    "xi": [
-      "Svilar",
+    "formation": "4-4-2 default",
+    "attack": [
+      "Kolo Muani",
+      "Maldini"
+    ],
+    "first_attacker_bench": "Raspadori",
+    "geubbels": "BENCH / DO NOT START until full group return confirmed",
+    "defense": [
       "Dimarco",
       "Wesley",
       "Solet",
-      "Zortea",
+      "Zortea"
+    ],
+    "midfield": [
       "Ekkelenkamp",
       "Thorstvedt",
       "Modric",
-      "Moreira",
-      "Kolo Muani",
-      "Geubbels"
-    ],
-    "changes_from_screen": [
-      "Zortea IN, Spence OUT pending full fitness/titularity confirmation",
-      "Geubbels IN, Maldini OUT"
+      "Moreira"
     ],
     "switch_conditions": {
-      "Spence": "Start over Zortea only if confirmed starter/strong minutes projection near deadline.",
-      "Cambiaso": "Can replace Zortea if confirmed starter after recovery.",
-      "Raspadori": "Switch to 4-3-3 only if upgraded to strong starter probability and Geubbels/Kolo remain confirmed.",
-      "Hien": "OUT, injury return targeted later in October."
+      "Raspadori": "Promote to XI if he becomes a strong confirmed starter against Venezia or if another midfielder/defender loses starting status.",
+      "Geubbels": "Only reconsider after full group training and strong starter projection.",
+      "Spence": "Can challenge Zortea only after full group return plus confirmed starting projection.",
+      "Cambiaso": "Can challenge Zortea once fully recovered and starter probability is materially higher."
     }
   },
   "caveats": [
-    "Modifier scoring table is not visible in uploaded rules, therefore simulations use the FantaSegreto modifier proxy.",
-    "Captain multiplier/effect is not visible in uploaded rules and was not modeled.",
-    "Probable formations are preliminary on 25 September; final lineup must be re-evaluated close to 10 October."
-  ]
+    "MD6 is still more than two weeks away; probabilities must be refreshed close to deadline.",
+    "Matchup multipliers and availability probabilities are model assumptions, not source facts.",
+    "Exact league defense-modifier table is still not encoded; formation comparison uses FS proxy.",
+    "Captain bonus effect not modeled because exact league rule is not visible."
+  ],
+  "revision": "V2_CURRENT_NEWS_25SEP2026",
+  "corrected_at": "2026-09-25",
+  "corrections": [
+    "Geubbels is NOT treated as healthy: personalized training on 24/09; do not start until full group return is confirmed.",
+    "Maldini current season form overrides stale registry FS score for MD6 decision support: 5/5 starts, 3 goals, FM 8.30, three consecutive scoring matches.",
+    "Raspadori is fit and called up by Italy, but Atalanta usage is rotational: 4 matches with vote, 2 starts, 2 sub appearances, 1 goal; preliminary MD6 starter estimate 55%.",
+    "Solet returned to regular group training on 24/09.",
+    "Spence is expected to rejoin full group from Monday and targets Parma; do not assume starter status yet.",
+    "Cambiaso has resumed partial group work and is expected available after the break; starter status still uncertain.",
+    "Hien remains out with return targeted in the second half/end of October.",
+    "Khephren Thuram remains in post-surgery rehab and is not an MD6 option.",
+    "Kolo Muani remains selectable after successful hand surgery."
+  ],
+  "current_news_sources": [
+    {
+      "date": "2026-09-24",
+      "source": "US Lecce",
+      "fact": "Geubbels personalized training"
+    },
+    {
+      "date": "2026-09-23",
+      "source": "Fantacalcio",
+      "fact": "Maldini on fire, third goal in a row"
+    },
+    {
+      "date": "2026-09-25",
+      "source": "Fantacalcio player profile",
+      "fact": "Maldini 5 PV, 3 goals, MV 6.50, FM 8.30, 100% starts"
+    },
+    {
+      "date": "2026-09-25",
+      "source": "Fantacalcio player profile",
+      "fact": "Raspadori 4 PV, 1 goal, MV 6.00, FM 6.75, 2 starts and 2 sub appearances"
+    },
+    {
+      "date": "2026-09-24",
+      "source": "Atalanta",
+      "fact": "Raspadori called by Italy for Nations League window"
+    },
+    {
+      "date": "2026-09-24",
+      "source": "Fantacalcio",
+      "fact": "Solet training regularly again"
+    },
+    {
+      "date": "2026-09-23",
+      "source": "Fantacalcio",
+      "fact": "Spence full group return expected Monday, targets Parma"
+    },
+    {
+      "date": "2026-09-23",
+      "source": "Fantacalcio",
+      "fact": "Cambiaso resumed partial group work"
+    },
+    {
+      "date": "2026-09-21",
+      "source": "Juventus",
+      "fact": "Kolo Muani surgery successful and remains available"
+    }
+  ],
+  "algorithms_current_25sep": {
+    "hf_job": "6ab62e436b030d633f690a30",
+    "empirical_form_index": {
+      "Maldini": 76.6,
+      "Raspadori": 72.9,
+      "Geubbels": 54.7,
+      "Kolo_Muani": 77.7
+    },
+    "bayesian_md6": {
+      "Maldini": {
+        "mean": 6.459,
+        "p_bonus_goal_pct": 28.4,
+        "p_no_vote_pct": 2
+      },
+      "Raspadori": {
+        "mean": 6.306,
+        "p_bonus_goal_pct": 14,
+        "p_no_vote_pct": 14.7
+      },
+      "Geubbels": {
+        "mean": 2.419,
+        "p_bonus_goal_pct": 6,
+        "p_no_vote_pct": 60.8
+      },
+      "Kolo_Muani": {
+        "mean": 6.551,
+        "p_bonus_goal_pct": 20.4,
+        "p_no_vote_pct": 11.3
+      }
+    },
+    "minimax": {
+      "KOLO_MALDINI": {
+        "mean_attack_utility": 12.989,
+        "p10": 8.054
+      },
+      "KOLO_RASPADORI": {
+        "mean_attack_utility": 12.829,
+        "p10": 6.718
+      },
+      "KOLO_MALDINI_RASPADORI": {
+        "mean_attack_utility": 13.488,
+        "p10": 6.931
+      },
+      "KOLO_GEUBBELS": {
+        "mean_attack_utility": 8.945,
+        "p10": 5.6
+      }
+    }
+  }
 }
