@@ -109,7 +109,7 @@
     "Exact league defense-modifier table is still not encoded; formation comparison uses FS proxy.",
     "Captain bonus effect not modeled because exact league rule is not visible."
   ],
-  "revision": "V2_CURRENT_NEWS_25SEP2026",
+  "revision": "V3_CURRENT_FORM_MATCHUP_3MODEL_25SEP2026",
   "corrected_at": "2026-09-25",
   "corrections": [
     "Geubbels is NOT treated as healthy: personalized training on 24/09; do not start until full group return is confirmed.",
@@ -217,5 +217,149 @@
         "p10": 5.6
       }
     }
-  }
+  },
+  "recalculated_at": "2026-09-25T10:39:00+02:00",
+  "current_user_xi_from_screenshot": [
+    "Svilar",
+    "Wesley",
+    "Solet",
+    "Dimarco",
+    "Zortea",
+    "Ekkelenkamp",
+    "Thorstvedt",
+    "Modric",
+    "Moreira",
+    "Maldini",
+    "Kolo Muani"
+  ],
+  "current_opponent_xi_from_screenshot": [
+    "Maignan",
+    "Bremer",
+    "Hermoso",
+    "Mancini",
+    "Chalobah T.",
+    "Frattesi",
+    "Baturina",
+    "McTominay",
+    "Orsolini",
+    "Malen",
+    "Diao"
+  ],
+  "fresh_25sep_models": {
+    "empirical_bayes_expected_points": {
+      "hf_job": "6ab6333a52d0dbd7f1d8ee6f",
+      "opponent_expected": 62.32,
+      "lineups": {
+        "442_KOLO_MALDINI": {
+          "expected": 61.86,
+          "edge": -0.47
+        },
+        "442_RASP_MALDINI": {
+          "expected": 62.87,
+          "edge": 0.54
+        },
+        "442_KOLO_RASP": {
+          "expected": 60.66,
+          "edge": -1.67
+        },
+        "433_ALL3": {
+          "expected": 61.99,
+          "edge": -0.33
+        },
+        "343_ALL3": {
+          "expected": 62.24,
+          "edge": -0.09
+        }
+      },
+      "best": "442_RASP_MALDINI"
+    },
+    "bayesian_monte_carlo_250k": {
+      "hf_job": "6ab633446b030d633f690acf",
+      "opponent_mean": 69.49,
+      "lineups": {
+        "442_KOLO_MALDINI": {
+          "mean": 67.6,
+          "win_pct": 45.1
+        },
+        "442_RASP_MALDINI": {
+          "mean": 68.82,
+          "win_pct": 48.1
+        },
+        "442_KOLO_RASP": {
+          "mean": 66.13,
+          "win_pct": 41.6
+        },
+        "433_ALL3": {
+          "mean": 67.94,
+          "win_pct": 46
+        },
+        "343_ALL3": {
+          "mean": 67.02,
+          "win_pct": 43.4
+        }
+      },
+      "best": "442_RASP_MALDINI"
+    },
+    "opponent_aware_cvar_correlated_200k": {
+      "hf_job": "6ab6334d6b030d633f690ad1",
+      "lineups": {
+        "442_KOLO_MALDINI": {
+          "mean_edge": -1.84,
+          "win_pct": 45.1,
+          "cvar10": -29.48,
+          "robust_index": -11.51
+        },
+        "442_RASP_MALDINI": {
+          "mean_edge": -0.64,
+          "win_pct": 48.3,
+          "cvar10": -28.45,
+          "robust_index": -10.38
+        },
+        "442_KOLO_RASP": {
+          "mean_edge": -3.32,
+          "win_pct": 41.7,
+          "cvar10": -31.18,
+          "robust_index": -13.07
+        },
+        "433_ALL3": {
+          "mean_edge": -1.52,
+          "win_pct": 46.1,
+          "cvar10": -29.66,
+          "robust_index": -11.37
+        },
+        "343_ALL3": {
+          "mean_edge": -2.47,
+          "win_pct": 43.4,
+          "cvar10": -29.93,
+          "robust_index": -12.08
+        }
+      },
+      "best": "442_RASP_MALDINI"
+    }
+  },
+  "recommendation_25sep": {
+    "formation": "4-4-2",
+    "xi": [
+      "Svilar",
+      "Dimarco",
+      "Wesley",
+      "Solet",
+      "Zortea",
+      "Ekkelenkamp",
+      "Thorstvedt",
+      "Modric",
+      "Moreira",
+      "Maldini",
+      "Raspadori"
+    ],
+    "first_attacker_bench": "Kolo Muani",
+    "rationale": "All three fresh models prefer Raspadori+Maldini at current provisional start probabilities (Raspadori 75%, Kolo 70%) and current fantasy form. Re-evaluate after international break.",
+    "geubbels": "OUT until full-group recovery is confirmed"
+  },
+  "caveats_current": [
+    "MD6 probabilities are provisional on 25 Sep, over two weeks before kickoff.",
+    "Exact league defense-modifier table is not visible; simulations use a standard-style proxy and should not be treated as official modifier scoring.",
+    "Captain/vice scoring effect is not visible and is not modeled.",
+    "Model probabilities are internal decision-support outputs, not bookmaker odds."
+  ]
 }
