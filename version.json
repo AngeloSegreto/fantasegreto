@@ -1,6 +1,6 @@
 {
-  "app": "V4.2.3",
-  "build": "FANTASEGRETO_V4_2_3_GLOBAL_RC4_AUDIT_MAX_24SEP2026",
+  "app": "V4.2.4",
+  "build": "FANTASEGRETO_V4_2_4_08OCT_SAFE_UI",
   "engine": "V4.0.23.1 LOCK + AUCTION_MARKET_V1",
   "pwa": "R9.4.2",
   "state_schema": "FS_STATE_V2",
@@ -12,7 +12,7 @@
   "external_listone_count": 536,
   "optimizerMax_mutated": false,
   "gold": false,
-  "deployment_status": "OFFICIAL_536_QUOTE_FVM_REFRESH_MODEL_PENDING",
+  "deployment_status": "OFFICIAL_536_SAFE_UI_FOS_PENDING",
   "blockers": [
     "FOS_RISK_MAX_22SEP_RECALC",
     "PHYSICAL_IPHONE_SAFARI_ACCEPTANCE",
@@ -120,5 +120,7 @@
     "no_rc4_policy": "RECALC_NO_SYNTHETIC_MAX",
     "full_current_fos_gate": "BLOCKED_SOURCE_INCOMPLETE"
   },
-  "model_recalculation_status": "PENDING_FULL_FOS_RISK_MAX_08OCT"
+  "model_recalculation_status": "PENDING_FULL_FOS_RISK_MAX_08OCT",
+  "legacy_rc4_ui_disabled": true,
+  "premium_match_simulation_status": "PENDING_VERIFIED_22_PLUS_BENCH_PROBABILITIES"
 }
