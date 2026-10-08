@@ -72,8 +72,8 @@ async function fetchData(){
  const slMap=new Map((sl63.rows||[]).map(x=>[x.player_id,x]));
  const aMap=rc4.by_player||{};
  for(const p of merged.players){if(pv3.player_performance_records?.[p.id])p._performanceV3={...pv3.player_performance_records[p.id]};if(mv3.records?.[p.id])p._medicalV3={...mv3.records[p.id]};p._evidence23=cMap.get(p.id)||'PENDING_EVIDENCE';p._auditRC4=blocked?null:(aMap[p.id]||null);if(!blocked&&slMap.has(p.id))p._shortlist63=slMap.get(p.id)}
- S.registry=merged.players;S.details=merged.details;S.news=o;S.shortlist63=sl63;
- window.FS_PERFORMANCE_V3=pv3;window.FS_MEDICAL_V3=mv3;window.FS_FOS_CANDIDATES=cand;window.FS_SHORTLIST63=sl63;window.FS_RC4_AUDIT=blocked?null:rc4;
+ S.registry=merged.players;S.details=merged.details;S.news=blocked?null:o;S.shortlist63=blocked?null:sl63;
+ window.FS_PERFORMANCE_V3=pv3;window.FS_MEDICAL_V3=mv3;window.FS_FOS_CANDIDATES=blocked?null:cand;window.FS_SHORTLIST63=blocked?null:sl63;window.FS_RC4_AUDIT=blocked?null:rc4;
  window.FS_MD5=o;window.FS_VERSION=v;
  window.FS_APP={registry:()=>S.registry,details:()=>S.details,news:()=>S.news,refresh:refreshAll,open,close,selected:()=>S.selected,player:id=>S.registry.find(x=>x.id===id)};
  window.dispatchEvent(new CustomEvent('fs:registry-ready',{detail:{players:S.registry.length,base_players:(r.players||[]).length,audit_max_baselines:blocked?0:(rc4.matched_current_count||0),overlay:blocked?'OFFICIAL_08OCT_SAFE':'LEGACY_RC4',news_additions:0}}));
