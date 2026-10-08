@@ -51,16 +51,20 @@ function applyCurrentOverlay(base,details,overlay){
  return{players,details:outDetails};
 }
 async function fetchData(){
- const [r,d,o,v,pv3,mv3,cand,sl63,rc4]=await Promise.all([
-  fetch('./registry.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('registry.json '+x.status);return x.json()}),
-  fetch('./player-details.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('player-details.json '+x.status);return x.json()}),
-  fetch('./md5-22sep2026.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('md5-22sep2026.json '+x.status);return x.json()}),
-  fetch('./version.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('version.json '+x.status);return x.json()}),
-  fetch('./PERFORMANCE_OVERLAY_V3.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('PERFORMANCE_OVERLAY_V3.json '+x.status);return x.json()}),
-  fetch('./MEDICAL_V3_22SEP2026.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('MEDICAL_V3_22SEP2026.json '+x.status);return x.json()}),
-  fetch('./FOS_V2_PLAYER_CANDIDATES_22SEP2026.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('FOS_V2_PLAYER_CANDIDATES_22SEP2026.json '+x.status);return x.json()}),
-  fetch('./AUCTION_SHORTLIST_63_23SEP2026.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('AUCTION_SHORTLIST_63_23SEP2026.json '+x.status);return x.json()}),
-  fetch('./RC4_DECISION_AUDIT_RECONCILED_24SEP2026.json',{cache:'no-store'}).then(x=>{if(!x.ok)throw Error('RC4_DECISION_AUDIT_RECONCILED_24SEP2026.json '+x.status);return x.json()})
+ const load=async(name,required=true)=>{
+   try{const x=await fetch('./'+name,{cache:'no-store'});if(!x.ok)throw Error(name+' '+x.status);return await x.json()}
+   catch(e){if(required)throw e;console.warn('FS optional historical asset unavailable:',name);return {}}
+ };
+ const [r,v]=await Promise.all([load('registry.json'),load('version.json')]);
+ const certified=v.gold===true&&v.optimizerMax_mutated===false&&v.model_recalculation_status==='CERTIFIED_FULL_FOS_RISK_MAX_08OCT';
+ const [d,o,pv3,mv3,cand,sl63,rc4]=await Promise.all([
+   load('player-details.json',certified),
+   load('md5-22sep2026.json',false),
+   load('PERFORMANCE_OVERLAY_V3.json',false),
+   load('MEDICAL_V3_22SEP2026.json',false),
+   certified?load('FOS_V2_PLAYER_CANDIDATES_22SEP2026.json'):Promise.resolve({}),
+   certified?load('AUCTION_SHORTLIST_63_23SEP2026.json'):Promise.resolve({}),
+   certified?load('RC4_DECISION_AUDIT_RECONCILED_24SEP2026.json'):Promise.resolve({})
  ]);
  const expected=Number(v.runtime_registry_count||v.canonical_registry_runtime_count||r.count||0);
  if(!expected||Number(r.count)!==expected||(r.players||[]).length!==expected)throw Error('Registry runtime non riconciliato al target '+expected);
