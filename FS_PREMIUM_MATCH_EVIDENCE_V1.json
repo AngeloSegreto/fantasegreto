@@ -4,14 +4,250 @@
     "home": "Mall & Dealer",
     "away": "FC Nyanu",
     "matchday": null,
-    "source": null
+    "source": "User-provided AutoMasterFanta National League 26-27 screenshots 08OCT2026",
+    "display_home_side": "right",
+    "display_away_side": "left"
   },
-  "status": "BLOCKED_PENDING_VERIFIED_INPUTS",
+  "status": "LINEUPS_CAPTURED_PROBABILITIES_AND_RULES_PENDING",
   "inputs": {
-    "home_starting_xi": [],
-    "away_starting_xi": [],
-    "home_bench": [],
-    "away_bench": [],
+    "home_starting_xi": [
+      {
+        "name": "Svilar",
+        "role": "P",
+        "official_id": null
+      },
+      {
+        "name": "Wesley",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Solet",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Dimarco",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Zortea",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Ekkelenkamp",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Thorstvedt",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Modric",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Moreira",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Maldini",
+        "role": "A",
+        "official_id": null
+      },
+      {
+        "name": "Kolo Muani",
+        "role": "A",
+        "official_id": null
+      }
+    ],
+    "away_starting_xi": [
+      {
+        "name": "Maignan",
+        "role": "P",
+        "official_id": null
+      },
+      {
+        "name": "Bremer",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Hermoso",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Mancini",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Chalobah T.",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Frattesi",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Baturina",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "McTominay",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Orsolini",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Malen",
+        "role": "A",
+        "official_id": null
+      },
+      {
+        "name": "Diao",
+        "role": "A",
+        "official_id": null
+      }
+    ],
+    "home_bench": [
+      {
+        "name": "Meret",
+        "role": "P",
+        "official_id": null
+      },
+      {
+        "name": "Gollini",
+        "role": "P",
+        "official_id": null
+      },
+      {
+        "name": "Cambiaso",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Spence",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Zanoli",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Gaetano",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Pobega",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Zalewski",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Raspadori",
+        "role": "A",
+        "official_id": null
+      },
+      {
+        "name": "Geubbels",
+        "role": "A",
+        "official_id": null
+      },
+      {
+        "name": "Ngonge",
+        "role": "A",
+        "official_id": null
+      },
+      {
+        "name": "Hien",
+        "role": "D",
+        "official_id": null
+      }
+    ],
+    "away_bench": [
+      {
+        "name": "Terracciano",
+        "role": "P",
+        "official_id": null
+      },
+      {
+        "name": "Torriani",
+        "role": "P",
+        "official_id": null
+      },
+      {
+        "name": "Noslin",
+        "role": "A",
+        "official_id": null
+      },
+      {
+        "name": "Robinson J.",
+        "role": "A",
+        "official_id": null
+      },
+      {
+        "name": "Mendy P.",
+        "role": "A",
+        "official_id": null
+      },
+      {
+        "name": "Zambo Anguissa",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Niie",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Ilic",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Adopo",
+        "role": "C",
+        "official_id": null
+      },
+      {
+        "name": "Hainaut",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Troilo",
+        "role": "D",
+        "official_id": null
+      },
+      {
+        "name": "Heggem",
+        "role": "D",
+        "official_id": null
+      }
+    ],
     "league_rules": {
       "substitution_count": null,
       "bench_order": null,
@@ -21,7 +257,17 @@
       "captain_factor": null,
       "bonus_malus": null
     },
-    "player_probabilities": []
+    "player_probabilities": [],
+    "home_formation": "4-4-2",
+    "away_formation": "4-4-2",
+    "captains": {
+      "home": "Dimarco",
+      "away": "Malen"
+    },
+    "vice_captain_markers": {
+      "home": "Modric",
+      "away": "Baturina"
+    }
   },
   "player_probability_schema": {
     "player_id": "official player ID",
@@ -34,8 +280,8 @@
   },
   "gates": {
     "official_ids": "REQUIRED",
-    "starting_11_per_side": "REQUIRED",
-    "bench_and_order": "REQUIRED",
+    "starting_11_per_side": "SCREENSHOT_CONFIRMED",
+    "bench_and_order": "SCREENSHOT_CONFIRMED_DISPLAY_ORDER_RULES_PENDING",
     "substitution_logic": "REQUIRED",
     "probabilities_and_sources": "REQUIRED",
     "calibration": "REQUIRED",
