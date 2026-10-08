@@ -74,7 +74,10 @@ jobs:
           assert "if(fsModelBlocked())return 0;" in engine, 'Engine MAX guard missing'
           assert "if(fsModelBlocked())return 'WAIT';" in engine, 'Engine decision guard missing'
           assert "if(fsModelBlocked())return [];" in engine, 'Engine candidate guard missing'
-          assert 'fantasegreto-v4-2-4-08oct-fail-closed-r2' in sw, 'PWA cache stale'
+          assert 'fantasegreto-v4-2-4-08oct-fail-closed-r3' in sw, 'PWA cache stale'
+          assert "const [r,v]=await Promise.all([load('registry.json'),load('version.json')]);" in app, 'Safe startup must not depend on historical assets'
+          assert "certified?load('AUCTION_SHORTLIST_63_23SEP2026.json'):Promise.resolve({})" in app, 'RC4 shortlist must not load in safe mode'
+          assert "const OPTIONAL=" in sw and "'./player-details.json'" in sw.split('const OPTIONAL=')[1].split(';')[0], 'Historical details must be optional in PWA'
           assert 'sw.js?v=42408' in idx, 'PWA registration stale'
           print('FS_OFFICIAL_08OCT_RUNTIME_SAFE_PASS',expected)
           print('FS_LEGACY_DETAILS_ARCHIVED',len(det.get('details',{})))
