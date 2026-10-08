@@ -1,0 +1,29 @@
+{
+  "schema": "FS_OFFICIAL_08OCT_GITHUB_REFRESH_AUDIT_V1",
+  "source_sha256": "d1adf218a6fefa0095c5bb7db7554324d6a8629c266746200f78182732ca7014",
+  "prior_registry_count": 562,
+  "current_active_count": 536,
+  "ceduti_count": 64,
+  "role_counts": {
+    "P": 64,
+    "D": 191,
+    "C": 194,
+    "A": 87
+  },
+  "matched_by_official_id": 527,
+  "matched_by_reviewed_aliases": 4,
+  "new_official_id_count": 5,
+  "new_official_ids": [
+    "283",
+    "2404",
+    "7232",
+    "7647",
+    "7622"
+  ],
+  "archived_previous_entries": 31,
+  "note": "Old runtime entries absent from new official active sheet were archived. Their absence is not proof of official transfer unless present in Ceduti.",
+  "archived_previous_entries_with_null_official_id": 30,
+  "scoring_status": "NOT_RECALCULATED; previous scores/MAX preserved in per-player source_model_snapshot_22sep but not authoritative",
+  "semantics": "Quote, FVM and role are refreshed; all BUY/MAX are conservatively WAIT/PENDING until evidence-complete resimulation",
+  "golden_optimizer": "UNCHANGED"
+}
