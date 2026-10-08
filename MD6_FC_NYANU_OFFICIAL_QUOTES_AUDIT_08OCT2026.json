@@ -1,0 +1,205 @@
+{
+  "schema": "FS_MD6_OFFICIAL_QUOTES_INPUT_AUDIT_V1",
+  "source": "listone-08oct2026.json",
+  "source_sha256": "d1adf218a6fefa0095c5bb7db7554324d6a8629c266746200f78182732ca7014",
+  "matchup": "Mall & Dealer Sikulli vs FC Nyanu",
+  "date": "2026-10-08",
+  "home": {
+    "players": [
+      {
+        "official_id": "5841",
+        "name": "Svilar",
+        "role": "P",
+        "quote": 19,
+        "fvm": 95
+      },
+      {
+        "official_id": "7181",
+        "name": "Wesley",
+        "role": "D",
+        "quote": 18,
+        "fvm": 91
+      },
+      {
+        "official_id": "6956",
+        "name": "Solet",
+        "role": "D",
+        "quote": 12,
+        "fvm": 32
+      },
+      {
+        "official_id": "254",
+        "name": "Dimarco",
+        "role": "D",
+        "quote": 29,
+        "fvm": 210
+      },
+      {
+        "official_id": "4433",
+        "name": "Zortea",
+        "role": "D",
+        "quote": 6,
+        "fvm": 19
+      },
+      {
+        "official_id": "6684",
+        "name": "Ekkelenkamp",
+        "role": "C",
+        "quote": 14,
+        "fvm": 64
+      },
+      {
+        "official_id": "5844",
+        "name": "Thorstvedt",
+        "role": "C",
+        "quote": 9,
+        "fvm": 31
+      },
+      {
+        "official_id": "2606",
+        "name": "Modric",
+        "role": "C",
+        "quote": 12,
+        "fvm": 40
+      },
+      {
+        "official_id": "6372",
+        "name": "Moreira",
+        "role": "C",
+        "quote": 15,
+        "fvm": 60
+      },
+      {
+        "official_id": "4896",
+        "name": "Maldini",
+        "role": "A",
+        "quote": 11,
+        "fvm": 50
+      },
+      {
+        "official_id": "5951",
+        "name": "Kolo Muani",
+        "role": "A",
+        "quote": 23,
+        "fvm": 122
+      }
+    ],
+    "quote_sum": 168,
+    "fvm_sum": 814
+  },
+  "away": {
+    "players": [
+      {
+        "official_id": "4312",
+        "name": "Maignan",
+        "role": "P",
+        "quote": 15,
+        "fvm": 54
+      },
+      {
+        "official_id": "2788",
+        "name": "Bremer",
+        "role": "D",
+        "quote": 17,
+        "fvm": 79
+      },
+      {
+        "official_id": "4807",
+        "name": "Hermoso",
+        "role": "D",
+        "quote": 12,
+        "fvm": 40
+      },
+      {
+        "official_id": "2296",
+        "name": "Mancini",
+        "role": "D",
+        "quote": 15,
+        "fvm": 54
+      },
+      {
+        "official_id": "5641",
+        "name": "Chalobah T.",
+        "role": "D",
+        "quote": 9,
+        "fvm": 25
+      },
+      {
+        "official_id": "2848",
+        "name": "Frattesi",
+        "role": "C",
+        "quote": 12,
+        "fvm": 115
+      },
+      {
+        "official_id": "7126",
+        "name": "Baturina",
+        "role": "C",
+        "quote": 21,
+        "fvm": 191
+      },
+      {
+        "official_id": "4777",
+        "name": "McTominay",
+        "role": "C",
+        "quote": 24,
+        "fvm": 112
+      },
+      {
+        "official_id": "2167",
+        "name": "Orsolini",
+        "role": "C",
+        "quote": 23,
+        "fvm": 138
+      },
+      {
+        "official_id": "5585",
+        "name": "Malen",
+        "role": "A",
+        "quote": 37,
+        "fvm": 437
+      },
+      {
+        "official_id": "6967",
+        "name": "Diao",
+        "role": "A",
+        "quote": 14,
+        "fvm": 68
+      }
+    ],
+    "quote_sum": 199,
+    "fvm_sum": 1313
+  },
+  "available_variants": {
+    "gaetano": {
+      "official_id": "4364",
+      "quote": 6,
+      "fvm": 22
+    },
+    "cambiaso": {
+      "official_id": "5520",
+      "quote": 7,
+      "fvm": 11
+    },
+    "geubbels": {
+      "official_id": "5029",
+      "quote": 7,
+      "fvm": 15
+    }
+  },
+  "goals_rule": {
+    "first_threshold": 66,
+    "additional_step": 4,
+    "identical_goals_result": "DRAW"
+  },
+  "captain": {
+    "home": "Dimarco",
+    "away": "Malen"
+  },
+  "notes": [
+    "FVM and quoted values are price indicators, not vote/goal probability distributions.",
+    "Historical model win probabilities invalidated because prior simulator did not apply exact official defense and captain rules.",
+    "No win/draw/loss probability certified until updated player distributions, lineup probabilities and substitute rules available."
+  ],
+  "status": "INPUT_REFRESH_PASS_PROBABILITY_RESIMULATION_PENDING"
+}
