@@ -1,234 +1,78 @@
-name: FantaSegreto Runtime 22SEP Gate
+name: FantaSegreto Runtime Current Safe Gate
 
 on:
   push:
     paths:
       - 'app.js'
       - 'engine.js'
-      - 'opponent-market-v1.js'
-      - 'opponents.js'
-      - 'piano25.js'
       - 'index.html'
-      - 'audit.js'
       - 'sw.js'
       - 'registry.json'
       - 'player-details.json'
-      - 'md5-22sep2026.json'
       - 'version.json'
-      - 'AUCTION_SHORTLIST_63_23SEP2026.json'
+      - 'listone-08oct2026.json'
       - '.github/workflows/fantasegreto-runtime-22sep.yml'
-      - '.nojekyll'
   workflow_dispatch:
 
 permissions:
-  contents: write
-
-concurrency:
-  group: fantasegreto-main-writer
-  cancel-in-progress: false
+  contents: read
 
 jobs:
   runtime-gate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Validate runtime assets and 22SEP binding
+      - name: Verify JavaScript syntax
         shell: bash
         run: |
           set -euo pipefail
-          required=(
-            index.html app.js engine.js state-manager.js registry.json
-            player-details.json version.json sw.js styles.css md5-22sep2026.json opponent-market-v1.js
-            PERFORMANCE_OVERLAY_V3.json MEDICAL_V3_22SEP2026.json FOS_V2_PLAYER_CANDIDATES_22SEP2026.json AUCTION_SHORTLIST_63_23SEP2026.json
-          )
-          for f in "${required[@]}"; do
-            test -f "$f" || { echo "MISSING: $f"; exit 1; }
+          for f in app.js engine.js sw.js opponent-market-v1.js opponents.js piano25.js state-manager.js audit.js; do
+            test -f "$f"
+            node --check "$f"
           done
-          node --check app.js
-          node --check engine.js
-          node --check opponent-market-v1.js
-          node --check opponents.js
-          node --check piano25.js
-          node --check state-manager.js
-          node --check audit.js
-          python3 - <<'PY'
-          import json, re
-          from pathlib import Path
-
-          reg=json.loads(Path('registry.json').read_text())
-          det=json.loads(Path('player-details.json').read_text())
-          md5=json.loads(Path('md5-22sep2026.json').read_text())
-          ver=json.loads(Path('version.json').read_text())
-          sl63=json.loads(Path('AUCTION_SHORTLIST_63_23SEP2026.json').read_text())
-          app=Path('app.js').read_text()
-          sw=Path('sw.js').read_text()
-          idx=Path('index.html').read_text()
-
-          expected=int(ver.get('runtime_registry_count') or ver.get('canonical_registry_runtime_count') or reg.get('count') or 0)
-          assert expected>0
-          assert reg.get('count')==expected
-          assert len(reg.get('players',[]))==expected
-          assert len({p['id'] for p in reg['players']})==expected
-          assert det.get('count')==expected
-          assert len(det.get('details',{}))==expected
-          assert str(md5.get('cutoff','')).startswith('2026-09-22')
-          assert len(md5.get('medical_verified',[]))==10
-          assert len(md5.get('leaders',{}).get('goals',[]))==20
-          assert len(md5.get('leaders',{}).get('assists',[]))==20
-          assert len(md5.get('standings',[]))==20
-          assert len(md5.get('creative_chances',[]))==4
-          assert md5.get('source_pdf_sha256')=='8750038002a14025bfb89c8f620a6337a7f7634695b6b2f1bf30f98cbd11d0a4'
-          assert 'md5-22sep2026.json' in app
-          assert 'FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json' not in app
-          assert 'md5-22sep2026.json' in sw
-          assert 'FS_NEWS_INTELLIGENCE_V2_DELTA_20260818_1945.json' not in sw
-          assert 'V4.2.1' in idx
-          assert 'TARGET 63' in idx
-          assert 'AUCTION_SHORTLIST_63_23SEP2026.json' in app
-          assert 'AUCTION_SHORTLIST_63_23SEP2026.json' in sw
-          expected_sl_schema=ver.get('auction_shortlist_schema')
-          assert expected_sl_schema, 'version.json missing auction_shortlist_schema'
-          assert sl63.get('schema')==expected_sl_schema, (sl63.get('schema'),expected_sl_schema)
-          expected_sl_total=int(ver.get('auction_shortlist_total') or 63)
-          expected_sl_counts=ver.get('auction_shortlist_counts') or {'P':10,'D':12,'C':18,'A':23}
-          assert sl63.get('total')==expected_sl_total
-          assert sl63.get('counts')==expected_sl_counts
-          assert len(sl63.get('rows',[]))==expected_sl_total
-          assert './opponent-market-v1.js' in idx
-          assert 'opponent-market-v1.js' in sw
-          assert 'auctionMax' in Path('engine.js').read_text()
-          market_js=Path('opponent-market-v1.js').read_text()
-          market_match=re.search(r"FS_MARKET_ENGINE=\{version:'([^']+)'",market_js)
-          assert market_match, 'opponent-market-v1.js missing FS_MARKET_ENGINE version'
-          assert ver.get('opponent_market_engine')==market_match.group(1), (ver.get('opponent_market_engine'),market_match.group(1))
-          assert './app.js' in idx
-          assert ver.get('optimizerMax_mutated') is False
-          pending=[p for p in reg['players'] if not all(isinstance(p.get(k),(int,float)) and not isinstance(p.get(k),bool) for k in ['score','ideal','max'])]
-          assert len(pending)==int(ver.get('model_pending_22sep_count',len(pending)))
-          assert all(p.get('serie_a_membership')=='ACTIVE_CURRENT_LISTONE_22SEP' for p in reg['players'])
-          assert all(p.get('serie_a_membership')=='ACTIVE_CURRENT_LISTONE_22SEP' for p in pending)
-          assert ver.get('model_pending_membership_effect')=='NONE'
-          assert ver.get('membership_gate')=='PASS'
-          print('FS_SERIE_A_MEMBERSHIP_RUNTIME_PASS',len(reg['players']),len(pending))
-          print('FS_APP_INDEX_22SEP_RUNTIME_PASS')
-          PY
-
-      - name: Seal runtime reconciliation metadata
+      - name: Verify official roster and fail-closed auction mode
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import hashlib, json
+          import json
           from pathlib import Path
 
-          def sha(path):
-              return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+          def load(name):
+              return json.loads(Path(name).read_text(encoding='utf-8'))
 
-          vp=Path('version.json')
-          v=json.loads(vp.read_text())
-          v['app_index_runtime_reconciliation']='PASS'
-          v['serie_a_membership_runtime_guard']='PASS'
-          runtime_count=json.loads(Path('registry.json').read_text()).get('count')
-          v['deployment_status']='CURRENT_562_APP_INDEX_RECONCILED_PENDING_MODEL_RECALC' if runtime_count==562 else 'APP_INDEX_RECONCILED_PENDING_MODEL_ACCEPTANCE'
-          blockers=[x for x in v.get('blockers',[]) if x!='APP_INDEX_22SEP_RUNTIME_RECONCILIATION']
-          for x in ['FOS_RISK_MAX_22SEP_RECALC']:
-              if x not in blockers:
-                  blockers.insert(0,x)
-          blockers=[x for x in blockers if x not in ['LISTONE_22SEP_FULL_INGEST','LISTONE_22SEP_ENTITY_RECONCILIATION']]
-          v['blockers']=blockers
-          vp.write_text(json.dumps(v,ensure_ascii=False,indent=2))
-
-          evidence={
-            'gate':'APP_INDEX_22SEP_RUNTIME_RECONCILIATION',
-            'status':'PASS',
-            'runtime_registry_count':runtime_count,
-            'runtime_details_count':json.loads(Path('player-details.json').read_text()).get('count'),
-            'model_pending_count':sum(1 for p in json.loads(Path('registry.json').read_text()).get('players',[]) if not all(isinstance(p.get(k),(int,float)) and not isinstance(p.get(k),bool) for k in ['score','ideal','max'])),
-            'serie_a_membership_gate':v.get('membership_gate'),
-            'serie_a_membership_count':v.get('serie_a_current_count'),
-            'model_pending_membership_effect':v.get('model_pending_membership_effect'),
-            'report_overlay_schema':json.loads(Path('md5-22sep2026.json').read_text()).get('schema'),
-            'report_standings_count':len(json.loads(Path('md5-22sep2026.json').read_text()).get('standings',[])),
-            'report_goals_rows':len(json.loads(Path('md5-22sep2026.json').read_text()).get('leaders',{}).get('goals',[])),
-            'report_assists_rows':len(json.loads(Path('md5-22sep2026.json').read_text()).get('leaders',{}).get('assists',[])),
-            'report_medical_rows':len(json.loads(Path('md5-22sep2026.json').read_text()).get('medical_verified',[])),
-            'runtime_overlay':'md5-22sep2026.json',
-            'overlay_cutoff':'2026-09-22T09:12:00+02:00',
-            'stale_august_news_runtime_disabled':True,
-            'optimizerMax_mutated':False,
-            'app_sha256':sha('app.js'),
-            'index_sha256':sha('index.html'),
-            'audit_sha256':sha('audit.js'),
-            'sw_sha256':sha('sw.js'),
-            'registry_sha256':sha('registry.json'),
-            'details_sha256':sha('player-details.json'),
-            'md5_overlay_sha256':sha('md5-22sep2026.json')
-          }
-          Path('APP_INDEX_RECONCILIATION_22SEP2026.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2))
-
-          files=[
-            '.nojekyll','BUILD_METADATA.json','ENGINE_CONTRACT_V4_0_23_1_PARITY.json',
-            'FS_GOLDEN_CONTRACT_V1_1_DELTA_20260818.json','README_GITHUB_DEPLOY.txt',
-            'REGRESSION_GATE_REPORT.json','STATE_MIGRATION_REPORT.json','app.js',
-            'apple-touch-icon.png','audit.js','backup.js','engine.js','icon-192.png','icon-512.png',
-            'index.html','manifest.webmanifest','opponent-market-v1.js','opponents.js','piano25.js','player-details.json',
-            'registry.json','state-manager.js','styles.css','sw.js','version.json',
-            'md5-22sep2026.json','REGISTRY_RECONCILIATION_22SEP2026.json',
-            'APP_INDEX_RECONCILIATION_22SEP2026.json'
-          ]
-          for optional in ['listone-22sep2026.json','LISTONE_RECONCILIATION_22SEP2026.json','CURRENT_REGISTRY_RECONCILIATION_22SEP2026.json','ARCHIVE_REMOVED_REGISTRY_22SEP2026.json','FOS_RISK_MAX_22SEP_GATE.json','REPORT22_OVERLAY_AUDIT.json','SERIE_A_MEMBERSHIP_22SEP2026.json','PERFORMANCE_OVERLAY_V3.json','MEDICAL_V3_22SEP2026.json','FOS_V2_EVIDENCE_MATRIX_22SEP2026.json','FOS_V2_PLAYER_CANDIDATES_22SEP2026.json','data/FOS_V2_WEB_EVIDENCE_SNAPSHOT_22SEP2026.json','AUCTION_SHORTLIST_63_23SEP2026.json']:
-              if Path(optional).exists():
-                  files.append(optional)
-          rows=[]
-          for f in files:
-              p=Path(f)
-              if not p.exists():
-                  raise SystemExit(f'MISSING MANIFEST FILE: {f}')
-              rows.append({'file':f,'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
-
-          Path('CHECKSUMS.txt').write_text(''.join(f"{r['sha256']}  {r['file']}\n" for r in rows))
-          manifest={
-            'build':'V4.2.1 23SEP TARGET 63 LIVE',
-            'generated_at':'2026-09-22T12:00:00Z',
-            'algorithm':'SHA-256',
-            'scope':'GITHUB_ROOT_PRODUCTION_FILES_23SEP_TARGET63',
-            'files':rows
-          }
-          Path('SHA256_MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
-          print('FS_RUNTIME_MANIFEST_22SEP_PASS',len(rows))
+          reg=load('registry.json')
+          det=load('player-details.json')
+          ver=load('version.json')
+          official=load('listone-08oct2026.json')
+          app=Path('app.js').read_text(encoding='utf-8')
+          engine=Path('engine.js').read_text(encoding='utf-8')
+          sw=Path('sw.js').read_text(encoding='utf-8')
+          idx=Path('index.html').read_text(encoding='utf-8')
+          players=reg.get('players',[])
+          expected=int(ver.get('runtime_registry_count',0))
+          assert expected==536 and reg.get('count')==expected and len(players)==expected, 'Official active roster count mismatch'
+          ids=[p['id'] for p in players]
+          official_ids=[str(p['official_id']) for p in players]
+          assert len(set(ids))==expected, 'Duplicate runtime player ID'
+          assert len(set(official_ids))==expected, 'Duplicate official player ID'
+          assert all(p.get('serie_a_membership')=='ACTIVE_OFFICIAL_08OCT2026' for p in players), 'Stale membership'
+          assert official.get('active_count')==expected, 'Official listone count mismatch'
+          assert {str(p['official_id']) for p in official.get('players',[])}==set(official_ids), 'Listone and registry IDs differ'
+          assert det.get('count')==len(det.get('details',{})), 'Legacy details internally inconsistent'
+          # Legacy details are an archive; the runtime reconciles them by active player ID.
+          assert 'Legacy details count may differ' in app, 'Current-ID detail reconciliation missing'
+          assert ver.get('optimizerMax_mutated') is False, 'Golden optimizer changed'
+          assert ver.get('model_recalculation_status')=='PENDING_FULL_FOS_RISK_MAX_08OCT', 'Unreviewed model activation'
+          assert all(p.get(k) is None for p in players for k in ('score','ideal','max')), 'Uncertified BUY/MAX reintroduced'
+          assert "return 'WAIT · FOS PENDING'" in app, 'UI fail-closed guard missing'
+          assert "if(fsModelBlocked())return 0;" in engine, 'Engine MAX guard missing'
+          assert "if(fsModelBlocked())return 'WAIT';" in engine, 'Engine decision guard missing'
+          assert "if(fsModelBlocked())return [];" in engine, 'Engine candidate guard missing'
+          assert 'fantasegreto-v4-2-4-08oct-fail-closed-r1' in sw, 'PWA cache stale'
+          assert 'sw.js?v=42408' in idx, 'PWA registration stale'
+          print('FS_OFFICIAL_08OCT_RUNTIME_SAFE_PASS',expected)
+          print('FS_LEGACY_DETAILS_ARCHIVED',len(det.get('details',{})))
+          print('FS_BUY_MAX_FAIL_CLOSED_PASS')
+          print('FS_PREMIUM_MODEL_PENDING_NOT_CERTIFIED')
           PY
-
-      - name: Verify checksums
-        shell: bash
-        run: |
-          set -euo pipefail
-          sha256sum -c CHECKSUMS.txt
-
-      - name: Commit runtime evidence and manifests
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "fantasegreto-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add version.json APP_INDEX_RECONCILIATION_22SEP2026.json CHECKSUMS.txt SHA256_MANIFEST.json
-          if git diff --cached --quiet; then
-            echo "No changes"
-            exit 0
-          fi
-          git commit -m "FS: seal 22SEP app-index runtime reconciliation"
-          # Serialize writers and reject stale checkout before publication.
-          git fetch origin main
-          REMOTE_SHA="$(git rev-parse origin/main)"
-          LOCAL_PARENT="$(git rev-parse HEAD^)"
-          if [ "$REMOTE_SHA" != "$LOCAL_PARENT" ]; then
-            echo "STALE_CHECKOUT: origin/main moved from $LOCAL_PARENT to $REMOTE_SHA"
-            echo "Refusing to publish stale manifests/evidence. Re-run on fresh main."
-            exit 75
-          fi
-          git push origin HEAD:main
-# Current 562 V2 reseal trigger
-
-# 23SEP freshness reseal trigger
