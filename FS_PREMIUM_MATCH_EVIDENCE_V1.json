@@ -1,0 +1,56 @@
+{
+  "schema": "FS_PREMIUM_MATCH_EVIDENCE_V1",
+  "fixture": {
+    "home": "Mall & Dealer",
+    "away": "FC Nyanu",
+    "matchday": null,
+    "source": null
+  },
+  "status": "BLOCKED_PENDING_VERIFIED_INPUTS",
+  "inputs": {
+    "home_starting_xi": [],
+    "away_starting_xi": [],
+    "home_bench": [],
+    "away_bench": [],
+    "league_rules": {
+      "substitution_count": null,
+      "bench_order": null,
+      "eligible_roles": null,
+      "goal_thresholds": null,
+      "defence_modifier": null,
+      "captain_factor": null,
+      "bonus_malus": null
+    },
+    "player_probabilities": []
+  },
+  "player_probability_schema": {
+    "player_id": "official player ID",
+    "starting_probability": null,
+    "vote_probability_given_start": null,
+    "vote_probability_given_bench": null,
+    "substitution_entry_probability": null,
+    "source": null,
+    "as_of": null
+  },
+  "gates": {
+    "official_ids": "REQUIRED",
+    "starting_11_per_side": "REQUIRED",
+    "bench_and_order": "REQUIRED",
+    "substitution_logic": "REQUIRED",
+    "probabilities_and_sources": "REQUIRED",
+    "calibration": "REQUIRED",
+    "deterministic_seed_replay": "REQUIRED",
+    "physical_iphone_acceptance": "REQUIRED"
+  },
+  "outputs": {
+    "home_win_probability": null,
+    "draw_probability": null,
+    "away_win_probability": null,
+    "simulation_count": 0
+  },
+  "promotion": {
+    "gold": false,
+    "buy_max_enabled": false,
+    "requires": "All gates pass with archived evidence and explicit authorization"
+  }
+}
