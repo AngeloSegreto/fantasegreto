@@ -1,0 +1,40 @@
+{
+  "schema": "FS_CERTIFICATION_STATUS_V1",
+  "date": "2026-10-08",
+  "cost_policy": "GITHUB_NATIVE_ZERO_ADDITIONAL_PAID_SERVICES",
+  "source_commit": "3fabecfd88234a5fb93b0d8e7bd8d8b106465926",
+  "checks": {
+    "official_registry": {
+      "status": "STATIC_REVIEW_PASS",
+      "players": 536,
+      "unique_official_ids": 536
+    },
+    "runtime_fail_closed": {
+      "status": "STATIC_REVIEW_PASS",
+      "buy_max": "DISABLED",
+      "fos_model": "PENDING"
+    },
+    "github_actions": {
+      "status": "UNVERIFIED_RUN",
+      "reason": "No workflow-run evidence retrieved for reviewed commit"
+    },
+    "iphone_safari": {
+      "status": "PENDING_PHYSICAL_ACCEPTANCE"
+    },
+    "premium_match_mall_dealer_vs_fc_nyanu": {
+      "status": "BLOCKED_PENDING",
+      "requirements": [
+        "verified_starting_22",
+        "bench_and_substitution_rules",
+        "vote_probabilities",
+        "lineup_probabilities",
+        "bonuses_and_modifiers",
+        "calibration_and_replay"
+      ]
+    }
+  },
+  "release_decision": "SAFE_MODE_ONLY_NO_GOLD",
+  "gold": false,
+  "optimizerMax_mutated": false,
+  "policy": "Do not promote BUY/MAX or match probabilities without observed verification evidence."
+}
