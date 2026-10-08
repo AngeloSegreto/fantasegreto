@@ -1,0 +1,200 @@
+{
+  "schema": "FS_MD6_5_PREMIUM_SIMULATIONS_V1",
+  "generated_at": "2026-10-08T20:48:00+02:00",
+  "matchup": "Mall & Dealer vs FCNyanu",
+  "current_user_xi": [
+    "Svilar",
+    "Wesley",
+    "Solet",
+    "Dimarco",
+    "Zortea",
+    "Ekkelenkamp",
+    "Thorstvedt",
+    "Modric",
+    "Moreira",
+    "Maldini",
+    "Kolo Muani"
+  ],
+  "opponent_xi": [
+    "Maignan",
+    "Bremer",
+    "Hermoso",
+    "Mancini",
+    "Chalobah T.",
+    "Frattesi",
+    "Baturina",
+    "McTominay",
+    "Orsolini",
+    "Malen",
+    "Diao"
+  ],
+  "hf_job": "6ac7e646095c5780892fc587",
+  "simulations": {
+    "empirical_bayes": {
+      "opponent_expected": 72.54,
+      "variants": {
+        "CURRENT_442": {
+          "expected": 69.67,
+          "edge": -2.87
+        },
+        "GEUBBELSxKOLO_442": {
+          "expected": 69.67,
+          "edge": -2.87
+        },
+        "GAETANOxTHOR_442": {
+          "expected": 69.67,
+          "edge": -2.88
+        },
+        "CAMBIASOxZORTEA_442": {
+          "expected": 69.63,
+          "edge": -2.91
+        },
+        "GEUBBELSxTHOR_433": {
+          "expected": 69.66,
+          "edge": -2.89
+        }
+      },
+      "best": "CURRENT_442"
+    },
+    "monte_carlo_180k": {
+      "CURRENT_442": {
+        "mean": 72.59,
+        "win_pct": 35.3,
+        "p10_edge": -13.1
+      },
+      "GEUBBELSxKOLO_442": {
+        "mean": 72.18,
+        "win_pct": 33.8,
+        "p10_edge": -13.7
+      },
+      "GAETANOxTHOR_442": {
+        "mean": 72.45,
+        "win_pct": 35.5,
+        "p10_edge": -13.67
+      },
+      "CAMBIASOxZORTEA_442": {
+        "mean": 72.3,
+        "win_pct": 34.3,
+        "p10_edge": -13.56
+      },
+      "GEUBBELSxTHOR_433": {
+        "mean": 72.15,
+        "win_pct": 33.8,
+        "p10_edge": -13.86
+      },
+      "best": "GAETANOxTHOR_442"
+    },
+    "cvar_160k": {
+      "CURRENT_442": {
+        "mean_edge": -3.04,
+        "cvar10": -16.72,
+        "robust": -8.51,
+        "loss6_pct": 35.4
+      },
+      "GEUBBELSxKOLO_442": {
+        "mean_edge": -3.46,
+        "cvar10": -17.52,
+        "robust": -9.08,
+        "loss6_pct": 37.6
+      },
+      "GAETANOxTHOR_442": {
+        "mean_edge": -3.18,
+        "cvar10": -17.81,
+        "robust": -9.03,
+        "loss6_pct": 35.9
+      },
+      "CAMBIASOxZORTEA_442": {
+        "mean_edge": -3.31,
+        "cvar10": -17.38,
+        "robust": -8.94,
+        "loss6_pct": 36.7
+      },
+      "GEUBBELSxTHOR_433": {
+        "mean_edge": -3.49,
+        "cvar10": -17.78,
+        "robust": -9.2,
+        "loss6_pct": 37.5
+      },
+      "best": "CURRENT_442"
+    },
+    "source_ensemble_200k": {
+      "CURRENT_442": {
+        "mean": 72.72,
+        "win_pct": 35.9
+      },
+      "GEUBBELSxKOLO_442": {
+        "mean": 72.43,
+        "win_pct": 34.8
+      },
+      "GAETANOxTHOR_442": {
+        "mean": 72.58,
+        "win_pct": 36
+      },
+      "CAMBIASOxZORTEA_442": {
+        "mean": 72.44,
+        "win_pct": 35
+      },
+      "GEUBBELSxTHOR_433": {
+        "mean": 72.44,
+        "win_pct": 35
+      },
+      "best": "GAETANOxTHOR_442"
+    },
+    "adversarial_stress_180k": {
+      "CURRENT_442": {
+        "win_pct": 24.6,
+        "median_edge": -3.77,
+        "p05_edge": -13.23
+      },
+      "GEUBBELSxKOLO_442": {
+        "win_pct": 23.7,
+        "median_edge": -4.05,
+        "p05_edge": -14.05
+      },
+      "GAETANOxTHOR_442": {
+        "win_pct": 25.6,
+        "median_edge": -3.77,
+        "p05_edge": -14.28
+      },
+      "CAMBIASOxZORTEA_442": {
+        "win_pct": 24.2,
+        "median_edge": -3.87,
+        "p05_edge": -13.72
+      },
+      "GEUBBELSxTHOR_433": {
+        "win_pct": 23.4,
+        "median_edge": -4.16,
+        "p05_edge": -14.45
+      },
+      "best": "GAETANOxTHOR_442"
+    }
+  },
+  "live_facts_08oct": [
+    "Sky: Dimarco and Thorstvedt starters; Moreira in XI; Modric starter in Sky view.",
+    "Gazzetta: Moreira-Cisse 60-40; Musah-Modric 55-45; Geubbels expected starter; McTominay likely bench/cameo.",
+    "Gazzetta: Kolo Muani and Maldini in probable XI.",
+    "Raspadori, Boga and Hien excluded from active choice due current availability status."
+  ],
+  "assumptions": [
+    "Same-role bench substitutions approximated.",
+    "Captain/vice effect excluded because exact league scoring rule not supplied.",
+    "Modifier in simulations 1-4 uses a standard-style 1/3/6 proxy; simulation 5 removes modifier.",
+    "Win percentages compare simulated fantasy totals directly and are not bookmaker odds or official head-to-head goal-threshold probabilities."
+  ],
+  "decision": {
+    "safest": "CURRENT_442",
+    "marginal_aggressive": "GAETANOxTHOR_442",
+    "avoid_now": [
+      "GEUBBELSxKOLO_442",
+      "GEUBBELSxTHOR_433",
+      "CAMBIASOxZORTEA_442"
+    ],
+    "key_deadline_checks": [
+      "Modric starting status",
+      "Moreira starting status",
+      "Gaetano vs Thorstvedt",
+      "Geubbels full starter confirmation",
+      "McTominay expected cameo/bench"
+    ]
+  }
+}
