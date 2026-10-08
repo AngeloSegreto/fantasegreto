@@ -74,7 +74,7 @@ jobs:
           assert "if(fsModelBlocked())return 0;" in engine, 'Engine MAX guard missing'
           assert "if(fsModelBlocked())return 'WAIT';" in engine, 'Engine decision guard missing'
           assert "if(fsModelBlocked())return [];" in engine, 'Engine candidate guard missing'
-          assert 'fantasegreto-v4-2-4-08oct-fail-closed-r1' in sw, 'PWA cache stale'
+          assert 'fantasegreto-v4-2-4-08oct-fail-closed-r2' in sw, 'PWA cache stale'
           assert 'sw.js?v=42408' in idx, 'PWA registration stale'
           print('FS_OFFICIAL_08OCT_RUNTIME_SAFE_PASS',expected)
           print('FS_LEGACY_DETAILS_ARCHIVED',len(det.get('details',{})))
