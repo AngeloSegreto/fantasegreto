@@ -2,7 +2,7 @@
    FAIL CLOSED: no probabilities or league rules are assumed. */
 (function(root){
 'use strict';
-const requiredRules=['substitution_count','substitution_mode','goal_thresholds','bonus_malus'];
+const requiredRules=['substitution_count','substitution_mode','bench_order','goal_thresholds','bonus_malus'];
 function validate(contract,projections){
  const errors=[],i=contract?.inputs||{},r=i.league_rules||{};
  for(const side of ['home','away']){
@@ -13,7 +13,8 @@ function validate(contract,projections){
  }
  for(const k of requiredRules)if(r[k]===null||r[k]===undefined)errors.push('league_rules.'+k+' missing');
  if(!Array.isArray(r.goal_thresholds)||r.goal_thresholds.length<1||r.goal_thresholds.some((v,j)=>!Number.isFinite(v)||(j>0&&v<=r.goal_thresholds[j-1])))errors.push('invalid goal_thresholds');
- if(!['SAME_ROLE','FLEXIBLE'].includes(r.substitution_mode))errors.push('unsupported substitution_mode');
+ if(r.substitution_mode!=='SAME_ROLE'||r.module_change_allowed!==false)errors.push('same-role substitutions without module change must be confirmed');
+ if(r.bench_order!=='DISPLAY_ORDER')errors.push('bench order not confirmed');
  if(!Number.isInteger(r.substitution_count)||r.substitution_count<0||r.substitution_count>11)errors.push('invalid substitution_count');
  if(!projections||typeof projections!=='object')errors.push('projections missing');
  for(const side of ['home','away'])for(const p of [...(i[side+'_starting_xi']||[]),...(i[side+'_bench']||[])]){
