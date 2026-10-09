@@ -10,6 +10,9 @@ on:
       - 'registry.json'
       - 'player-details.json'
       - 'version.json'
+      - 'premium-monte-carlo-v1.js'
+      - 'premium-monte-carlo-v1.test.js'
+      - 'FS_PREMIUM_MATCH_EVIDENCE_V1.json'
       - 'listone-08oct2026.json'
       - '.github/workflows/fantasegreto-runtime-22sep.yml'
   workflow_dispatch:
@@ -33,6 +36,8 @@ jobs:
       - name: Engine smoke test
         run: |
           node -e "const fs=require('fs'),vm=require('vm'),a=require('assert');const w={FS_APP:{registry:()=>[]}};const c={window:w,console,Date,Set,Map,Math,Number,JSON};vm.createContext(c);vm.runInContext(fs.readFileSync('engine.js','utf8'),c);const e=w.FS_AUCTION_ENGINE,p={id:'x',role:'P',score:99,ideal:1,max:100},st={soldIds:new Set(),managerStates:{ME:{needs:{P:1}}},budget:500,slots:25};for(const v of [undefined,{}, {gold:false,model_recalculation_status:'PENDING_FULL_FOS_RISK_MAX_08OCT'}, {gold:true,model_recalculation_status:'UNKNOWN'}]){w.FS_VERSION=v;a.equal(e.auctionMax(p,st),0);a.equal(e.exactMax(p,st),0);a.equal(e.decision(1,p,st),'WAIT');}console.log('FS_SAFE_ENGINE_SMOKE_PASS');"
+      - name: Premium five-substitution contract test
+        run: node premium-monte-carlo-v1.test.js
       - name: Verify official roster and fail-closed auction mode
         shell: bash
         run: |
