@@ -8,7 +8,7 @@
     "display_home_side": "right",
     "display_away_side": "left"
   },
-  "status": "LINEUPS_CAPTURED_PROBABILITIES_AND_RULES_PENDING",
+  "status": "LINEUPS_CAPTURED_SAME_ROLE_CONFIRMED_OTHER_RULES_AND_PROJECTIONS_PENDING",
   "inputs": {
     "home_starting_xi": [
       {
@@ -255,7 +255,9 @@
       "goal_thresholds": null,
       "defence_modifier": null,
       "captain_factor": null,
-      "bonus_malus": null
+      "bonus_malus": null,
+      "substitution_mode": "SAME_ROLE",
+      "module_change_allowed": false
     },
     "player_probabilities": [],
     "home_formation": "4-4-2",
@@ -282,7 +284,7 @@
     "official_ids": "REQUIRED",
     "starting_11_per_side": "SCREENSHOT_CONFIRMED",
     "bench_and_order": "SCREENSHOT_CONFIRMED_DISPLAY_ORDER_RULES_PENDING",
-    "substitution_logic": "REQUIRED",
+    "substitution_logic": "PARTIAL_CONFIRMED_SAME_ROLE_NO_MODULE_CHANGE",
     "probabilities_and_sources": "REQUIRED",
     "calibration": "REQUIRED",
     "deterministic_seed_replay": "REQUIRED",
