@@ -1,0 +1,176 @@
+{
+  "schema": "FS_MD6_FC_NYANU_5MODEL_PREMATCH_V1",
+  "generated_at": "2026-10-12",
+  "snapshot_frozen_at": "2026-10-08",
+  "note": "Prematch replay: excludes MD6 results and official lineups published after the frozen snapshot to avoid hindsight.",
+  "user_xi": [
+    "Svilar",
+    "Dimarco",
+    "Wesley",
+    "Solet",
+    "Zortea",
+    "Moreira",
+    "Modric",
+    "Ekkelenkamp",
+    "Thorstvedt",
+    "Kolo Muani",
+    "Maldini"
+  ],
+  "opponent_xi": [
+    "Maignan",
+    "Bremer",
+    "Hermoso",
+    "Mancini",
+    "Chalobah T.",
+    "Frattesi",
+    "Baturina",
+    "McTominay",
+    "Orsolini",
+    "Malen",
+    "Diao"
+  ],
+  "alternatives": [
+    "GAETANO_442",
+    "GEUBBELS_433",
+    "CAMBIASO_442"
+  ],
+  "models": [
+    {
+      "name": "EMPIRICAL_BAYES_EV",
+      "hf_job": "6acc58c9fee2c900701a1432",
+      "best": "CURRENT_442",
+      "current_442": {
+        "expected": 63.53,
+        "opponent": 61.66,
+        "edge": 1.88
+      },
+      "gaetano_442": {
+        "expected": 62.06,
+        "edge": 0.4
+      },
+      "geubbels_433": {
+        "expected": 61.46,
+        "edge": -0.2
+      },
+      "cambiaso_442": {
+        "expected": 61.64,
+        "edge": -0.02
+      }
+    },
+    {
+      "name": "MONTE_CARLO_FULL_SCORING_350K",
+      "hf_job": "6acc58d3095c578089327eef",
+      "best": "CURRENT_442",
+      "current_442": {
+        "mean": 65.52,
+        "win_pct": 53.4,
+        "p10_edge": -18.27,
+        "p90_edge": 21.29
+      },
+      "gaetano_442": {
+        "mean": 64.07,
+        "win_pct": 49.7
+      },
+      "geubbels_433": {
+        "mean": 62.48,
+        "win_pct": 45.5
+      },
+      "cambiaso_442": {
+        "mean": 63.31,
+        "win_pct": 47.7
+      }
+    },
+    {
+      "name": "AVAILABILITY_INJURY_STRESS_300K",
+      "hf_job": "6acc58ddfee2c900701a1436",
+      "best": "CURRENT_442",
+      "current_442": {
+        "mean": 62.28,
+        "win_pct": 54.5,
+        "cvar10": -22.78
+      },
+      "gaetano_442": {
+        "mean": 60.81,
+        "win_pct": 50.3
+      },
+      "geubbels_433": {
+        "mean": 60.28,
+        "win_pct": 48.8
+      },
+      "cambiaso_442": {
+        "mean": 60.43,
+        "win_pct": 49.2
+      }
+    },
+    {
+      "name": "OPPONENT_AWARE_COVARIANCE_300K",
+      "hf_job": "6acc58e7fee2c900701a1446",
+      "best": "CURRENT_442",
+      "current_442": {
+        "win_pct": 55.3,
+        "mean_edge": 1.87,
+        "loss6plus_pct": 28.3
+      },
+      "gaetano_442": {
+        "win_pct": 51,
+        "mean_edge": 0.4
+      },
+      "geubbels_433": {
+        "win_pct": 49.3,
+        "mean_edge": -0.2
+      },
+      "cambiaso_442": {
+        "win_pct": 49.8,
+        "mean_edge": -0.02
+      }
+    },
+    {
+      "name": "MODIFIER_SENSITIVITY_MINIMAX_180K",
+      "hf_job": "6acc58f1095c578089327efc",
+      "best": "CURRENT_442",
+      "current_442": {
+        "no_mod_win": 55.3,
+        "light_win": 54.4,
+        "standard_win": 53.5,
+        "heavy_win": 53,
+        "min_win": 53,
+        "mean_win": 54.1
+      },
+      "gaetano_442": {
+        "min_win": 49.4,
+        "mean_win": 50
+      },
+      "geubbels_433": {
+        "min_win": 44.4,
+        "mean_win": 46.5
+      },
+      "cambiaso_442": {
+        "min_win": 47.1,
+        "mean_win": 48.2
+      }
+    }
+  ],
+  "consensus": {
+    "selected_formation": "4-4-2",
+    "selected_xi": [
+      "Svilar",
+      "Dimarco",
+      "Wesley",
+      "Solet",
+      "Zortea",
+      "Moreira",
+      "Modric",
+      "Ekkelenkamp",
+      "Thorstvedt",
+      "Kolo Muani",
+      "Maldini"
+    ],
+    "model_vote": "5/5",
+    "prematch_win_range_pct": [
+      53,
+      55.3
+    ],
+    "main_risk": "small-sample attacking form and uncertain starting probabilities",
+    "caveat": "Exact league modifier table not supplied; sensitivity model spans none/light/standard/heavy assumptions."
+  }
+}
