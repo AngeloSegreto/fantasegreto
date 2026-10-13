@@ -13,7 +13,7 @@ on:
       - 'premium-monte-carlo-v1.js'
       - 'premium-monte-carlo-v1.test.js'
       - 'FS_PREMIUM_MATCH_EVIDENCE_V1.json'
-      - 'listone-08oct2026.json'
+      - 'listone-13oct2026.json'
       - '.github/workflows/fantasegreto-runtime-22sep.yml'
   workflow_dispatch:
 
@@ -35,7 +35,7 @@ jobs:
           done
       - name: Engine smoke test
         run: |
-          node -e "const fs=require('fs'),vm=require('vm'),a=require('assert');const w={FS_APP:{registry:()=>[]}};const c={window:w,console,Date,Set,Map,Math,Number,JSON};vm.createContext(c);vm.runInContext(fs.readFileSync('engine.js','utf8'),c);const e=w.FS_AUCTION_ENGINE,p={id:'x',role:'P',score:99,ideal:1,max:100},st={soldIds:new Set(),managerStates:{ME:{needs:{P:1}}},budget:500,slots:25};for(const v of [undefined,{}, {gold:false,model_recalculation_status:'PENDING_FULL_FOS_RISK_MAX_08OCT'}, {gold:true,model_recalculation_status:'UNKNOWN'}]){w.FS_VERSION=v;a.equal(e.auctionMax(p,st),0);a.equal(e.exactMax(p,st),0);a.equal(e.decision(1,p,st),'WAIT');}console.log('FS_SAFE_ENGINE_SMOKE_PASS');"
+          node -e "const fs=require('fs'),vm=require('vm'),a=require('assert');const w={FS_APP:{registry:()=>[]}};const c={window:w,console,Date,Set,Map,Math,Number,JSON};vm.createContext(c);vm.runInContext(fs.readFileSync('engine.js','utf8'),c);const e=w.FS_AUCTION_ENGINE,p={id:'x',role:'P',score:99,ideal:1,max:100},st={soldIds:new Set(),managerStates:{ME:{needs:{P:1}}},budget:500,slots:25};for(const v of [undefined,{}, {gold:false,model_recalculation_status:'PENDING_FULL_FOS_RISK_MAX_13OCT'}, {gold:true,model_recalculation_status:'UNKNOWN'}]){w.FS_VERSION=v;a.equal(e.auctionMax(p,st),0);a.equal(e.exactMax(p,st),0);a.equal(e.decision(1,p,st),'WAIT');}console.log('FS_SAFE_ENGINE_SMOKE_PASS');"
       - name: Premium five-substitution contract test
         run: node premium-monte-carlo-v1.test.js
       - name: Verify official roster and fail-closed auction mode
@@ -52,26 +52,36 @@ jobs:
           reg=load('registry.json')
           det=load('player-details.json')
           ver=load('version.json')
-          official=load('listone-08oct2026.json')
+          official=load('listone-13oct2026.json')
           app=Path('app.js').read_text(encoding='utf-8')
           engine=Path('engine.js').read_text(encoding='utf-8')
           sw=Path('sw.js').read_text(encoding='utf-8')
           idx=Path('index.html').read_text(encoding='utf-8')
           players=reg.get('players',[])
           expected=int(ver.get('runtime_registry_count',0))
-          assert expected==536 and reg.get('count')==expected and len(players)==expected, 'Official active roster count mismatch'
+          assert expected==539 and reg.get('count')==expected and len(players)==expected, 'Official active roster count mismatch'
           ids=[p['id'] for p in players]
           official_ids=[str(p['official_id']) for p in players]
           assert len(set(ids))==expected, 'Duplicate runtime player ID'
           assert len(set(official_ids))==expected, 'Duplicate official player ID'
-          assert all(p.get('serie_a_membership')=='ACTIVE_OFFICIAL_08OCT2026' for p in players), 'Stale membership'
+          assert all(p.get('serie_a_membership')=='ACTIVE_OFFICIAL_13OCT2026' for p in players), 'Stale membership'
           assert official.get('active_count')==expected, 'Official listone count mismatch'
           assert {str(p['official_id']) for p in official.get('players',[])}==set(official_ids), 'Listone and registry IDs differ'
+          official_by_id={str(p['official_id']):p for p in official['players']}
+          for p in players:
+              row=official_by_id[str(p['official_id'])]
+              for key in ('name','team','role','mantra_role'):
+                  assert str(p.get(key))==str(row.get(key)), f'Official {key} mismatch: {p["official_id"]}'
+              for key in ('quote','initial_quote','quote_delta','fvm','mantra_quote','mantra_initial_quote','mantra_quote_delta','mantra_fvm'):
+                  assert str(p.get(key))==str(row.get(key)), f'Official {key} mismatch: {p["official_id"]}'
+          assert official.get('ceduti_count')==64 and len(official.get('ceduti',[]))==64, 'Ceduti count mismatch'
+          assert reg.get('current_official_source_sha256')==official.get('source_sha256'), 'Source hash mismatch'
+          assert ver.get('runtime_registry_count')==official.get('active_count'), 'Version/listone mismatch'
           assert det.get('count')==len(det.get('details',{})), 'Legacy details internally inconsistent'
           # Legacy details are an archive; the runtime reconciles them by active player ID.
           assert 'Legacy details count may differ' in app, 'Current-ID detail reconciliation missing'
           assert ver.get('optimizerMax_mutated') is False, 'Golden optimizer changed'
-          assert ver.get('model_recalculation_status')=='PENDING_FULL_FOS_RISK_MAX_08OCT', 'Unreviewed model activation'
+          assert ver.get('model_recalculation_status')=='PENDING_FULL_FOS_RISK_MAX_13OCT', 'Unreviewed model activation'
           assert all(p.get(k) is None for p in players for k in ('score','ideal','max')), 'Uncertified BUY/MAX reintroduced'
           assert "return 'WAIT · FOS PENDING'" in app, 'UI fail-closed guard missing'
           assert "const blocked=!(v.gold===true&&v.optimizerMax_mutated===false&&v.model_recalculation_status==='CERTIFIED_FULL_FOS_RISK_MAX_08OCT');" in app, 'UI must require explicit certification'
@@ -87,7 +97,7 @@ jobs:
           assert "certified?load('AUCTION_SHORTLIST_63_23SEP2026.json'):Promise.resolve({})" in app, 'RC4 shortlist must not load in safe mode'
           assert "const OPTIONAL=" in sw and "'./player-details.json'" in sw.split('const OPTIONAL=')[1].split(';')[0], 'Historical details must be optional in PWA'
           assert 'sw.js?v=42408r3' in idx, 'PWA registration stale'
-          print('FS_OFFICIAL_08OCT_RUNTIME_SAFE_PASS',expected)
+          print('FS_OFFICIAL_13OCT_RUNTIME_SAFE_PASS',expected)
           print('FS_LEGACY_DETAILS_ARCHIVED',len(det.get('details',{})))
           print('FS_BUY_MAX_FAIL_CLOSED_PASS')
           print('FS_PREMIUM_MODEL_PENDING_NOT_CERTIFIED')
