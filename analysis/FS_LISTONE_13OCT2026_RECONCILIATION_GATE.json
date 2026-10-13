@@ -1,0 +1,52 @@
+{
+  "schema": "FS_LISTONE_13OCT_RECONCILIATION_GATE_V1",
+  "date": "2026-10-13",
+  "source_filename": "Quotazioni_Fantacalcio_Stagione_2026_27 2.xlsx",
+  "source_sha256": "fdd89b7668db8a61ff936352685cb8a63c4c6deeb666cbf808156340dc19f3f1",
+  "prior_active_count": 536,
+  "new_active_count": 539,
+  "ceduti_count": 64,
+  "role_counts": {
+    "P": 65,
+    "D": 192,
+    "C": 195,
+    "A": 87
+  },
+  "added_ids": [
+    {
+      "official_id": "6125",
+      "name": "Vasquez D.",
+      "team": "Roma",
+      "role": "P",
+      "quote": 1,
+      "fvm": 1
+    },
+    {
+      "official_id": "2525",
+      "name": "Darmian",
+      "team": "Bologna",
+      "role": "D",
+      "quote": 3,
+      "fvm": 7
+    },
+    {
+      "official_id": "7608",
+      "name": "Wiafe",
+      "team": "Genoa",
+      "role": "C",
+      "quote": 1,
+      "fvm": 1
+    }
+  ],
+  "local_checks": {
+    "active_unique_official_ids": "PASS",
+    "role_counts_sum": "PASS",
+    "ceduti_count": "PASS"
+  },
+  "github_full_json_uploaded": false,
+  "full_field_by_field_reconciliation": "NOT_EXECUTED",
+  "runtime_registry_parity": "BLOCKED_PENDING",
+  "gold": false,
+  "optimizerMax_mutated": false,
+  "decision": "NO_PROMOTION_UNTIL_FULL_JSON_AND_FIELD_PARITY"
+}
