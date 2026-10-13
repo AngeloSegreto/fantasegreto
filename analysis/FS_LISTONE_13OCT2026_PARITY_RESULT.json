@@ -1,0 +1,44 @@
+{
+  "schema": "FS_LISTONE_13OCT2026_PARITY_V1",
+  "source_sha256": "fdd89b7668db8a61ff936352685cb8a63c4c6deeb666cbf808156340dc19f3f1",
+  "source_active": 539,
+  "source_ceduti": 64,
+  "registry_active": 539,
+  "registry_unique": 539,
+  "role_counts": {
+    "P": 65,
+    "D": 192,
+    "C": 195,
+    "A": 87
+  },
+  "added": [
+    {
+      "id": "6125",
+      "name": "Vasquez D.",
+      "team": "Roma",
+      "role": "P"
+    },
+    {
+      "id": "2525",
+      "name": "Darmian",
+      "team": "Bologna",
+      "role": "D"
+    },
+    {
+      "id": "7608",
+      "name": "Wiafe",
+      "team": "Genoa",
+      "role": "C"
+    }
+  ],
+  "changed_existing": 0,
+  "removed": 0,
+  "ceduti_fields_changed": 0,
+  "ceduti_status_normalized": "CEDUTI → CEDUTO",
+  "official_field_parity": "PASS",
+  "runtime_registry_data_parity": "PASS",
+  "model_fos_risk_max": "PENDING",
+  "physical_iphone_gate": "PENDING",
+  "gold": false,
+  "optimizerMax_mutated": false
+}
