@@ -1,0 +1,28 @@
+{
+  "schema": "FS_LISTONE_REFRESH_STAGING_V1",
+  "date": "2026-10-13",
+  "source_file": "Quotazioni_Fantacalcio_Stagione_2026_27 2.xlsx",
+  "source_sha256": "fdd89b7668db8a61ff936352685cb8a63c4c6deeb666cbf808156340dc19f3f1",
+  "new_active_count": 539,
+  "prior_active_count": 536,
+  "ceduti_count": 64,
+  "role_counts": {
+    "P": 65,
+    "D": 192,
+    "C": 195,
+    "A": 87
+  },
+  "status": "STAGED_AWAITING_CANONICAL_ID_RECONCILIATION",
+  "gold": false,
+  "optimizerMax_mutated": false,
+  "canonical_registry_mutated": false,
+  "reason": "New source has 3 more active records than the currently deployed 08OCT snapshot; complete data is staged locally and must be transferred and reconciled before production promotion.",
+  "required_checks": [
+    "official_id_delta",
+    "ceduti_archive",
+    "role_team_quote_fvm_parity",
+    "runtime_index_count",
+    "golden_engine_unchanged",
+    "iphone_gate"
+  ]
+}
