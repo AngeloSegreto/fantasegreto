@@ -48,6 +48,8 @@ check("id=\"target63\" disabled" in html and "disabled=!modelCertified()" in app
 check("metrics['Serie A 13/10']" in app and "ACTIVE_OFFICIAL_13OCT2026" in app, "Current membership UI")
 check("if(st&&modelCertified())" in app, "Market UI fail-closed")
 check("FOS e MAX in attesa di certificazione" in piano, "Plan25 pending placeholder")
+opponents = Path("opponents.js").read_text(encoding="utf-8")
+check("p=safe?window.FS_MARKET_ENGINE?.profile?.(id,st):null" in opponents, "Uncertified rival pricing UI")
 check("REGISTRY PASS · GOLDEN BLOCKED" in audit, "Audit Golden blocked verdict")
 check("CERTIFIED_FULL_FOS_RISK_MAX_13OCT" in app and "CERTIFIED_FULL_FOS_RISK_MAX_13OCT" in audit, "Current release certification guard")
 print("FS_13OCT_OFFICIAL_539_PARITY_PASS")
