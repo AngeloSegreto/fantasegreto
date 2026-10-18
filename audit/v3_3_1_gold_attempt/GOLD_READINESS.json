@@ -1,0 +1,432 @@
+{
+  "schema": "FS_MATCH_WIN_GOLD_EVIDENCE_AUDIT_V1",
+  "scope": "FS_MATCH_WIN_V3_3_1",
+  "reviewed_tree": "80fcd072ea657f03731533cbfff38d110b1f3ad7",
+  "status": "GOLD_LOCK_BLOCKED",
+  "eligible_for_release_review": false,
+  "gold_lock": false,
+  "automatic_promotion": false,
+  "note": "Evidence admissibility audit; not a statistical certification or promotion.",
+  "gates": [
+    {
+      "id": "G00",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Ogni campo usato risolve a snapshot e provenienza archiviati; test negativo su snapshot assente."
+    },
+    {
+      "id": "G01",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Mapping giocatore-squadra-partita corretto per giornata; rinvii e assenze gestiti con fonte."
+    },
+    {
+      "id": "G02",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Rieseguire con ogni nuovo snapshot e mantenere mapping univoco e test negativi."
+    },
+    {
+      "id": "G03",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Configurazione ufficiale e test di validità di XI, ruoli, capienza e panchina per ogni candidata."
+    },
+    {
+      "id": "G04",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Esclusione dalla raccomandazione, conservazione della scelta umana separata e prova delle indisponibilita."
+    },
+    {
+      "id": "G05",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Casi strutturali su tempo in campo e regole effettive; perimetro semplificato esplicitamente limitato fino alla chiusura."
+    },
+    {
+      "id": "G06",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Contratto numerico dichiarato per conteggi, probabilita e somma; test negativi di massa e valori non finiti."
+    },
+    {
+      "id": "G07",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Riprodurre sostituzioni ufficiali su tutte le fixture certificate e configurazione delle eccezioni."
+    },
+    {
+      "id": "G08",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Soglie lette dalla configurazione; scoring decimale esatto; golden dei confini e mutazione della config senza patch al codice."
+    },
+    {
+      "id": "G09",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Regola certificata attiva/disattiva e confronto ufficiale; regola necessaria non certificata mantiene GOLD bloccato."
+    },
+    {
+      "id": "G10",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Regola ufficiale, eccezioni SV e totali certificati; sensibilita separata e nessuna promozione con regola necessaria ignota."
+    },
+    {
+      "id": "G11",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Confronto reale in XI completi, disponibilita verificata e impatto sul criterio attivo."
+    },
+    {
+      "id": "G12",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Snapshot pre-lock, tempi di pubblicazione/acquisizione e trasformazioni tracciate; test di contaminazione del contenuto."
+    },
+    {
+      "id": "G13",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Macchina ratificata, T_max e sottobudget, controllo timeout, precisione e memoria misurate sul flusso completo."
+    },
+    {
+      "id": "G14",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH",
+        "PREREGISTERED_PROTOCOL_MISSING_OR_HASH_MISMATCH",
+        "HELD_OUT_DATASET_MISSING_OR_HASH_MISMATCH",
+        "MEASURED_REPORT_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Superare criteri pre-registrati con campione e incertezza; separare esito condizionato a XI noti e previsione pre-lock."
+    },
+    {
+      "id": "G15",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH",
+        "PREREGISTERED_PROTOCOL_MISSING_OR_HASH_MISMATCH",
+        "HELD_OUT_DATASET_MISSING_OR_HASH_MISMATCH",
+        "MEASURED_REPORT_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Fold temporali reali, fonte pre-lock, baseline comparabili, metodo appaiato e incertezza pre-registrati."
+    },
+    {
+      "id": "G16",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Golden ufficiali indipendenti su dataset completo; specificare voto puro/fantavoto; auditor separato."
+    },
+    {
+      "id": "G17",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Stessi input certificati e identita di scoring, modificatori, sostituzioni e fantagol nei tre percorsi."
+    },
+    {
+      "id": "G18",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Test browser eseguito e prova fisica della prima schermata con dati reali/provvisori/nulli corretti."
+    },
+    {
+      "id": "G19",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Manifest completo, versione/config compatibili, rollback eseguito, nessun gate necessario pendente."
+    },
+    {
+      "id": "G20",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Schema e controlli semantici, valori ufficiali e tracciamento dei campi non certificati; test negativi."
+    },
+    {
+      "id": "G21",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Replay contenuto decisionale identico in ambiente dichiarato, file originali archiviati, canonicalizzazione e test di permutazione."
+    },
+    {
+      "id": "G22",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Raccomandazione e scelta umana separate, timestamp entro lock, modifiche append-only e test negativi."
+    }
+  ],
+  "reviewed_commit": "ae33e0df56dc2d048265db4983125707224b2bb7",
+  "evaluated_at": "2026-10-18T20:59:06.047926+00:00",
+  "tests": {
+    "release-evidence-guard": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "test_match_win_gold_audit.py",
+        "-v"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "log": "audit/v3_3_1_gold_attempt/evidence/release-evidence-guard.log",
+      "sha256": "f038d13a3bdc2f0667d9bc75d6310729abeaea81bcb09f77d4ef2e52852d8794"
+    },
+    "python-baseline": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "experimental/fs_v331_phase1_import/phase1_baseline",
+      "exit_code": 0,
+      "log": "audit/v3_3_1_gold_attempt/evidence/python-baseline.log",
+      "sha256": "945ea972692ff2b57c120111e985242530b79639773b7fa4472542708a764ba0"
+    },
+    "candidate-v32": {
+      "command": [
+        "node",
+        "--test",
+        "experimental/match-win-v3_2/test.js"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "log": "audit/v3_3_1_gold_attempt/evidence/candidate-v32.log",
+      "sha256": "28ee178e443f46b290d56b3901f24034fc9fcee2dccf1d48e357130b1839ae17"
+    },
+    "legacy-simulator": {
+      "command": [
+        "node",
+        "premium-monte-carlo-v1.test.js"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "log": "audit/v3_3_1_gold_attempt/evidence/legacy-simulator.log",
+      "sha256": "0116877fa61ce2be0d169b69af75504e5b82592e62eda7dd14f7343e40572f8a"
+    },
+    "legacy-scoring": {
+      "command": [
+        "node",
+        "experimental/scoring-gate-v1.test.js"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "log": "audit/v3_3_1_gold_attempt/evidence/legacy-scoring.log",
+      "sha256": "32080c5a06edbafc68238dadcba4f73664da9a31bc246faaabfaad92cecf8d11"
+    },
+    "official-runtime": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/validate_official_runtime.py"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "log": "audit/v3_3_1_gold_attempt/evidence/official-runtime.log",
+      "sha256": "e7aba45cce35f60044b01a038cea999ff7a63080620ab7d03e9ba3b70ba3dcea"
+    },
+    "official-parity": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/validate_13oct_offline.py"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "log": "audit/v3_3_1_gold_attempt/evidence/official-parity.log",
+      "sha256": "c3b5ceedc81abcb3a14a96704b74d0e646f2be31417c266a6e8c496f39f382ff"
+    }
+  },
+  "protected_files": [
+    {
+      "path": "engine.js",
+      "sha256": "7a35ddba08d79fe73119e445ab1103b1f3c62cfe85707dd96f1a4ccbb26ac001",
+      "identical_to_production": true
+    },
+    {
+      "path": "app.js",
+      "sha256": "857cf9f9e8a937bed082d2555e6438d4751b4bc2d5a963c95e4481c70388f53f",
+      "identical_to_production": true
+    },
+    {
+      "path": "index.html",
+      "sha256": "b10ead211ec3d39e097bd468c555d6339cefa7dbb6ca82b1592ed16b705b9b46",
+      "identical_to_production": true
+    },
+    {
+      "path": "sw.js",
+      "sha256": "c85afa8ab8f1d4ff285be367a4aab6c3dd3f472ee36202a774ca8e45cc2b5e5e",
+      "identical_to_production": true
+    },
+    {
+      "path": "registry.json",
+      "sha256": "3b30d7ea0b170c797d11fde3f362fd380a374a6ec8d2d37f7840ec3f06b30029",
+      "identical_to_production": true
+    },
+    {
+      "path": "version.json",
+      "sha256": "7a7838fc345155cd16035ad6d3b7ebe738ad63c775db9a0d2ae4a9cb3cf8bcbb",
+      "identical_to_production": true
+    },
+    {
+      "path": "premium-monte-carlo-v1.js",
+      "sha256": "eb7d2a9d00f921d5ddaa57ba3399dca3e511a69d5fe47eebe20d6374a7a05279",
+      "identical_to_production": true
+    },
+    {
+      "path": "experimental/scoring-gate-v1.js",
+      "sha256": "b9e0e279328fc37ce261ce71340ba218b7958062fcf8d5b2cb83819ff18ad107",
+      "identical_to_production": true
+    },
+    {
+      "path": "FS_PREMIUM_MATCH_EVIDENCE_V1.json",
+      "sha256": "812d3c66a4cda1333755c54e25525743d523feb219ba2cbcddce25f7682573f7",
+      "identical_to_production": true
+    }
+  ],
+  "tech_pass": false,
+  "stat_validated": false,
+  "all_rerun_test_groups_pass": true,
+  "production_unchanged": true
+}
