@@ -32,6 +32,14 @@ class CustodyTests(unittest.TestCase):
         with self.assertRaises(FileExistsError):
             freeze_prelock(self.root / "frozen", **self.payload)
 
+    def test_real_clock_rejects_backdated_capture(self):
+        p = dict(self.payload)
+        p["lock_at"] = "2025-01-01T20:45:00+01:00"
+        p["run_at"] = "2025-01-01T20:40:00+01:00"
+        p["source_snapshots"] = [{**self.sources[0], "observed_at": "2025-01-01T20:30:00+01:00"}]
+        with self.assertRaisesRegex(ValueError, "real lock"):
+            freeze_prelock(self.root / "backdated", **p)
+
     def test_no_postlock_run(self):
         self.payload["run_at"] = "2026-10-23T20:46:00+02:00"
         with self.assertRaises(ValueError):
