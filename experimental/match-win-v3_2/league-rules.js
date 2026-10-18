@@ -43,4 +43,60 @@ function captainFactor(captainVote,viceVote,config) {
  for(const [vote,bonus] of Object.entries(r.exact_votes))if(compare(value,decimal(vote))===0)return bonus;
  throw Error('Unlisted captain vote: do not interpolate or round');
 }
-module.exports={defenseModifier,captainFactor};
+function decimalText(value) {
+ // Sums of decimal inputs retain a power-of-ten denominator.
+ const negative=value.n<0n,n=negative?-value.n:value.n;
+ let places=0,d=value.d;while(d>1n&&d%10n===0n){places++;d/=10n;}
+ if(d!==1n)throw Error('Non-terminating decimal output');
+ const digits=n.toString().padStart(places+1,'0');
+ let text=places?digits.slice(0,-places)+'.'+digits.slice(-places):digits;
+ if(places)text=text.replace(/0+$/,'').replace(/\.$/,'');
+ return (negative&&n!==0n?'-':'')+text;
+}
+function exactGoals(total,config) {
+ const r=config.rules.fantasy_goals,first=decimal(r.first_goal),width=decimal(r.band_width);
+ if(width.n<=0n||first.n<0n||r.fixed!==true||r.unbounded!==true)throw Error('Unsupported goal configuration');
+ const score=decimal(total);if(compare(score,first)<0)return 0;
+ const diff={n:score.n*first.d-first.n*score.d,d:score.d*first.d};
+ const count=1n+(diff.n*width.d)/(diff.d*width.n);
+ if(count>BigInt(Number.MAX_SAFE_INTEGER))throw Error('Goal count outside exact integer domain');
+ return Number(count);
+}
+function fantasyPoints(pure,events,weights) {
+ let value=decimal(pure);
+ for(const [name,count] of Object.entries(events)) {
+  if(!Number.isSafeInteger(count)||count<0)throw Error('Invalid event count');
+  const weight=decimal(String(weights[name]));
+  value=add(value,{n:weight.n*BigInt(count),d:weight.d});
+ }
+ return decimalText(value);
+}
+function scoreResolved(lineup,xi,used,scenario,players,rules) {
+ const config=rules.league_config;
+ if(rules.substitution_count!==config.rules.substitutions.maximum||config.rules.substitutions.office_reserve_enabled!==false)
+  throw Error('Substitution settings differ from acquired configuration');
+ const valid=xi.filter(p=>p.voted);
+ const effective=xi.map(p=>({role:players[p.id].role,pure_vote:p.voted?p.pure:null,
+  kind:p.vote_kind||'NORMAL',office_reserve:!!p.office_reserve}));
+ const modifier=defenseModifier(effective,config);
+ const captainPlayer=valid.find(p=>p.id===lineup.captain),vicePlayer=valid.find(p=>p.id===lineup.vice);
+ const chosenCaptain=captainPlayer||vicePlayer;
+ if(config.rules.captain_factor.enabled&&chosenCaptain&&chosenCaptain.vote_kind&&chosenCaptain.vote_kind!=='NORMAL')
+  throw Error('Special captain vote treatment not shown');
+ const captain=captainFactor(captainPlayer?captainPlayer.pure:null,vicePlayer?vicePlayer.pure:null,config);
+ const sum=ids=>ids.reduce((value,id)=>add(value,decimal(scenario[id].fp)),zero());
+ const base=sum(valid.map(p=>p.id));
+ const total=add(add(base,decimal(modifier)),decimal(captain));
+ const unused=lineup.bench.filter(id=>!used.has(id)&&scenario[id].voted);
+ const unusedBonus=unused.reduce((value,id)=>{
+  const p=scenario[id],difference=add(decimal(p.fp),{...decimal(p.pure),n:-decimal(p.pure).n});
+  return add(value,difference.n>0n?difference:zero());
+ },zero());
+ const exact={base:decimalText(base),modifier,captain,total:decimalText(total),
+  recovered:decimalText(sum([...used])),bench_unused_points:decimalText(sum(unused)),
+  unused_bonus:decimalText(unusedBonus)};
+ return {...Object.fromEntries(Object.entries(exact).map(([key,value])=>[key,Number(value)])),
+  exact,goals:exactGoals(exact.total,config),rules_version:config.version,
+  status:'PROVISIONAL_OBSERVED_SCORE',gold:false};
+}
+module.exports={defenseModifier,captainFactor,exactGoals,scoreResolved,fantasyPoints};

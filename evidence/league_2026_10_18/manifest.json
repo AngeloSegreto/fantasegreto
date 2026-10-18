@@ -3,13 +3,13 @@
   "evidence/league_2026_10_18/IMG_9122.png": "f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf",
   "evidence/league_2026_10_18/IMG_9123.png": "ee925c7d3fd00316b0cc71ec579cb865a4fe3affd4184e52d6328aa4ed42a542",
   "evidence/league_2026_10_18/component-regression.log": "4f2e25b41fefaa6f22f20c454b5c5c8b9370190589219bfbe652070154cb93b9",
-  "evidence/league_2026_10_18/README.md": "f9834849310b860f9bb0d0750a67476b54da8d6e2caa6d8b95a647a3bf0ed839",
+  "evidence/league_2026_10_18/README.md": "25de89cd7eb88ea24967985742467a679aa97ae9c56b489303d16bbf70ad3ce5",
   "evidence/league_2026_10_18/IMG_9126.png": "b69916e5f5d69ae4f936e7ec9ca1d89975df4b152b9398c6f97108a917e08d95",
   "evidence/league_2026_10_18/transcription.json": "f3e5ffc3cbbcf91cf6e7bc359ca719a03a91759149f3e09cefd40b0804e613f3",
   "evidence/league_2026_10_18/IMG_9125.png": "217212830225922688005ab9e99a8f62641ee66885500d8099360afeec8817db",
   "evidence/league_2026_10_18/IMG_9127.png": "aac35e4abbc1d150d96c2f69a42672652bc186fb718ee120d067cd2ff62c70b5",
   "league_config.yaml": "f3e5ffc3cbbcf91cf6e7bc359ca719a03a91759149f3e09cefd40b0804e613f3",
   "tools/import_league_screenshots.py": "80c25615a7aa77c61ea0521b97676334112ca9cdc4495ede0e4e309f978ca973",
-  "experimental/match-win-v3_2/league-rules.js": "bfb6a2f4a18591827b9a7e7bf120fa330dbaacff2457f56b4c249ae9b0646d31",
+  "experimental/match-win-v3_2/league-rules.js": "35e99d3ebb4e18f1f98c5b96c2269632d5f2182c753b00ce18eb15b7ef3379ea",
   "experimental/match-win-v3_2/league-rules.test.js": "03bb91335cbed00b1c64f49b4209c6816947e5c07131d59b084cff1f79ddfa22"
 }

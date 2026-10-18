@@ -50,6 +50,11 @@ function optimize(input,candidates,options={}) {
  const best=rank[0],alternate=rank.find(r=>r.formation!==best.formation)||rank[1];
  // Independent validation draw; never use it to rerank candidates.
  const holdout=S.evaluate(input,[best.lineup,...(alternate?[alternate.lineup]:[])],{iterations:options.iterations??100000,seed:((options.seed??20261018)^0x9e3779b9)>>>0});
+ if(!holdout.results)return {status:'BLOCKED_INDEPENDENT_CONFIRMATION',gold:false,
+  simulation_count:report.simulation_count,seed:report.seed,recommended_index:null,
+  errors:holdout.errors,holdout:{status:holdout.status,simulation_count:holdout.simulation_count,
+   attempted_scenarios:holdout.attempted_scenarios??0},
+  note:'No recommendation or ranking released after failed independent confirmation.'};
  return {...report,objective:'MAX_WIN_THEN_DRAW_THEN_COMPLETENESS_THEN_POINTS',scope:options.scope||{lineups:'EXPLICIT_PANEL',global_joint_optimum_searched:false},
   recommended_index:best.index,ranking:rank.map(r=>({index:r.index,win:r.win,draw:r.draw,points:r.points.mean,formation:r.formation})),
   selection_warning:'Best among evaluated candidates under supplied model, not a certified National League prediction.',

@@ -34,10 +34,12 @@ non elencati, entrambi SV o portiere SV: questi casi richiedono una regola espli
 Non abilita automaticamente l'opzione SV ammonito. I casi noti sono coperti da
 32 test, inclusi confini, esclusioni e hash dei sei screenshot.
 
-Il modulo è un componente del candidato in shadow, non è ancora collegato a
-`core.score` o alla simulazione continua V3.2. Non sostituisce la produzione e
-non chiude la validazione completa G09/G10: restano integrazione, eccezioni e
-golden replay. La fonte dei parametri principali G09/G10 non è più mancante.
+Il modulo è collegato a `core.score` e al percorso Monte Carlo con PMF discrete
+esplicite; la normale continua precedente non viene arrotondata silenziosamente.
+Si veda `audit/v3_3_1_integration/README.md` per test, run e limiti aggiornati.
+Non sostituisce la produzione e non chiude la validazione completa G09/G10:
+restano eccezioni e golden replay. La fonte dei parametri principali G09/G10
+non è più mancante.
 
 La parte alta della pagina bonus/malus non è visibile: il normale bonus gol
 non viene certificato da questa immagine. Il tipo Traditional è trascritto

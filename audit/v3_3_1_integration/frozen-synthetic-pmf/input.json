@@ -1,0 +1,1802 @@
+{
+  "input": {
+    "kind": "SYNTHETIC",
+    "mode": "PRE_MATCH",
+    "round": 1,
+    "as_of": "2026-10-18T21:10:00Z",
+    "deadline": "2026-10-19T10:00:00Z",
+    "sources": [
+      {
+        "id": "synthetic",
+        "url": "synthetic://test-fixture-only",
+        "observed_at": "2026-10-18T21:05:00Z",
+        "reliability": 1,
+        "half_life_hours": 24,
+        "conflicts": []
+      }
+    ],
+    "fixtures": [
+      {
+        "id": "test",
+        "home": "TEST_HOME",
+        "away": "TEST_AWAY",
+        "kickoff": "2026-10-19T12:00:00Z",
+        "home_goal_rate": 1.6,
+        "away_goal_rate": 1.1,
+        "disruption_probability": 0,
+        "source_id": "synthetic"
+      }
+    ],
+    "players": [
+      {
+        "id": "hP0",
+        "official_id": "SYNTHETIC_hP0",
+        "name": "TEST hP0",
+        "role": "P",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.7,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0,
+          "assist_share": 0,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 3,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hP1",
+        "official_id": "SYNTHETIC_hP1",
+        "name": "TEST hP1",
+        "role": "P",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.3,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0,
+          "assist_share": 0,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 3,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hD0",
+        "official_id": "SYNTHETIC_hD0",
+        "name": "TEST hD0",
+        "role": "D",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hD1",
+        "official_id": "SYNTHETIC_hD1",
+        "name": "TEST hD1",
+        "role": "D",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hD2",
+        "official_id": "SYNTHETIC_hD2",
+        "name": "TEST hD2",
+        "role": "D",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hD3",
+        "official_id": "SYNTHETIC_hD3",
+        "name": "TEST hD3",
+        "role": "D",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hD4",
+        "official_id": "SYNTHETIC_hD4",
+        "name": "TEST hD4",
+        "role": "D",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hC0",
+        "official_id": "SYNTHETIC_hC0",
+        "name": "TEST hC0",
+        "role": "C",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hC1",
+        "official_id": "SYNTHETIC_hC1",
+        "name": "TEST hC1",
+        "role": "C",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hC2",
+        "official_id": "SYNTHETIC_hC2",
+        "name": "TEST hC2",
+        "role": "C",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hC3",
+        "official_id": "SYNTHETIC_hC3",
+        "name": "TEST hC3",
+        "role": "C",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hC4",
+        "official_id": "SYNTHETIC_hC4",
+        "name": "TEST hC4",
+        "role": "C",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hA0",
+        "official_id": "SYNTHETIC_hA0",
+        "name": "TEST hA0",
+        "role": "A",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.15,
+          "assist_share": 0.07,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hA1",
+        "official_id": "SYNTHETIC_hA1",
+        "name": "TEST hA1",
+        "role": "A",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.15,
+          "assist_share": 0.07,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "hA2",
+        "official_id": "SYNTHETIC_hA2",
+        "name": "TEST hA2",
+        "role": "A",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.15,
+          "assist_share": 0.07,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aP0",
+        "official_id": "SYNTHETIC_aP0",
+        "name": "TEST aP0",
+        "role": "P",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0,
+          "assist_share": 0,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 3,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aD0",
+        "official_id": "SYNTHETIC_aD0",
+        "name": "TEST aD0",
+        "role": "D",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aD1",
+        "official_id": "SYNTHETIC_aD1",
+        "name": "TEST aD1",
+        "role": "D",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aD2",
+        "official_id": "SYNTHETIC_aD2",
+        "name": "TEST aD2",
+        "role": "D",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aD3",
+        "official_id": "SYNTHETIC_aD3",
+        "name": "TEST aD3",
+        "role": "D",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aC0",
+        "official_id": "SYNTHETIC_aC0",
+        "name": "TEST aC0",
+        "role": "C",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aC1",
+        "official_id": "SYNTHETIC_aC1",
+        "name": "TEST aC1",
+        "role": "C",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aC2",
+        "official_id": "SYNTHETIC_aC2",
+        "name": "TEST aC2",
+        "role": "C",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aC3",
+        "official_id": "SYNTHETIC_aC3",
+        "name": "TEST aC3",
+        "role": "C",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aA0",
+        "official_id": "SYNTHETIC_aA0",
+        "name": "TEST aA0",
+        "role": "A",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.15,
+          "assist_share": 0.07,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      },
+      {
+        "id": "aA1",
+        "official_id": "SYNTHETIC_aA1",
+        "name": "TEST aA1",
+        "role": "A",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-10-18T21:05:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 1,
+          "vote_given_sub": 1,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.15,
+          "assist_share": 0.07,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0,
+          "vote_pmf": [
+            {
+              "vote": "5",
+              "probability": 0.1
+            },
+            {
+              "vote": "5.5",
+              "probability": 0.15
+            },
+            {
+              "vote": "6",
+              "probability": 0.3
+            },
+            {
+              "vote": "6.5",
+              "probability": 0.25
+            },
+            {
+              "vote": "7",
+              "probability": 0.15
+            },
+            {
+              "vote": "7.5",
+              "probability": 0.05
+            }
+          ]
+        }
+      }
+    ],
+    "rules": {
+      "verified": true,
+      "source_id": "synthetic",
+      "goal_lock": "NATIONAL_66_4_FIXED_V3_1",
+      "formations": [
+        "3-5-2",
+        "3-4-3",
+        "4-3-3",
+        "4-4-2",
+        "4-5-1",
+        "5-3-2",
+        "5-4-1"
+      ],
+      "substitution_count": 5,
+      "substitution_mode": "SAME_ROLE",
+      "module_change_allowed": false,
+      "bench_order": "DISPLAY_ORDER",
+      "keeper_model": "EXCLUSIVE_FULL_MATCH",
+      "bonus_malus": {
+        "goal": 3,
+        "assist": 1,
+        "yellow": -0.5,
+        "red": -1,
+        "conceded": -1,
+        "save": 0,
+        "clean_sheet": 1
+      },
+      "defence": {
+        "enabled": true,
+        "minimum_rated_defenders": 4,
+        "top_defenders": 3,
+        "include_keeper": true,
+        "bands": [
+          {
+            "min": 6,
+            "bonus": 1
+          },
+          {
+            "min": 6.5,
+            "bonus": 3
+          },
+          {
+            "min": 7,
+            "bonus": 6
+          }
+        ]
+      },
+      "captain": {
+        "enabled": true,
+        "sv_policy": "VICE_THEN_ZERO",
+        "basis": "PURE_VOTE",
+        "bands": [
+          {
+            "min": 0,
+            "bonus": -1
+          },
+          {
+            "min": 6,
+            "bonus": 0
+          },
+          {
+            "min": 7,
+            "bonus": 1
+          }
+        ]
+      },
+      "league_config": {
+        "version": "FS_LEAGUE_SCREENSHOTS_V3_3_1_20261018",
+        "league_id": "NATIONAL_LEAGUE_2026_27",
+        "league_identity_basis": "User conversation; league name not visible in settings crops",
+        "status": "PARTIALLY_VERIFIED",
+        "sources": {
+          "IMG_9122(1).png": {
+            "path": "evidence/league_2026_10_18/IMG_9122.png",
+            "sha256": "f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf",
+            "received_at": "2026-10-18T23:03:06+02:00",
+            "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+            "url": null,
+            "scope": "Visible settings only; no retroactive pre-lock evidence"
+          },
+          "IMG_9123.png": {
+            "path": "evidence/league_2026_10_18/IMG_9123.png",
+            "sha256": "ee925c7d3fd00316b0cc71ec579cb865a4fe3affd4184e52d6328aa4ed42a542",
+            "received_at": "2026-10-18T23:03:06+02:00",
+            "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+            "url": null,
+            "scope": "Visible settings only; no retroactive pre-lock evidence"
+          },
+          "IMG_9124.png": {
+            "path": "evidence/league_2026_10_18/IMG_9124.png",
+            "sha256": "e44851694f5b61565b057b6d8e61768fe27e490192939f56f2f52cbfa9bb61ab",
+            "received_at": "2026-10-18T23:03:06+02:00",
+            "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+            "url": null,
+            "scope": "Visible settings only; no retroactive pre-lock evidence"
+          },
+          "IMG_9125.png": {
+            "path": "evidence/league_2026_10_18/IMG_9125.png",
+            "sha256": "217212830225922688005ab9e99a8f62641ee66885500d8099360afeec8817db",
+            "received_at": "2026-10-18T23:03:06+02:00",
+            "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+            "url": null,
+            "scope": "Visible settings only; no retroactive pre-lock evidence"
+          },
+          "IMG_9126.png": {
+            "path": "evidence/league_2026_10_18/IMG_9126.png",
+            "sha256": "b69916e5f5d69ae4f936e7ec9ca1d89975df4b152b9398c6f97108a917e08d95",
+            "received_at": "2026-10-18T23:03:06+02:00",
+            "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+            "url": null,
+            "scope": "Visible settings only; no retroactive pre-lock evidence"
+          },
+          "IMG_9127.png": {
+            "path": "evidence/league_2026_10_18/IMG_9127.png",
+            "sha256": "aac35e4abbc1d150d96c2f69a42672652bc186fb718ee120d067cd2ff62c70b5",
+            "received_at": "2026-10-18T23:03:06+02:00",
+            "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+            "url": null,
+            "scope": "Visible settings only; no retroactive pre-lock evidence"
+          }
+        },
+        "rules": {
+          "fantasy_goals": {
+            "status": "SCREENSHOT_VERIFIED",
+            "first_goal": "66",
+            "band_width": "4",
+            "fixed": true,
+            "unbounded": true,
+            "unbounded_basis": "Ratified V3.3.1; screenshot displays through 94",
+            "source": "IMG_9122(1).png"
+          },
+          "substitutions": {
+            "status": "VISIBLE_SETTINGS_VERIFIED",
+            "maximum": 5,
+            "type_label": "Traditional",
+            "office_reserve_enabled": false,
+            "source": "IMG_9123.png",
+            "detailed_sv_policy": null
+          },
+          "defense_modifier": {
+            "status": "VISIBLE_SETTINGS_VERIFIED",
+            "enabled": true,
+            "minimum_effective_defenders": 4,
+            "top_defenders": 3,
+            "include_keeper": true,
+            "apply_to": "OWN_TEAM",
+            "basis": "PURE_VOTE",
+            "after_substitutions": true,
+            "office_reserve_eligible": false,
+            "political_six_vote": "6",
+            "sv_yellow_vote_if_validated": "6",
+            "sv_yellow_validation_enabled": null,
+            "bands": [
+              {
+                "minimum": null,
+                "bonus": "0"
+              },
+              {
+                "minimum": "6",
+                "bonus": "0"
+              },
+              {
+                "minimum": "6.25",
+                "bonus": "0.5"
+              },
+              {
+                "minimum": "6.5",
+                "bonus": "1"
+              },
+              {
+                "minimum": "6.75",
+                "bonus": "1.5"
+              },
+              {
+                "minimum": "7",
+                "bonus": "2"
+              }
+            ],
+            "sources": [
+              "IMG_9125.png",
+              "IMG_9127.png"
+            ]
+          },
+          "captain_factor": {
+            "status": "VISIBLE_SETTINGS_VERIFIED",
+            "enabled": true,
+            "vice_when_captain_without_vote": true,
+            "designate_each_match": true,
+            "double_bonuses": false,
+            "double_penalties": false,
+            "at_or_below": {
+              "vote": "4.5",
+              "bonus": "-1.5"
+            },
+            "exact_votes": {
+              "5": "-1",
+              "6": "0",
+              "7": "1",
+              "5.5": "0",
+              "6.5": "0"
+            },
+            "at_or_above": {
+              "vote": "7.5",
+              "bonus": "1.5"
+            },
+            "unlisted_vote_policy": null,
+            "both_without_vote_policy": null,
+            "source": "IMG_9126.png"
+          },
+          "bonus_malus": {
+            "status": "VISIBLE_SETTINGS_VERIFIED",
+            "values": {
+              "conceded_goal": "-1",
+              "penalty_scored": "3",
+              "penalty_missed": "-2",
+              "penalty_saved": "3",
+              "yellow": "-0.5",
+              "red": "-1",
+              "assist_standard": "1",
+              "assist_soft": "0.5",
+              "assist_gold": "1.5",
+              "own_goal": "-2",
+              "equalizing_goal": "0",
+              "winning_goal": "0",
+              "clean_sheet": "1",
+              "player_of_match": "0"
+            },
+            "ordinary_goal": null,
+            "source": "IMG_9124.png",
+            "note": "Upper page is not shown; ordinary goal bonus not certified by this crop"
+          }
+        },
+        "release": {
+          "gold_lock": false,
+          "stat_validated": false,
+          "tech_pass": false
+        }
+      },
+      "vote_model": "EXPLICIT_DISCRETE_PMF"
+    },
+    "home": {
+      "name": "SYNTHETIC HOME",
+      "roster": [
+        "hP0",
+        "hP1",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hD4",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hC4",
+        "hA0",
+        "hA1",
+        "hA2"
+      ],
+      "lineup": {
+        "starters": [
+          "hP0",
+          "hD0",
+          "hD1",
+          "hD2",
+          "hD3",
+          "hC0",
+          "hC1",
+          "hC2",
+          "hC3",
+          "hA0",
+          "hA1"
+        ],
+        "bench": [
+          "hP1",
+          "hD4",
+          "hC4",
+          "hA2"
+        ],
+        "captain": "hD0",
+        "vice": "hD1"
+      }
+    },
+    "away": {
+      "name": "SYNTHETIC AWAY",
+      "roster": [
+        "aP0",
+        "aD0",
+        "aD1",
+        "aD2",
+        "aD3",
+        "aC0",
+        "aC1",
+        "aC2",
+        "aC3",
+        "aA0",
+        "aA1"
+      ],
+      "lineup": {
+        "starters": [
+          "aP0",
+          "aD0",
+          "aD1",
+          "aD2",
+          "aD3",
+          "aC0",
+          "aC1",
+          "aC2",
+          "aC3",
+          "aA0",
+          "aA1"
+        ],
+        "bench": [],
+        "captain": "aD0",
+        "vice": "aD1"
+      }
+    }
+  },
+  "candidates": [
+    {
+      "starters": [
+        "hP0",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hA0",
+        "hA1"
+      ],
+      "bench": [
+        "hP1",
+        "hD4",
+        "hC4",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP0",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hC4",
+        "hA0",
+        "hA1"
+      ],
+      "bench": [
+        "hP1",
+        "hD3",
+        "hD4",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    }
+  ]
+}

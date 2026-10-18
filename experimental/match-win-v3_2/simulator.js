@@ -21,7 +21,9 @@ function scenario(model,rand){
     if(p.role==='P')status=keeper?.id===p.id?'START':'ABSENT';
     else {const u=rand();status=u<x.start?'START':u<x.start+x.sub?'SUB':'ABSENT';}
     const voted=status!=='ABSENT'&&rand()<(status==='START'?x.vote_given_start:x.vote_given_sub)&&!(shock&&rand()<x.disruption_sensitivity);
-    const pure=voted?Math.max(0,Math.min(10,x.vote_mean+x.vote_sd*normal(rand)+x.team_vote_loading*z+x.conceded_vote_loading*(ga-(p.team===f.home?f.away_goal_rate:f.home_goal_rate)))):null;
+    const pure=voted?(rules.league_config?
+     weighted(x.vote_pmf,v=>v.probability,rand).vote:
+     Math.max(0,Math.min(10,x.vote_mean+x.vote_sd*normal(rand)+x.team_vote_loading*z+x.conceded_vote_loading*(ga-(p.team===f.home?f.away_goal_rate:f.home_goal_rate))))):null;
     const yellow=voted&&rand()<x.yellow_probability?1:0,red=voted&&rand()<x.red_probability?1:0;
     const saves=voted&&p.role==='P'?poisson(x.save_rate,rand):0;
     out[p.id]={status,voted,pure,fp:0,goals:0,assists:0,yellow,red,saves,conceded:p.role==='P'&&voted?ga:0,clean_sheet:p.role==='P'&&voted&&ga===0};
@@ -38,7 +40,10 @@ function scenario(model,rand){
   }
  }
  for(const p of model.input.players) {
-  const x=out[p.id];if(x.voted)x.fp=x.pure+b.goal*x.goals+b.assist*x.assists+b.yellow*x.yellow+b.red*x.red+b.save*x.saves+b.conceded*x.conceded+b.clean_sheet*Number(x.clean_sheet);
+  const x=out[p.id];if(x.voted)x.fp=rules.league_config?
+   require('./league-rules').fantasyPoints(x.pure,{goal:x.goals,assist:x.assists,yellow:x.yellow,
+    red:x.red,save:x.saves,conceded:x.conceded,clean_sheet:Number(x.clean_sheet)},b):
+   x.pure+b.goal*x.goals+b.assist*x.assists+b.yellow*x.yellow+b.red*x.red+b.save*x.saves+b.conceded*x.conceded+b.clean_sheet*Number(x.clean_sheet);
  }
  return {players:out,matches};
 }
@@ -51,6 +56,19 @@ function summary(values){
 function evaluate(input,candidates,options={}) {
  const validation=C.validate(input);
  if(validation.errors.length)return {status:'BLOCKED_PENDING_VERIFIED_INPUTS',errors:validation.errors,gold:false,simulation_count:0};
+ // Continuous synthetic votes cannot be silently rounded into the screenshot's
+ // discrete captain table. No samples may be dropped to bypass an unknown rule.
+ if(input.rules.league_config) {
+  const errors=[];
+  if(input.rules.vote_model!=='EXPLICIT_DISCRETE_PMF')errors.push('Explicit discrete vote PMF model required; continuous votes are never rounded');
+  for(const p of input.players) {
+   const x=p.projection,pmf=x.vote_pmf;
+   if(!Array.isArray(pmf)||!pmf.length||pmf.some(v=>!v||typeof v.vote!=='string'||!/^\d+(\.\d+)?$/.test(v.vote)||!C.finite(Number(v.vote))||Number(v.vote)>10||!C.prob(v.probability))||
+      Math.abs((pmf||[]).reduce((s,v)=>s+v.probability,0)-1)>1e-12)errors.push('Invalid discrete vote PMF '+p.id);
+   if(x.team_vote_loading!==0||x.conceded_vote_loading!==0)errors.push('Continuous vote shock coefficients unsupported with explicit PMF '+p.id);
+  }
+  if(errors.length)return {status:'BLOCKED_PENDING_VOTE_MODEL_AND_RULE_EXCEPTIONS',errors,gold:false,simulation_count:0};
+ }
  const n=options.iterations??100000,seed=options.seed??20261018;
  C.assert(Number.isInteger(n)&&n>=100&&n<=500000,'iterations must be 100..500000');
  C.assert(Number.isInteger(seed)&&seed>=0&&seed<=0xffffffff,'seed must be uint32');
@@ -61,9 +79,10 @@ function evaluate(input,candidates,options={}) {
  const keeperStats=Object.fromEntries(input.home.roster.filter(id=>model.players[id].role==='P').map(id=>[id,{voted:0,clean:0,conceded:0,saves:0,pure:[],fp:[],ge6:0,ge65:0,ge7:0}]));
  const pairDiff=Array.from({length:candidates.length},()=>({sum:0,sum2:0}));
  for(let j=0;j<n;j++) {
+  try {
   const s=scenario(model,rand),a=C.score(input.away.lineup,s.players,model.players,input.rules),wins=[];
   for(const [id,k] of Object.entries(keeperStats)) {
-   const p=s.players[id];k.fp.push(p.fp);if(p.voted){k.voted++;k.clean+=Number(p.clean_sheet);k.conceded+=p.conceded;k.saves+=p.saves;k.pure.push(p.pure);k.ge6+=Number(p.fp>=6);k.ge65+=Number(p.fp>=6.5);k.ge7+=Number(p.fp>=7);}
+   const p=s.players[id];k.fp.push(Number(p.fp));if(p.voted){k.voted++;k.clean+=Number(p.clean_sheet);k.conceded+=p.conceded;k.saves+=p.saves;k.pure.push(Number(p.pure));k.ge6+=Number(p.fp>=6);k.ge65+=Number(p.fp>=6.5);k.ge7+=Number(p.fp>=7);}
   }
   candidates.forEach((l,k)=>{
    const h=C.score(l,s.players,model.players,input.rules),t=stats[k],w=Number(h.goals>a.goals);wins.push(w);
@@ -73,6 +92,11 @@ function evaluate(input,candidates,options={}) {
    if(j<Math.floor(n/2))t.first+=w;else t.second+=w;
   });
   wins.forEach((w,k)=>{const d=w-wins[0];pairDiff[k].sum+=d;pairDiff[k].sum2+=d*d;});
+  } catch(error) {
+   if(!input.rules.league_config)throw error;
+   return {status:'BLOCKED_UNRESOLVED_LEAGUE_SCENARIO',errors:[error.message],
+    attempted_scenarios:j+1,discarded_partial_results:true,gold:false,simulation_count:0};
+  }
  }
  const dist=o=>Object.fromEntries(Object.entries(o).map(([k,v])=>[k,v/n]));
  const results=stats.map((t,k)=>{

@@ -28,6 +28,7 @@ function validate(input) {
  const i=input,r=i.rules||{},players=Object.fromEntries((i.players||[]).map(p=>[p.id,p]));
  const asof=Date.parse(i.as_of),deadline=Date.parse(i.deadline);
  check(['SYNTHETIC','REAL'].includes(i.kind),'kind required');
+ if(i.kind==='REAL')check(!!r.league_config,'real match requires acquired league configuration, not synthetic scoring bands');
  check(i.mode==='PRE_MATCH','simulation supports PRE_MATCH only; LIVE event adapter pending');
  check(finite(asof)&&finite(deadline)&&asof<=deadline,'invalid as_of/deadline or future leakage');
  check(Number.isInteger(i.round)&&i.round>0,'round required');
@@ -47,6 +48,12 @@ function validate(input) {
  check(r.substitution_mode==='SAME_ROLE'&&r.module_change_allowed===false&&r.bench_order==='DISPLAY_ORDER','unsupported substitution rules');
  check(r.keeper_model==='EXCLUSIVE_FULL_MATCH','keeper minutes model must be explicitly acknowledged');
  check(r.verified===true&&sources.has(r.source_id),'scoring rules require explicit source');
+ if(r.league_config) {
+  const received=Object.values(r.league_config.sources||{});
+  check(received.length>0,'acquired rule provenance required');
+  for(const s of received)check(finite(Date.parse(s.received_at))&&Date.parse(s.received_at)<=asof,
+   'acquired league rules received after as_of or missing timestamp');
+ }
  for(const k of ['goal','assist','yellow','red','conceded','save','clean_sheet'])check(finite(r.bonus_malus?.[k]),'missing bonus/malus '+k);
  for(const key of ['defence','captain']) {
   const cfg=r[key];check(cfg&&typeof cfg.enabled==='boolean',key+' rule missing');
@@ -115,7 +122,11 @@ function score(lineup,scenario,players,rules) {
  for(const id of lineup.bench) {
   if(!scenario[id].voted||changes>=rules.substitution_count)continue;
   const j=xi.findIndex(p=>!p.voted&&players[p.id].role===players[id].role);
-  if(j>=0){used.add(id);recovered+=scenario[id].fp;xi[j]={id,...scenario[id]};changes++;}
+  if(j>=0){used.add(id);recovered+=Number(scenario[id].fp);xi[j]={id,...scenario[id]};changes++;}
+ }
+ if(rules.league_config) {
+  const result=require('./league-rules').scoreResolved(lineup,xi,used,scenario,players,rules);
+  return {...result,missing:11-xi.filter(p=>p.voted).length,changes,xi:xi.map(p=>p.id)};
  }
  const valid=xi.filter(p=>p.voted),def=valid.filter(p=>players[p.id].role==='D'),keeper=valid.find(p=>players[p.id].role==='P');
  let modifier=0,captain=0;
