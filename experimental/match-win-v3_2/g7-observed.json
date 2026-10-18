@@ -1,0 +1,13 @@
+{
+  "mode": "POST_MATCH_OBSERVED_ONLY",
+  "source": "User supplied Master Prompt V3.2, 18 October 2026",
+  "round": 7,
+  "opponent": "AC DENTI",
+  "results": {"Gaetano":10,"Thorstvedt":9.5,"Pobega":9.5,"Zalewski":7.5,"Ekkelenkamp":4.5,"Geubbels":5,"Zortea":5.5},
+  "official_results_reconciled": false,
+  "complete_xi_and_bench_observed": false,
+  "pre_match_forecast_archive_available": false,
+  "predictable_regret": null,
+  "oracle_complete": false,
+  "training_eligible_for_pre_g7": false
+}
