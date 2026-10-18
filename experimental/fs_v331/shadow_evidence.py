@@ -1,6 +1,6 @@
 """FS V3.3.1: pre-lock evidence custody and fail-closed release gate. SHADOW ONLY."""
 from __future__ import annotations
-from datetime import datetime
+from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 import json
@@ -40,6 +40,9 @@ def freeze_prelock(target, *, lock_at, run_at, inputs, config, decision, source_
     This records a prior real decision; it never creates predictions.
     """
     lock = parse_time(lock_at)
+    # Caller-provided timestamps cannot move the actual capture into the past.
+    if datetime.now(timezone.utc) > lock:
+        raise ValueError('capture attempted after real lock time')
     if parse_time(run_at) > lock:
         raise ValueError("post-lock run")
     if not isinstance(inputs, dict) or not isinstance(config, dict) or not isinstance(decision, dict):
