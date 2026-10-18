@@ -1,6 +1,6 @@
 {
   "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
-  "generated_utc": "2026-10-18T21:55:00Z",
+  "generated_utc": "2026-10-18T22:09:00Z",
   "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
   "candidate_branch": "fs-v331-evidence-custody-phase1",
   "target_branch": "fs-v331-shadow-phase1",
@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "b633e3dbf2be53796417a66dc7509d083e89d1e0",
-    "run_id": 39169894005,
-    "tests_passed": 31,
-    "tests_total": 31,
+    "head_sha": "ca8e488da64446b3b0257adb109a52274c9578f8",
+    "run_id": 39170918359,
+    "tests_passed": 45,
+    "tests_total": 45,
     "conclusion": "success",
-    "scope": "SOFTWARE_UNIT_TESTS_ONLY"
+    "scope": "UNIT_TESTS_AND_FAIL_CLOSED_INTAKE_ONLY"
   },
   "verified_evidence": [
     {
@@ -32,6 +32,11 @@
       "area": "CI_SHADOW_TESTS",
       "level": "31_UNIT_TESTS_PASS",
       "run_id": 39169894005
+    },
+    {
+      "area": "G8_INTAKE_TESTS",
+      "level": "14_UNIT_TESTS_PASS_GITHUB_CI",
+      "run_id": 39170918359
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
@@ -69,17 +74,27 @@
     "G22"
   ],
   "next_actions": [
-    "Certified league settings and official replay fixtures",
-    "Real prelock source snapshots with third-party timestamp",
-    "Pre-registered statistical protocol ratified before validation",
-    "Observed official matchday scores with independent score audit",
-    "Rolling-origin candidate versus B0/B1 over the pre-registered holdout",
-    "Full CI/replay and physical iPhone gate"
+    "Acquire official league screenshots proving full defense modifier and captain rules",
+    "Get source-authenticated original prelock raw snapshots and registered 25-player roster (including canonical IDs)",
+    "Connect live candidate/B0/B1 engine output to prelock_intake before Friday 23 Oct 2026 20:45 CEST",
+    "Post-match independently collect officially certified results for full replay and Brier comparison",
+    "Complete preregistered rolling-origin backtest with adequate sample",
+    "Close all technical gates and obtain independent auditor attestation"
   ],
   "notes": [
     "Do not interpret 31 tests as STAT VALIDATED.",
     "Archive SHA-256 verifies byte integrity but not external provenance.",
     "Real-time capture remains unintegrated with the simulator.",
     "Never set gold=true without independent signed evidence."
-  ]
+  ],
+  "g8_prelock": {
+    "matchday": 8,
+    "earliest_fixture": "Torino-Monza",
+    "first_kickoff": "2026-10-23T20:45:00+02:00",
+    "fixtures_json": "experimental/fs_v331/fixtures/md08_serie_a_2026_27.json",
+    "intake_module": "experimental/fs_v331/prelock_intake.py",
+    "source_url": "https://www.legaseriea.it/serie-a/news/quando-si-gioca-anticipi-e-posticipi-fino-alla-12a-giornata",
+    "status": "INSTRUMENTATION_READY_REAL_OUTPUT_NOT_YET_CAPTURED",
+    "notes": "Must capture verified raw source bytes and real engine candidate/B0/B1 forecasts before actual league lock; G00/G01 remain pending."
+  }
 }
