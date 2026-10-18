@@ -1,5 +1,6 @@
 'use strict';
 const C=require('./core'),S=require('./simulator');
+const {decisionIdentity,order}=require('./decision-id');
 function* choose(xs,n,start=0,prefix=[]) {
  if(n===0){yield prefix;return;}
  for(let j=start;j<=xs.length-n;j++)yield* choose(xs,n-1,j+1,[...prefix,xs[j]]);
@@ -41,7 +42,9 @@ function enumerate(input,options={}) {
  return {candidates:out,scope:{lineups:'ALL_ALLOWED',bench,captains,estimated_candidates:size,actual_candidates:out.length,global_joint_optimum_searched:bench==='ALL'&&(!input.rules.captain.enabled||captains==='ALL')}};
 }
 function rankResults(results) {
- return results.map((r,index)=>({index,...r})).sort((a,b)=>b.win-a.win||b.draw-a.draw||a.incomplete_probability-b.incomplete_probability||b.points.mean-a.points.mean||a.index-b.index);
+ return results.map((r,index)=>({index,...r,decision_id:r.lineup?decisionIdentity(r.lineup):
+  JSON.stringify([r.win,r.draw,r.incomplete_probability,r.points.mean])})).sort((a,b)=>
+  b.win-a.win||b.draw-a.draw||a.incomplete_probability-b.incomplete_probability||b.points.mean-a.points.mean||order(a.decision_id,b.decision_id));
 }
 function optimize(input,candidates,options={}) {
  const report=S.evaluate(input,candidates,options);
@@ -56,7 +59,8 @@ function optimize(input,candidates,options={}) {
    attempted_scenarios:holdout.attempted_scenarios??0},
   note:'No recommendation or ranking released after failed independent confirmation.'};
  return {...report,objective:'MAX_WIN_THEN_DRAW_THEN_COMPLETENESS_THEN_POINTS',scope:options.scope||{lineups:'EXPLICIT_PANEL',global_joint_optimum_searched:false},
-  recommended_index:best.index,ranking:rank.map(r=>({index:r.index,win:r.win,draw:r.draw,points:r.points.mean,formation:r.formation})),
+  recommended_index:best.index,recommended_decision_id:best.decision_id,
+  ranking:rank.map(r=>({index:r.index,decision_id:r.decision_id,win:r.win,draw:r.draw,points:r.points.mean,formation:r.formation})),
   selection_warning:'Best among evaluated candidates under supplied model, not a certified National League prediction.',
   holdout:{seed:holdout.seed,simulation_count:holdout.simulation_count,results:holdout.results},
   alternative_index:alternate?.index??null,advantage:alternate?holdout.results[1].paired_to_first:null,

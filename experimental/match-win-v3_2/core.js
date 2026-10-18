@@ -118,7 +118,7 @@ function freshness(source,asof) {
 }
 function band(value,bands) { let bonus=0; for(const b of bands)if(value>=b.min)bonus=b.bonus;return bonus; }
 function score(lineup,scenario,players,rules) {
- const xi=lineup.starters.map(id=>({id,...scenario[id]})),used=new Set();let changes=0,recovered=0;
+ const xi=lineup.starters.slice().sort().map(id=>({id,...scenario[id]})),used=new Set();let changes=0,recovered=0;
  for(const id of lineup.bench) {
   if(!scenario[id].voted||changes>=rules.substitution_count)continue;
   const j=xi.findIndex(p=>!p.voted&&players[p.id].role===players[id].role);

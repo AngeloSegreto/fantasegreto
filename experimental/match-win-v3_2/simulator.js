@@ -1,12 +1,16 @@
 'use strict';
 const C=require('./core');
+const {order}=require('./decision-id');
 function rng(seed){let a=seed>>>0;return ()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(a^(a>>>15),1|a);t^=t+Math.imul(t^(t>>>7),61|t);return ((t^(t>>>14))>>>0)/4294967296;};}
 function normal(rand){return Math.sqrt(-2*Math.log(Math.max(Number.MIN_VALUE,rand())))*Math.cos(2*Math.PI*rand());}
 function poisson(rate,rand){if(rate===0)return 0;const limit=Math.exp(-rate);let p=1,k=0;do{k++;p*=rand();}while(p>limit);return k-1;}
 function weighted(items,weight,rand){const u=rand();let sum=0;for(const x of items){sum+=weight(x);if(u<sum)return x;}return null;}
 function compile(input){
- const players=Object.fromEntries(input.players.map(p=>[p.id,p]));
- return {input,players,fixtures:input.fixtures.map(f=>({...f,homePlayers:input.players.filter(p=>p.team===f.home),awayPlayers:input.players.filter(p=>p.team===f.away)}))};
+ // Normalize non-operational record order before consuming any random draws.
+ const orderedPlayers=input.players.slice().sort((a,b)=>order(a.id,b.id));
+ const players=Object.fromEntries(orderedPlayers.map(p=>[p.id,p]));
+ return {input,players,fixtures:input.fixtures.slice().sort((a,b)=>order(a.id,b.id)).map(f=>({...f,
+  homePlayers:orderedPlayers.filter(p=>p.team===f.home),awayPlayers:orderedPlayers.filter(p=>p.team===f.away)}))};
 }
 function scenario(model,rand){
  const out={},matches={},rules=model.input.rules,b=rules.bonus_malus;
