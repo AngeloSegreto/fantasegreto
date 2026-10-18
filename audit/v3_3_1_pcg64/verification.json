@@ -1,0 +1,32 @@
+{
+  "schema": "FS_PCG64_VERIFICATION_V1",
+  "reference_numpy_version": "2.3.5",
+  "reference_states": 100,
+  "matched_uint64": 800,
+  "matched_uniform": 800,
+  "node_tests_passed": 95,
+  "run_payload_hashes_ok": true,
+  "run_code_hashes_ok": true,
+  "run_n": 50000,
+  "holdout_n": 50000,
+  "elapsed_ms": 35816.43611,
+  "random_engine": "PCG64_XSL_RR_128_64_ENTITY_SCENARIO_V1",
+  "convergence": [
+    true,
+    true
+  ],
+  "protected_files_unchanged": {
+    "engine.js": true,
+    "app.js": true,
+    "index.html": true,
+    "sw.js": true,
+    "registry.json": true,
+    "version.json": true,
+    "premium-monte-carlo-v1.js": true,
+    "experimental/scoring-gate-v1.js": true,
+    "FS_PREMIUM_MATCH_EVIDENCE_V1.json": true
+  },
+  "tech_pass_v331": false,
+  "stat_validated": false,
+  "gold_lock": false
+}

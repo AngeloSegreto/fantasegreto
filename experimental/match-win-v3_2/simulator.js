@@ -1,7 +1,8 @@
 'use strict';
 const C=require('./core');
 const {order}=require('./decision-id');
-function rng(seed){let a=seed>>>0;return ()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(a^(a>>>15),1|a);t^=t+Math.imul(t^(t>>>7),61|t);return ((t^(t>>>14))>>>0)/4294967296;};}
+const {scenarioStreams}=require('./pcg64');
+function rng(seed){return scenarioStreams(seed,0)('SINGLE_STREAM_COMPAT');}
 function normal(rand){return Math.sqrt(-2*Math.log(Math.max(Number.MIN_VALUE,rand())))*Math.cos(2*Math.PI*rand());}
 function poisson(rate,rand){if(rate===0)return 0;const limit=Math.exp(-rate);let p=1,k=0;do{k++;p*=rand();}while(p>limit);return k-1;}
 function weighted(items,weight,rand){const u=rand();let sum=0;for(const x of items){sum+=weight(x);if(u<sum)return x;}return null;}
@@ -12,31 +13,34 @@ function compile(input){
  return {input,players,fixtures:input.fixtures.slice().sort((a,b)=>order(a.id,b.id)).map(f=>({...f,
   homePlayers:orderedPlayers.filter(p=>p.team===f.home),awayPlayers:orderedPlayers.filter(p=>p.team===f.away)}))};
 }
-function scenario(model,rand){
+function scenario(model,rand,streams=null){
  const out={},matches={},rules=model.input.rules,b=rules.bonus_malus;
  for(const f of model.fixtures) {
-  const hg=poisson(f.home_goal_rate,rand),ag=poisson(f.away_goal_rate,rand);
+  const matchDraw=streams?streams('MATCH',f.id):rand;
+  const hg=poisson(f.home_goal_rate,matchDraw),ag=poisson(f.away_goal_rate,matchDraw);
   matches[f.id]={home:hg,away:ag,events:[]};
   for(const [ps,gf,ga,team] of [[f.homePlayers,hg,ag,f.home],[f.awayPlayers,ag,hg,f.away]]) {
-   const shock=rand()<f.disruption_probability,z=normal(rand);
-   const keeper=weighted(ps.filter(p=>p.role==='P'),p=>p.projection.start,rand);
+   const teamDraw=streams?streams('TEAM',f.id,team):rand;
+   const shock=teamDraw()<f.disruption_probability,z=normal(teamDraw);
+   const keeper=weighted(ps.filter(p=>p.role==='P'),p=>p.projection.start,teamDraw);
    for(const p of ps) {
+    const draw=streams?streams('PLAYER',p.id):rand;
     const x=p.projection;let status='ABSENT';
     if(p.role==='P')status=keeper?.id===p.id?'START':'ABSENT';
-    else {const u=rand();status=u<x.start?'START':u<x.start+x.sub?'SUB':'ABSENT';}
-    const voted=status!=='ABSENT'&&rand()<(status==='START'?x.vote_given_start:x.vote_given_sub)&&!(shock&&rand()<x.disruption_sensitivity);
+    else {const u=draw();status=u<x.start?'START':u<x.start+x.sub?'SUB':'ABSENT';}
+    const voted=status!=='ABSENT'&&draw()<(status==='START'?x.vote_given_start:x.vote_given_sub)&&!(shock&&draw()<x.disruption_sensitivity);
     const pure=voted?(rules.league_config?
-     weighted(x.vote_pmf,v=>v.probability,rand).vote:
-     Math.max(0,Math.min(10,x.vote_mean+x.vote_sd*normal(rand)+x.team_vote_loading*z+x.conceded_vote_loading*(ga-(p.team===f.home?f.away_goal_rate:f.home_goal_rate))))):null;
-    const yellow=voted&&rand()<x.yellow_probability?1:0,red=voted&&rand()<x.red_probability?1:0;
-    const saves=voted&&p.role==='P'?poisson(x.save_rate,rand):0;
+     weighted(x.vote_pmf,v=>v.probability,draw).vote:
+     Math.max(0,Math.min(10,x.vote_mean+x.vote_sd*normal(draw)+x.team_vote_loading*z+x.conceded_vote_loading*(ga-(p.team===f.home?f.away_goal_rate:f.home_goal_rate))))):null;
+    const yellow=voted&&draw()<x.yellow_probability?1:0,red=voted&&draw()<x.red_probability?1:0;
+    const saves=voted&&p.role==='P'?poisson(x.save_rate,draw):0;
     out[p.id]={status,voted,pure,fp:0,goals:0,assists:0,yellow,red,saves,conceded:p.role==='P'&&voted?ga:0,clean_sheet:p.role==='P'&&voted&&ga===0};
    }
    // Team goals are drawn once. Unmodelled scorers/assisters retain residual mass.
    // Availability does not renormalize known-player goal shares upwards.
    for(let k=0;k<gf;k++) {
-    const scorer=weighted(ps,p=>out[p.id].voted?p.projection.goal_share:0,rand);
-    const assister=weighted(ps,p=>out[p.id].voted&&p.id!==scorer?.id?p.projection.assist_share:0,rand);
+    const scorer=weighted(ps,p=>out[p.id].voted?p.projection.goal_share:0,teamDraw);
+    const assister=weighted(ps,p=>out[p.id].voted&&p.id!==scorer?.id?p.projection.assist_share:0,teamDraw);
     if(scorer)out[scorer.id].goals++;
     if(assister)out[assister.id].assists++;
     matches[f.id].events.push({team,scorer:scorer?.id||null,assister:assister?.id||null});
@@ -76,7 +80,7 @@ function evaluate(input,candidates,options={}) {
  const n=options.iterations??100000,seed=options.seed??20261018;
  C.assert(Number.isInteger(n)&&n>=100&&n<=500000,'iterations must be 100..500000');
  C.assert(Number.isInteger(seed)&&seed>=0&&seed<=0xffffffff,'seed must be uint32');
- const model=compile(input),rand=rng(seed);
+ const model=compile(input);
  C.assert(Array.isArray(candidates)&&candidates.length>0&&candidates.length<=1000,'1..1000 candidates per evaluation');
  for(const l of candidates)C.assert(!C.validateLineup(l,input.home.roster,model.players,input.rules).length,'invalid candidate');
  const stats=candidates.map(()=>({win:0,draw:0,loss:0,points:[],opponent:[],goals:{},margins:{},missing:0,modifier:0,captain:0,recovered:0,bench:0,bonus:0,first:0,second:0,next:0}));
@@ -84,7 +88,7 @@ function evaluate(input,candidates,options={}) {
  const pairDiff=Array.from({length:candidates.length},()=>({sum:0,sum2:0}));
  for(let j=0;j<n;j++) {
   try {
-  const s=scenario(model,rand),a=C.score(input.away.lineup,s.players,model.players,input.rules),wins=[];
+  const s=scenario(model,null,scenarioStreams(seed,j)),a=C.score(input.away.lineup,s.players,model.players,input.rules),wins=[];
   for(const [id,k] of Object.entries(keeperStats)) {
    const p=s.players[id];k.fp.push(Number(p.fp));if(p.voted){k.voted++;k.clean+=Number(p.clean_sheet);k.conceded+=p.conceded;k.saves+=p.saves;k.pure.push(Number(p.pure));k.ge6+=Number(p.fp>=6);k.ge65+=Number(p.fp>=6.5);k.ge7+=Number(p.fp>=7);}
   }
@@ -121,7 +125,8 @@ function evaluate(input,candidates,options={}) {
  const keepers=Object.fromEntries(Object.entries(keeperStats).map(([id,k])=>[id,{vote_probability:k.voted/n,clean_sheet_probability:k.clean/n,
   expected_conceded:k.conceded/n,expected_saves:k.saves/n,pure_conditional_on_vote:k.pure.length?summary(k.pure):null,
   fantasy_points:k.fp.length?summary(k.fp):null,probability_ge6:k.ge6/n,probability_ge65:k.ge65/n,probability_ge7:k.ge7/n}]));
- return {version:C.VERSION,status:input.kind==='SYNTHETIC'?'SYNTHETIC_TEST_ONLY':'EXPERIMENTAL_UNCALIBRATED',gold:false,simulation_count:n,seed,
+ return {version:C.VERSION,random_engine:'PCG64_XSL_RR_128_64_ENTITY_SCENARIO_V1',
+  status:input.kind==='SYNTHETIC'?'SYNTHETIC_TEST_ONLY':'EXPERIMENTAL_UNCALIBRATED',gold:false,simulation_count:n,seed,
   confidence:'UNCALIBRATED',warnings:validation.warnings,results,keepers,
   availability:Object.fromEntries(input.players.map(p=>[p.id,C.availability(p.projection)])),
   source_health:Object.fromEntries(input.sources.map(s=>[s.id,C.freshness(s,input.as_of)])),
