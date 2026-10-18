@@ -1,0 +1,38 @@
+# FS V3.3.1 — PROVVISORIO / SHADOW ONLY.
+version: FS_LEAGUE_CONFIG_V3_3_1_CANDIDATE
+league_id: NATIONAL_LEAGUE_2026_27
+status: PROVVISORIO
+strategic_profile:
+  value: PUNTI_ATTESI
+  status: PROVVISORIA
+standings_points:
+  win: 3
+  draw: 1
+  loss: 0
+  status: PROVVISORIA
+rules:
+  fantasy_goals:
+    status: CERTIFICATA
+    first_goal: '66'
+    band_width: '4'
+    unbounded: true
+    source_type: user_supplied_screenshot
+    source_sha256: f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf
+    observed_at: '2026-10-18T20:21:00+02:00'
+  defense_modifier:
+    status: MANCANTE
+    parameters: null
+  captain_factor:
+    status: MANCANTE
+    parameters: null
+  substitution:
+    status: PROVVISORIA
+    max_changes: 5
+    mode: SAME_ROLE
+    module_change_allowed: false
+  classic_roles:
+    status: PROVVISORIA
+    values: [P, D, C, A]
+  allowed_formations:
+    status: PROVVISORIA
+    values: ['3-5-2', '3-4-3', '4-3-3', '4-4-2', '4-5-1', '5-3-2', '5-4-1']
