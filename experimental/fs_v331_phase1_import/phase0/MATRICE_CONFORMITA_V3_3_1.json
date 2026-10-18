@@ -1,0 +1,279 @@
+{
+  "contract": "FS_V3_3_1_PHASE0_AUDIT_V1",
+  "as_of": "2026-10-18",
+  "repository": {
+    "repo": "AngeloSegreto/fantasegreto",
+    "branch": "main",
+    "commit": "fa9562decb683a3d64ca248cb66ff20099ddcb54",
+    "control_room_commit": "fe8a302200592e2e6964e28a67256d4c1ebe1470"
+  },
+  "ratified_spec_sha256": "b28612633b192e4301ca7e74cc259a34fa49fef19bf5e017a30329545bcdcfc4",
+  "local_goal_lock_tests": {
+    "count": 29,
+    "pass": 29,
+    "scope": "local_attachment_only",
+    "gold": false
+  },
+  "statuses": {
+    "PARZIALMENTE IMPLEMENTATO": 19,
+    "NON IMPLEMENTATO": 4
+  },
+  "tech_pass": false,
+  "stat_validated": false,
+  "gold_lock": false,
+  "matrix": [
+    {
+      "ID Requisito": "G00",
+      "Fonte Normativa": "Source Truth",
+      "Codice Esistente": "app.js (registry/news loader); data/FOS_V2_WEB_EVIDENCE_SNAPSHOT_22SEP2026.json",
+      "Test Presenti": "Regressione FOS/registry, non test provenienza completa",
+      "Evidenza / Hash": "app.js a550f30; data/FOS_V2_WEB... (Git blob)",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Provenienza non garantita per ogni input decisionale",
+      "Criterio di Chiusura": "Snapshot grezzo+URL+timestamp per ogni feature e test negativo",
+      "Dipendenza di Promozione": "P0: G00"
+    },
+    {
+      "ID Requisito": "G01",
+      "Fonte Normativa": "Calendar Integrity",
+      "Codice Esistente": "analysis/G7_HYBRID_ROBUST_13OCT2026.md; SEASON_FORMATION_SIMULATION_25SEP2026.json",
+      "Test Presenti": "Nessun test G01 calendar join identificato",
+      "Evidenza / Hash": "analysis/G7... 30f50cc; SEASON... cc4abbb",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Fixture annotata, non join biunivoco player->club->gara verificato",
+      "Criterio di Chiusura": "Fixtures ufficiali e property test su tutte le squadre",
+      "Dipendenza di Promozione": "P0: G01"
+    },
+    {
+      "ID Requisito": "G02",
+      "Fonte Normativa": "Player Identity",
+      "Codice Esistente": "registry.json; app.js; tools/reconcile_listone_13oct.py",
+      "Test Presenti": "tools/validate_13oct_offline.py (test generale)",
+      "Evidenza / Hash": "registry.json 6b7873a; app.js a550f30",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Registro d’asta senza prova mapping interfonte per tutte le entità dell’engine partita",
+      "Criterio di Chiusura": "Crosswalk ID univoco e test collisione multi-sorgente",
+      "Dipendenza di Promozione": "P0: G02"
+    },
+    {
+      "ID Requisito": "G03",
+      "Fonte Normativa": "Role & Formation",
+      "Codice Esistente": "premium-monte-carlo-v1.js: valida XI 11 ma non tutti i moduli",
+      "Test Presenti": "premium-monte-carlo-v1.test.js verifica lunghezze/bench",
+      "Evidenza / Hash": "premium MC 7688bd0; test 619a5c2",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Manca resolver esatto moduli Classic e vincoli di ruolo su tutte candidate",
+      "Criterio di Chiusura": "Enumeratore legale completo con fixture negative",
+      "Dipendenza di Promozione": "P0: G03"
+    },
+    {
+      "ID Requisito": "G04",
+      "Fonte Normativa": "Availability",
+      "Codice Esistente": "MEDICAL_V3_22SEP2026.json; analysis/G7...",
+      "Test Presenti": "Nessun test automatico blackout indisponibili prelock rilevato",
+      "Evidenza / Hash": "MEDICAL_V3... file root; analysis 30f50cc",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Non presente esclusione vincolante per ogni indisponibile ufficiale e override",
+      "Criterio di Chiusura": "Validator availability e override append-only testato",
+      "Dipendenza di Promozione": "P0: G04"
+    },
+    {
+      "ID Requisito": "G05",
+      "Fonte Normativa": "Match Correlation",
+      "Codice Esistente": "premium-monte-carlo-v1.js: per-player normal indipendente",
+      "Test Presenti": "Test contratto bloccato, non coerenza eventi",
+      "Evidenza / Hash": "premium MC 7688bd0",
+      "Stato": "NON IMPLEMENTATO",
+      "Lacuna Rilevata": "Nessun simulatore congiunto di risultati, gol, assist, parate",
+      "Criterio di Chiusura": "Scenari congiunti con invarianti di partita",
+      "Dipendenza di Promozione": "P1 subordinato P0: G05"
+    },
+    {
+      "ID Requisito": "G06",
+      "Fonte Normativa": "Probability Domain",
+      "Codice Esistente": "premium-monte-carlo-v1.js (win/draw/loss frequencies)",
+      "Test Presenti": "premium test blocco input, nessun test dominio esaustivo",
+      "Evidenza / Hash": "premium MC 7688bd0",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Non c’è suite valori estremi + somma esatta/tolleranza dichiarata",
+      "Criterio di Chiusura": "Property test P(V)+P(N)+P(S)=1 e bounds",
+      "Dipendenza di Promozione": "P0: G06"
+    },
+    {
+      "ID Requisito": "G07",
+      "Fonte Normativa": "Substitution Consistency",
+      "Codice Esistente": "experimental/scoring-gate-v1.js; premium-monte-carlo-v1.js",
+      "Test Presenti": "scoring-gate-v1.test.js (ordine ruolo, max5, SV)",
+      "Evidenza / Hash": "scoring b00c1b4; test 6a01761",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Non replicate tutte le fixture ufficiali e casi limite",
+      "Criterio di Chiusura": "Golden di sostituzione per ogni giornata e test regressione",
+      "Dipendenza di Promozione": "P0: G07"
+    },
+    {
+      "ID Requisito": "G08",
+      "Fonte Normativa": "Goal Threshold Lock",
+      "Codice Esistente": "experimental/scoring-gate-v1.js (soglie hardcoded); package locale V3.1",
+      "Test Presenti": "Test locale package Goal Lock 29/29 PASS (18/10/26)",
+      "Evidenza / Hash": "scoring b00c1b4; evidence screenshot sha256 f2d4860",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Nel repo regole hardcoded e calcolo float/epsilon; non è config-based Decimal",
+      "Criterio di Chiusura": "Source config verificata, Decimal esatto, 65.9/98 boundaries, parity",
+      "Dipendenza di Promozione": "P0: G08,G20"
+    },
+    {
+      "ID Requisito": "G09",
+      "Fonte Normativa": "Defensive Modifier",
+      "Codice Esistente": "experimental/scoring-gate-v1.js (formula hardcoded)",
+      "Test Presenti": "scoring-gate-v1.test.js (range ipotizzati)",
+      "Evidenza / Hash": "scoring b00c1b4; test 6a01761",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Fasce/eligibility non certificate da piattaforma; vietato dichiarare GOLD",
+      "Criterio di Chiusura": "Acquisire regola ufficiale + golden nel calcolo scenari",
+      "Dipendenza di Promozione": "P0: blocco GOLD"
+    },
+    {
+      "ID Requisito": "G10",
+      "Fonte Normativa": "Captain Rules",
+      "Codice Esistente": "experimental/scoring-gate-v1.js (formula hardcoded)",
+      "Test Presenti": "scoring-gate-v1.test.js (fasce ipotizzate)",
+      "Evidenza / Hash": "scoring b00c1b4",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Bonus capitano/vice non certificato, potenziale divergenza piattaforma",
+      "Criterio di Chiusura": "Acquisire regola ufficiale e replay golden",
+      "Dipendenza di Promozione": "P0: blocco GOLD"
+    },
+    {
+      "ID Requisito": "G11",
+      "Fonte Normativa": "Keeper Comparison",
+      "Codice Esistente": "Pacchetto locale V3 goalkeeper fixture; nessuna integrazione repository",
+      "Test Presenti": "test_gk_v3.py nel package locale, da non attribuire al repo",
+      "Evidenza / Hash": "Zip V3 allegato; commit repo non integrato",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Non calcolato in formazione completa, regole/modificatore non certificate",
+      "Criterio di Chiusura": "Confronto Gollini/Meret su scenari condivisi e XI valida",
+      "Dipendenza di Promozione": "P1 dopo G05/G09"
+    },
+    {
+      "ID Requisito": "G12",
+      "Fonte Normativa": "No Future Leakage",
+      "Codice Esistente": "analysis/G7... contiene note tempo; nessun gate runtime completo",
+      "Test Presenti": "Nessun test automatico timestamp<=lock identificato",
+      "Evidenza / Hash": "analysis/G7... 30f50cc",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Prelock snapshots e ingress validator non garantiti",
+      "Criterio di Chiusura": "Fixture future-data negative + freeze immutabile",
+      "Dipendenza di Promozione": "P0: G12"
+    },
+    {
+      "ID Requisito": "G13",
+      "Fonte Normativa": "Precisione & Budget",
+      "Codice Esistente": "premium-monte-carlo-v1.js (n fisso massimo, seed)",
+      "Test Presenti": "premium test verifica input, non precisione/budget",
+      "Evidenza / Hash": "premium MC 7688bd0",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Assenti paired CI, delta, T_principale e fallback verificato",
+      "Criterio di Chiusura": "Misura errore MC e timing/fallback sulla macchina riferimento",
+      "Dipendenza di Promozione": "P0: G13"
+    },
+    {
+      "ID Requisito": "G14",
+      "Fonte Normativa": "Calibration",
+      "Codice Esistente": "Nessun artefatto calibrazione esiti o curve nel repo tree esaminato",
+      "Test Presenti": "Nessun Brier OOS calibrato identificato",
+      "Evidenza / Hash": "tree main fa9562decb68",
+      "Stato": "NON IMPLEMENTATO",
+      "Lacuna Rilevata": "Soglie e report statistici pre-registrati mancanti",
+      "Criterio di Chiusura": "Brier+curve vs B0/B1, train/test separated",
+      "Dipendenza di Promozione": "P0 per GOLD: G14"
+    },
+    {
+      "ID Requisito": "G15",
+      "Fonte Normativa": "Temporal Backtest",
+      "Codice Esistente": "analysis/G7... è analisi statica, non rolling-origin",
+      "Test Presenti": "Nessun rolling-origin automatico identificato",
+      "Evidenza / Hash": "tree main fa9562decb68",
+      "Stato": "NON IMPLEMENTATO",
+      "Lacuna Rilevata": "Nessuna prova miglioramento fuori campione",
+      "Criterio di Chiusura": "Backtest per giornata con asof snapshots certificati",
+      "Dipendenza di Promozione": "P0 per GOLD: G15"
+    },
+    {
+      "ID Requisito": "G16",
+      "Fonte Normativa": "Golden Regression",
+      "Codice Esistente": "REGRESSION_GATE_REPORT.json riguarda asta; scoring test sintetico",
+      "Test Presenti": "experimental/scoring-gate-v1.test.js fixture sintetiche",
+      "Evidenza / Hash": "REGRESSION_GATE_REPORT 856c98f; scoring test 6a01761",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Nessuna riproduzione completa totali ufficiali di tutte giornate fantasy",
+      "Criterio di Chiusura": "Fixture G1..G7 con fonte indipendente e auditor separato",
+      "Dipendenza di Promozione": "P0: G16"
+    },
+    {
+      "ID Requisito": "G17",
+      "Fonte Normativa": "Excel/PWA Parity",
+      "Codice Esistente": "ENGINE_CONTRACT_V4_0_23_1_PARITY.json riguarda asta",
+      "Test Presenti": "Test parity auction; nessuna parity match-win attestata",
+      "Evidenza / Hash": "ENGINE_CONTRACT a5f4e21",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "No engine match-win esposto in Excel e PWA con output identici",
+      "Criterio di Chiusura": "Golden parity scoring end-to-end su entrambi",
+      "Dipendenza di Promozione": "P0: G17"
+    },
+    {
+      "ID Requisito": "G18",
+      "Fonte Normativa": "Mobile UI",
+      "Codice Esistente": "index.html PWA auction; nessuna decision-first partita",
+      "Test Presenti": "audit PWA esistenti riferiti all’asta",
+      "Evidenza / Hash": "index.html d3bf169; app a550f30",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Interfaccia partita V3.3.1 assente",
+      "Criterio di Chiusura": "UI decision-first su iPhone, test viewport reale",
+      "Dipendenza di Promozione": "P0: G18"
+    },
+    {
+      "ID Requisito": "G19",
+      "Fonte Normativa": "Release Integrity",
+      "Codice Esistente": "CHECKSUMS.txt; SHA256_MANIFEST.json; sw.js; version.json",
+      "Test Presenti": "RC audit e manifests relativi all’asta",
+      "Evidenza / Hash": "version 27a18e3; checksum root esistente",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Mancano release/rollback test del match engine shadow",
+      "Criterio di Chiusura": "Bundle SHA + dry-run rollback + prova disaccoppiamento",
+      "Dipendenza di Promozione": "P0: G19"
+    },
+    {
+      "ID Requisito": "G20",
+      "Fonte Normativa": "Configurazione Lega",
+      "Codice Esistente": "FS_PREMIUM_MATCH_EVIDENCE_V1.json include league_rules incompleti",
+      "Test Presenti": "premium-monte-carlo-v1.test.js controlli fail-closed",
+      "Evidenza / Hash": "match-evidence blob contract; premium test 619a5c2",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "league_config.yaml certificato, schema, metadati, stati e hash assenti",
+      "Criterio di Chiusura": "File schema-compliant + source e hash per regola",
+      "Dipendenza di Promozione": "P0: G20"
+    },
+    {
+      "ID Requisito": "G21",
+      "Fonte Normativa": "Riproducibilità",
+      "Codice Esistente": "premium-monte-carlo-v1.js ha seed RNG (non PCG64)",
+      "Test Presenti": "Nessun replay completo output congelati testato",
+      "Evidenza / Hash": "premium MC 7688bd0",
+      "Stato": "PARZIALMENTE IMPLEMENTATO",
+      "Lacuna Rilevata": "Seed unico di sequenza dipende dall’ordine; nessun archive input/output completo",
+      "Criterio di Chiusura": "PCG64 per ID scenario, archive e replay byte-identico",
+      "Dipendenza di Promozione": "P0: G21"
+    },
+    {
+      "ID Requisito": "G22",
+      "Fonte Normativa": "Registro Decisioni",
+      "Codice Esistente": "Asta usa state-manager.js ma non override formazioni",
+      "Test Presenti": "Nessun test append-only prelock identificato",
+      "Evidenza / Hash": "state-manager.js 105c89c",
+      "Stato": "NON IMPLEMENTATO",
+      "Lacuna Rilevata": "Nessun registro prelock suggerita vs inserita",
+      "Criterio di Chiusura": "Log append-only e test override/no-after-lock",
+      "Dipendenza di Promozione": "P0: G22"
+    }
+  ]
+}

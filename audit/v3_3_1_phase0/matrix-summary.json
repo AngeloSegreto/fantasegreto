@@ -1,0 +1,107 @@
+{
+  "schema": "FS_PHASE0_MATRIX_V1",
+  "reviewed_commit": "2122699104f8923eb65d9f4c7491d4bcf48306f2",
+  "requirements": 37,
+  "columns": [
+    "ID Requisito",
+    "Fonte Normativa",
+    "Codice Esistente",
+    "Test Presenti",
+    "Evidenza / Hash",
+    "Stato",
+    "Lacuna Rilevata",
+    "Criterio di Chiusura",
+    "Dipendenza di Promozione"
+  ],
+  "status_counts": {
+    "PARZIALMENTE IMPLEMENTATO": 31,
+    "VERIFICATO": 1,
+    "NON IMPLEMENTATO": 5
+  },
+  "all_gate_ids_present": true,
+  "existing_test_groups_pass": true,
+  "target_invariance_findings": {
+    "reviewed_commit": "2122699104f8923eb65d9f4c7491d4bcf48306f2",
+    "player_permutation": {
+      "target_pass": false,
+      "original": [
+        {
+          "win": 0.3555,
+          "mean": 64.39861776417085
+        },
+        {
+          "win": 0.4215,
+          "mean": 65.61456913391771
+        }
+      ],
+      "reversed": [
+        {
+          "win": 0.336,
+          "mean": 64.13064862913073
+        },
+        {
+          "win": 0.4125,
+          "mean": 65.43837588787832
+        }
+      ],
+      "scope": "Exact seeded outcome invariance; not a test of distributional bias."
+    },
+    "candidate_tie_order": {
+      "target_pass": false,
+      "original_winner": "A",
+      "reversed_winner": "B"
+    },
+    "missing_rule": {
+      "fail_closed_pass": true,
+      "status": "BLOCKED_PENDING_VERIFIED_INPUTS",
+      "gold": false
+    },
+    "thresholds": [
+      {
+        "points": 65.9,
+        "goals": 0
+      },
+      {
+        "points": 66,
+        "goals": 1
+      },
+      {
+        "points": 69.4,
+        "goals": 1
+      },
+      {
+        "points": 70,
+        "goals": 2
+      },
+      {
+        "points": 94,
+        "goals": 8
+      },
+      {
+        "points": 98,
+        "goals": 9
+      },
+      {
+        "points": 102,
+        "goals": 10
+      }
+    ],
+    "goal_implementation": {
+      "configurable": false,
+      "decimal_exact": false,
+      "binary_number": true
+    },
+    "prng": {
+      "pcg64": false,
+      "state_bits": 32,
+      "source": "experimental/match-win-v3_2/simulator.js:rng"
+    },
+    "source": "Read-only executable probes against the inspected candidate."
+  },
+  "phase0_deliverable": "COMPLETED",
+  "phase1_tech_pass": false,
+  "stat_validated": false,
+  "gold": false,
+  "independent_auditor": false,
+  "digital_signature": false
+}

@@ -1,0 +1,26 @@
+{
+  "repository": "AngeloSegreto/fantasegreto",
+  "reviewed_branch": "feature/fs-match-win-v3-2",
+  "reviewed_commit": "2122699104f8923eb65d9f4c7491d4bcf48306f2",
+  "reviewed_tree": "949ca62d8a62fddb2999dd00844d6a6139dbfc34",
+  "production_commit": "fa9562decb683a3d64ca248cb66ff20099ddcb54",
+  "pull_request": 6,
+  "pr_draft": true,
+  "pr_state": "open",
+  "source": {
+    "type": "USER_MESSAGE_TRANSCRIPTION",
+    "user_message_time": "2026-10-18T22:14:41+02:00",
+    "canonical_segment": "audit/v3_3_1_phase0/specification-received.txt",
+    "preamble_excerpts": "audit/v3_3_1_phase0/ratification-clarifications.md",
+    "original_native_v331_file_supplied": false,
+    "canonical_segment_sha256": "6466d32004b48ab6a02a70c3868bd7d0c28c61eb3642003cad6d1d9fafa23bed",
+    "preamble_excerpts_sha256": "e9fc6502ee55f1db02ff590fd96432cf4813c4391575a57b748b246c5e366bfd",
+    "hash_scope": "Archived transcription and summarized preamble bytes only; not original message bytes, a user-supplied native V3.3.1 file, or digital signature."
+  },
+  "ratification_scope": [
+    "PHASE_0",
+    "PHASE_1_WITH_FINDINGS"
+  ],
+  "merge_authorized": false,
+  "gold": false
+}

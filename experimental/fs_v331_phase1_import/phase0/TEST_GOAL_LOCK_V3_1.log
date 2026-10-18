@@ -1,0 +1,34 @@
+test_duplicate_fixture_team (test_gk_v3.TestFSGoalkeepers.test_duplicate_fixture_team) ... ok
+test_home_away_effect (test_gk_v3.TestFSGoalkeepers.test_home_away_effect) ... ok
+test_input_cutoff (test_gk_v3.TestFSGoalkeepers.test_input_cutoff) ... ok
+test_keeper_fixture_own_match (test_gk_v3.TestFSGoalkeepers.test_keeper_fixture_own_match) ... ok
+test_no_future_data (test_gk_v3.TestFSGoalkeepers.test_no_future_data) ... ok
+test_round_requires_both_keepers (test_gk_v3.TestFSGoalkeepers.test_round_requires_both_keepers) ... ok
+test_rounds_preserved (test_gk_v3.TestFSGoalkeepers.test_rounds_preserved) ... ok
+test_seed_exact_replay (test_gk_v3.TestFSGoalkeepers.test_seed_exact_replay) ... ok
+test_shared_same_fixture (test_gk_v3.TestFSGoalkeepers.test_shared_same_fixture) ... ok
+test_strength_opponent (test_gk_v3.TestFSGoalkeepers.test_strength_opponent) ... ok
+test_goal_bands_at_boundaries (test_goal_rules.TestGoalRules.test_goal_bands_at_boundaries) ... ok
+test_goal_hierarchy_not_points_hierarchy (test_goal_rules.TestGoalRules.test_goal_hierarchy_not_points_hierarchy) ... ok
+test_match_cases_63_74 (test_goal_rules.TestGoalRules.test_match_cases_63_74) ... ok
+test_no_monte_carlo_fabrication (test_goal_rules.TestGoalRules.test_no_monte_carlo_fabrication) ... ok
+test_reject_invalid (test_goal_rules.TestGoalRules.test_reject_invalid) ... ok
+test_three_way_distribution (test_goal_rules.TestGoalRules.test_three_way_distribution) ... ok
+test_vector_parity (test_goal_rules.TestGoalRules.test_vector_parity) ... ok
+test_fantasy_goalkeeper_uses_real_match_opponent_goals (test_optimizer.TestFSV2.test_fantasy_goalkeeper_uses_real_match_opponent_goals) ... ok
+test_fixture_duplicate_club_rejected (test_optimizer.TestFSV2.test_fixture_duplicate_club_rejected) ... ok
+test_max_five_subs (test_optimizer.TestFSV2.test_max_five_subs) ... ok
+test_modifier_needs_four_voted_defenders (test_optimizer.TestFSV2.test_modifier_needs_four_voted_defenders) ... ok
+test_no_future_leakage (test_optimizer.TestFSV2.test_no_future_leakage) ... ok
+test_no_post_kickoff_retro_predict (test_optimizer.TestFSV2.test_no_post_kickoff_retro_predict) ... ok
+test_no_synthetic_g7_player_grades (test_optimizer.TestFSV2.test_no_synthetic_g7_player_grades) ... ok
+test_opponent_defense_affects_attack (test_optimizer.TestFSV2.test_opponent_defense_affects_attack) ... ok
+test_real_fixture_structure (test_optimizer.TestFSV2.test_real_fixture_structure) ... ok
+test_same_role_and_no_duplicate_substitute (test_optimizer.TestFSV2.test_same_role_and_no_duplicate_substitute) ... ok
+test_seed_determinism (test_optimizer.TestFSV2.test_seed_determinism) ... ok
+test_venue_changes_expected_scoring (test_optimizer.TestFSV2.test_venue_changes_expected_scoring) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 4.545s
+
+OK

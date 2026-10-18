@@ -1,0 +1,28 @@
+<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>FS Next Match · Candidato V3.2</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui;background:#08111d;color:#eaf0fa}*{box-sizing:border-box}body{margin:0;padding:20px max(16px,env(safe-area-inset-right)) 40px;max-width:760px;margin:auto}h1{font-size:25px;margin:8px 0}h2{font-size:18px}p{color:#bdcbe0}.tag{display:inline-block;border:1px solid #eab879;color:#f6d09c;border-radius:8px;padding:5px 10px;font-weight:700}section{background:#122136;border:1px solid #293c55;border-radius:16px;padding:18px;margin-top:16px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.cell{padding:12px;background:#0a1729;border-radius:10px;overflow-wrap:anywhere}.cell span{display:block;color:#bdcbe0;font-size:14px}.cell strong{font-size:22px}button,input{font:inherit;min-height:44px;max-width:100%}button{background:#a7e8cc;color:#06251c;border:0;border-radius:9px;padding:10px 16px;cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #ffe497;outline-offset:3px}input{display:block;margin:12px 0}ul,ol{padding-left:22px}li{overflow-wrap:anywhere}#warning{color:#ffd99c}#errors{color:#ffd1c8}details{margin-top:16px}summary{min-height:44px;cursor:pointer}@media(max-width:360px){.grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+<header><span class="tag">CANDIDATO V3.2 · NON GOLD</span><h1>FS FANTASEGRETO — NEXT MATCH</h1><p id="context">Giornata: — · Avversario: —</p><p id="warning" role="status">Previsione reale non disponibile: caricare un report con gli input verificati.</p></header>
+<section aria-labelledby="decision"><h2 id="decision">La decisione</h2><div class="grid" id="metrics"></div><p id="extra">Confidence: non calibrata. Rischio SV: —</p></section>
+<section><h2>Titolari e panchina</h2><p id="captains">Capitano: — · Vice: —</p><ol id="xi"></ol><h2>Panchina ordinata</h2><ol id="bench"></ol><p id="formation-alt">Modulo alternativo: —</p></section>
+<section><h2>Stato dati</h2><p>Importa il file <code>report.json</code> prodotto dal runner locale. I dati rimangono in questa pagina.</p><label for="report">Report della simulazione</label><input id="report" type="file" accept="application/json"><button id="demo">Apri il test sintetico</button><ul id="errors"></ul><details><summary>Limiti e verifica</summary><p>Le probabilità del test sintetico verificano il funzionamento del codice. Non descrivono Mall &amp; Dealer o AC DENTI. Le fasce di modificatore e capitano dell’esempio sono inventate per il test.</p><p>Il candidato non modifica l’asta o la dashboard di produzione. L’accettazione su iPhone fisico resta aperta.</p></details></section>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),pct=x=>Number.isFinite(x)?(100*x).toFixed(1)+'%':'—';
+function list(id,items){$(id).replaceChildren(...items.map(x=>{const li=document.createElement('li');li.textContent=x;return li;}));}
+function render(r){
+ const x=r.results?.[r.recommended_index??0],synthetic=r.status==='SYNTHETIC_TEST_ONLY';
+ $('warning').textContent=synthetic?'TEST SINTETICO — valori dimostrativi, nessuna previsione reale.':x?'Previsione sperimentale non calibrata.':'BLOCCATO — input verificati incompleti.';
+ const row=[['Modulo consigliato',x?.formation??'—'],['Portiere',x?.lineup?.starters?.[0]??'—'],['Fantapunti attesi',Number.isFinite(x?.points?.mean)?x.points.mean.toFixed(2):'—'],['Vittoria',pct(x?.win)],['Pareggio',pct(x?.draw)],['Sconfitta',pct(x?.loss)]];
+ $('metrics').replaceChildren(...row.map(([k,v])=>{const d=document.createElement('div');d.className='cell';const s=document.createElement('span'),b=document.createElement('strong');s.textContent=k;b.textContent=v;d.append(s,b);return d;}));
+ $('context').textContent=synthetic?'Giornata TEST · Avversario TEST':r.context?`Giornata ${r.context.round} · Avversario ${r.context.opponent}`:'Giornata: — · Avversario: —';
+ const names=r.context?.players||{},label=id=>names[id]?.name??id;
+ $('captains').textContent=`Capitano: ${label(x?.lineup?.captain)??'—'} · Vice: ${label(x?.lineup?.vice)??'—'}`;
+ list('xi',(x?.lineup?.starters||[]).map(id=>`${label(id)} · P(voto) ${pct(r.availability?.[id]?.vote)}${names[id]?.fixture?' · '+names[id].fixture:''}`));list('bench',(x?.lineup?.bench||[]).map(label));
+ $('extra').textContent=`Confidence: ${r.confidence??'non disponibile'} · Rischio di meno di 11 voti: ${pct(x?.incomplete_probability)} · Fantagol attesi: ${Number.isFinite(x?.expected_fantagoals)?x.expected_fantagoals.toFixed(2):'—'}`;
+ const alt=r.results?.[r.alternative_index];$('formation-alt').textContent=`Modulo alternativo: ${alt?.formation??'—'} · vantaggio sul campione indipendente: ${r.advantage?(-100*r.advantage.win_difference).toFixed(2)+' punti percentuali':'—'}`;
+ list('errors',[...(r.errors||[]),...(r.warnings||[]),...Object.entries(r.source_health||{}).map(([id,s])=>`${id}: confidence fonte ${pct(s.confidence)}, età ${s.age_hours.toFixed(1)} ore${s.needs_refresh?' — DA AGGIORNARE':''}`)]);
+}
+render({});$('report').addEventListener('change',async e=>{try{render(JSON.parse(await e.target.files[0].text()));}catch(err){list('errors',['Report non valido: '+err.message]);}});
+let busy=false;$('demo').addEventListener('click',async()=>{if(busy)return;busy=true;try{const r=await fetch('./runs/synthetic/report.json');if(!r.ok)throw Error('Test sintetico non disponibile');render(await r.json());}catch(e){list('errors',[e.message]);}finally{busy=false;}});
+</script></html>

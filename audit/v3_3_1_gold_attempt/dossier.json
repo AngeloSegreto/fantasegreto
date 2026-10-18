@@ -1,0 +1,143 @@
+{
+  "scope": "FS_MATCH_WIN_V3_3_1",
+  "gates": [
+    {
+      "id": "G00",
+      "status": "NOT_ATTESTED",
+      "open_work": "Ogni campo usato risolve a snapshot e provenienza archiviati; test negativo su snapshot assente.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G01",
+      "status": "NOT_ATTESTED",
+      "open_work": "Mapping giocatore-squadra-partita corretto per giornata; rinvii e assenze gestiti con fonte.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G02",
+      "status": "NOT_ATTESTED",
+      "open_work": "Rieseguire con ogni nuovo snapshot e mantenere mapping univoco e test negativi.",
+      "matrix_status": "VERIFICATO"
+    },
+    {
+      "id": "G03",
+      "status": "NOT_ATTESTED",
+      "open_work": "Configurazione ufficiale e test di validità di XI, ruoli, capienza e panchina per ogni candidata.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G04",
+      "status": "NOT_ATTESTED",
+      "open_work": "Esclusione dalla raccomandazione, conservazione della scelta umana separata e prova delle indisponibilita.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G05",
+      "status": "NOT_ATTESTED",
+      "open_work": "Casi strutturali su tempo in campo e regole effettive; perimetro semplificato esplicitamente limitato fino alla chiusura.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G06",
+      "status": "NOT_ATTESTED",
+      "open_work": "Contratto numerico dichiarato per conteggi, probabilita e somma; test negativi di massa e valori non finiti.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G07",
+      "status": "NOT_ATTESTED",
+      "open_work": "Riprodurre sostituzioni ufficiali su tutte le fixture certificate e configurazione delle eccezioni.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G08",
+      "status": "NOT_ATTESTED",
+      "open_work": "Soglie lette dalla configurazione; scoring decimale esatto; golden dei confini e mutazione della config senza patch al codice.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G09",
+      "status": "NOT_ATTESTED",
+      "open_work": "Regola certificata attiva/disattiva e confronto ufficiale; regola necessaria non certificata mantiene GOLD bloccato.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G10",
+      "status": "NOT_ATTESTED",
+      "open_work": "Regola ufficiale, eccezioni SV e totali certificati; sensibilita separata e nessuna promozione con regola necessaria ignota.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G11",
+      "status": "NOT_ATTESTED",
+      "open_work": "Confronto reale in XI completi, disponibilita verificata e impatto sul criterio attivo.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G12",
+      "status": "NOT_ATTESTED",
+      "open_work": "Snapshot pre-lock, tempi di pubblicazione/acquisizione e trasformazioni tracciate; test di contaminazione del contenuto.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G13",
+      "status": "NOT_ATTESTED",
+      "open_work": "Macchina ratificata, T_max e sottobudget, controllo timeout, precisione e memoria misurate sul flusso completo.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G14",
+      "status": "NOT_ATTESTED",
+      "open_work": "Superare criteri pre-registrati con campione e incertezza; separare esito condizionato a XI noti e previsione pre-lock.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G15",
+      "status": "NOT_ATTESTED",
+      "open_work": "Fold temporali reali, fonte pre-lock, baseline comparabili, metodo appaiato e incertezza pre-registrati.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G16",
+      "status": "NOT_ATTESTED",
+      "open_work": "Golden ufficiali indipendenti su dataset completo; specificare voto puro/fantavoto; auditor separato.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G17",
+      "status": "NOT_ATTESTED",
+      "open_work": "Stessi input certificati e identita di scoring, modificatori, sostituzioni e fantagol nei tre percorsi.",
+      "matrix_status": "NON IMPLEMENTATO"
+    },
+    {
+      "id": "G18",
+      "status": "NOT_ATTESTED",
+      "open_work": "Test browser eseguito e prova fisica della prima schermata con dati reali/provvisori/nulli corretti.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G19",
+      "status": "NOT_ATTESTED",
+      "open_work": "Manifest completo, versione/config compatibili, rollback eseguito, nessun gate necessario pendente.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G20",
+      "status": "NOT_ATTESTED",
+      "open_work": "Schema e controlli semantici, valori ufficiali e tracciamento dei campi non certificati; test negativi.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G21",
+      "status": "NOT_ATTESTED",
+      "open_work": "Replay contenuto decisionale identico in ambiente dichiarato, file originali archiviati, canonicalizzazione e test di permutazione.",
+      "matrix_status": "PARZIALMENTE IMPLEMENTATO"
+    },
+    {
+      "id": "G22",
+      "status": "NOT_ATTESTED",
+      "open_work": "Raccomandazione e scelta umana separate, timestamp entro lock, modifiche append-only e test negativi.",
+      "matrix_status": "NON IMPLEMENTATO"
+    }
+  ]
+}

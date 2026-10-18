@@ -1,0 +1,294 @@
+{
+  "schema": "FS_MATCH_WIN_GOLD_EVIDENCE_AUDIT_V1",
+  "scope": "FS_MATCH_WIN_V3_3_1",
+  "reviewed_tree": "80fcd072ea657f03731533cbfff38d110b1f3ad7",
+  "status": "GOLD_LOCK_BLOCKED",
+  "eligible_for_release_review": false,
+  "gold_lock": false,
+  "automatic_promotion": false,
+  "note": "Evidence admissibility audit; not a statistical certification or promotion.",
+  "gates": [
+    {
+      "id": "G00",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Ogni campo usato risolve a snapshot e provenienza archiviati; test negativo su snapshot assente."
+    },
+    {
+      "id": "G01",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Mapping giocatore-squadra-partita corretto per giornata; rinvii e assenze gestiti con fonte."
+    },
+    {
+      "id": "G02",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Rieseguire con ogni nuovo snapshot e mantenere mapping univoco e test negativi."
+    },
+    {
+      "id": "G03",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Configurazione ufficiale e test di validità di XI, ruoli, capienza e panchina per ogni candidata."
+    },
+    {
+      "id": "G04",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Esclusione dalla raccomandazione, conservazione della scelta umana separata e prova delle indisponibilita."
+    },
+    {
+      "id": "G05",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Casi strutturali su tempo in campo e regole effettive; perimetro semplificato esplicitamente limitato fino alla chiusura."
+    },
+    {
+      "id": "G06",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Contratto numerico dichiarato per conteggi, probabilita e somma; test negativi di massa e valori non finiti."
+    },
+    {
+      "id": "G07",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Riprodurre sostituzioni ufficiali su tutte le fixture certificate e configurazione delle eccezioni."
+    },
+    {
+      "id": "G08",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Soglie lette dalla configurazione; scoring decimale esatto; golden dei confini e mutazione della config senza patch al codice."
+    },
+    {
+      "id": "G09",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Regola certificata attiva/disattiva e confronto ufficiale; regola necessaria non certificata mantiene GOLD bloccato."
+    },
+    {
+      "id": "G10",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Regola ufficiale, eccezioni SV e totali certificati; sensibilita separata e nessuna promozione con regola necessaria ignota."
+    },
+    {
+      "id": "G11",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Confronto reale in XI completi, disponibilita verificata e impatto sul criterio attivo."
+    },
+    {
+      "id": "G12",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Snapshot pre-lock, tempi di pubblicazione/acquisizione e trasformazioni tracciate; test di contaminazione del contenuto."
+    },
+    {
+      "id": "G13",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Macchina ratificata, T_max e sottobudget, controllo timeout, precisione e memoria misurate sul flusso completo."
+    },
+    {
+      "id": "G14",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH",
+        "PREREGISTERED_PROTOCOL_MISSING_OR_HASH_MISMATCH",
+        "HELD_OUT_DATASET_MISSING_OR_HASH_MISMATCH",
+        "MEASURED_REPORT_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Superare criteri pre-registrati con campione e incertezza; separare esito condizionato a XI noti e previsione pre-lock."
+    },
+    {
+      "id": "G15",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH",
+        "PREREGISTERED_PROTOCOL_MISSING_OR_HASH_MISMATCH",
+        "HELD_OUT_DATASET_MISSING_OR_HASH_MISMATCH",
+        "MEASURED_REPORT_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Fold temporali reali, fonte pre-lock, baseline comparabili, metodo appaiato e incertezza pre-registrati."
+    },
+    {
+      "id": "G16",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Golden ufficiali indipendenti su dataset completo; specificare voto puro/fantavoto; auditor separato."
+    },
+    {
+      "id": "G17",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Stessi input certificati e identita di scoring, modificatori, sostituzioni e fantagol nei tre percorsi."
+    },
+    {
+      "id": "G18",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Test browser eseguito e prova fisica della prima schermata con dati reali/provvisori/nulli corretti."
+    },
+    {
+      "id": "G19",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Manifest completo, versione/config compatibili, rollback eseguito, nessun gate necessario pendente."
+    },
+    {
+      "id": "G20",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Schema e controlli semantici, valori ufficiali e tracciamento dei campi non certificati; test negativi."
+    },
+    {
+      "id": "G21",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Replay contenuto decisionale identico in ambiente dichiarato, file originali archiviati, canonicalizzazione e test di permutazione."
+    },
+    {
+      "id": "G22",
+      "admissible": false,
+      "reasons": [
+        "REVIEWED_PASS_MISSING",
+        "WRONG_OR_MISSING_ENGINE_SCOPE",
+        "WRONG_OR_MISSING_REVIEWED_TREE",
+        "REVIEWER_MISSING",
+        "EVIDENCE_MISSING_OR_HASH_MISMATCH"
+      ],
+      "open_work": "Raccomandazione e scelta umana separate, timestamp entro lock, modifiche append-only e test negativi."
+    }
+  ]
+}

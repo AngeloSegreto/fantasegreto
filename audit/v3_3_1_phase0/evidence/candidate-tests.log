@@ -1,0 +1,31 @@
+✔ G8 strict goal boundaries across all 30 bands, no epsilon promotion (1.905147ms)
+✔ G0 G1 G2 G3 valid example and every formation (7.475854ms)
+✔ G6 rejects missing, nonfinite, out-of-domain probabilities (8.65047ms)
+✔ G0 G12 rejects stale certification labels, future sources and fixture leakage (6.530004ms)
+✔ G2 G3 duplicate identity, missing fixture, illegal XI and ownership blocked (3.92499ms)
+✔ G4 unavailable lock, mutually exclusive keepers, state simplex (1.418116ms)
+✔ G5 shared match goals conserved, assists linked, keeper opposition and exclusivity (39.469277ms)
+✔ G7 display bench order has priority across roles and maximum 5 substitutions (2.170956ms)
+✔ G9 modifier requires four rated defenders after substitutions and pure votes (1.438766ms)
+✔ G10 captain SV uses vice, replacements do not inherit marker (0.960148ms)
+✔ seed replay identical and winner/draw/loss simplex (37.388256ms)
+✔ G13 sample count and seed validation; blocked input has zero runs (1.297777ms)
+✔ optimizer values wins over means: constructed threshold counterexample (0.273313ms)
+✔ exhaustive enumerate small roster across forms, rejects huge joint search (8.23045ms)
+✔ optimizer uses separate holdout seed and identifies explicit panel scope (8.823909ms)
+✔ freshness confidence decays without inventing new probabilities (0.513212ms)
+✔ Bayesian updates reject future labels (0.315208ms)
+✔ Brier, log loss and calibration tested against known values (0.357973ms)
+✔ rolling folds never expose held-out labels or unfinished rounds (0.6231ms)
+✔ G16 G7 outcomes retained as observations only, oracle diagnoses supplied panel (1.632214ms)
+✔ LIVE what-if never randomizes observed state; ongoing simulation blocked (1.699306ms)
+✔ candidate HTML script syntax, unique IDs, explicit synthetic entry and no paid endpoints (1.334532ms)
+✔ frozen runner refuses existing output directory without overwriting input (1.714882ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 258.885952

@@ -1,0 +1,26 @@
+test_A_significantly_superior (test_decision_protocol.PairedComparisonTests.test_A_significantly_superior) ... ok
+test_B_significantly_superior (test_decision_protocol.PairedComparisonTests.test_B_significantly_superior) ... ok
+test_equivalent_canonical (test_decision_protocol.PairedComparisonTests.test_equivalent_canonical) ... ok
+test_inconclusive_uses_primary_not_secondary (test_decision_protocol.PairedComparisonTests.test_inconclusive_uses_primary_not_secondary) ... ok
+test_refuse_invalid_prob_outcomes (test_decision_protocol.PairedComparisonTests.test_refuse_invalid_prob_outcomes) ... ok
+test_refuse_unpaired_inputs (test_decision_protocol.PairedComparisonTests.test_refuse_unpaired_inputs) ... ok
+test_append_and_chain (test_decision_protocol.PrelockTests.test_append_and_chain) ... ok
+test_override_without_actual_rejected (test_decision_protocol.PrelockTests.test_override_without_actual_rejected) ... ok
+test_postlock_rejected (test_decision_protocol.PrelockTests.test_postlock_rejected) ... ok
+test_tampered_detected (test_decision_protocol.PrelockTests.test_tampered_detected) ... ok
+test_bench_order_preserved (test_p0_core.ContractTests.test_bench_order_preserved) ... ok
+test_config_validation_negative (test_p0_core.ContractTests.test_config_validation_negative) ... ok
+test_duplicate_identity_negative (test_p0_core.ContractTests.test_duplicate_identity_negative) ... ok
+test_failclosed_on_missing_rules (test_p0_core.ContractTests.test_failclosed_on_missing_rules) ... ok
+test_goal_boundaries (test_p0_core.ContractTests.test_goal_boundaries) ... ok
+test_input_permutations_starter_invariant (test_p0_core.ContractTests.test_input_permutations_starter_invariant) ... ok
+test_monotonicity (test_p0_core.ContractTests.test_monotonicity) ... ok
+test_no_float_binary (test_p0_core.ContractTests.test_no_float_binary) ... ok
+test_pcg64_changes_with_scenario (test_p0_core.ContractTests.test_pcg64_changes_with_scenario) ... ok
+test_pcg64_per_player_per_scenario_invariant (test_p0_core.ContractTests.test_pcg64_per_player_per_scenario_invariant) ... ok
+test_source_sha256 (test_p0_core.ContractTests.test_source_sha256) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.058s
+
+OK
