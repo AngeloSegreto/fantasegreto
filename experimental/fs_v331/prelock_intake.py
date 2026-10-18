@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 import json
+import yaml
 from datetime import datetime, timezone
 from decimal import Decimal
 from shadow_evidence import freeze_prelock, verify_archive, parse_time
@@ -16,7 +17,7 @@ def _require(cond, message):
 
 def _j(path):
     with open(path, encoding='utf-8') as f:
-        return json.load(f)
+        return yaml.safe_load(f) if str(path).endswith(('.yaml', '.yml')) else json.load(f)
 
 def verify_fixture_calendar(calendar):
     """Calendar contract check, not proof of source provenance/G01 certification."""
