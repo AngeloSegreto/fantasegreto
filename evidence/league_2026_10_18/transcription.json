@@ -1,0 +1,172 @@
+{
+  "version": "FS_LEAGUE_SCREENSHOTS_V3_3_1_20261018",
+  "league_id": "NATIONAL_LEAGUE_2026_27",
+  "league_identity_basis": "User conversation; league name not visible in settings crops",
+  "status": "PARTIALLY_VERIFIED",
+  "sources": {
+    "IMG_9122(1).png": {
+      "path": "evidence/league_2026_10_18/IMG_9122.png",
+      "sha256": "f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf",
+      "received_at": "2026-10-18T23:03:06+02:00",
+      "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+      "url": null,
+      "scope": "Visible settings only; no retroactive pre-lock evidence"
+    },
+    "IMG_9123.png": {
+      "path": "evidence/league_2026_10_18/IMG_9123.png",
+      "sha256": "ee925c7d3fd00316b0cc71ec579cb865a4fe3affd4184e52d6328aa4ed42a542",
+      "received_at": "2026-10-18T23:03:06+02:00",
+      "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+      "url": null,
+      "scope": "Visible settings only; no retroactive pre-lock evidence"
+    },
+    "IMG_9124.png": {
+      "path": "evidence/league_2026_10_18/IMG_9124.png",
+      "sha256": "e44851694f5b61565b057b6d8e61768fe27e490192939f56f2f52cbfa9bb61ab",
+      "received_at": "2026-10-18T23:03:06+02:00",
+      "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+      "url": null,
+      "scope": "Visible settings only; no retroactive pre-lock evidence"
+    },
+    "IMG_9125.png": {
+      "path": "evidence/league_2026_10_18/IMG_9125.png",
+      "sha256": "217212830225922688005ab9e99a8f62641ee66885500d8099360afeec8817db",
+      "received_at": "2026-10-18T23:03:06+02:00",
+      "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+      "url": null,
+      "scope": "Visible settings only; no retroactive pre-lock evidence"
+    },
+    "IMG_9126.png": {
+      "path": "evidence/league_2026_10_18/IMG_9126.png",
+      "sha256": "b69916e5f5d69ae4f936e7ec9ca1d89975df4b152b9398c6f97108a917e08d95",
+      "received_at": "2026-10-18T23:03:06+02:00",
+      "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+      "url": null,
+      "scope": "Visible settings only; no retroactive pre-lock evidence"
+    },
+    "IMG_9127.png": {
+      "path": "evidence/league_2026_10_18/IMG_9127.png",
+      "sha256": "aac35e4abbc1d150d96c2f69a42672652bc186fb718ee120d067cd2ff62c70b5",
+      "received_at": "2026-10-18T23:03:06+02:00",
+      "source_type": "USER_SUPPLIED_LEAGUE_APP_SCREENSHOT",
+      "url": null,
+      "scope": "Visible settings only; no retroactive pre-lock evidence"
+    }
+  },
+  "rules": {
+    "fantasy_goals": {
+      "status": "SCREENSHOT_VERIFIED",
+      "first_goal": "66",
+      "band_width": "4",
+      "fixed": true,
+      "unbounded": true,
+      "unbounded_basis": "Ratified V3.3.1; screenshot displays through 94",
+      "source": "IMG_9122(1).png"
+    },
+    "substitutions": {
+      "status": "VISIBLE_SETTINGS_VERIFIED",
+      "maximum": 5,
+      "type_label": "Traditional",
+      "office_reserve_enabled": false,
+      "source": "IMG_9123.png",
+      "detailed_sv_policy": null
+    },
+    "defense_modifier": {
+      "status": "VISIBLE_SETTINGS_VERIFIED",
+      "enabled": true,
+      "minimum_effective_defenders": 4,
+      "top_defenders": 3,
+      "include_keeper": true,
+      "apply_to": "OWN_TEAM",
+      "basis": "PURE_VOTE",
+      "after_substitutions": true,
+      "office_reserve_eligible": false,
+      "political_six_vote": "6",
+      "sv_yellow_vote_if_validated": "6",
+      "sv_yellow_validation_enabled": null,
+      "bands": [
+        {
+          "minimum": null,
+          "bonus": "0"
+        },
+        {
+          "minimum": "6",
+          "bonus": "0"
+        },
+        {
+          "minimum": "6.25",
+          "bonus": "0.5"
+        },
+        {
+          "minimum": "6.5",
+          "bonus": "1"
+        },
+        {
+          "minimum": "6.75",
+          "bonus": "1.5"
+        },
+        {
+          "minimum": "7",
+          "bonus": "2"
+        }
+      ],
+      "sources": [
+        "IMG_9125.png",
+        "IMG_9127.png"
+      ]
+    },
+    "captain_factor": {
+      "status": "VISIBLE_SETTINGS_VERIFIED",
+      "enabled": true,
+      "vice_when_captain_without_vote": true,
+      "designate_each_match": true,
+      "double_bonuses": false,
+      "double_penalties": false,
+      "at_or_below": {
+        "vote": "4.5",
+        "bonus": "-1.5"
+      },
+      "exact_votes": {
+        "5": "-1",
+        "5.5": "0",
+        "6": "0",
+        "6.5": "0",
+        "7": "1"
+      },
+      "at_or_above": {
+        "vote": "7.5",
+        "bonus": "1.5"
+      },
+      "unlisted_vote_policy": null,
+      "both_without_vote_policy": null,
+      "source": "IMG_9126.png"
+    },
+    "bonus_malus": {
+      "status": "VISIBLE_SETTINGS_VERIFIED",
+      "values": {
+        "conceded_goal": "-1",
+        "penalty_scored": "3",
+        "penalty_missed": "-2",
+        "penalty_saved": "3",
+        "yellow": "-0.5",
+        "red": "-1",
+        "assist_standard": "1",
+        "assist_soft": "0.5",
+        "assist_gold": "1.5",
+        "own_goal": "-2",
+        "equalizing_goal": "0",
+        "winning_goal": "0",
+        "clean_sheet": "1",
+        "player_of_match": "0"
+      },
+      "ordinary_goal": null,
+      "source": "IMG_9124.png",
+      "note": "Upper page is not shown; ordinary goal bonus not certified by this crop"
+    }
+  },
+  "release": {
+    "gold_lock": false,
+    "stat_validated": false,
+    "tech_pass": false
+  }
+}
