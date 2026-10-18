@@ -1,0 +1,85 @@
+{
+  "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
+  "generated_utc": "2026-10-18T21:55:00Z",
+  "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
+  "candidate_branch": "fs-v331-evidence-custody-phase1",
+  "target_branch": "fs-v331-shadow-phase1",
+  "production_branch": "main",
+  "candidate_state": "SHADOW",
+  "promotion": {
+    "TECH_PASS": false,
+    "STAT_VALIDATED": false,
+    "GOLD_LOCK": false,
+    "gold_flag_mutation": false
+  },
+  "current_ci": {
+    "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
+    "head_sha": "b633e3dbf2be53796417a66dc7509d083e89d1e0",
+    "run_id": 39169894005,
+    "tests_passed": 31,
+    "tests_total": 31,
+    "conclusion": "success",
+    "scope": "SOFTWARE_UNIT_TESTS_ONLY"
+  },
+  "verified_evidence": [
+    {
+      "area": "goal_band_66_4",
+      "source": "user-provided screenshot IMG_9122.png",
+      "sha256": "f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf",
+      "level": "RULE_INPUT_HASH_VERIFIED"
+    },
+    {
+      "area": "CI_SHADOW_TESTS",
+      "level": "31_UNIT_TESTS_PASS",
+      "run_id": 39169894005
+    }
+  ],
+  "real_prelock_forecasts_available_for_certified_backtest": false,
+  "observed_official_outcomes_reconciled_for_certified_backtest": false,
+  "holdouts_verified": false,
+  "blocking_rules": [
+    "defense_modifier",
+    "captain_factor",
+    "substitution_semantics",
+    "official_formation_set",
+    "standings_points"
+  ],
+  "blocking_gates": [
+    "G00",
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G09",
+    "G10",
+    "G11",
+    "G12",
+    "G13",
+    "G14",
+    "G15",
+    "G16",
+    "G17",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22"
+  ],
+  "next_actions": [
+    "Certified league settings and official replay fixtures",
+    "Real prelock source snapshots with third-party timestamp",
+    "Pre-registered statistical protocol ratified before validation",
+    "Observed official matchday scores with independent score audit",
+    "Rolling-origin candidate versus B0/B1 over the pre-registered holdout",
+    "Full CI/replay and physical iPhone gate"
+  ],
+  "notes": [
+    "Do not interpret 31 tests as STAT VALIDATED.",
+    "Archive SHA-256 verifies byte integrity but not external provenance.",
+    "Real-time capture remains unintegrated with the simulator.",
+    "Never set gold=true without independent signed evidence."
+  ]
+}
