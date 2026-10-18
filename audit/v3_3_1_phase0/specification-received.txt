@@ -1,0 +1,118 @@
+FS FANTASEGRETO — Master Prompt V3.3.1 (Canonico)
+Data: 18 Ottobre 2026
+Autore: @Angelo Segreto (CTO)
+Stato: RATIFICATO PER LA FASE 0 ED IL PARALLELO FASE 1
+1. Versione, Precedenza e Convenzioni
+La versione V3.3.1 sostituisce interamente tutte le iterazioni precedenti (V3.2, V3.3 base). Fornisce una specifica architetturale deterministica, verificabile e priva di assunzioni trionfalistiche o ambiguità operative.
+Ordine di Precedenza Normativa
+In caso di divergenze o conflitti semantici tra i file di progetto, l'ordine di autorità vincolante è:
+ * Configurazione di Lega Certificata (league_config.yaml)
+ * Questo Master Prompt V3.3.1
+ * Documenti di Appendice e Contesto Storico
+Glossario della Rilevanza (RFC 2119)
+ * DEVE / NON DEVE: Requisito vincolante ed inderogabile.
+ * DOVREBBE: Comportamento di default; derogabile solo previa giustificazione scritta e tracciata.
+ * PUÒ: Funzionalità facoltativa o opzionale.
+Livelli di Priorità
+ * P0: Architettura di base e contratti vincolanti. Da realizzare e verificare prima di qualsiasi promozione.
+ * P1: Miglioramento incrementale. Da valutare rispetto al baseline pre-registrato.
+ * P2: Modulo avanzato o condizionato. Promosso in produzione solo in presenza di comprovata evidenza fuori campione.
+2. Missione, Verdetti di Rilascio e Definition of Done
+Prima del blocco delle formazioni (lock), il sistema sceglie ed espone la formazione che massimizza il criterio primario dichiarato, avvalendosi esclusivamente delle informazioni disponibili e verificate entro quel preciso istante temporale.
+Verdetti di Rilascio e Separazione dei Ruoli
+I test tecnici superati non chiudono la calibrazione e la validazione predittiva. Si definiscono tre verdetti distinti:
+ * TECH PASS: Superamento completo di tutti i test software, determinismo, gestione della memoria e contratti di configurazione.
+ * STAT VALIDATED: Superamento delle metriche di calibrazione (G14) e backtest temporale (G15) secondo il protocollo pre-registrato su dati fuori campione.
+ * GOLD LOCK: Conseguimento simultaneo di TECH PASS e STAT VALIDATED. Soltanto in questo stato la candidata può sostituire l'incumbent in produzione.
+Fino al raggiungimento di GOLD LOCK, ogni nuovo engine opera in Modalità Ombra (Shadow Mode), generando decisioni congelate in parallelo senza sovrascrivere l'incumbent.
+Definition of Done per la Fase 1 (MVP Baseline)
+ * Configurazione di Lega: File schema YAML/JSON validato con controlli semantici, fonti, date e hash.
+ * Accuratezza Storica: Il motore di scoring riproduce con accuratezza esatta i totali e i fantagol di tutte le giornate storiche certificate.
+ * Execution Budget: Una run completa produce la scheda decisionale entro T_{\text{principale}} garantendo il completamento di eventuale ripiego e pubblicazione prima del lock.
+ * Riproducibilità: Ogni decisione salvata si ricostruisce dall'archivio producendo un output decisionale identico.
+ * Registro Override: Sistema append-only attivo che traccia raccomandazione ed inserimento umano prima del calcio d'inizio.
+ * Matrice di Conformità: Compilata, validata e firmata con i test di riscontro.
+3. Profilo Strategico e Contratto Statistico di Confronto
+Criteri Primari di Profilo
+Il sistema ottimizza un singolo criterio primario pre-registrato per la stagione:
+ * PUNTI_ATTESI (Default): Massimizza E[\text{Punti}] = 3 \cdot P(V) + 1 \cdot P(N).
+ * MAX_VITTORIA: Massimizza P(V).
+Qualora i due profili indichino formazioni differenti, la Control Room DEVE mostrare entrambe le alternative con la rispettiva distribuzione.
+Contratto Statistico di Confronto ([L, U] vs [-\delta, +\delta])
+Sia [L, U] l'intervallo di confidenza al (1-\alpha)\% della differenza appaiata (A - B) calcolata sul criterio primario, e sia [-\delta, +\delta] il margine di rilevanza pratica pre-registrato.
+Nota di salvaguardia: Il verdetto INCONCLUDENTE segnala un'insufficienza di precisione Monte Carlo e NON DEVE autorizzare il sistema a sacrificare il criterio primario (es. punti attesi) per favorire criteri secondari (es. P(V)).
+Sequenza di Spareggio per Formazioni Equivalenti
+Se il verdetto è EQUIVALENTI ENTRO δ, l'etichetta statistica rimane invariata nel report e la decisione operativa applica il seguente ordine deterministico:
+ * Criterio Secondario di Profilo:
+   * Se Profilo = PUNTI_ATTESI \rightarrow Scegli P(V) maggiore.
+   * Se Profilo = MAX_VITTORIA \rightarrow Scegli Punti Attesi maggiori.
+ * Rischio di Sconfitta: Scegli P(S) minore.
+ * Continuità Operativa: Scegli la formazione raccomandata al turno precedente, A CONDIZIONE che sia stata completamente rivalutata e validata sugli input attuali.
+ * Spareggio Canonico Stabile: Ordine lessicografico dell'Hash dell'Identità Completa della Decisione.
+4. Identità Completa della Decisione e Invarianza PRNG
+Identità Canonica della Decisione
+L'identità di una formazione NON DEVE basarsi esclusivamente sull'elenco dei titolari. Deve rappresentare l'intera configurazione operativa:
+Permutazioni e Normalizzazione degli Input
+ * Input Normalizzati (Invarianti): L'ordinamento delle righe nei file JSON/YAML o la sequenza delle candidate nell'array di input vengono normalizzati in base all'ID univoco canonico prima del passaggio al motore di simulazione.
+ * Permutazioni Operative (Preservate): L'ordine dell'array panchina NON DEVE essere riordinato, poiché stabilisce la cascata di sostituzione.
+ * Generatore di Casuialità (PRNG): Si utilizza l'algoritmo PCG64 con semina derivata da Hash(master_seed, ID_giocatore_canonico, numero_scenario). Il consumo di numeri casuali è ancorato all'ID del giocatore, garantendo che il riordinamento dei file di input non alteri gli esiti estratti per ciascun atleta.
+5. Ripartizione del Budget Temporale e Gestione del Fallback
+Vincolo di Budget Temporale Operativo
+Il tempo totale di esecuzione deve rispettare la seguente scomposizione rigida prima del blocco delle formazioni:
+│◄───────────────────────── T_disponibile prima del lock ─────────────────────────►│
+├───────────────────────────────────┬──────────────────────┬──────────────────────┤
+│     T_principale (Timeout)        │      T_ripiego       │   T_pubblicazione    │
+└───────────────────────────────────┴──────────────────────┴──────────────────────┘
+
+ * Interruzione Forzata: Se il motore principale raggiunge T_{\text{principale}} senza aver completato le simulazioni, viene interrotto.
+ * Attivazione Fallback: Il sistema esegue il ripiego pre-testato e verificato nel tempo T_{\text{ripiego}}, pubblicando l'output con l'etichetta "MODALITÀ RIPIEGO".
+ * Stato Senza Ripiego: Qualora non esista un motore di ripiego verificato e compatibile con la configurazione corrente, la voce T_{\text{ripiego}} è pari a 0 e il sistema restituisce lo stato RIPIEGO NON DISPONIBILE, richiedendo l'intervento manuale.
+6. Regole di Lega, Soglie Fantagol e Regole Mancanti (P0)
+Configurazione Centralizzata (league_config.yaml)
+Ogni regola di lega DEVE risiedere in un file di configurazione versionato e validato via schema. È severamente vietato hardcodare costanti o regole nel codice sorgente.
+ * Soglie Fantagol (LOCK V3.1): Calcolate sul fantapunteggio totale T con precisione decimale esatta (nessun arrotondamento float binario o interi intermedi):
+   
+   * Punti limite vincolanti: 65.9 \rightarrow 0; 66.0 \rightarrow 1; 69.4 \rightarrow 1; 70.0 \rightarrow 2; 94.0 \rightarrow 8; 98.0 \rightarrow 9. La formula non prevede tetti artificiali a 94.
+Gestione delle Regole Mancanti o Non Certificate
+ * Se una regola di lega (es. Modificatore Difesa o Regola Capitano) è necessaria ma non ancora certificata da fonte ufficiale:
+   * Il sistema genera scenari di sensibilità separati.
+   * L'output della run viene tassativamente etichettato come PROVVISORIO.
+   * Clausola Prevalente su G9/G10: Una regola necessaria e non certificata BLOCCA TASSATIVAMENTE IL VERDETTO GOLD LOCK, impedendo la promozione dell'engine in produzione.
+7. Quality Gates e Requisiti di Accettazione
+Per ottenere la certificazione, l'architettura deve soddisfare la seguente matrice di Quality Gates:
+| ID | Quality Gate | Tipo | Criterio di Accettazione Vincolante |
+|---|---|---|---|
+| G00 | Source Truth | Software | Ogni dato di input dispone di URL, timestamp di osservazione e snapshot archiviato. |
+| G01 | Calendar Integrity | Software | Corrispondenza biunivoca tra giocatori, squadre e calendario ufficiale della Serie A. |
+| G02 | Player Identity | Software | Mappatura univoca degli ID giocatori tra le differenti fonti senza collisioni. |
+| G03 | Role & Formation | Software | Rispetto dei moduli ammessi e dei ruoli Classic della rosa in tutte le candidate. |
+| G04 | Availability | Software | Esclusione dai titolari degli indisponibili ufficiali, salvo override tracciato. |
+| G05 | Match Correlation | Software | Coerenza strutturale tra gol subiti dal portiere, marcatori, assist e avversari. |
+| G06 | Probability Domain | Software | Probabilità p \in [0, 1]; somma delle probabilità sugli esiti P(V) + P(N) + P(S) = 1.0. |
+| G07 | Substitution Consistency | Software | Corretta esecuzione della cascata di sostituzione su tutte le fixture storiche. |
+| G08 | Goal Threshold Lock | Software | Verificato il calcolo esatto dei fantagol su tutti i punti di controllo senza tetti. |
+| G09 | Defensive Modifier | Software | Calcolo esatto del modificatore difesa; se la regola è assente \rightarrow Stato PROVVISORIO. |
+| G10 | Captain Rules | Software | Calcolo esatto del bonus capitano/vice; se la regola è assente \rightarrow Stato PROVVISORIO. |
+| G11 | Keeper Comparison | Software | Confronto dei portieri eseguito in formazione completa e su scenari condivisi. |
+| G12 | No Future Leakage | Software | Verifica automatizzata: nessun dato di input reca timestamp successivo al lock. |
+| G13 | Precisione & Budget | Numerico | Esecuzione completata entro T_{\text{principale}} con errore Monte Carlo dichiarato. |
+| G14 | Calibration | Predittivo | Curve di calibrazione e Brier Score validati sul baseline fuori campione. |
+| G15 | Temporal Backtest | Predittivo | Backtest con tecnica rolling-origin senza data leakage e con miglioramento misurato. |
+| G16 | Golden Regression | Software | Totali e fantagol riprodotti al 100% rispetto alle tabelle ufficiali certificate. |
+| G17 | Excel/PWA Parity | Software | Identità esatta dei risultati tra il motore di calcolo e la PWA Control Room. |
+| G18 | Mobile UI | Software | Visualizzazione della scheda decisionale decision-first su schermo iPhone. |
+| G19 | Release Integrity | Software | Integrità del pacchetto di rilascio, presenza di hash e procedura di rollback testata. |
+| G20 | Configurazione Lega | Software | Validazione dello schema YAML e presenza dei metadati per ogni regola. |
+| G21 | Riproducibilità | Software | Ricostruzione deterministica dell'output dall'archivio a parità di input e seed. |
+| G22 | Registro Decisioni | Software | Tracciamento append-only di raccomandazione ed override prima del calcio d'inizio. |
+8. Schema della Matrice di Conformità (Deliverable Fase 0)
+L'Agente di sviluppo è istruito a produrre, come primissimo deliverable operativo della Fase 0, la Matrice di Conformità del Repository compilata secondo la seguente struttura rigida a 9 colonne:
+Vocabolario Ammesso per la Colonna "Stato"
+ * NON IMPLEMENTATO: Nessuna riga di codice o script presente.
+ * DA VERIFICARE: Codice presente ma privo di test automatizzati o con evidenze obsolete.
+ * PARZIALMENTE IMPLEMENTATO: Codice presente ma non conforme a tutti i casi limite definiti nel Master Prompt V3.3.1.
+ * VERIFICATO: Codice perfettamente conforme, test automatizzati superati con esito positivo, registro ed hash verificati ed archiviati. L'uso della parola "IMPLEMENTATO" priva di verifica di test è severamente proibita.
+9. Autorizzazione Operativa
+ * FASE 0 (Ispezione Codebase e Matrice di Conformità): AUTORIZZATA SUBITO.
+ * FASE 1 (Sviluppo Architettura P0 e Baseline): AUTORIZZATA CON TRACCIAMENTO DEI RILIEVI.
+ * Specifica V3.3.1: CONGELATA E DEFINITIVA. Non sono ammesse ulteriori espansioni teoriche o architetturali prima della consegna dei test della Fase 1.
