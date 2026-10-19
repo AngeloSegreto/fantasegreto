@@ -30,8 +30,11 @@ class ContractTests(unittest.TestCase):
     def test_failclosed_certification_transition(self):
         import copy
         baseline = promotion_state(self.cfg)
-        self.assertEqual(set(baseline['uncertified']), {'classic_roles', 'allowed_formations'})
+        self.assertEqual(set(baseline['uncertified']), set())
         self.assertNotIn('captain_factor', baseline['uncertified'])
+        self.assertEqual(baseline['status'], 'RULES_VERIFIED_ONLY')
+        self.assertFalse(baseline['TECH_PASS'])
+        self.assertFalse(baseline['STAT_VALIDATED'])
         self.assertFalse(baseline['GOLD_LOCK'])
         degraded = copy.deepcopy(self.cfg)
         degraded['rules']['captain_factor']['status'] = 'MANCANTE'
@@ -41,12 +44,18 @@ class ContractTests(unittest.TestCase):
         self.assertFalse(result['TECH_PASS'])
         self.assertFalse(result['STAT_VALIDATED'])
         self.assertFalse(result['GOLD_LOCK'])
+        for rule in ('classic_roles', 'allowed_formations'):
+            degraded_rule = copy.deepcopy(self.cfg)
+            degraded_rule['rules'][rule]['status'] = 'PROVVISORIA'
+            gated = promotion_state(degraded_rule)
+            self.assertIn(rule, gated['uncertified'])
+            self.assertFalse(gated['GOLD_LOCK'])
     def test_failclosed(self):
         s=promotion_state(self.cfg)
-        self.assertEqual(s['status'],'PROVVISORIO')
-        self.assertIn('allowed_formations',s['uncertified'])
+        self.assertEqual(s['status'],'RULES_VERIFIED_ONLY')
+        self.assertNotIn('allowed_formations',s['uncertified'])
         self.assertNotIn('bonus_malus',s['uncertified'])
-        self.assertIn('classic_roles',s['uncertified'])
+        self.assertNotIn('classic_roles',s['uncertified'])
         self.assertNotIn('captain_factor',s['uncertified'])
         self.assertNotIn('defense_modifier',s['uncertified'])
         self.assertFalse(s['GOLD_LOCK'])

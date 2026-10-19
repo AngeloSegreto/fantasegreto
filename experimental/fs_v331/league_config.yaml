@@ -27,6 +27,23 @@ evidence_receipts:
   defensive_modifier_info:
     file: "IMG_9127(1).png"
     sha256: aac35e4abbc1d150d96c2f69a42672652bc186fb718ee120d067cd2ff62c70b5
+  classic_mode_19oct:
+    file: IMG_9189.jpeg
+    sha256: 2cff499668fd9fb145e52b3974638a3896596a5f5ad54cd762617dbf87ec0d2d
+    official_guide_url: https://leghe.fantacalcio.it/guide-leghe-fantacalcio/gestione-lega/impostazione-delle-opzioni-rose-e-formazioni-76
+  roster_formations_19oct:
+    file: IMG_9190.png
+    sha256: 278ef4a26388d6490797f401b91acc9d79a59b535283943c17c671dba113f41e
+  formations_continued_19oct:
+    file: IMG_9191.png
+    sha256: cd4ce8f2098835d3d3ebe2ef6da30990e7f7a0c0fcc7bce61c4dcdad6ad61bd5
+  substitutions_19oct:
+    file: IMG_9192.png
+    sha256: 740d4247b8b99dc9be8560adee0b45f39a2cba97d119eb0ddc47c87aa2117d5c
+    official_guide_url: https://leghe.fantacalcio.it/guide-leghe-fantacalcio/gestione-lega/impostazione-delle-opzioni-sostituzioni-88
+  defense_modifier_19oct:
+    file: IMG_9193.png
+    sha256: 0c9c8c6fc7444309886ceb50044f929794fbfdccc85eab03e60500a313d2f720
 strategic_profile:
   value: PUNTI_ATTESI
   status: PROVVISORIA
@@ -44,7 +61,7 @@ rules:
     evidence_ref: goal_threshold
   defense_modifier:
     status: CERTIFICATA
-    evidence_refs: [defensive_modifier, defensive_modifier_info]
+    evidence_refs: [defensive_modifier, defensive_modifier_info, defense_modifier_19oct]
     enabled: true
     applies_to: OWN_TEAM
     min_defenders_after_substitutions: 4
@@ -80,7 +97,7 @@ rules:
     unresolved_case: non_half_point_pure_votes
   substitution:
     status: CERTIFICATA
-    evidence_ref: substitution
+    evidence_refs: [substitution, substitutions_19oct]
     max_changes: 5
     mode: TRADITIONAL
     same_role_only: true
@@ -107,8 +124,10 @@ rules:
     clean_sheet: {value: '1', status: CERTIFICATA}
     player_of_match: {value: '0', status: CERTIFICATA}
   classic_roles:
-    status: PROVVISORIA
+    status: CERTIFICATA
     values: [P, D, C, A]
+    evidence_refs: [classic_mode_19oct, roster_formations_19oct]
   allowed_formations:
-    status: PROVVISORIA
+    status: CERTIFICATA
     values: ['3-5-2', '3-4-3', '4-3-3', '4-4-2', '4-5-1', '5-3-2', '5-4-1']
+    evidence_refs: [roster_formations_19oct, formations_continued_19oct]
