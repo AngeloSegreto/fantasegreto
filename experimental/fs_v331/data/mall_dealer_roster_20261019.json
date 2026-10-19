@@ -350,5 +350,13 @@
     "Actual start XI/bench/captain for 8th matchday",
     "Medical and line-up probabilities",
     "Official fantasy platform source snapshot without screenshot time provenance"
-  ]
+  ],
+  "credits_reconciliation": {
+    "spent_from_displayed_v_a_column": 492,
+    "remaining_displayed": 8,
+    "computed_total": 500,
+    "expected_league_initial_budget": 500,
+    "status": "RECONCILED_SCREENSHOT_SUM",
+    "note": "V.A. column interpreted as acquisition values because 25 entries total 492 plus displayed remaining 8 equals 500"
+  }
 }
