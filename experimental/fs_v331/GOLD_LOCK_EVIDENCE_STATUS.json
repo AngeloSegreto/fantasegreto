@@ -1,6 +1,6 @@
 {
   "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
-  "generated_utc": "2026-10-19T18:48:00Z",
+  "generated_utc": "2026-10-19T19:23:00Z",
   "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
   "candidate_branch": "fs-v331-evidence-custody-phase1",
   "target_branch": "fs-v331-shadow-phase1",
@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "c048be57dc3145c034a53cb536b03be3d891b6f4",
-    "run_id": 39305100001,
-    "tests_passed": 131,
-    "tests_total": 131,
+    "head_sha": "bbf28c9fff78510715903f5b396f6bf17724c6f0",
+    "run_id": 39310019542,
+    "tests_passed": 161,
+    "tests_total": 161,
     "conclusion": "success",
-    "scope": "SOFTWARE_UNIT_TESTS_AND_APP_SIMULATED_SCREENSHOT_ARITHMETIC_RECONCILIATION"
+    "scope": "UNIT_TESTS_SYNTHETIC_PAIRED_MATCHDAY_SCENARIOS_AND_CLI_FAIL_CLOSED"
   },
   "verified_evidence": [
     {
@@ -87,6 +87,12 @@
       "level": "131_131_CI_PASS_60_74_EXACT_SCREENSHOT_COMPONENT_RECONCILIATION",
       "run_id": 39305100001,
       "limitation": "not independently authenticated official final, modifier 0 inferred residual"
+    },
+    {
+      "area": "G8_THREE_MODULE_PAIRED_COMPARISON_SOFTWARE",
+      "level": "161_161_UNIT_TESTS_CI_PASS_NO_REAL_FORECAST",
+      "run_id": 39310019542,
+      "commit": "bbf28c9fff78510715903f5b396f6bf17724c6f0"
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
@@ -123,11 +129,13 @@
     "G22"
   ],
   "next_actions": [
-    "Acquire authenticated final official G7 totals and individual pure votes for Meret, effective 4 defenders, Maldini captain and Nico Paz captain",
-    "Re-run complete golden scoring engine against independently transcribed official G7 final results",
-    "Repeat exact scoring parity over all certified league past rounds; G16 cannot be closed by one match",
-    "Capture genuine prelock G8 predictions and conduct preregistered out-of-sample G14/G15 separately",
-    "Keep SHADOW and never change production until GOLD gates verified"
+    "Acquire documented league-allowed formations and Classic role settings to close prelock real-mode config gate",
+    "Obtain G8 opponent fantasy team roster/formation/bench/captain/vice with source timestamp",
+    "Build calibrated event-level joint generator conditioned on each player's Serie A opponent, home/away and lineup probability; audit G05 scoring-goal correlation",
+    "Acquire real G8 official injury and tactical source snapshots before lock and SHA256 evidence",
+    "Generate and freeze actual candidate B0 B1 forecasts before league lock (not after first kickoff)",
+    "Compute paired three-module comparison with observed prospective scenarios, preregistration and report of uncertainty",
+    "After all fixtures, evaluate calibrated Brier rolling-origin out-of-sample, and independently audit G00-G22"
   ],
   "notes": [
     "Do not interpret 31 tests as STAT VALIDATED.",
@@ -143,11 +151,29 @@
     "fixtures_json": "experimental/fs_v331/fixtures/md08_serie_a_2026_27.json",
     "intake_module": "experimental/fs_v331/prelock_intake.py",
     "source_url": "https://www.legaseriea.it/serie-a/news/quando-si-gioca-anticipi-e-posticipi-fino-alla-12a-giornata",
-    "status": "STRUCTURAL_SOURCE_AND_CALENDAR_MAPPING_READY_REAL_PRELOCK_FORECAST_PENDING",
+    "status": "SOFTWARE_READY_SYNTHETIC_SCENARIOS_ONLY_REAL_G8_COMPARE_BLOCKED",
     "notes": "Must capture verified raw source bytes and real engine candidate/B0/B1 forecasts before actual league lock; G00/G01 remain pending.",
     "roster_fixture_bridge": "experimental/fs_v331/fixture_bridge.py",
     "player_fixture_links": 25,
-    "shared_match_correlations": "STRUCTURAL_GROUPING_TESTED_NOT_MC_IMPLEMENTED"
+    "shared_match_correlations": "STRUCTURAL_GROUPING_TESTED_NOT_MC_IMPLEMENTED",
+    "comparison_engine": "experimental/fs_v331/prelock_scenario_compare.py",
+    "runbook": "experimental/fs_v331/G8_PAIRED_SCENARIO_RUNBOOK.md",
+    "modules_tested": [
+      "4-3-3",
+      "4-4-2",
+      "3-5-2"
+    ],
+    "goal": "max 3P(V)+P(N) or P(V) with paired MC confidence",
+    "keeper_comparison_supported_in_synthetic_tests": true,
+    "game_fixture_reference_check": "SUPPORTED",
+    "G05_joint_model_event_coherence_certified": false,
+    "calibrated_real_outcome_probability_available": false,
+    "real_opponent_fantasy_lineup_available": false,
+    "real_joint_prelock_scenarios_available": false,
+    "allowed_formations_status": "PROVVISORIA",
+    "classic_roles_status": "PROVVISORIA",
+    "G14_G15": "BLOCKED_REAL_HOLDOUT_MISSING",
+    "gold_lock": false
   },
   "photo_settings": {
     "status": "SCREENSHOT_VERIFIED_PENDING_INDEPENDENT_GOLDEN_REPLAY",
