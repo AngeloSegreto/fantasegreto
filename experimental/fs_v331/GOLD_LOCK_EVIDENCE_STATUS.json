@@ -1,6 +1,6 @@
 {
   "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
-  "generated_utc": "2026-10-19T19:39:00Z",
+  "generated_utc": "2026-10-19T19:42:00Z",
   "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
   "candidate_branch": "fs-v331-evidence-custody-phase1",
   "target_branch": "fs-v331-shadow-phase1",
@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "f5668b557d42e8744ca6fa0d0fb2aacffbccf674",
-    "run_id": 39312444342,
-    "tests_passed": 176,
-    "tests_total": 176,
+    "head_sha": "b56584cddaef1a3ecfac8528ed7bf913af1c11fe",
+    "run_id": 39313098493,
+    "tests_passed": 184,
+    "tests_total": 184,
     "conclusion": "success",
-    "scope": "SHADOW_UNIT_TESTS_RIVAL_25_OF_25_SOURCE_GROUNDED_G8_FANTASY_ROSTER_BRIDGE"
+    "scope": "SHADOW_UNIT_TESTS_INCLUDING_OPPONENT_FIXTURE_EXPOSURES_NO_REAL_PREDICTIVE_VALIDATION"
   },
   "verified_evidence": [
     {
@@ -99,6 +99,12 @@
       "level": "176_176_SHADOW_UNIT_TESTS_PASS_THREE_SCREENSHOT_HASHES_AND_25_UNIQUE_IDS",
       "run_id": 39312444342,
       "limitation": "G8 XI/bench/captain/vice and calibrated event distributions missing"
+    },
+    {
+      "area": "G8_ARTIBANAIKOS_STRUCTURAL_FIXTURE_EXPOSURES",
+      "level": "184_184_SHADOW_TESTS_PASSED",
+      "run_id": 39313098493,
+      "commit": "b56584cddaef1a3ecfac8528ed7bf913af1c11fe"
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
@@ -135,12 +141,13 @@
     "G22"
   ],
   "next_actions": [
-    "Obtain G8 ARTIBANAIKOS XI/order bench/captain/vice and exact league lock time without confusing G7 lineup for G8",
-    "Certify allowed modules and all Classic league rules from app, do not imply official Fantasy ratings from truncated header fields",
-    "Run conditional match-level joint forecast with source-grounded availability for both 25-player squads and G05 event consistency",
-    "Freeze actual own G8 candidate 4-3-3/4-4-2/3-5-2 full decisions and B0/B1 before first kickoff/league lock",
-    "Measure conditional P(V)/P(N) and risk with paired scenarios and real opponent forecast; no invented predictions",
-    "Assess real outcomes after G8 with no look-ahead and retain SHADOW until full G14/G15 and G00-G22 validation"
+    "Archive raw source screenshots IMG_9212/9213/9214 as authenticated evidence and confirm G8 matchday opponent source platform fixture screen",
+    "Confirm National League Classic allowed formations and actual G8 lock time",
+    "Prepare candidate formation full XI/bench/captain from own roster without using any observed G8 results; await current injuries/lineups",
+    "Capture ARTIBANAIKOS real G8 formation, ordered reserves and captain/vice if available; do not infer from G7 3-4-3",
+    "Generate event-consistent joint scoring scenarios from documented pre-lock probabilities and ground them in calendar, team strength and availability; G05 blocked",
+    "Preregister prelock predicted event distributions and evaluate P(V/N/S) plus uncertainty with paired CRNs and comparator",
+    "Collect out-of-sample observed outcomes for rolling G14/G15; hold TECH and GOLD until all gates pass"
   ],
   "notes": [
     "Do not interpret 31 tests as STAT VALIDATED.",
@@ -385,5 +392,36 @@
     "G05": "NOT_CERTIFIED",
     "G14_G15": "NOT_CERTIFIED",
     "promotion_golden": false
+  },
+  "g8_opponent_intake": {
+    "snapshot_file": "experimental/fs_v331/data/artibanaikos_roster_20261019.json",
+    "source_screenshot_sha_verified": true,
+    "sources_raw_files_uploaded_to_github": false,
+    "registered_opponent": "ARTIBANAIKOS",
+    "rival_players_reconciled": 25,
+    "own_players_reconciled": 25,
+    "rival_role_counts": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
+    },
+    "rival_va_column_total": 494,
+    "rival_remaining_budget": 6,
+    "g7_observed_rival_module": "3-4-3",
+    "g8_confirmed_rival_lineup": false,
+    "g8_opponent_full_bench_order_known": false,
+    "g8_opponent_captain_known": false,
+    "opponent_source": "user-stated next fantasy opponent + 3 screenshots",
+    "related_code": [
+      "experimental/fs_v331/g8_opponent_bridge.py",
+      "experimental/fs_v331/g8_opponent_exposure.py"
+    ],
+    "structural_key_exposures": [
+      "Meret (Napoli) vs rival Soule (Roma)",
+      "Gollini and Svilar (Roma) vs rival Hojlund (Napoli)",
+      "Rival Palmisani (Frosinone) vs Raspadori (Atalanta)"
+    ],
+    "structural_only_no_expected_outcomes": true
   }
 }
