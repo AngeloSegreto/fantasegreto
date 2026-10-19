@@ -1,6 +1,6 @@
 {
   "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
-  "generated_utc": "2026-10-19T04:37:00Z",
+  "generated_utc": "2026-10-19T18:48:00Z",
   "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
   "candidate_branch": "fs-v331-evidence-custody-phase1",
   "target_branch": "fs-v331-shadow-phase1",
@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "a1932f78a69c8070e00777d96f8135f863168310",
-    "run_id": 39200255367,
-    "tests_passed": 116,
-    "tests_total": 116,
+    "head_sha": "c048be57dc3145c034a53cb536b03be3d891b6f4",
+    "run_id": 39305100001,
+    "tests_passed": 131,
+    "tests_total": 131,
     "conclusion": "success",
-    "scope": "UNIT_TESTS_INCLUDING_SYNTHETIC_COMPLETE_G7_REPLAY_AND_NECESSARY_PURE_VOTE_CONTRACT"
+    "scope": "SOFTWARE_UNIT_TESTS_AND_APP_SIMULATED_SCREENSHOT_ARITHMETIC_RECONCILIATION"
   },
   "verified_evidence": [
     {
@@ -81,6 +81,12 @@
       "level": "116_TESTS_PASS_GITHUB_CI",
       "run_id": 39200255367,
       "limitation": "missing independently verified pure votes and real final match results"
+    },
+    {
+      "area": "G7_APP_SIMULATED_ARITHMETIC_PARITY",
+      "level": "131_131_CI_PASS_60_74_EXACT_SCREENSHOT_COMPONENT_RECONCILIATION",
+      "run_id": 39305100001,
+      "limitation": "not independently authenticated official final, modifier 0 inferred residual"
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
@@ -117,11 +123,11 @@
     "G22"
   ],
   "next_actions": [
-    "Obtain completed official National League G7 screenshot AFTER all Monday games, and the pure ratings for Meret/4 effective defenders and captain/vice",
-    "Run G7 golden replay with exact Decimal comparison against official 2 totals and 2 fantagols",
-    "Independent verified source transcription and historical G16 parity across all certified rounds",
-    "Use separate G8+ real preregistered prematch forecasts for G14/G15 rolling-origin tests",
-    "Maintain SHADOW and gold=false until all gates close"
+    "Acquire authenticated final official G7 totals and individual pure votes for Meret, effective 4 defenders, Maldini captain and Nico Paz captain",
+    "Re-run complete golden scoring engine against independently transcribed official G7 final results",
+    "Repeat exact scoring parity over all certified league past rounds; G16 cannot be closed by one match",
+    "Capture genuine prelock G8 predictions and conduct preregistered out-of-sample G14/G15 separately",
+    "Keep SHADOW and never change production until GOLD gates verified"
   ],
   "notes": [
     "Do not interpret 31 tests as STAT VALIDATED.",
@@ -248,7 +254,7 @@
     "real_independent_replay": false,
     "statistical_holdout_eligible": false,
     "core_condition": "ALL_VOTE_STATUSES_AND_FANTAVOTES_PLUS_PURE_VOTES_ONLY_FOR_EFFECTIVE_GOALKEEPER_AND_DEFENDERS_AND_CAPTAIN_OR_VICE",
-    "status": "READY_FOR_TRUE_FINAL_RECEIPT__NOT_A_CERTIFIED_FINAL_REPLAY",
+    "status": "LIVE_G7_UPDATED_TO_APP_SIMULATED_PARITY_60_74__OFFICIAL_FULL_PURE_VOTE_REPLAY_STILL_BLOCKED",
     "results": "NO_REAL_SCORE_PARITY_YET",
     "known_substitution_total_home": "56",
     "known_substitution_total_away": "66.5",
@@ -260,5 +266,51 @@
       "Pure votes: Meret, Solet, Dimarco, Zortea, Cambiaso; Maldini and Nico Paz (or vice if no vote)",
       "Screenshot/source evidence with matching sha256"
     ]
+  },
+  "g7_app_simulated_reconciliation": {
+    "source": "experimental/fs_v331/data/g7_app_simulated_20261019.json",
+    "code": "experimental/fs_v331/g7_simulated_parity.py",
+    "tests": "experimental/fs_v331/test_g7_simulated_parity.py",
+    "raw_uploaded_images": 10,
+    "image_hash_verified_from_local_bytes": true,
+    "github_stores_raw_image_bytes": false,
+    "status": "APP_SIMULATED_TOTAL_DECOMPOSITION_PASS_NOT_G16",
+    "mall_dealer": {
+      "starting_sum": "55",
+      "confirmed_traditional_substitute": "Wesley_SV_to_Cambiaso_6",
+      "captain_factor": "-1",
+      "modifier_residual_observed": "0",
+      "app_total": "60",
+      "app_fantagoals": 0
+    },
+    "ac_denti": {
+      "starting_sum_before_simeone": "60.5",
+      "simeone_fantavote": "6",
+      "confirmed_traditional_substitute": "Adzic_DNP_to_Perrone_6",
+      "captain_factor": "+1.5",
+      "modifier": "0_3_DEFENDERS",
+      "app_total": "74",
+      "app_fantagoals": 3
+    },
+    "platform_label": "Risultato simulato",
+    "additional_app_match_observations": [
+      {
+        "teams": "Democrazia_vs_Atletico",
+        "result": "67-68.5",
+        "goals": "1-1",
+        "evidence": "APP_SIMULATED"
+      },
+      {
+        "teams": "Divo_vs_ARTIBANAIKOS",
+        "points": "75-69",
+        "evidence": "STARTERS_ONLY"
+      }
+    ],
+    "raw_pure_votes_available": false,
+    "final_authenticated_platform_receipt_available": false,
+    "independent_scoring_parity_certified": false,
+    "golden_gate_G16": "DA_VERIFICARE",
+    "out_of_sample_eligible": false,
+    "release": "SHADOW"
   }
 }
