@@ -166,6 +166,10 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
 
     events=scenario_bundle.get("scenarios")
     _require(isinstance(events,list) and len(events)>=2,"at least two shared joint scenarios required")
+    _require(all(isinstance(x,dict) and isinstance(x.get("scenario_id"),int) for x in events),
+             "scenario id required")
+    # File/scenario row permutations must not change paired resampling.
+    events=sorted(events,key=lambda x:x["scenario_id"])
     scenario_ids=set()
     values={ident:[] for ident in by_hash}
     ownfantasy={ident:[] for ident in by_hash}
