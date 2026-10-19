@@ -1,6 +1,6 @@
 {
   "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
-  "generated_utc": "2026-10-19T04:05:00Z",
+  "generated_utc": "2026-10-19T04:17:00Z",
   "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
   "candidate_branch": "fs-v331-evidence-custody-phase1",
   "target_branch": "fs-v331-shadow-phase1",
@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "732166931a6a131ec3f870cfa4b74c4d8bbdd964",
-    "run_id": 39197583813,
-    "tests_passed": 63,
-    "tests_total": 63,
+    "head_sha": "03c12fee75144e1783fb22323502fa094d1cb45e",
+    "run_id": 39198649256,
+    "tests_passed": 86,
+    "tests_total": 86,
     "conclusion": "success",
-    "scope": "UNIT_TESTS_SHADOW_NO_HISTORICAL_CERTIFICATION"
+    "scope": "SHADOW_SOFTWARE_TESTS_ONLY"
   },
   "verified_evidence": [
     {
@@ -53,6 +53,16 @@
       "area": "UNIT_TESTS_SHADOW",
       "level": "63_UNIT_TESTS_PASS",
       "run_id": 39197583813
+    },
+    {
+      "area": "ROSTER_MAPPING",
+      "level": "25_ID_MATCH_AND_CREDIT_RECONCILIATION",
+      "run_id": 39198649256
+    },
+    {
+      "area": "MATCH_CORRELATION_STRUCTURE",
+      "level": "86_SHADOW_UNIT_TESTS_PASS",
+      "run_id": 39198649256
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
@@ -63,7 +73,8 @@
     "classification_points_3_1_0_not_confirmed_by_league_screen",
     "bonus_malus_goal_scored_row_not_in_supplied_bonus_screen",
     "special_SV_and_political_vote_options_unverified",
-    "unresolved_defense_modifier_fourth_defender_SV_edge"
+    "unresolved_defense_modifier_fourth_defender_SV_edge",
+    "bonus_malus_full_contract_provisional"
   ],
   "blocking_gates": [
     "G00",
@@ -90,11 +101,13 @@
     "G22"
   ],
   "next_actions": [
-    "Confirm complete league bonus/malus and allowed formations if not already verified",
-    "Ensure raw photo sources and snapshots are saved independently for G00/G20",
-    "Create official historical Golden replay dataset for G07/G09/G10/G16",
-    "Capture actual prelock model forecasts and real postmatch outcomes for G14/G15",
-    "Complete independent audit and device integration before promotion"
+    "Archive authenticated original league photo bytes and historical result receipts",
+    "Verify league lock time, allowed modules and all bonus/malus cases",
+    "Freeze actual candidate/B0/B1 forecasts with prelock proof (not placeholders)",
+    "Implement joint match outcome simulator on 25-player correlated fixture groups",
+    "Reconcile real official G7 and later golden scoring with replacement/mod/captain",
+    "Preregister temporal holdout and evaluate calibrated Brier against B0/B1",
+    "Close G00-G22 with independent evidence; no automatic GOLD switch"
   ],
   "notes": [
     "Do not interpret 31 tests as STAT VALIDATED.",
@@ -110,8 +123,11 @@
     "fixtures_json": "experimental/fs_v331/fixtures/md08_serie_a_2026_27.json",
     "intake_module": "experimental/fs_v331/prelock_intake.py",
     "source_url": "https://www.legaseriea.it/serie-a/news/quando-si-gioca-anticipi-e-posticipi-fino-alla-12a-giornata",
-    "status": "INSTRUMENTATION_READY_REAL_OUTPUT_NOT_YET_CAPTURED",
-    "notes": "Must capture verified raw source bytes and real engine candidate/B0/B1 forecasts before actual league lock; G00/G01 remain pending."
+    "status": "STRUCTURAL_SOURCE_AND_CALENDAR_MAPPING_READY_REAL_PRELOCK_FORECAST_PENDING",
+    "notes": "Must capture verified raw source bytes and real engine candidate/B0/B1 forecasts before actual league lock; G00/G01 remain pending.",
+    "roster_fixture_bridge": "experimental/fs_v331/fixture_bridge.py",
+    "player_fixture_links": 25,
+    "shared_match_correlations": "STRUCTURAL_GROUPING_TESTED_NOT_MC_IMPLEMENTED"
   },
   "photo_settings": {
     "status": "SCREENSHOT_VERIFIED_PENDING_INDEPENDENT_GOLDEN_REPLAY",
@@ -138,5 +154,24 @@
       "goal_scored_row": "NOT_VISIBLE_IN_9124"
     },
     "raw_receipts_on_github": false
+  },
+  "league_roster_19oct": {
+    "status": "RECONCILED_25_OF_25_WITH_REGISTRY_13OCT",
+    "path": "experimental/fs_v331/data/mall_dealer_roster_20261019.json",
+    "role_counts": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
+    },
+    "spent_from_acquisition_column": 492,
+    "remaining": 8,
+    "verified_budget_total": 500,
+    "raw_screenshot_sha256": [
+      "9a476f2e3d762858c6f6ad6b862981794c30ffb37c8e7f0c4ed1c875b9f045e8",
+      "b3d2284ac75c3b5a5ecc0d4ad0b773c7e2688697db8dc119d1476b03bc49874e",
+      "3c1340c2bee84085d2948a9ef66da6a8cf2e5a9fa5063f5ecd7e4f5362521ef7"
+    ],
+    "evidence_note": "Originals in conversation runtime; raw photo bytes not yet archived in GitHub"
   }
 }
