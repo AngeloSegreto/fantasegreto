@@ -4,13 +4,42 @@ import sys
 import unittest
 here=pathlib.Path(__file__).resolve().parent
 sys.path.insert(0,str(here))
-from fixture_bridge import load_and_bridge,fixture_bridge
+from fixture_bridge import load_and_bridge,fixture_bridge,correlated_match_groups
 
 class FixtureBridgeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.rows=load_and_bridge(here)
         cls.by_name={x["name"]:x for x in cls.rows}
+    def test_shared_match_groups_cover_all_25_once(self):
+        groups=correlated_match_groups(self.rows)
+        flattened=[x for g in groups for x in g["player_ids"]]
+        self.assertEqual(len(flattened),25)
+        self.assertEqual(len(set(flattened)),25)
+        self.assertEqual(set(flattened),{p["official_id"] for p in self.rows})
+
+    def test_both_goalkeepers_share_one_match_draw(self):
+        groups=correlated_match_groups(self.rows)
+        game=[g for g in groups if {g["home"],g["away"]}=={"Napoli","Roma"}]
+        self.assertEqual(len(game),1)
+        self.assertTrue({"572","610","5841","7181"}.issubset(game[0]["player_ids"]))
+
+    def test_lazio_and_juventus_group_no_duplicate(self):
+        groups=correlated_match_groups(self.rows)
+        game=[g for g in groups if (g["home"],g["away"])==("Lecce","Juventus")]
+        self.assertEqual(len(game),1)
+        self.assertIn("5951",game[0]["player_ids"])
+        self.assertIn("5029",game[0]["player_ids"])
+
+    def test_shared_groups_permutation_invariant(self):
+        a=correlated_match_groups(self.rows)
+        b=correlated_match_groups(self.rows[::-1])
+        self.assertEqual(a,b)
+
+    def test_shared_groups_reject_duplicate_id(self):
+        with self.assertRaisesRegex(ValueError,"duplicate"):
+            correlated_match_groups(self.rows+[self.rows[0]])
+
     def test_25_fixture_rows(self):
         self.assertEqual(len(self.rows),25)
         self.assertEqual(len({x["official_id"] for x in self.rows}),25)
