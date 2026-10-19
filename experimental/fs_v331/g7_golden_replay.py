@@ -13,7 +13,7 @@ from pathlib import Path
 from datetime import datetime
 from decimal import Decimal
 from copy import deepcopy
-from league_scoring_v331 import score, D
+from league_scoring_v331 import score, D, substitutes, UncertifiedScoringCase
 from p0_core import fantagol
 
 _SHA = re.compile(r"^[a-f0-9]{64}$")
@@ -77,13 +77,16 @@ def _hydrate(side, updates, side_name):
             errors.append(side_name + ":UNKNOWN_STATE:" + p["name"])
             continue
         if st == "VOTED":
-            for field in ("pure_vote", "fantavote"):
-                if p.get(field) is None:
-                    errors.append(side_name + ":MISSING_" + field.upper() + ":" + p["name"])
-                else:
-                    try: D(p[field])
-                    except (ValueError, TypeError):
-                        errors.append(side_name + ":INVALID_" + field.upper() + ":" + p["name"])
+            if p.get("fantavote") is None:
+                errors.append(side_name + ":MISSING_FANTAVOTE:" + p["name"])
+            else:
+                try: D(p["fantavote"])
+                except (ValueError, TypeError):
+                    errors.append(side_name + ":INVALID_FANTAVOTE:" + p["name"])
+            if p.get("pure_vote") is not None:
+                try: D(p["pure_vote"])
+                except (ValueError, TypeError):
+                    errors.append(side_name + ":INVALID_PURE_VOTE:" + p["name"])
         elif p.get("pure_vote") is not None or p.get("fantavote") is not None:
             errors.append(side_name + ":INVALID_NONVOTE_RATING:" + p["name"])
     if set(updates) - ids:
@@ -95,6 +98,34 @@ def _hydrate(side, updates, side_name):
     if roles.get("P", 0) != 1 or module != cloned["module"]:
         raise ValueError("observed XI does not match its module")
     return cloned, errors, revisions
+
+
+def _necessary_pure_votes(side, side_name, config):
+    """Only defenders + GK for modifier, and chosen captain/vice need raw votes.
+
+    All players need final vote STATUS and official FANTAVOTE, but pure ratings
+    for unused bench forwards/midfielders are not needed for scoring parity.
+    """
+    try:
+        effective = substitutes(side["starters"], side["bench"], config)["xi"]
+    except UncertifiedScoringCase as e:
+        return [side_name + ":SUBSTITUTION_RULE_EDGE_CASE:" + str(e)]
+    required = []
+    ds = [p for p in effective if p["role"] == "D"]
+    if config["rules"]["defense_modifier"]["enabled"] and len(ds) >= 4:
+        required += [p for p in effective if p["role"] == "P" and p["status"] == "VOTED"]
+        required += [p for p in ds if p["status"] == "VOTED"]
+    original = {p["id"]: p for p in side["starters"]}
+    cap = original[side["captain_id"]]
+    vice = original[side["vice_id"]]
+    chosen = cap if cap["status"] == "VOTED" else vice if vice["status"] == "VOTED" else None
+    if chosen is not None and config["rules"]["captain_factor"]["enabled"]:
+        required.append(chosen)
+    errors=[]
+    for p in {p["id"]:p for p in required}.values():
+        if p.get("pure_vote") is None:
+            errors.append(side_name + ":MISSING_PURE_VOTE:" + p["name"])
+    return errors
 
 def replay(snapshot, observed_final, config):
     """Return BLOCKED, PARITY_MISMATCH or PARITY_PENDING_REVIEW; NEVER GOLD."""
@@ -134,6 +165,11 @@ def replay(snapshot, observed_final, config):
         revisions[side] = revs
     if revisions["home"] or revisions["away"]:
         blocked.append("PRIOR_VOTE_REVISIONS_REQUIRE_SEPARATE_APP_ATTESTATION")
+    # Validate pure ratings only once final status is known for every player.
+    # We must never infer a pure vote from a bonus-inflated fantasy vote.
+    if not any(":PENDING_MATCH:" in err or ":UNKNOWN_STATE:" in err for err in blocked):
+        for side_name, side in final_sides.items():
+            blocked.extend(_necessary_pure_votes(side, side_name, config))
     platform = observed_final.get("platform")
     if not isinstance(platform, dict):
         blocked.append("MISSING_FINAL_PLATFORM_SCORES")
