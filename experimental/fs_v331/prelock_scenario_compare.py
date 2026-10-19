@@ -119,6 +119,16 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
     if opponent is None:
         return {**status,"status":"BLOCKED_OPPONENT_G8_FANTASY_LINEUP_MISSING",
                 "missing":["OPPONENT_ROSTER","OPPONENT_LINEUP_AND_CAPTAIN"]}
+    if opponent.get("schema") == "FS_V331_LEAGUE_OPPONENT_ROSTER_SNAPSHOT_V1":
+        from g8_opponent_bridge import validate_pair
+        validate_pair(roster,opponent,calendar)
+        return {**status,"status":"BLOCKED_OPPONENT_G8_LINEUP_NOT_PROVIDED",
+                "opponent_team":"ARTIBANAIKOS",
+                "roster_registry_matched":25,
+                "verified_g8_fantasy_lineup":False,
+                "missing":["OPPONENT_G8_STARTING_XI","OPPONENT_G8_ORDERED_BENCH",
+                           "OPPONENT_G8_CAPTAIN","OPPONENT_G8_VICE",
+                           "OBSERVED_JOINT_PRELOCK_MODEL"]}
     if not scenario_bundle:
         return {**status,"status":"BLOCKED_NO_PRELOCK_JOINT_SCENARIOS",
                 "missing":["JOINT_PRELOCK_SCENARIOS","OPPONENT_FORECAST","OBSERVED_SOURCE_RECEIPTS"]}
