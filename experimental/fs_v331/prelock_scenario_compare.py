@@ -69,7 +69,7 @@ def _check_outcomes(data,playerids):
         else:
             _require("pure_vote" not in x and "fantavote" not in x,"cannot score non-vote: "+pid)
 
-def _opponent_meta(opponent,config,cal):
+def _opponent_meta(opponent,config,own_ids,fixtures):
     _require(isinstance(opponent,dict),"opponent full fantasy-team input required")
     _require(opponent.get("evidence_kind") in ("SYNTHETIC_UNIT_TEST","AUTHENTICATED_PRELOCK"),
              "opponent source evidence kind required")
@@ -78,8 +78,8 @@ def _opponent_meta(opponent,config,cal):
     oppids=[x.get("id") for x in rows]
     _require(all(isinstance(x,str) and x for x in oppids) and len(set(oppids))==len(oppids),
              "duplicate/unknown opponent IDs")
-    _require(set(oppids).isdisjoint(cal),"duplicate fantasy athlete IDs between teams")
-    clubs={x["home"] for x in cal}|{x["away"] for x in cal}
+    _require(set(oppids).isdisjoint(own_ids),"duplicate fantasy athlete IDs between teams")
+    clubs={x["home"] for x in fixtures}|{x["away"] for x in fixtures}
     for x in rows:
         _require(x.get("team") in clubs and x.get("role") in ("P","D","C","A"),
                  "unmapped opponent player to Serie A fixture")
@@ -128,7 +128,7 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
     legal_groups={_fixture_key(g) for g in calendar["games"]}
     _require(groups==legal_groups and len(scenario_bundle["joint_fixture_groups"])==10,
              "all 10 fixtures must be shared")
-    opp_byid,opp_decision=_opponent_meta(opponent,config,calendar["games"])
+    opp_byid,opp_decision=_opponent_meta(opponent,config,own_byid,calendar["games"])
     all_ids=set(own_byid)|set(opp_byid)
     _require(len(all_ids)==len(own_byid)+len(opp_byid),"player ID collision")
     _require(scenario_bundle.get("matchday")==8,"scenario matchday mismatch")
