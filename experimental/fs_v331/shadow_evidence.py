@@ -7,7 +7,7 @@ import json
 import os
 
 GATES = tuple(f"G{i:02d}" for i in range(23))
-REQUIRED_RULES = ("fantasy_goals", "defense_modifier", "captain_factor", "substitution", "classic_roles", "allowed_formations")
+REQUIRED_RULES = ("fantasy_goals", "defense_modifier", "captain_factor", "substitution", "classic_roles", "allowed_formations", "bonus_malus")
 
 
 def canonical(data):
