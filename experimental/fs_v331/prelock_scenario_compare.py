@@ -296,3 +296,30 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
                         "Bootstrap confidence measures MC sampling error, not predictive calibration.",
                         "No real prelock forecasts or verified opponent lineup were supplied to this execution.",
                         "Never treat G7 postmatch votes as input distributions or calibrating holdout."]}
+
+
+def main():
+    """CLI prints BLOCKED if genuine pre-lock input has not been provided."""
+    import argparse
+    from pathlib import Path
+    from p0_core import load_config
+    p=argparse.ArgumentParser(description="FS V3.3.1 SHADOW: compare lineup decisions on shared pre-lock scenarios")
+    for name in ("roster","calendar","config","candidates","protocol"):
+        p.add_argument("--"+name,required=True)
+    for name in ("opponent","scenarios","output"):
+        p.add_argument("--"+name)
+    args=p.parse_args()
+    def read_json(file):
+        return json.loads(Path(file).read_text(encoding="utf-8")) if file else None
+    result=analyze(read_json(args.roster),read_json(args.calendar),load_config(args.config),
+                   read_json(args.candidates),read_json(args.opponent),
+                   read_json(args.scenarios),read_json(args.protocol))
+    raw=json.dumps(result,ensure_ascii=False,indent=2,sort_keys=True)+"\\n"
+    if args.output:
+        Path(args.output).write_text(raw,encoding="utf-8")
+    print(raw,end="")
+    if result["status"].startswith("BLOCKED"):
+        raise SystemExit(3)
+
+if __name__=="__main__":
+    main()
