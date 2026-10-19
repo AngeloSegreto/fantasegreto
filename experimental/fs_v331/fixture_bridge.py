@@ -66,7 +66,7 @@ def correlated_match_groups(rows):
         g["player_ids"].append(pid)
     result=sorted(groups.values(),key=lambda x:(x["kickoff"],x["home"],x["away"]))
     for g in result:
-        g["player_ids"].sort(key=lambda x:int(x) if x.isdecimal() else x)
+        g["player_ids"].sort(key=lambda x:(0,int(x)) if x.isdecimal() else (1,x))
     return result
 
 def load_and_bridge(root):
