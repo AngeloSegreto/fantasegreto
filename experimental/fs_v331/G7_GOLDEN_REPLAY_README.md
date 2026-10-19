@@ -43,7 +43,7 @@ To run an actual comparison, provide `--final /path/to/g7_official_final_input.j
 
 - `schema: FS_V331_G7_OFFICIAL_RESULT_INPUT_V1` and `matchday: 7`.
 - `receipt`: exact original path to archived **final screenshot**, sha256 of the bytes, timezone-aware `observed_at`, `evidence_kind: OFFICIAL_APP_FINAL`.
-- `player_updates.home` and `player_updates.away`: ID-keyed values to **resolve every pending player**, with `status`, `pure_vote`, and `fantavote` for every voted player across XI and bench. The source must independently support the numeric transcription. None may be inferred from an existing fantasy vote.
+- `player_updates.home` and `player_updates.away`: ID-keyed values to **resolve every pending player**, with `status` and `fantavote` for every voted player across XI and bench. A separate `pure_vote` is required **only for** the effective goalkeeper and defenders involved in the modifier, plus the nominated captain (or vice when eligible). The source must independently support the numeric transcription. Pure votes must NEVER be inferred from fantavotes.
 - `platform.home_total`, `away_total`, `home_goals`, `away_goals`: final *app* output, not estimated.
 - A completed original final platform receipt and separately checked pure-vote sources are required for an independent attestation, even if software parity passes.
 
