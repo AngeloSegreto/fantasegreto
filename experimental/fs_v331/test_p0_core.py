@@ -31,6 +31,7 @@ class ContractTests(unittest.TestCase):
         s=promotion_state(self.cfg)
         self.assertEqual(s['status'],'PROVVISORIO')
         self.assertIn('allowed_formations',s['uncertified'])
+        self.assertIn('bonus_malus',s['uncertified'])
         self.assertNotIn('captain_factor',s['uncertified'])
         self.assertNotIn('defense_modifier',s['uncertified'])
         self.assertFalse(s['GOLD_LOCK'])
