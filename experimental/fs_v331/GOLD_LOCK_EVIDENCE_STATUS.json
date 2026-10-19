@@ -1,6 +1,6 @@
 {
   "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
-  "generated_utc": "2026-10-19T19:23:00Z",
+  "generated_utc": "2026-10-19T19:39:00Z",
   "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
   "candidate_branch": "fs-v331-evidence-custody-phase1",
   "target_branch": "fs-v331-shadow-phase1",
@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "bbf28c9fff78510715903f5b396f6bf17724c6f0",
-    "run_id": 39310019542,
-    "tests_passed": 161,
-    "tests_total": 161,
+    "head_sha": "f5668b557d42e8744ca6fa0d0fb2aacffbccf674",
+    "run_id": 39312444342,
+    "tests_passed": 176,
+    "tests_total": 176,
     "conclusion": "success",
-    "scope": "UNIT_TESTS_SYNTHETIC_PAIRED_MATCHDAY_SCENARIOS_AND_CLI_FAIL_CLOSED"
+    "scope": "SHADOW_UNIT_TESTS_RIVAL_25_OF_25_SOURCE_GROUNDED_G8_FANTASY_ROSTER_BRIDGE"
   },
   "verified_evidence": [
     {
@@ -93,6 +93,12 @@
       "level": "161_161_UNIT_TESTS_CI_PASS_NO_REAL_FORECAST",
       "run_id": 39310019542,
       "commit": "bbf28c9fff78510715903f5b396f6bf17724c6f0"
+    },
+    {
+      "area": "G8_ARTIBANAIKOS_ROSTER_RECONCILIATION",
+      "level": "176_176_SHADOW_UNIT_TESTS_PASS_THREE_SCREENSHOT_HASHES_AND_25_UNIQUE_IDS",
+      "run_id": 39312444342,
+      "limitation": "G8 XI/bench/captain/vice and calibrated event distributions missing"
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
@@ -129,13 +135,12 @@
     "G22"
   ],
   "next_actions": [
-    "Acquire documented league-allowed formations and Classic role settings to close prelock real-mode config gate",
-    "Obtain G8 opponent fantasy team roster/formation/bench/captain/vice with source timestamp",
-    "Build calibrated event-level joint generator conditioned on each player's Serie A opponent, home/away and lineup probability; audit G05 scoring-goal correlation",
-    "Acquire real G8 official injury and tactical source snapshots before lock and SHA256 evidence",
-    "Generate and freeze actual candidate B0 B1 forecasts before league lock (not after first kickoff)",
-    "Compute paired three-module comparison with observed prospective scenarios, preregistration and report of uncertainty",
-    "After all fixtures, evaluate calibrated Brier rolling-origin out-of-sample, and independently audit G00-G22"
+    "Obtain G8 ARTIBANAIKOS XI/order bench/captain/vice and exact league lock time without confusing G7 lineup for G8",
+    "Certify allowed modules and all Classic league rules from app, do not imply official Fantasy ratings from truncated header fields",
+    "Run conditional match-level joint forecast with source-grounded availability for both 25-player squads and G05 event consistency",
+    "Freeze actual own G8 candidate 4-3-3/4-4-2/3-5-2 full decisions and B0/B1 before first kickoff/league lock",
+    "Measure conditional P(V)/P(N) and risk with paired scenarios and real opponent forecast; no invented predictions",
+    "Assess real outcomes after G8 with no look-ahead and retain SHADOW until full G14/G15 and G00-G22 validation"
   ],
   "notes": [
     "Do not interpret 31 tests as STAT VALIDATED.",
@@ -173,7 +178,9 @@
     "allowed_formations_status": "PROVVISORIA",
     "classic_roles_status": "PROVVISORIA",
     "G14_G15": "BLOCKED_REAL_HOLDOUT_MISSING",
-    "gold_lock": false
+    "gold_lock": false,
+    "real_opponent_fantasy_roster_available": true,
+    "real_opponent_fantasy_team": "ARTIBANAIKOS"
   },
   "photo_settings": {
     "status": "SCREENSHOT_VERIFIED_PENDING_INDEPENDENT_GOLDEN_REPLAY",
@@ -338,5 +345,45 @@
     "golden_gate_G16": "DA_VERIFICARE",
     "out_of_sample_eligible": false,
     "release": "SHADOW"
+  },
+  "g8_opponent": {
+    "fantasy_team": "ARTIBANAIKOS",
+    "manager": "Andrea Artibani",
+    "next_matchday": 8,
+    "matchup_grounding": "EXPLICIT_USER_STATEMENT_NOT_IN_APP_CALENDAR_TAB",
+    "roster_source": "experimental/fs_v331/data/artibanaikos_roster_20261019.json",
+    "roster_bridge": "experimental/fs_v331/g8_opponent_bridge.py",
+    "role_counts": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
+    },
+    "ids_reconciled": 25,
+    "ids_unmatched": 0,
+    "id_source": "registry.json",
+    "registry_cutoff": "2026-10-13",
+    "screenshot_sha256": [
+      "cabf923f313089e540aee9020019c1b878878ca4b520d2ffc5d21eb2a4d615ad",
+      "e6f40d964386f9e22b1524b2c12d0ab981c9cb44289faa668e486ccfc8b69b9b",
+      "7912aa74d3d2953610c06b785d5ff4a98a81aa85e3200f8f6aa4964334de2f52"
+    ],
+    "original_user_screenshot_bytes_archived_in_github": false,
+    "remaining_credits": 6,
+    "acquisition_column_total": 494,
+    "budget_total": 500,
+    "calendar_player_links": 25,
+    "historical_g7_observed_module": "3-4-3",
+    "g7_lineup_is_not_g8_confirmation": true,
+    "g8_starters": null,
+    "g8_ordered_bench": null,
+    "g8_captain": null,
+    "g8_vice": null,
+    "competition_level_8_opponent_confirmed_by_user": true,
+    "full_prelock_scenario_probabilities_available": false,
+    "prediction_state": "BLOCKED_OPPONENT_G8_LINEUP_NOT_PROVIDED",
+    "G05": "NOT_CERTIFIED",
+    "G14_G15": "NOT_CERTIFIED",
+    "promotion_golden": false
   }
 }
