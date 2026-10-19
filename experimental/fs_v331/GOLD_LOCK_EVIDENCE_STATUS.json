@@ -1,6 +1,6 @@
 {
   "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
-  "generated_utc": "2026-10-19T04:25:00Z",
+  "generated_utc": "2026-10-19T04:33:00Z",
   "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
   "candidate_branch": "fs-v331-evidence-custody-phase1",
   "target_branch": "fs-v331-shadow-phase1",
@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "90a84a0f88b9676d988ef2a3830a473422ea2e6b",
-    "run_id": 39199338310,
-    "tests_passed": 96,
-    "tests_total": 96,
+    "head_sha": "1285fb7f1fe4d645b85bc81270d6c5ff0eca7f2b",
+    "run_id": 39199993206,
+    "tests_passed": 113,
+    "tests_total": 113,
     "conclusion": "success",
-    "scope": "SOFTWARE_UNIT_TESTS_G7_PARTIAL_REPLAY_NO_FINAL_GOLDEN"
+    "scope": "UNIT_TESTS_INCLUDING_SYNTHETIC_G7_END_TO_END_REPLAY_NO_REAL_GOLDEN"
   },
   "verified_evidence": [
     {
@@ -69,6 +69,12 @@
       "level": "96/96_SHADOW_SOFTWARE_TESTS_SUCCESS",
       "run_id": 39199338310,
       "limitation": "pending Monday real match & pure votes"
+    },
+    {
+      "area": "G7_COMPLETE_REPLAY_SOFTWARE",
+      "level": "113_113_SHADOW_UNIT_TESTS_PASS_INCLUDING_SYNTHETIC_END_TO_END",
+      "run_id": 39199993206,
+      "limitation": "no true G7 final scores or pure votes"
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
@@ -105,12 +111,11 @@
     "G22"
   ],
   "next_actions": [
-    "After 19 Oct Monza-Cagliari and Monday fixture(s), obtain final app scoreboard and pure votes for both fantasy teams",
-    "Run G7 official historical replay with all substitutions, defense modifier, captain factor and final fantasy goals",
-    "Do not mark G7 as prematch holdout; live evidence is after lineup lock",
-    "Capture real G8 pre-lock candidate/B0/B1 outputs with trusted timestamps and source bytes",
-    "Run pre-registered Brier/calibration/rolling-origin outside sample and independent audit",
-    "Gold LOCK only if G00-G22 and predictive gate pass"
+    "Acquire genuine completed 7th matchday platform totals and goal counts plus exact original screenshot bytes",
+    "Acquire official pure votes for all used players and captain/vice, without inferring from fantasy votes",
+    "Execute G7 replay on observed final data and independently audit transcription and evidence timestamps",
+    "Repeat certified replay for all historical rounds (G16), then run B0/B1 out-of-sample calibration separately",
+    "Continue SHADOW; no GOLD promotion until G00-G22 and G14/G15 complete"
   ],
   "notes": [
     "Do not interpret 31 tests as STAT VALIDATED.",
@@ -207,5 +212,34 @@
         "sha256": "e6125923dfe0e603851ff93dee609002e944973d55ee5f32fa6c6db3d7ae40c2"
       }
     ]
+  },
+  "g7_golden_replay_engine": {
+    "code": "experimental/fs_v331/g7_golden_replay.py",
+    "tests": "experimental/fs_v331/test_g7_golden_replay.py",
+    "readme": "experimental/fs_v331/G7_GOLDEN_REPLAY_README.md",
+    "state": "READY_TO_COMPARE_ON_VERIFIED_FINAL_INPUT__BLOCKED_G7_PENDING_OFFICIAL_FANTAVOTES_PURE_VOTES_APP_RECEIPT",
+    "partial_score_home": 50,
+    "partial_score_away": 60.5,
+    "substituted_base_home": 56,
+    "substituted_base_away": 66.5,
+    "goalkeeper_and_defense_combination": "requires all selected pure votes, no interpolation",
+    "captain": "requires Maldini and Nico Paz official pure vote",
+    "missing": [
+      "G7_MALDINI_FINAL_FANTAVOTE_AND_PURE_VOTE",
+      "G7_SIMEONE_FINAL_FANTAVOTE",
+      "COMPLETE_PURE_VOTES",
+      "FINAL_PLATFORM_BOTH_TOTALS_AND_FANTAGOALS",
+      "AUTHENTICATED_FINAL_APP_RECEIPT"
+    ],
+    "synthetic_test_scenario": {
+      "home_total": "69",
+      "away_total": "72.5",
+      "home_fantagoals": 1,
+      "away_fantagoals": 2,
+      "evidence_status": "SYNTHETIC_ONLY_NOT_REAL_GAME"
+    },
+    "real_platform_parity": false,
+    "real_independent_replay": false,
+    "statistical_holdout_eligible": false
   }
 }
