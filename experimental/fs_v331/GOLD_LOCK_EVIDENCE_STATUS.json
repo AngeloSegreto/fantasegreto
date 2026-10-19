@@ -1,6 +1,6 @@
 {
   "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
-  "generated_utc": "2026-10-19T04:33:00Z",
+  "generated_utc": "2026-10-19T04:37:00Z",
   "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
   "candidate_branch": "fs-v331-evidence-custody-phase1",
   "target_branch": "fs-v331-shadow-phase1",
@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "1285fb7f1fe4d645b85bc81270d6c5ff0eca7f2b",
-    "run_id": 39199993206,
-    "tests_passed": 113,
-    "tests_total": 113,
+    "head_sha": "a1932f78a69c8070e00777d96f8135f863168310",
+    "run_id": 39200255367,
+    "tests_passed": 116,
+    "tests_total": 116,
     "conclusion": "success",
-    "scope": "UNIT_TESTS_INCLUDING_SYNTHETIC_G7_END_TO_END_REPLAY_NO_REAL_GOLDEN"
+    "scope": "UNIT_TESTS_INCLUDING_SYNTHETIC_COMPLETE_G7_REPLAY_AND_NECESSARY_PURE_VOTE_CONTRACT"
   },
   "verified_evidence": [
     {
@@ -75,6 +75,12 @@
       "level": "113_113_SHADOW_UNIT_TESTS_PASS_INCLUDING_SYNTHETIC_END_TO_END",
       "run_id": 39199993206,
       "limitation": "no true G7 final scores or pure votes"
+    },
+    {
+      "area": "G7_COMPLETE_REPLAY_MINIMUM_DATA_CONTRACT",
+      "level": "116_TESTS_PASS_GITHUB_CI",
+      "run_id": 39200255367,
+      "limitation": "missing independently verified pure votes and real final match results"
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
@@ -111,11 +117,11 @@
     "G22"
   ],
   "next_actions": [
-    "Acquire genuine completed 7th matchday platform totals and goal counts plus exact original screenshot bytes",
-    "Acquire official pure votes for all used players and captain/vice, without inferring from fantasy votes",
-    "Execute G7 replay on observed final data and independently audit transcription and evidence timestamps",
-    "Repeat certified replay for all historical rounds (G16), then run B0/B1 out-of-sample calibration separately",
-    "Continue SHADOW; no GOLD promotion until G00-G22 and G14/G15 complete"
+    "Obtain completed official National League G7 screenshot AFTER all Monday games, and the pure ratings for Meret/4 effective defenders and captain/vice",
+    "Run G7 golden replay with exact Decimal comparison against official 2 totals and 2 fantagols",
+    "Independent verified source transcription and historical G16 parity across all certified rounds",
+    "Use separate G8+ real preregistered prematch forecasts for G14/G15 rolling-origin tests",
+    "Maintain SHADOW and gold=false until all gates close"
   ],
   "notes": [
     "Do not interpret 31 tests as STAT VALIDATED.",
@@ -240,6 +246,19 @@
     },
     "real_platform_parity": false,
     "real_independent_replay": false,
-    "statistical_holdout_eligible": false
+    "statistical_holdout_eligible": false,
+    "core_condition": "ALL_VOTE_STATUSES_AND_FANTAVOTES_PLUS_PURE_VOTES_ONLY_FOR_EFFECTIVE_GOALKEEPER_AND_DEFENDERS_AND_CAPTAIN_OR_VICE",
+    "status": "READY_FOR_TRUE_FINAL_RECEIPT__NOT_A_CERTIFIED_FINAL_REPLAY",
+    "results": "NO_REAL_SCORE_PARITY_YET",
+    "known_substitution_total_home": "56",
+    "known_substitution_total_away": "66.5",
+    "synthetic_unit_test_is_real_data": false,
+    "real_final_app_screenshot_available": false,
+    "required_true_final_inputs": [
+      "Final app screenshot with both official totals/fantagoals",
+      "Status and fantavotes for all 11+reserves of both teams",
+      "Pure votes: Meret, Solet, Dimarco, Zortea, Cambiaso; Maldini and Nico Paz (or vice if no vote)",
+      "Screenshot/source evidence with matching sha256"
+    ]
   }
 }
