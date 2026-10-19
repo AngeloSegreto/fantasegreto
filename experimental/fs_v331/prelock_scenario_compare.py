@@ -314,7 +314,7 @@ def main():
     result=analyze(read_json(args.roster),read_json(args.calendar),load_config(args.config),
                    read_json(args.candidates),read_json(args.opponent),
                    read_json(args.scenarios),read_json(args.protocol))
-    raw=json.dumps(result,ensure_ascii=False,indent=2,sort_keys=True)+"\\n"
+    raw=json.dumps(result,ensure_ascii=False,indent=2,sort_keys=True)+"\n"
     if args.output:
         Path(args.output).write_text(raw,encoding="utf-8")
     print(raw,end="")
