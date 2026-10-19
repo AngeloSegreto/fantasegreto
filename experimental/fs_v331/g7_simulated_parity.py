@@ -56,7 +56,8 @@ def reconcile(data,config):
         if side=="home":
             if sub["out"]!="Wesley" or sub["in"]!="Cambiaso" or part["captain"]!="Maldini":
                 raise EvidenceConflict("starter/captain mismatch with snapshot")
-            assert d(part["starter_votes_sum"]) == d(m["live_titulars"]["home"])
+            if d(part["starter_votes_sum"]) != d(m["live_titulars"]["home"]):
+                raise EvidenceConflict("partial home mismatch")
             added=d(sub["fantavote"])
             base=d(part["starter_votes_sum"])
         else:
