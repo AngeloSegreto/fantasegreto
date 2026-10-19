@@ -113,6 +113,8 @@ def _necessary_pure_votes(side, side_name, config):
     required = []
     ds = [p for p in effective if p["role"] == "D"]
     if config["rules"]["defense_modifier"]["enabled"] and len(ds) >= 4:
+        if sum(p["status"] == "VOTED" for p in ds) < 4:
+            return [side_name + ":UNCERTIFIED_DEFENDER_VOTE_ELIGIBILITY"]
         required += [p for p in effective if p["role"] == "P" and p["status"] == "VOTED"]
         required += [p for p in ds if p["status"] == "VOTED"]
     original = {p["id"]: p for p in side["starters"]}
