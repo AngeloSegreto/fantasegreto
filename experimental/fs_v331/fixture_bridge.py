@@ -41,6 +41,34 @@ def fixture_bridge(roster_snapshot, fixtures):
         raise ValueError("roster completeness violation")
     return rows
 
+
+def correlated_match_groups(rows):
+    """Structural match groups; score-model coefficients are not inferred here.
+
+    Players in the same real fixture MUST share one simulated match outcome.
+    The goalkeeper of either club can never receive an independently drawn
+    score for a separate copy of that real fixture.
+    """
+    if not isinstance(rows, list) or not rows:
+        raise ValueError("player-to-fixture rows required")
+    groups={}
+    seen=set()
+    for p in rows:
+        pid=str(p.get("official_id",""))
+        if not pid or pid in seen:
+            raise ValueError("duplicate/missing canonical player")
+        seen.add(pid)
+        home,away,kickoff=p["home"],p["away"],p["kickoff"]
+        if p["team"] not in (home,away) or p["opponent"] == p["team"]:
+            raise ValueError("malformed real-fixture relation")
+        key=(kickoff,home,away)
+        g=groups.setdefault(key,{"kickoff":kickoff,"home":home,"away":away,"player_ids":[]})
+        g["player_ids"].append(pid)
+    result=sorted(groups.values(),key=lambda x:(x["kickoff"],x["home"],x["away"]))
+    for g in result:
+        g["player_ids"].sort(key=lambda x:int(x) if x.isdecimal() else x)
+    return result
+
 def load_and_bridge(root):
     root=Path(root)
     roster=json.loads((root/"data"/"mall_dealer_roster_20261019.json").read_text(encoding="utf8"))
