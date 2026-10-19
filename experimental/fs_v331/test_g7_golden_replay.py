@@ -91,6 +91,33 @@ class G7OfficialReplayTests(unittest.TestCase):
         r=replay(PARTIAL,x,CFG)
         self.assertIn("away:PENDING_MATCH:Simeone",r["missing"])
 
+    def test_unused_bench_and_non_defender_pure_votes_optional(self):
+        x=deepcopy(self.fixture)
+        necessary_home={"572","6956","254","4433","5520","4896"}
+        for p in PARTIAL["home"]["starters"]+PARTIAL["home"]["bench"]:
+            if p["id"] not in necessary_home:
+                x["player_updates"]["home"].get(p["id"],{}).pop("pure_vote",None)
+        # The 3D AC DENTI has no modifier: only captain Paz needs a pure vote.
+        for p in PARTIAL["away"]["starters"]+PARTIAL["away"]["bench"]:
+            if p["id"]!="unknown-ac-paz":
+                x["player_updates"]["away"].get(p["id"],{}).pop("pure_vote",None)
+        r=replay(PARTIAL,x,CFG)
+        self.assertEqual(r["status"],"SOFTWARE_TEST_ONLY")
+        self.assertEqual(r["replay"]["home"]["total"],"69.0")
+        self.assertEqual(r["replay"]["away"]["total"],"72.5")
+
+    def test_must_still_supply_first_eligible_goalkeeper_pure_vote(self):
+        x=deepcopy(self.fixture)
+        x["player_updates"]["home"]["572"].pop("pure_vote")
+        r=replay(PARTIAL,x,CFG)
+        self.assertIn("home:MISSING_PURE_VOTE:Meret",r["missing"])
+
+    def test_must_still_supply_away_captain_pure_vote(self):
+        x=deepcopy(self.fixture)
+        x["player_updates"]["away"]["unknown-ac-paz"].pop("pure_vote")
+        r=replay(PARTIAL,x,CFG)
+        self.assertIn("away:MISSING_PURE_VOTE:Paz N.",r["missing"])
+
     def test_missing_pure_vote_rejected(self):
         x=deepcopy(self.fixture);x["player_updates"]["home"]["5520"].pop("pure_vote")
         r=replay(PARTIAL,x,CFG)
