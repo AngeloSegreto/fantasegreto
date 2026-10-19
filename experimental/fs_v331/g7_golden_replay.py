@@ -65,6 +65,9 @@ def _hydrate(side, updates, side_name):
             newstatus = upd.get("status", p["status"])
             if p["status"] == "VOTED" and newstatus != "VOTED":
                 revisions.append({"id": key, "from": p["status"], "to": newstatus})
+            if (p["status"] == "VOTED" and newstatus == "VOTED" and
+                "fantavote" in upd and D(upd["fantavote"]) != D(p["fantavote"])):
+                revisions.append({"id": key, "from_fantavote": p["fantavote"], "to_fantavote": upd["fantavote"]})
             p.update(upd)
         st = p.get("status")
         if st == "PENDING_MATCH":
