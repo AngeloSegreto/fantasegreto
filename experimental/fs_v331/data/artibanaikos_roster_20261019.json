@@ -1,0 +1,403 @@
+{
+  "schema": "FS_V331_LEAGUE_OPPONENT_ROSTER_SNAPSHOT_V1",
+  "status": "SCREENSHOT_GROUNDED_SHADOW_ONLY",
+  "league": "AutoMasterFanta National League 2026-27",
+  "fantasy_team": "ARTIBANAIKOS",
+  "fantasy_manager": "Andrea Artibani",
+  "assigned_as_matchday8_opponent_by": "USER_EXPLICIT_STATEMENT",
+  "opponent_fantasy_matchday": 8,
+  "app_display_remaining_credits": 6,
+  "screen_clock": "21:08–21:09",
+  "context_date": "2026-10-19",
+  "context_date_basis": "conversation_datetime_not_in_app_capture",
+  "provenance": {
+    "source_type": "user_supplied_app_screenshots",
+    "raw_files_archived_in_github": false,
+    "shots": [
+      {
+        "file": "IMG_9212.jpeg",
+        "sha256": "cabf923f313089e540aee9020019c1b878878ca4b520d2ffc5d21eb2a4d615ad",
+        "scope": "P3_D6"
+      },
+      {
+        "file": "IMG_9213.png",
+        "sha256": "e6f40d964386f9e22b1524b2c12d0ab981c9cb44289faa668e486ccfc8b69b9b",
+        "scope": "D2_C7"
+      },
+      {
+        "file": "IMG_9214.png",
+        "sha256": "7912aa74d3d2953610c06b785d5ff4a98a81aa85e3200f8f6aa4964334de2f52",
+        "scope": "C1_A6"
+      }
+    ],
+    "registry": {
+      "file": "registry.json",
+      "blob_sha": "6b7873ac09a424498d0b54c472bfd9c856130142",
+      "cutoff": "2026-10-13"
+    },
+    "mapping": "exact_name_team_role_to_registry_official_id_with_unique_collision_checks"
+  },
+  "value_field_policy": "Q. a... FVMp V. A... numbers transcribed exactly; abbreviated headers are not independently certified. V.A sum + remaining credits reconciles to 500",
+  "role_count": {
+    "P": 3,
+    "D": 8,
+    "C": 8,
+    "A": 6
+  },
+  "roster": [
+    {
+      "id": "4431",
+      "registry_id": "p-carnesecchi-atalanta",
+      "name": "Carnesecchi",
+      "app_display_name": "Carnesecchi",
+      "team": "Atalanta",
+      "role": "P",
+      "league_app_values": {
+        "q_a_visible": 16,
+        "fvmp_visible": 25,
+        "v_a_visible": 60
+      }
+    },
+    {
+      "id": "4957",
+      "registry_id": "p-fc-4957",
+      "name": "Montipò",
+      "app_display_name": "Montipò",
+      "team": "Venezia",
+      "role": "P",
+      "league_app_values": {
+        "q_a_visible": 1,
+        "fvmp_visible": 1,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "6415",
+      "registry_id": "p-palmisani-frosinone",
+      "name": "Palmisani",
+      "app_display_name": "Palmisani",
+      "team": "Frosinone",
+      "role": "P",
+      "league_app_values": {
+        "q_a_visible": 9,
+        "fvmp_visible": 10,
+        "v_a_visible": 5
+      }
+    },
+    {
+      "id": "7219",
+      "registry_id": "p-bernasconi-atalanta",
+      "name": "Bernasconi",
+      "app_display_name": "Bernasconi",
+      "team": "Atalanta",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 5,
+        "fvmp_visible": 6,
+        "v_a_visible": 6
+      }
+    },
+    {
+      "id": "2724",
+      "registry_id": "p-buongiorno-napoli",
+      "name": "Buongiorno",
+      "app_display_name": "Buongiorno",
+      "team": "Napoli",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 5,
+        "fvmp_visible": 5,
+        "v_a_visible": 2
+      }
+    },
+    {
+      "id": "6632",
+      "registry_id": "p-gaspar-k-lecce",
+      "name": "Gaspar K.",
+      "app_display_name": "Gaspar K.",
+      "team": "Lecce",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 4,
+        "fvmp_visible": 6,
+        "v_a_visible": 2
+      }
+    },
+    {
+      "id": "6660",
+      "registry_id": "p-marcandalli-genoa",
+      "name": "Marcandalli",
+      "app_display_name": "Marcandalli",
+      "team": "Genoa",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 5,
+        "fvmp_visible": 6,
+        "v_a_visible": 2
+      }
+    },
+    {
+      "id": "4998",
+      "registry_id": "p-molina-n-roma",
+      "name": "Molina N.",
+      "app_display_name": "Molina N.",
+      "team": "Roma",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 17,
+        "fvmp_visible": 28,
+        "v_a_visible": 17
+      }
+    },
+    {
+      "id": "4952",
+      "registry_id": "p-monterisi-frosinone",
+      "name": "Monterisi",
+      "app_display_name": "Monterisi",
+      "team": "Frosinone",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 6,
+        "fvmp_visible": 5,
+        "v_a_visible": 5
+      }
+    },
+    {
+      "id": "6925",
+      "registry_id": "p-palma-udinese",
+      "name": "Palma",
+      "app_display_name": "Palma",
+      "team": "Udinese",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 2,
+        "fvmp_visible": 3,
+        "v_a_visible": 3
+      }
+    },
+    {
+      "id": "4751",
+      "registry_id": "p-tomori-milan",
+      "name": "Tomori",
+      "app_display_name": "Tomori",
+      "team": "Milan",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 5,
+        "fvmp_visible": 3,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "7436",
+      "registry_id": "p-alajbegovic-juventus",
+      "name": "Alajbegovic",
+      "app_display_name": "Alajbegovic",
+      "team": "Juventus",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 11,
+        "fvmp_visible": 21,
+        "v_a_visible": 31
+      }
+    },
+    {
+      "id": "7036",
+      "registry_id": "p-bakola-sassuolo",
+      "name": "Bakola",
+      "app_display_name": "Bakola",
+      "team": "Sassuolo",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 9,
+        "fvmp_visible": 9,
+        "v_a_visible": 7
+      }
+    },
+    {
+      "id": "4947",
+      "registry_id": "p-brescianini-fiorentina",
+      "name": "Brescianini",
+      "app_display_name": "Brescianini",
+      "team": "Fiorentina",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 3,
+        "fvmp_visible": 4,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "5888",
+      "registry_id": "p-casadei-torino",
+      "name": "Casadei",
+      "app_display_name": "Casadei",
+      "team": "Torino",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 7,
+        "fvmp_visible": 7,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "6917",
+      "registry_id": "p-masini-genoa",
+      "name": "Masini",
+      "app_display_name": "Masini",
+      "team": "Frosinone",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 7,
+        "fvmp_visible": 7,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "7078",
+      "registry_id": "p-fc-7078",
+      "name": "Mastantuono",
+      "app_display_name": "Mastantuono",
+      "team": "Fiorentina",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 15,
+        "fvmp_visible": 38,
+        "v_a_visible": 67
+      }
+    },
+    {
+      "id": "7556",
+      "registry_id": "p-fc-7556",
+      "name": "Mora",
+      "app_display_name": "Mora",
+      "team": "Roma",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 19,
+        "fvmp_visible": 23,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "6190",
+      "registry_id": "p-pisilli-roma",
+      "name": "Pisilli",
+      "app_display_name": "Pisilli",
+      "team": "Roma",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 9,
+        "fvmp_visible": 13,
+        "v_a_visible": 15
+      }
+    },
+    {
+      "id": "5995",
+      "registry_id": "p-de-ketelaere-atalanta",
+      "name": "De Ketelaere",
+      "app_display_name": "De Ketelaere",
+      "team": "Atalanta",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 15,
+        "fvmp_visible": 32,
+        "v_a_visible": 49
+      }
+    },
+    {
+      "id": "6052",
+      "registry_id": "p-hojlund-napoli",
+      "name": "Hojlund",
+      "app_display_name": "Hojlund",
+      "team": "Napoli",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 26,
+        "fvmp_visible": 115,
+        "v_a_visible": 101
+      }
+    },
+    {
+      "id": "7001",
+      "registry_id": "p-n-dri-lecce",
+      "name": "N'Dri",
+      "app_display_name": "N'Dri",
+      "team": "Lecce",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 4,
+        "fvmp_visible": 5,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "5436",
+      "registry_id": "p-raimondo-frosinone",
+      "name": "Raimondo",
+      "app_display_name": "Raimondo",
+      "team": "Frosinone",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 12,
+        "fvmp_visible": 30,
+        "v_a_visible": 28
+      }
+    },
+    {
+      "id": "5734",
+      "registry_id": "p-soule-roma",
+      "name": "Soulè",
+      "app_display_name": "Soulè",
+      "team": "Roma",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 16,
+        "fvmp_visible": 32,
+        "v_a_visible": 51
+      }
+    },
+    {
+      "id": "6434",
+      "registry_id": "p-yildiz-juventus",
+      "name": "Yildiz",
+      "app_display_name": "Yildiz",
+      "team": "Juventus",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 19,
+        "fvmp_visible": 35,
+        "v_a_visible": 36
+      }
+    }
+  ],
+  "total_va_column": 494,
+  "total_va_plus_remaining_credits": 500,
+  "source_observation_is_prelock_for_g8": true,
+  "source_observation_is_proven_from_platform_timestamp": false,
+  "matchday8_starting_xi": null,
+  "matchday8_bench_order": null,
+  "matchday8_captain": null,
+  "matchday8_vice": null,
+  "historic_g7_formation_observation": {
+    "module": "3-4-3",
+    "starting_names": [
+      "Palmisani",
+      "Monterisi",
+      "Molina N.",
+      "Marcandalli",
+      "Mastantuono",
+      "Pisilli",
+      "Mora",
+      "Alajbegovic",
+      "Soulè",
+      "Hojlund",
+      "Raimondo"
+    ],
+    "source": "user_posted_g7_app_simulated_snapshots",
+    "use_as_g8_lineup": false
+  },
+  "real_prelock_scenario_eligible": false,
+  "statistical_validation_eligible": false,
+  "gold_lock": false
+}
