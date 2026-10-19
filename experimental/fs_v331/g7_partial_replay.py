@@ -12,6 +12,10 @@ def checked_score(v):
         raise ValueError("Non-finite vote")
     return d
 
+def display_number(d):
+    s=format(d,"f")
+    return s.rstrip("0").rstrip(".") if "." in s else s
+
 def reconcile_side(side, *, max_changes=5):
     starters = side["starters"]
     bench = side["bench"]
@@ -19,7 +23,7 @@ def reconcile_side(side, *, max_changes=5):
         raise ValueError("invalid XI/bench")
     pending = [p["name"] for p in starters if p["status"] == PENDING]
     confirmed_base = sum((checked_score(p["fantavote"]) for p in starters if p["status"] == "VOTED"),Decimal("0"))
-    if str(confirmed_base) != side["raw_voted_starters_sum"]:
+    if confirmed_base != checked_score(side["raw_voted_starters_sum"]):
         raise ValueError("scoreboard sum doesn't match the uploaded screenshot")
     changes=[]
     used=set()
@@ -37,8 +41,8 @@ def reconcile_side(side, *, max_changes=5):
         state="LIVE_PARTIAL_PENDING_MATCH"
     else:
         state="VOTES_AVAILABLE_NOT_OFFICIAL_REPLAY"
-    return {"status":state,"voted_titulars_sum":str(confirmed_base),
-            "known_substituted_sum":str(effective_base),"substitutions":changes,
+    return {"status":state,"voted_titulars_sum":display_number(confirmed_base),
+            "known_substituted_sum":display_number(effective_base),"substitutions":changes,
             "pending_starters":pending,"modifier_and_captain_not_applied":True}
 
 def reconcile(data):
