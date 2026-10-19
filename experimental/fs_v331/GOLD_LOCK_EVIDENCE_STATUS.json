@@ -1,0 +1,264 @@
+{
+  "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
+  "generated_utc": "2026-10-19T04:37:00Z",
+  "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
+  "candidate_branch": "fs-v331-evidence-custody-phase1",
+  "target_branch": "fs-v331-shadow-phase1",
+  "production_branch": "main",
+  "candidate_state": "SHADOW",
+  "promotion": {
+    "TECH_PASS": false,
+    "STAT_VALIDATED": false,
+    "GOLD_LOCK": false,
+    "gold_flag_mutation": false
+  },
+  "current_ci": {
+    "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
+    "head_sha": "a1932f78a69c8070e00777d96f8135f863168310",
+    "run_id": 39200255367,
+    "tests_passed": 116,
+    "tests_total": 116,
+    "conclusion": "success",
+    "scope": "UNIT_TESTS_INCLUDING_SYNTHETIC_COMPLETE_G7_REPLAY_AND_NECESSARY_PURE_VOTE_CONTRACT"
+  },
+  "verified_evidence": [
+    {
+      "area": "goal_band_66_4",
+      "source": "user-provided screenshot IMG_9122.png",
+      "sha256": "f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf",
+      "level": "RULE_INPUT_HASH_VERIFIED"
+    },
+    {
+      "area": "CI_SHADOW_TESTS",
+      "level": "31_UNIT_TESTS_PASS",
+      "run_id": 39169894005
+    },
+    {
+      "area": "G8_INTAKE_TESTS",
+      "level": "14_UNIT_TESTS_PASS_GITHUB_CI",
+      "run_id": 39170918359
+    },
+    {
+      "area": "G09_G10_RULE_INPUTS",
+      "level": "SCREENSHOT_DOCUMENTED_NOT_HISTORICAL_GOLDEN",
+      "files": [
+        "IMG_9123(1).png",
+        "IMG_9124(1).png",
+        "IMG_9125(1).png",
+        "IMG_9126(1).png",
+        "IMG_9127(1).png"
+      ]
+    },
+    {
+      "area": "UNIT_TESTS_SHADOW",
+      "level": "63_UNIT_TESTS_PASS",
+      "run_id": 39197583813
+    },
+    {
+      "area": "ROSTER_MAPPING",
+      "level": "25_ID_MATCH_AND_CREDIT_RECONCILIATION",
+      "run_id": 39198649256
+    },
+    {
+      "area": "MATCH_CORRELATION_STRUCTURE",
+      "level": "86_SHADOW_UNIT_TESTS_PASS",
+      "run_id": 39198649256
+    },
+    {
+      "area": "G7_LIVE_PARTIAL_REPLAY",
+      "level": "96/96_SHADOW_SOFTWARE_TESTS_SUCCESS",
+      "run_id": 39199338310,
+      "limitation": "pending Monday real match & pure votes"
+    },
+    {
+      "area": "G7_COMPLETE_REPLAY_SOFTWARE",
+      "level": "113_113_SHADOW_UNIT_TESTS_PASS_INCLUDING_SYNTHETIC_END_TO_END",
+      "run_id": 39199993206,
+      "limitation": "no true G7 final scores or pure votes"
+    },
+    {
+      "area": "G7_COMPLETE_REPLAY_MINIMUM_DATA_CONTRACT",
+      "level": "116_TESTS_PASS_GITHUB_CI",
+      "run_id": 39200255367,
+      "limitation": "missing independently verified pure votes and real final match results"
+    }
+  ],
+  "real_prelock_forecasts_available_for_certified_backtest": false,
+  "observed_official_outcomes_reconciled_for_certified_backtest": false,
+  "holdouts_verified": false,
+  "blocking_rules": [
+    "allowed_formations_not_confirmed_by_league_screen",
+    "classification_points_3_1_0_not_confirmed_by_league_screen",
+    "special_SV_and_political_vote_options_unverified",
+    "unresolved_defense_modifier_fourth_defender_SV_edge"
+  ],
+  "blocking_gates": [
+    "G00",
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G09",
+    "G10",
+    "G11",
+    "G12",
+    "G13",
+    "G14",
+    "G15",
+    "G16",
+    "G17",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22"
+  ],
+  "next_actions": [
+    "Obtain completed official National League G7 screenshot AFTER all Monday games, and the pure ratings for Meret/4 effective defenders and captain/vice",
+    "Run G7 golden replay with exact Decimal comparison against official 2 totals and 2 fantagols",
+    "Independent verified source transcription and historical G16 parity across all certified rounds",
+    "Use separate G8+ real preregistered prematch forecasts for G14/G15 rolling-origin tests",
+    "Maintain SHADOW and gold=false until all gates close"
+  ],
+  "notes": [
+    "Do not interpret 31 tests as STAT VALIDATED.",
+    "Archive SHA-256 verifies byte integrity but not external provenance.",
+    "Real-time capture remains unintegrated with the simulator.",
+    "Never set gold=true without independent signed evidence.",
+    "The user evidence ZIP is available as conversation artifact but has not been committed into GitHub repository."
+  ],
+  "g8_prelock": {
+    "matchday": 8,
+    "earliest_fixture": "Torino-Monza",
+    "first_kickoff": "2026-10-23T20:45:00+02:00",
+    "fixtures_json": "experimental/fs_v331/fixtures/md08_serie_a_2026_27.json",
+    "intake_module": "experimental/fs_v331/prelock_intake.py",
+    "source_url": "https://www.legaseriea.it/serie-a/news/quando-si-gioca-anticipi-e-posticipi-fino-alla-12a-giornata",
+    "status": "STRUCTURAL_SOURCE_AND_CALENDAR_MAPPING_READY_REAL_PRELOCK_FORECAST_PENDING",
+    "notes": "Must capture verified raw source bytes and real engine candidate/B0/B1 forecasts before actual league lock; G00/G01 remain pending.",
+    "roster_fixture_bridge": "experimental/fs_v331/fixture_bridge.py",
+    "player_fixture_links": 25,
+    "shared_match_correlations": "STRUCTURAL_GROUPING_TESTED_NOT_MC_IMPLEMENTED"
+  },
+  "photo_settings": {
+    "status": "SCREENSHOT_VERIFIED_PENDING_INDEPENDENT_GOLDEN_REPLAY",
+    "user_evidence_package_sha256": "cb17aebb39d4166553a3bb466adeae6efa1248927178922ac13dadaba956a323",
+    "substitution": {
+      "state": "CERTIFICATA_FROM_SCREENSHOT",
+      "max_changes": 5,
+      "mode": "TRADITIONAL",
+      "office_reserve": false
+    },
+    "defense_modifier": {
+      "state": "CERTIFICATA_FROM_SCREENSHOT",
+      "enabled": true,
+      "includes_goalkeeper": true,
+      "maximum_bonus": 2
+    },
+    "captain_factor": {
+      "state": "CERTIFICATA_FROM_SCREENSHOT",
+      "enabled": true,
+      "maximum_bonus": 1.5
+    },
+    "bonus_malus": {
+      "state": "CERTIFICATA_FROM_APP_CONFIG_PLUS_SCORING_LEGEND",
+      "goal_scored_row": "+3 visible in IMG_9134.jpeg",
+      "score_replay_pending": true
+    },
+    "raw_receipts_on_github": false
+  },
+  "league_roster_19oct": {
+    "status": "RECONCILED_25_OF_25_WITH_REGISTRY_13OCT",
+    "path": "experimental/fs_v331/data/mall_dealer_roster_20261019.json",
+    "role_counts": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
+    },
+    "spent_from_acquisition_column": 492,
+    "remaining": 8,
+    "verified_budget_total": 500,
+    "raw_screenshot_sha256": [
+      "9a476f2e3d762858c6f6ad6b862981794c30ffb37c8e7f0c4ed1c875b9f045e8",
+      "b3d2284ac75c3b5a5ecc0d4ad0b773c7e2688697db8dc119d1476b03bc49874e",
+      "3c1340c2bee84085d2948a9ef66da6a8cf2e5a9fa5063f5ecd7e4f5362521ef7"
+    ],
+    "evidence_note": "Originals in conversation runtime; raw photo bytes not yet archived in GitHub"
+  },
+  "g7_live_partial": {
+    "status": "PARTIAL_UNRESOLVED_MALDINI_AND_SIMEONE",
+    "source_json": "experimental/fs_v331/data/g7_live_partial_20261019.json",
+    "replay_code": "experimental/fs_v331/g7_partial_replay.py",
+    "home_starters_50": "50",
+    "away_starters_60_5": "60.5",
+    "home_after_known_substitution": "56",
+    "away_after_known_substitution": "66.5",
+    "defense_modifier_and_captain_applied": false,
+    "final_score_certified": false,
+    "out_of_sample_eligible": false,
+    "raw_user_screenshots": [
+      {
+        "file": "IMG_9128.jpeg",
+        "sha256": "a2d3f01fc8e336f4264f18c12c3f1909c4d6057f9142e96c5390df2eb643bd51"
+      },
+      {
+        "file": "IMG_9129.jpeg",
+        "sha256": "0e20a51376095b428d393ee96e6a76a7cac481e428f5f18ddf43b10fe314eb58"
+      },
+      {
+        "file": "IMG_9133.jpeg",
+        "sha256": "80d8dd020e730b9b50087b7c53aa8c21d111b47653fd5f5aef54814e9940516d"
+      },
+      {
+        "file": "IMG_9134.jpeg",
+        "sha256": "e6125923dfe0e603851ff93dee609002e944973d55ee5f32fa6c6db3d7ae40c2"
+      }
+    ]
+  },
+  "g7_golden_replay_engine": {
+    "code": "experimental/fs_v331/g7_golden_replay.py",
+    "tests": "experimental/fs_v331/test_g7_golden_replay.py",
+    "readme": "experimental/fs_v331/G7_GOLDEN_REPLAY_README.md",
+    "state": "READY_TO_COMPARE_ON_VERIFIED_FINAL_INPUT__BLOCKED_G7_PENDING_OFFICIAL_FANTAVOTES_PURE_VOTES_APP_RECEIPT",
+    "partial_score_home": 50,
+    "partial_score_away": 60.5,
+    "substituted_base_home": 56,
+    "substituted_base_away": 66.5,
+    "goalkeeper_and_defense_combination": "requires all selected pure votes, no interpolation",
+    "captain": "requires Maldini and Nico Paz official pure vote",
+    "missing": [
+      "G7_MALDINI_FINAL_FANTAVOTE_AND_PURE_VOTE",
+      "G7_SIMEONE_FINAL_FANTAVOTE",
+      "COMPLETE_PURE_VOTES",
+      "FINAL_PLATFORM_BOTH_TOTALS_AND_FANTAGOALS",
+      "AUTHENTICATED_FINAL_APP_RECEIPT"
+    ],
+    "synthetic_test_scenario": {
+      "home_total": "69",
+      "away_total": "72.5",
+      "home_fantagoals": 1,
+      "away_fantagoals": 2,
+      "evidence_status": "SYNTHETIC_ONLY_NOT_REAL_GAME"
+    },
+    "real_platform_parity": false,
+    "real_independent_replay": false,
+    "statistical_holdout_eligible": false,
+    "core_condition": "ALL_VOTE_STATUSES_AND_FANTAVOTES_PLUS_PURE_VOTES_ONLY_FOR_EFFECTIVE_GOALKEEPER_AND_DEFENDERS_AND_CAPTAIN_OR_VICE",
+    "status": "READY_FOR_TRUE_FINAL_RECEIPT__NOT_A_CERTIFIED_FINAL_REPLAY",
+    "results": "NO_REAL_SCORE_PARITY_YET",
+    "known_substitution_total_home": "56",
+    "known_substitution_total_away": "66.5",
+    "synthetic_unit_test_is_real_data": false,
+    "real_final_app_screenshot_available": false,
+    "required_true_final_inputs": [
+      "Final app screenshot with both official totals/fantagoals",
+      "Status and fantavotes for all 11+reserves of both teams",
+      "Pure votes: Meret, Solet, Dimarco, Zortea, Cambiaso; Maldini and Nico Paz (or vice if no vote)",
+      "Screenshot/source evidence with matching sha256"
+    ]
+  }
+}

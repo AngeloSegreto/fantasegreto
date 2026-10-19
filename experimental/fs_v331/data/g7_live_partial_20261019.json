@@ -1,0 +1,406 @@
+{
+  "schema": "FS_V331_G7_LIVE_PARTIAL_EVIDENCE_V1",
+  "status": "LIVE_PARTIAL_NOT_OFFICIAL_RESULT",
+  "matchday": 7,
+  "league": "National League 2026-27",
+  "observed_clock_in_screenshot": "06:07",
+  "observed_calendar_date_context": "2026-10-19",
+  "calendar_date_provenance": "user_message_context_not_in_screenshot",
+  "source_files": [
+    {
+      "name": "IMG_9128.jpeg",
+      "sha256": "a2d3f01fc8e336f4264f18c12c3f1909c4d6057f9142e96c5390df2eb643bd51",
+      "scope": "starter_votes_and_partial_totals"
+    },
+    {
+      "name": "IMG_9129.jpeg",
+      "sha256": "0e20a51376095b428d393ee96e6a76a7cac481e428f5f18ddf43b10fe314eb58",
+      "scope": "bench_votes_and_total_partials"
+    },
+    {
+      "name": "IMG_9133.jpeg",
+      "sha256": "80d8dd020e730b9b50087b7c53aa8c21d111b47653fd5f5aef54814e9940516d",
+      "scope": "bonus_malus_legend"
+    },
+    {
+      "name": "IMG_9134.jpeg",
+      "sha256": "e6125923dfe0e603851ff93dee609002e944973d55ee5f32fa6c6db3d7ae40c2",
+      "scope": "scoring_legend_goal_plus_three_clean_sheet"
+    }
+  ],
+  "scoreboard": {
+    "home_partial_titulars_fantavotes": "50",
+    "away_partial_titulars_fantavotes": "60.5",
+    "home_substituted_base_known": "56",
+    "away_substituted_base_if_perrone_selected": "66.5",
+    "screenshot_reported_voti_home": "50",
+    "screenshot_reported_voti_away": "54.5"
+  },
+  "home": {
+    "name": "Mall & Dealer Sikuli",
+    "module": "4-3-3",
+    "starters": [
+      {
+        "id": "572",
+        "name": "Meret",
+        "role": "P",
+        "status": "VOTED",
+        "fantavote": "5"
+      },
+      {
+        "id": "7181",
+        "name": "Wesley",
+        "role": "D",
+        "status": "SV"
+      },
+      {
+        "id": "6956",
+        "name": "Solet",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "4.5"
+      },
+      {
+        "id": "254",
+        "name": "Dimarco",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "6"
+      },
+      {
+        "id": "4433",
+        "name": "Zortea",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "5.5"
+      },
+      {
+        "id": "6372",
+        "name": "Moreira",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "8"
+      },
+      {
+        "id": "6684",
+        "name": "Ekkelenkamp",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "4.5"
+      },
+      {
+        "id": "2606",
+        "name": "Modric",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "6.5"
+      },
+      {
+        "id": "5951",
+        "name": "Kolo Muani",
+        "role": "A",
+        "status": "VOTED",
+        "fantavote": "5"
+      },
+      {
+        "id": "4896",
+        "name": "Maldini",
+        "role": "A",
+        "status": "PENDING_MATCH"
+      },
+      {
+        "id": "5029",
+        "name": "Geubbels",
+        "role": "A",
+        "status": "VOTED",
+        "fantavote": "5"
+      }
+    ],
+    "bench": [
+      {
+        "id": "610",
+        "name": "Gollini",
+        "role": "P",
+        "status": "VOTED",
+        "fantavote": "7"
+      },
+      {
+        "id": "5841",
+        "name": "Svilar",
+        "role": "P",
+        "status": "DID_NOT_PLAY"
+      },
+      {
+        "id": "5520",
+        "name": "Cambiaso",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "6"
+      },
+      {
+        "id": "5982",
+        "name": "Spence",
+        "role": "D",
+        "status": "DID_NOT_PLAY"
+      },
+      {
+        "id": "5527",
+        "name": "Zanoli",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "5.5"
+      },
+      {
+        "id": "4364",
+        "name": "Gaetano",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "10"
+      },
+      {
+        "id": "5844",
+        "name": "Thorstvedt",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "9.5"
+      },
+      {
+        "id": "5298",
+        "name": "Pobega",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "9.5"
+      },
+      {
+        "id": "5422",
+        "name": "Zalewski",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "7.5"
+      },
+      {
+        "id": "6145",
+        "name": "Ngonge",
+        "role": "A",
+        "status": "PENDING_MATCH"
+      },
+      {
+        "id": "4371",
+        "name": "Raspadori",
+        "role": "A",
+        "status": "DID_NOT_PLAY"
+      },
+      {
+        "id": "2832",
+        "name": "Boga",
+        "role": "A",
+        "status": "SV"
+      }
+    ],
+    "captain_id": "4896",
+    "vice_id": "6684",
+    "raw_voted_starters_sum": "50",
+    "confirmed_required_same_role_substitutions": [
+      {
+        "out": "7181",
+        "in": "5520",
+        "fv": "6"
+      }
+    ]
+  },
+  "away": {
+    "name": "AC DENTI",
+    "module": "3-5-2",
+    "starters": [
+      {
+        "id": "unknown-ac-falcone",
+        "name": "Falcone",
+        "role": "P",
+        "status": "VOTED",
+        "fantavote": "7"
+      },
+      {
+        "id": "unknown-ac-bellanova",
+        "name": "Bellanova",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "7"
+      },
+      {
+        "id": "unknown-ac-rensch",
+        "name": "Rensch",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "5.5"
+      },
+      {
+        "id": "unknown-ac-de-winter",
+        "name": "De Winter",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "5.5"
+      },
+      {
+        "id": "unknown-ac-sucic",
+        "name": "Sucic P.",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "5.5"
+      },
+      {
+        "id": "unknown-ac-paz",
+        "name": "Paz N.",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "11"
+      },
+      {
+        "id": "unknown-ac-de-bruyne",
+        "name": "De Bruyne",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "3"
+      },
+      {
+        "id": "unknown-ac-diouf",
+        "name": "Diouf",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "6.5"
+      },
+      {
+        "id": "unknown-ac-adzic",
+        "name": "Adzic",
+        "role": "C",
+        "status": "DID_NOT_PLAY"
+      },
+      {
+        "id": "unknown-ac-thuram",
+        "name": "Thuram",
+        "role": "A",
+        "status": "VOTED",
+        "fantavote": "9.5"
+      },
+      {
+        "id": "unknown-ac-simeone",
+        "name": "Simeone",
+        "role": "A",
+        "status": "PENDING_MATCH"
+      }
+    ],
+    "bench": [
+      {
+        "id": "unknown-ac-skorupski",
+        "name": "Skorupski",
+        "role": "P",
+        "status": "VOTED",
+        "fantavote": "3"
+      },
+      {
+        "id": "unknown-ac-badiashile",
+        "name": "Badiashile",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "5.5"
+      },
+      {
+        "id": "unknown-ac-sutalo",
+        "name": "Sutalo J.",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "6.5"
+      },
+      {
+        "id": "unknown-ac-jimenez",
+        "name": "Jimenez A.",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "5.5"
+      },
+      {
+        "id": "unknown-ac-vasquez",
+        "name": "Vasquez",
+        "role": "D",
+        "status": "VOTED",
+        "fantavote": "5"
+      },
+      {
+        "id": "unknown-ac-perrone",
+        "name": "Perrone",
+        "role": "C",
+        "status": "VOTED",
+        "fantavote": "6"
+      },
+      {
+        "id": "unknown-ac-oristanio",
+        "name": "Oristanio",
+        "role": "C",
+        "status": "PENDING_MATCH"
+      },
+      {
+        "id": "unknown-ac-mbangula",
+        "name": "Mbangula",
+        "role": "C",
+        "status": "DID_NOT_PLAY"
+      },
+      {
+        "id": "unknown-ac-toure",
+        "name": "Touré E.",
+        "role": "A",
+        "status": "PENDING_MATCH"
+      },
+      {
+        "id": "unknown-ac-bobcek",
+        "name": "Bobcek",
+        "role": "A",
+        "status": "DID_NOT_PLAY"
+      },
+      {
+        "id": "unknown-ac-kevin-carlos",
+        "name": "Kevin Carlos",
+        "role": "A",
+        "status": "PENDING_MATCH"
+      },
+      {
+        "id": "unknown-ac-de-gea",
+        "name": "De Gea",
+        "role": "P",
+        "status": "VOTED",
+        "fantavote": "2.5"
+      }
+    ],
+    "captain_id": "unknown-ac-paz",
+    "vice_id": "unknown-ac-de-bruyne",
+    "raw_voted_starters_sum": "60.5",
+    "possible_same_role_substitution": {
+      "out": "unknown-ac-adzic",
+      "in": "unknown-ac-perrone",
+      "fv": "6"
+    }
+  },
+  "strict_context": {
+    "open_player_votes": [
+      "Maldini",
+      "Simeone"
+    ],
+    "team_potentially_pending_bench": [
+      "Ngonge",
+      "Oristanio",
+      "Touré E.",
+      "Kevin Carlos"
+    ],
+    "defensive_modifier_pending": true,
+    "captain_factor_pending": true,
+    "source_pure_votes_unavailable": true,
+    "prelock_evidence": false,
+    "replay_eligible": false,
+    "statistical_holdout_eligible": false,
+    "notes": [
+      "User says Maldini plays on Monday evening: snapshot MUST NOT be marked as full official result",
+      "Home Cambiaso 6 replaces SV Wesley under Traditional 5, and is first eligible D reserve",
+      "Away Perrone 6 eligible for Adzic DID_NOT_PLAY but validated final decision requires official platform selection",
+      "Captain Maldini must be evaluated on future PURE VOTE; away Nico Paz captain pure vote not visible separately",
+      "AC DENTI opponent registry IDs deliberately unresolved, not invented"
+    ]
+  }
+}

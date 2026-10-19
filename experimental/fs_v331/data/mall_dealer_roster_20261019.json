@@ -1,0 +1,362 @@
+{
+  "schema": "FS_V331_LEAGUE_ROSTER_SNAPSHOT_V1",
+  "status": "SCREENSHOT_GROUNDED_SHADOW_ONLY",
+  "league": "AutoMasterFanta National League 2026-27",
+  "fantasy_team": "Mall & Dealer Sikuli",
+  "team_manager_display": "Angeliano & Emiliano",
+  "app_display_remaining_credits": 8,
+  "screen_clock": "06:08",
+  "context_date": "2026-10-19",
+  "context_date_basis": "conversation_datetime_not_embedded_in_app_capture",
+  "provenance": {
+    "source_type": "user_supplied_app_screenshots",
+    "raw_files_archived_in_github": false,
+    "shots": [
+      {
+        "file": "IMG_9130.png",
+        "sha256": "9a476f2e3d762858c6f6ad6b862981794c30ffb37c8e7f0c4ed1c875b9f045e8",
+        "scope": "P3 + D6"
+      },
+      {
+        "file": "IMG_9131.png",
+        "sha256": "b3d2284ac75c3b5a5ecc0d4ad0b773c7e2688697db8dc119d1476b03bc49874e",
+        "scope": "D2 + C7"
+      },
+      {
+        "file": "IMG_9132.png",
+        "sha256": "3c1340c2bee84085d2948a9ef66da6a8cf2e5a9fa5063f5ecd7e4f5362521ef7",
+        "scope": "C1 + A6"
+      }
+    ],
+    "registry": {
+      "file": "registry.json",
+      "blob_sha": "6b7873ac09a424498d0b54c472bfd9c856130142",
+      "cutoff": "2026-10-13"
+    },
+    "mapping": "exact_name_team_role_to_registry_official_id"
+  },
+  "value_field_policy": "Q. a... / FVMp / V. A... transcribed exactly as displayed; meanings of truncated headers not independently certified; do not override official quote/fvm in registry",
+  "role_count": {
+    "P": 3,
+    "D": 8,
+    "C": 8,
+    "A": 6
+  },
+  "roster": [
+    {
+      "id": "610",
+      "registry_id": "p-gollini-roma",
+      "name": "Gollini",
+      "team": "Roma",
+      "role": "P",
+      "league_app_values": {
+        "q_a_visible": 3,
+        "fvmp_visible": 7,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "572",
+      "registry_id": "p-meret-napoli",
+      "name": "Meret",
+      "team": "Napoli",
+      "role": "P",
+      "league_app_values": {
+        "q_a_visible": 11,
+        "fvmp_visible": 28,
+        "v_a_visible": 21
+      }
+    },
+    {
+      "id": "5841",
+      "registry_id": "p-svilar-roma",
+      "name": "Svilar",
+      "team": "Roma",
+      "role": "P",
+      "league_app_values": {
+        "q_a_visible": 18,
+        "fvmp_visible": 40,
+        "v_a_visible": 78
+      }
+    },
+    {
+      "id": "5520",
+      "registry_id": "p-cambiaso-juventus",
+      "name": "Cambiaso",
+      "team": "Juventus",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 7,
+        "fvmp_visible": 6,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "254",
+      "registry_id": "p-dimarco-inter",
+      "name": "Dimarco",
+      "team": "Inter",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 28,
+        "fvmp_visible": 100,
+        "v_a_visible": 68
+      }
+    },
+    {
+      "id": "6046",
+      "registry_id": "p-hien-atalanta",
+      "name": "Hien",
+      "team": "Atalanta",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 6,
+        "fvmp_visible": 5,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "6956",
+      "registry_id": "p-solet-udinese",
+      "name": "Solet",
+      "team": "Udinese",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 12,
+        "fvmp_visible": 15,
+        "v_a_visible": 17
+      }
+    },
+    {
+      "id": "5982",
+      "registry_id": "p-spence-inter",
+      "name": "Spence",
+      "team": "Inter",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 10,
+        "fvmp_visible": 7,
+        "v_a_visible": 5
+      }
+    },
+    {
+      "id": "7181",
+      "registry_id": "p-wesley-roma",
+      "name": "Wesley",
+      "team": "Roma",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 18,
+        "fvmp_visible": 43,
+        "v_a_visible": 50
+      }
+    },
+    {
+      "id": "5527",
+      "registry_id": "p-zanoli-udinese",
+      "name": "Zanoli",
+      "team": "Udinese",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 5,
+        "fvmp_visible": 5,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "4433",
+      "registry_id": "p-zortea-bologna",
+      "name": "Zortea",
+      "team": "Bologna",
+      "role": "D",
+      "league_app_values": {
+        "q_a_visible": 7,
+        "fvmp_visible": 9,
+        "v_a_visible": 5
+      }
+    },
+    {
+      "id": "6684",
+      "registry_id": "p-ekkelenkamp-udinese",
+      "name": "Ekkelenkamp",
+      "team": "Udinese",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 15,
+        "fvmp_visible": 41,
+        "v_a_visible": 25
+      }
+    },
+    {
+      "id": "4364",
+      "registry_id": "p-gaetano-atalanta",
+      "name": "Gaetano",
+      "team": "Atalanta",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 6,
+        "fvmp_visible": 7,
+        "v_a_visible": 7
+      }
+    },
+    {
+      "id": "2606",
+      "registry_id": "p-modric-milan",
+      "name": "Modric",
+      "team": "Milan",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 12,
+        "fvmp_visible": 21,
+        "v_a_visible": 6
+      }
+    },
+    {
+      "id": "6372",
+      "registry_id": "p-fc-6372",
+      "name": "Moreira",
+      "team": "Milan",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 16,
+        "fvmp_visible": 29,
+        "v_a_visible": 56
+      }
+    },
+    {
+      "id": "5298",
+      "registry_id": "p-pobega-bologna",
+      "name": "Pobega",
+      "team": "Bologna",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 9,
+        "fvmp_visible": 6,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "5844",
+      "registry_id": "p-thorstvedt-sassuolo",
+      "name": "Thorstvedt",
+      "team": "Sassuolo",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 9,
+        "fvmp_visible": 11,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "5562",
+      "registry_id": "p-thuram-k-juventus",
+      "name": "Thuram K.",
+      "team": "Juventus",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 7,
+        "fvmp_visible": 7,
+        "v_a_visible": 3
+      }
+    },
+    {
+      "id": "5422",
+      "registry_id": "p-zalewski-atalanta",
+      "name": "Zalewski",
+      "team": "Atalanta",
+      "role": "C",
+      "league_app_values": {
+        "q_a_visible": 6,
+        "fvmp_visible": 6,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "2832",
+      "registry_id": "p-boga-juventus",
+      "name": "Boga",
+      "team": "Juventus",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 5,
+        "fvmp_visible": 8,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "5029",
+      "registry_id": "p-geubbels-lecce",
+      "name": "Geubbels",
+      "team": "Lecce",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 6,
+        "fvmp_visible": 8,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "5951",
+      "registry_id": "p-kolo-muani-juventus",
+      "name": "Kolo Muani",
+      "team": "Juventus",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 23,
+        "fvmp_visible": 63,
+        "v_a_visible": 93
+      }
+    },
+    {
+      "id": "4896",
+      "registry_id": "p-maldini-atalanta",
+      "name": "Maldini",
+      "team": "Cagliari",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 13,
+        "fvmp_visible": 33,
+        "v_a_visible": 24
+      }
+    },
+    {
+      "id": "6145",
+      "registry_id": "p-fc-6145",
+      "name": "Ngonge",
+      "team": "Monza",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 4,
+        "fvmp_visible": 5,
+        "v_a_visible": 1
+      }
+    },
+    {
+      "id": "4371",
+      "registry_id": "p-raspadori-atalanta",
+      "name": "Raspadori",
+      "team": "Atalanta",
+      "role": "A",
+      "league_app_values": {
+        "q_a_visible": 13,
+        "fvmp_visible": 10,
+        "v_a_visible": 24
+      }
+    }
+  ],
+  "prelock_integrity_status": "ROSTER_IDENTIFIED_NOT_DECISION_FROZEN",
+  "unverified": [
+    "League platform lock time",
+    "Actual start XI/bench/captain for 8th matchday",
+    "Medical and line-up probabilities",
+    "Official fantasy platform source snapshot without screenshot time provenance"
+  ],
+  "credits_reconciliation": {
+    "spent_from_displayed_v_a_column": 492,
+    "remaining_displayed": 8,
+    "computed_total": 500,
+    "expected_league_initial_budget": 500,
+    "status": "RECONCILED_SCREENSHOT_SUM",
+    "note": "V.A. column interpreted as acquisition values because 25 entries total 492 plus displayed remaining 8 equals 500"
+  }
+}

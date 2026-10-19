@@ -1,0 +1,63 @@
+{
+  "schema": "FS_SERIE_A_FIXTURE_SNAPSHOT_V1",
+  "league": "SERIE_A_2026_27",
+  "matchday": 8,
+  "first_kickoff": "2026-10-23T20:45:00+02:00",
+  "source_url": "https://www.legaseriea.it/serie-a/news/quando-si-gioca-anticipi-e-posticipi-fino-alla-12a-giornata",
+  "source_name": "Lega Serie A - Quando si gioca",
+  "reference_observed_at": "2026-10-18T22:00:59Z",
+  "evidence_status": "PROVVISORIO_RAW_SOURCE_SNAPSHOT_PENDING",
+  "notes": "I dati delle fixture sono citati alla fonte pubblica ma G00/G01 non sono CERTIFICATI finché non vengono archiviati snapshot originali con provenienza verificabile e mapping player/team.",
+  "games": [
+    {
+      "home": "Torino",
+      "away": "Monza",
+      "kickoff": "2026-10-23T20:45:00+02:00"
+    },
+    {
+      "home": "Como",
+      "away": "Sassuolo",
+      "kickoff": "2026-10-24T15:00:00+02:00"
+    },
+    {
+      "home": "Cagliari",
+      "away": "Bologna",
+      "kickoff": "2026-10-24T15:00:00+02:00"
+    },
+    {
+      "home": "Napoli",
+      "away": "Roma",
+      "kickoff": "2026-10-24T18:00:00+02:00"
+    },
+    {
+      "home": "Lazio",
+      "away": "Parma",
+      "kickoff": "2026-10-24T20:45:00+02:00"
+    },
+    {
+      "home": "Inter",
+      "away": "Fiorentina",
+      "kickoff": "2026-10-25T12:30:00+01:00"
+    },
+    {
+      "home": "Atalanta",
+      "away": "Frosinone",
+      "kickoff": "2026-10-25T15:00:00+01:00"
+    },
+    {
+      "home": "Genoa",
+      "away": "Venezia",
+      "kickoff": "2026-10-25T15:00:00+01:00"
+    },
+    {
+      "home": "Lecce",
+      "away": "Juventus",
+      "kickoff": "2026-10-25T18:00:00+01:00"
+    },
+    {
+      "home": "Udinese",
+      "away": "Milan",
+      "kickoff": "2026-10-25T20:45:00+01:00"
+    }
+  ]
+}
