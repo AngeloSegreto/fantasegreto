@@ -20,6 +20,10 @@ evidence_receipts:
   captain_factor:
     file: "IMG_9126(1).png"
     sha256: b69916e5f5d69ae4f936e7ec9ca1d89975df4b152b9398c6f97108a917e08d95
+  g7_scoring_legend:
+    file: IMG_9134.jpeg
+    sha256: e6125923dfe0e603851ff93dee609002e944973d55ee5f32fa6c6db3d7ae40c2
+    evidence_type: screenshot_of_league_scoring_legend
   defensive_modifier_info:
     file: "IMG_9127(1).png"
     sha256: aac35e4abbc1d150d96c2f69a42672652bc186fb718ee120d067cd2ff62c70b5
@@ -85,9 +89,9 @@ rules:
     office_reserve_enabled: false
     source_guide_url: https://leghe.fantacalcio.it/guide-leghe-fantacalcio/gestione-lega/impostazione-delle-opzioni-sostituzioni-88
   bonus_malus:
-    status: PROVVISORIA
-    evidence_ref: bonus_malus
-    goal_scored: {value: '3', status: PROVVISORIA, note: "precedente schermata in chat; non in IMG_9124"}
+    status: CERTIFICATA
+    evidence_refs: [bonus_malus, g7_scoring_legend]
+    goal_scored: {value: '3', status: CERTIFICATA, evidence_ref: g7_scoring_legend}
     goal_conceded: {value: '-1', status: CERTIFICATA}
     penalty_scored: {value: '3', status: CERTIFICATA}
     penalty_missed: {value: '-2', status: CERTIFICATA}
