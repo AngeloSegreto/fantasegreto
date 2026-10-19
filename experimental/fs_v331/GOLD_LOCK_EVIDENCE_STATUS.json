@@ -1,6 +1,6 @@
 {
   "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
-  "generated_utc": "2026-10-19T04:17:00Z",
+  "generated_utc": "2026-10-19T04:25:00Z",
   "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
   "candidate_branch": "fs-v331-evidence-custody-phase1",
   "target_branch": "fs-v331-shadow-phase1",
@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "03c12fee75144e1783fb22323502fa094d1cb45e",
-    "run_id": 39198649256,
-    "tests_passed": 86,
-    "tests_total": 86,
+    "head_sha": "90a84a0f88b9676d988ef2a3830a473422ea2e6b",
+    "run_id": 39199338310,
+    "tests_passed": 96,
+    "tests_total": 96,
     "conclusion": "success",
-    "scope": "SHADOW_SOFTWARE_TESTS_ONLY"
+    "scope": "SOFTWARE_UNIT_TESTS_G7_PARTIAL_REPLAY_NO_FINAL_GOLDEN"
   },
   "verified_evidence": [
     {
@@ -63,6 +63,12 @@
       "area": "MATCH_CORRELATION_STRUCTURE",
       "level": "86_SHADOW_UNIT_TESTS_PASS",
       "run_id": 39198649256
+    },
+    {
+      "area": "G7_LIVE_PARTIAL_REPLAY",
+      "level": "96/96_SHADOW_SOFTWARE_TESTS_SUCCESS",
+      "run_id": 39199338310,
+      "limitation": "pending Monday real match & pure votes"
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
@@ -71,10 +77,8 @@
   "blocking_rules": [
     "allowed_formations_not_confirmed_by_league_screen",
     "classification_points_3_1_0_not_confirmed_by_league_screen",
-    "bonus_malus_goal_scored_row_not_in_supplied_bonus_screen",
     "special_SV_and_political_vote_options_unverified",
-    "unresolved_defense_modifier_fourth_defender_SV_edge",
-    "bonus_malus_full_contract_provisional"
+    "unresolved_defense_modifier_fourth_defender_SV_edge"
   ],
   "blocking_gates": [
     "G00",
@@ -101,13 +105,12 @@
     "G22"
   ],
   "next_actions": [
-    "Archive authenticated original league photo bytes and historical result receipts",
-    "Verify league lock time, allowed modules and all bonus/malus cases",
-    "Freeze actual candidate/B0/B1 forecasts with prelock proof (not placeholders)",
-    "Implement joint match outcome simulator on 25-player correlated fixture groups",
-    "Reconcile real official G7 and later golden scoring with replacement/mod/captain",
-    "Preregister temporal holdout and evaluate calibrated Brier against B0/B1",
-    "Close G00-G22 with independent evidence; no automatic GOLD switch"
+    "After 19 Oct Monza-Cagliari and Monday fixture(s), obtain final app scoreboard and pure votes for both fantasy teams",
+    "Run G7 official historical replay with all substitutions, defense modifier, captain factor and final fantasy goals",
+    "Do not mark G7 as prematch holdout; live evidence is after lineup lock",
+    "Capture real G8 pre-lock candidate/B0/B1 outputs with trusted timestamps and source bytes",
+    "Run pre-registered Brier/calibration/rolling-origin outside sample and independent audit",
+    "Gold LOCK only if G00-G22 and predictive gate pass"
   ],
   "notes": [
     "Do not interpret 31 tests as STAT VALIDATED.",
@@ -150,8 +153,9 @@
       "maximum_bonus": 1.5
     },
     "bonus_malus": {
-      "state": "PARTIALLY_VERIFIED_FROM_SCREENSHOT",
-      "goal_scored_row": "NOT_VISIBLE_IN_9124"
+      "state": "CERTIFICATA_FROM_APP_CONFIG_PLUS_SCORING_LEGEND",
+      "goal_scored_row": "+3 visible in IMG_9134.jpeg",
+      "score_replay_pending": true
     },
     "raw_receipts_on_github": false
   },
@@ -173,5 +177,35 @@
       "3c1340c2bee84085d2948a9ef66da6a8cf2e5a9fa5063f5ecd7e4f5362521ef7"
     ],
     "evidence_note": "Originals in conversation runtime; raw photo bytes not yet archived in GitHub"
+  },
+  "g7_live_partial": {
+    "status": "PARTIAL_UNRESOLVED_MALDINI_AND_SIMEONE",
+    "source_json": "experimental/fs_v331/data/g7_live_partial_20261019.json",
+    "replay_code": "experimental/fs_v331/g7_partial_replay.py",
+    "home_starters_50": "50",
+    "away_starters_60_5": "60.5",
+    "home_after_known_substitution": "56",
+    "away_after_known_substitution": "66.5",
+    "defense_modifier_and_captain_applied": false,
+    "final_score_certified": false,
+    "out_of_sample_eligible": false,
+    "raw_user_screenshots": [
+      {
+        "file": "IMG_9128.jpeg",
+        "sha256": "a2d3f01fc8e336f4264f18c12c3f1909c4d6057f9142e96c5390df2eb643bd51"
+      },
+      {
+        "file": "IMG_9129.jpeg",
+        "sha256": "0e20a51376095b428d393ee96e6a76a7cac481e428f5f18ddf43b10fe314eb58"
+      },
+      {
+        "file": "IMG_9133.jpeg",
+        "sha256": "80d8dd020e730b9b50087b7c53aa8c21d111b47653fd5f5aef54814e9940516d"
+      },
+      {
+        "file": "IMG_9134.jpeg",
+        "sha256": "e6125923dfe0e603851ff93dee609002e944973d55ee5f32fa6c6db3d7ae40c2"
+      }
+    ]
   }
 }
