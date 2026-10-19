@@ -164,6 +164,57 @@ class SharedScenarioTest(unittest.TestCase):
         self.c[6]["previous_full_decision_hash"]=c352
         x=run(self.c)
         self.assertEqual(x["operational_choice"],c352)
+    def test_different_goalkeepers_reused_same_scenarios(self):
+        own=self.c[0]["roster"]
+        keepers=[p["id"] for p in own if p["role"]=="P"]
+        alternative=deepcopy(self.c[3][1])
+        original=alternative["starting_xi"][0]
+        replacement=keepers[0]
+        self.assertNotEqual(original,replacement)
+        alternative["starting_xi"][0]=replacement
+        alternative["bench"]=[original if x==replacement else x for x in alternative["bench"]]
+        self.c[3].append(alternative)
+        for scenario in self.c[5]["scenarios"]:
+            scenario["player_outcomes"][replacement]["fantavote"]="9"
+        answer=run(self.c)
+        totals={x["decision_hash"]:x["expected_fantapoints"]
+                for x in answer["candidate_results"].values()}
+        self.assertEqual(len(totals),4)
+        self.assertEqual(
+            totals[decision_hash(alternative["starting_xi"],alternative["bench"],
+                                 alternative["captain"],alternative["vice"])],
+            totals[decision_hash(self.c[3][1]["starting_xi"],self.c[3][1]["bench"],
+                                 self.c[3][1]["captain"],self.c[3][1]["vice"])]+3)
+
+    def test_scenario_handles_traditional_samed_role_substitution(self):
+        unavailable=self.c[3][0]["starting_xi"][1]
+        for s in self.c[5]["scenarios"]:
+            s["player_outcomes"][unavailable]={"status":"DID_NOT_PLAY"}
+        output=run(self.c)
+        self.assertEqual(output["status"],"SHADOW_COMPARISON_COMPUTED_UNCALIBRATED")
+
+    def test_real_input_without_model_receipts_fails_closed(self):
+        self.c[5]["evidence_kind"]="PRELOCK_JOINT_MODEL_OUTPUT"
+        with self.assertRaisesRegex(ValueError,"PRELOCK_FORECAST_PROVENANCE_MISSING"):
+            run(self.c)
+
+    def test_real_input_with_four_receipts_still_needs_official_opponent(self):
+        self.c[5]["evidence_kind"]="PRELOCK_JOINT_MODEL_OUTPUT"
+        for k in ("model_artifact_sha256","preregistration_sha256",
+                  "input_snapshot_sha256","source_snapshot_sha256"):
+            self.c[5][k]="f"*64
+        with self.assertRaisesRegex(ValueError,"OPPONENT_AUTHENTICATED_PRELOCK_RECEIPT_MISSING"):
+            run(self.c)
+
+    def test_real_input_cannot_use_provisional_formation_rules(self):
+        self.c[5]["evidence_kind"]="PRELOCK_JOINT_MODEL_OUTPUT"
+        for k in ("model_artifact_sha256","preregistration_sha256",
+                  "input_snapshot_sha256","source_snapshot_sha256"):
+            self.c[5][k]="e"*64
+        self.c[4]["evidence_kind"]="AUTHENTICATED_PRELOCK"
+        with self.assertRaisesRegex(ValueError,"ALLOWED_FORMATIONS_STILL_PROVISIONAL"):
+            run(self.c)
+
     def test_do_not_infer_predictive_model_from_g7(self):
         r=run(self.c)
         self.assertFalse(r["G14_G15_eligible"])
