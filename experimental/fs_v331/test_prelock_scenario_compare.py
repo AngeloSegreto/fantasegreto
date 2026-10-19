@@ -33,6 +33,11 @@ def make():
                 "module":"4-4-2","captain":"FAKE_O10","vice":"FAKE_O9"}
     opponent={"evidence_kind":"SYNTHETIC_UNIT_TEST","roster":opp_roster,"lineup":opp_lineup}
     players=r+opp_roster
+    refs={}
+    for g in CAL["games"]:
+        key="|".join([g["home"],g["away"],g["kickoff"]])
+        refs[g["home"]]=key
+        refs[g["away"]]=key
     fixture_states={}
     fixture_groups=[]
     for g in CAL["games"]:
@@ -41,9 +46,9 @@ def make():
         fixture_states[key]={"home_goals":1,"away_goals":0}
     records=[]
     for scenario_id in range(24):
-        outcomes={x["id"]:{"status":"VOTED","pure_vote":"6","fantavote":"6"} for x in players}
+        outcomes={x["id"]:{"status":"VOTED","pure_vote":"6","fantavote":"6","fixture_ref":refs[x["team"]]} for x in players}
         # This C is not starting in 4-3-3, but becomes a starter in 4-4-2 and 3-5-2.
-        outcomes[grouped["C"][3]]={"status":"VOTED","pure_vote":"6","fantavote":"12"}
+        outcomes[grouped["C"][3]]={"status":"VOTED","pure_vote":"6","fantavote":"12","fixture_ref":refs[next(p["team"] for p in players if p["id"]==grouped["C"][3])]}
         records.append({"scenario_id":scenario_id,"player_outcomes":outcomes,
                         "fixture_states":deepcopy(fixture_states)})
     scenarios={"matchday":8,"sampling_design":"IID_JOINT_MATCHDAY_SCENARIOS",
@@ -116,6 +121,11 @@ class SharedScenarioTest(unittest.TestCase):
         self.c[5]["scenarios"][0]["player_outcomes"].pop("FAKE_O8")
         with self.assertRaisesRegex(ValueError,"cover every fantasy player"):
             run(self.c)
+    def test_player_fixture_tag_mismatch_blocks(self):
+        self.c[5]["scenarios"][0]["player_outcomes"]["FAKE_O2"]["fixture_ref"]="FAKE_MATCH"
+        with self.assertRaisesRegex(ValueError,"shared scenario"):
+            run(self.c)
+
     def test_missing_fixture_state_blocks(self):
         self.c[5]["scenarios"][0]["fixture_states"].pop(next(iter(self.c[5]["scenarios"][0]["fixture_states"])))
         with self.assertRaisesRegex(ValueError,"shared fixture state"):
@@ -189,7 +199,8 @@ class SharedScenarioTest(unittest.TestCase):
     def test_scenario_handles_traditional_samed_role_substitution(self):
         unavailable=self.c[3][0]["starting_xi"][1]
         for s in self.c[5]["scenarios"]:
-            s["player_outcomes"][unavailable]={"status":"DID_NOT_PLAY"}
+            old=s["player_outcomes"][unavailable]
+            s["player_outcomes"][unavailable]={"status":"DID_NOT_PLAY","fixture_ref":old["fixture_ref"]}
         output=run(self.c)
         self.assertEqual(output["status"],"SHADOW_COMPARISON_COMPUTED_UNCALIBRATED")
 
