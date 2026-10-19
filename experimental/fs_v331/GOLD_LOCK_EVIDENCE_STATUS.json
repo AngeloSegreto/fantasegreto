@@ -1,6 +1,6 @@
 {
   "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
-  "generated_utc": "2026-10-18T22:09:00Z",
+  "generated_utc": "2026-10-19T04:05:00Z",
   "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
   "candidate_branch": "fs-v331-evidence-custody-phase1",
   "target_branch": "fs-v331-shadow-phase1",
@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "ca8e488da64446b3b0257adb109a52274c9578f8",
-    "run_id": 39170918359,
-    "tests_passed": 45,
-    "tests_total": 45,
+    "head_sha": "732166931a6a131ec3f870cfa4b74c4d8bbdd964",
+    "run_id": 39197583813,
+    "tests_passed": 63,
+    "tests_total": 63,
     "conclusion": "success",
-    "scope": "UNIT_TESTS_AND_FAIL_CLOSED_INTAKE_ONLY"
+    "scope": "UNIT_TESTS_SHADOW_NO_HISTORICAL_CERTIFICATION"
   },
   "verified_evidence": [
     {
@@ -37,17 +37,33 @@
       "area": "G8_INTAKE_TESTS",
       "level": "14_UNIT_TESTS_PASS_GITHUB_CI",
       "run_id": 39170918359
+    },
+    {
+      "area": "G09_G10_RULE_INPUTS",
+      "level": "SCREENSHOT_DOCUMENTED_NOT_HISTORICAL_GOLDEN",
+      "files": [
+        "IMG_9123(1).png",
+        "IMG_9124(1).png",
+        "IMG_9125(1).png",
+        "IMG_9126(1).png",
+        "IMG_9127(1).png"
+      ]
+    },
+    {
+      "area": "UNIT_TESTS_SHADOW",
+      "level": "63_UNIT_TESTS_PASS",
+      "run_id": 39197583813
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
   "observed_official_outcomes_reconciled_for_certified_backtest": false,
   "holdouts_verified": false,
   "blocking_rules": [
-    "defense_modifier",
-    "captain_factor",
-    "substitution_semantics",
-    "official_formation_set",
-    "standings_points"
+    "allowed_formations_not_confirmed_by_league_screen",
+    "classification_points_3_1_0_not_confirmed_by_league_screen",
+    "bonus_malus_goal_scored_row_not_in_supplied_bonus_screen",
+    "special_SV_and_political_vote_options_unverified",
+    "unresolved_defense_modifier_fourth_defender_SV_edge"
   ],
   "blocking_gates": [
     "G00",
@@ -74,18 +90,18 @@
     "G22"
   ],
   "next_actions": [
-    "Acquire official league screenshots proving full defense modifier and captain rules",
-    "Get source-authenticated original prelock raw snapshots and registered 25-player roster (including canonical IDs)",
-    "Connect live candidate/B0/B1 engine output to prelock_intake before Friday 23 Oct 2026 20:45 CEST",
-    "Post-match independently collect officially certified results for full replay and Brier comparison",
-    "Complete preregistered rolling-origin backtest with adequate sample",
-    "Close all technical gates and obtain independent auditor attestation"
+    "Confirm complete league bonus/malus and allowed formations if not already verified",
+    "Ensure raw photo sources and snapshots are saved independently for G00/G20",
+    "Create official historical Golden replay dataset for G07/G09/G10/G16",
+    "Capture actual prelock model forecasts and real postmatch outcomes for G14/G15",
+    "Complete independent audit and device integration before promotion"
   ],
   "notes": [
     "Do not interpret 31 tests as STAT VALIDATED.",
     "Archive SHA-256 verifies byte integrity but not external provenance.",
     "Real-time capture remains unintegrated with the simulator.",
-    "Never set gold=true without independent signed evidence."
+    "Never set gold=true without independent signed evidence.",
+    "The user evidence ZIP is available as conversation artifact but has not been committed into GitHub repository."
   ],
   "g8_prelock": {
     "matchday": 8,
@@ -96,5 +112,31 @@
     "source_url": "https://www.legaseriea.it/serie-a/news/quando-si-gioca-anticipi-e-posticipi-fino-alla-12a-giornata",
     "status": "INSTRUMENTATION_READY_REAL_OUTPUT_NOT_YET_CAPTURED",
     "notes": "Must capture verified raw source bytes and real engine candidate/B0/B1 forecasts before actual league lock; G00/G01 remain pending."
+  },
+  "photo_settings": {
+    "status": "SCREENSHOT_VERIFIED_PENDING_INDEPENDENT_GOLDEN_REPLAY",
+    "user_evidence_package_sha256": "cb17aebb39d4166553a3bb466adeae6efa1248927178922ac13dadaba956a323",
+    "substitution": {
+      "state": "CERTIFICATA_FROM_SCREENSHOT",
+      "max_changes": 5,
+      "mode": "TRADITIONAL",
+      "office_reserve": false
+    },
+    "defense_modifier": {
+      "state": "CERTIFICATA_FROM_SCREENSHOT",
+      "enabled": true,
+      "includes_goalkeeper": true,
+      "maximum_bonus": 2
+    },
+    "captain_factor": {
+      "state": "CERTIFICATA_FROM_SCREENSHOT",
+      "enabled": true,
+      "maximum_bonus": 1.5
+    },
+    "bonus_malus": {
+      "state": "PARTIALLY_VERIFIED_FROM_SCREENSHOT",
+      "goal_scored_row": "NOT_VISIBLE_IN_9124"
+    },
+    "raw_receipts_on_github": false
   }
 }
