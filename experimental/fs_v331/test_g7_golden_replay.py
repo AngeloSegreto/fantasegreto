@@ -128,6 +128,12 @@ class G7OfficialReplayTests(unittest.TestCase):
         r=replay(PARTIAL,x,CFG)
         self.assertIn("PRIOR_VOTE_REVISIONS_REQUIRE_SEPARATE_APP_ATTESTATION",r["missing"])
 
+    def test_revised_original_fantavote_requires_review(self):
+        x=deepcopy(self.fixture)
+        x["player_updates"]["home"]["572"]={"pure_vote":"6.5","fantavote":"5.5"}
+        r=replay(PARTIAL,x,CFG)
+        self.assertIn("PRIOR_VOTE_REVISIONS_REQUIRE_SEPARATE_APP_ATTESTATION",r["missing"])
+
     def test_untrusted_future_data_doesnt_pass(self):
         x=deepcopy(self.fixture);x["receipt"]["observed_at"]="2026-10-20T00:15:00"
         with self.assertRaisesRegex(ValueError,"UTC offset"):replay(PARTIAL,x,CFG)
