@@ -53,10 +53,12 @@ def _norm_lineup(lineup,byid,config):
 def _to_players(ids,byid,events):
     return [{**byid[pid],**events[pid]} for pid in ids]
 
-def _check_outcomes(data,playerids):
+def _check_outcomes(data,playerids,fixture_by_player):
     _require(isinstance(data,dict) and set(data)==playerids,"outcomes must cover every fantasy player exactly")
     for pid,x in data.items():
         _require(isinstance(x,dict) and x.get("status") in ALLOWED_STATUS,"invalid vote status: "+pid)
+        _require(x.get("fixture_ref")==fixture_by_player[pid],
+                 "player observation is not joined to one real-match shared scenario: "+pid)
         if x["status"]=="VOTED":
             for k in ("pure_vote","fantavote"):
                 _require(k in x and x[k] is not None,"missing "+k+": "+pid)
@@ -131,6 +133,14 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
     opp_byid,opp_decision=_opponent_meta(opponent,config,own_byid,calendar["games"])
     all_ids=set(own_byid)|set(opp_byid)
     _require(len(all_ids)==len(own_byid)+len(opp_byid),"player ID collision")
+    byclub={}
+    for g in calendar["games"]:
+        key=_fixture_key(g)
+        for club in (g["home"],g["away"]):
+            _require(club not in byclub,"duplicate fixture team")
+            byclub[club]=key
+    fixture_by_player={p["id"]:byclub[p["team"]]
+                       for p in list(own_byid.values())+list(opp_byid.values())}
     _require(scenario_bundle.get("matchday")==8,"scenario matchday mismatch")
     _require(scenario_bundle.get("sampling_design")=="IID_JOINT_MATCHDAY_SCENARIOS",
              "invalid sampling design")
@@ -212,7 +222,7 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
         _require(isinstance(i,int) and i>=0 and i not in scenario_ids,"duplicate scenario id")
         scenario_ids.add(i)
         draws=evt.get("player_outcomes")
-        _check_outcomes(draws,all_ids)
+        _check_outcomes(draws,all_ids,fixture_by_player)
         # A single joint fixture state is drawn per real Serie A match;
         # player outcomes are passed by the upstream generator, not redrawn.
         states=evt.get("fixture_states")
