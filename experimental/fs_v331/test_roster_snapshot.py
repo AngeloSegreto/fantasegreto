@@ -48,6 +48,14 @@ class UserRosterSnapshotTests(unittest.TestCase):
             self.assertEqual(len(e["sha256"]),64)
             self.assertEqual(len(e["file"]),12)
 
+    def test_500_credit_auction_budget_identity(self):
+        spent=sum(p["league_app_values"]["v_a_visible"] for p in self.roster)
+        self.assertEqual(spent,492)
+        self.assertEqual(self.snapshot["app_display_remaining_credits"],8)
+        self.assertEqual(spent+self.snapshot["app_display_remaining_credits"],500)
+        self.assertEqual(self.snapshot["credits_reconciliation"]["status"],
+                         "RECONCILED_SCREENSHOT_SUM")
+
     def test_unfrozen_shadow_only(self):
         self.assertEqual(self.snapshot["status"],"SCREENSHOT_GROUNDED_SHADOW_ONLY")
         self.assertEqual(self.snapshot["prelock_integrity_status"],"ROSTER_IDENTIFIED_NOT_DECISION_FROZEN")
