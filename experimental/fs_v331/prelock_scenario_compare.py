@@ -62,7 +62,8 @@ def _check_outcomes(data,playerids):
                 _require(k in x and x[k] is not None,"missing "+k+": "+pid)
                 _require(not isinstance(x[k],(bool,float)),"decimal string required: "+pid)
                 d=Decimal(str(x[k]))
-                _require(d.is_finite() and Decimal("0")<=d<=Decimal("15"),"invalid vote: "+pid)
+                bottom,top=(Decimal("0"),Decimal("10")) if k=="pure_vote" else (Decimal("-20"),Decimal("50"))
+                _require(d.is_finite() and bottom<=d<=top,"invalid vote: "+pid)
             _require(Decimal(str(x["pure_vote"]))*2 == (Decimal(str(x["pure_vote"]))*2).to_integral_value(),
                      "pure vote off permitted half point tick: "+pid)
         else:
@@ -228,11 +229,24 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
         else: verdict="INCONCLUDENTE"
         comparisons[other]={"paired_delta_estimate":sum(delta)/n,
                             "paired_ci":[lo,hi],"verdict":verdict}
+    # Contract V3.3.1: only equivalence within delta permits secondary
+    # comparison. INCONCLUDENTE keeps primary point-estimate winner.
+    equivalent=[winner]+[k for k,v in comparisons.items()
+                         if v["verdict"]=="EQUIVALENTI_ENTRO_DELTA"]
+    def secondary(k):
+        m=measures[k]
+        main_secondary=(m["p_win"] if protocol["profile"]=="PUNTI_ATTESI"
+                        else m["expected_league_points"])
+        return (-main_secondary,m["p_loss"],
+                0 if protocol.get("previous_full_decision_hash")==k else 1,k)
+    operational_choice=sorted(equivalent,key=secondary)[0]
     return {**status,"status":"SHADOW_COMPARISON_COMPUTED_UNCALIBRATED",
             "evidence_kind":kind,"claim_external_predictive_validation":False,
             "n_scenarios":n,"profile":protocol["profile"],
             "opponent_decision_hash":opp_decision,"candidate_results":measures,
-            "point_estimate_preferred":winner,"paired_vs_point_estimate_preferred":comparisons,
+            "point_estimate_preferred":winner,"operational_choice":operational_choice,
+            "decision_method":"V331_EQUIVALENCE_SECONDARY_TIEBREAK_OR_PRIMARY_INCONCLUSIVE",
+            "paired_vs_point_estimate_preferred":comparisons,
             "warnings":["No demonstration that input scenarios reproduce real match events.",
                         "G05 event/correlation coherence needs generator-level audit.",
                         "Bootstrap confidence measures MC sampling error, not predictive calibration.",
