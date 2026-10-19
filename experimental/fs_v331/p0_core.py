@@ -4,7 +4,7 @@ import hashlib, json
 import numpy as np
 import yaml
 
-REQUIRED=('fantasy_goals','defense_modifier','captain_factor','substitution','classic_roles','allowed_formations')
+REQUIRED=('fantasy_goals','defense_modifier','captain_factor','substitution','classic_roles','allowed_formations','bonus_malus')
 
 def load_config(path):
     with open(path,encoding='utf8') as f: c=yaml.safe_load(f)
