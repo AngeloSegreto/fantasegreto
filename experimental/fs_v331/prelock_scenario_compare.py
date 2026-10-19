@@ -113,7 +113,7 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
     """
     status={"engine":"FS_V331_SHADOW_PAIRED_SCENARIO_EVALUATOR_V1",
             "GOLD_LOCK":False,"TECH_PASS":False,"STAT_VALIDATED":False,
-            "promoted":False,"G14_G15_eligible":False}
+            "promoted":False,"G14_G15_eligible":False,"usable_for_lineup_submission":False}
     if opponent is None:
         return {**status,"status":"BLOCKED_OPPONENT_G8_FANTASY_LINEUP_MISSING",
                 "missing":["OPPONENT_ROSTER","OPPONENT_LINEUP_AND_CAPTAIN"]}
@@ -137,6 +137,36 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
     kind=scenario_bundle.get("evidence_kind")
     _require(kind in ("SYNTHETIC_UNIT_TEST","PRELOCK_JOINT_MODEL_OUTPUT"),
              "unrecognized scenario evidence kind")
+    if kind=="PRELOCK_JOINT_MODEL_OUTPUT":
+        # These checks verify data presence/form. They do NOT externally
+        # authenticate timestamps, calibrate predictions, or certify G05.
+        import re
+        sha=lambda v:isinstance(v,str) and re.fullmatch(r"[a-f0-9]{64}",v) is not None
+        for k in ("model_artifact_sha256","preregistration_sha256",
+                  "input_snapshot_sha256","source_snapshot_sha256"):
+            _require(sha(scenario_bundle.get(k)), "PRELOCK_FORECAST_PROVENANCE_MISSING:"+k)
+        _require(opponent["evidence_kind"]=="AUTHENTICATED_PRELOCK",
+                 "OPPONENT_AUTHENTICATED_PRELOCK_RECEIPT_MISSING")
+        _require(config["rules"]["allowed_formations"].get("status")=="CERTIFICATA",
+                 "ALLOWED_FORMATIONS_STILL_PROVISIONAL")
+        _require(config["rules"]["classic_roles"].get("status")=="CERTIFICATA",
+                 "CLASSIC_ROLES_STILL_PROVISIONAL")
+        medical=scenario_bundle.get("availability")
+        _require(isinstance(medical,dict) and set(medical)==set(own_byid),
+                 "PLAYER_AVAILABILITY_PRELOCK_COVERAGE_INCOMPLETE")
+        for pid,item in medical.items():
+            _require(isinstance(item,dict) and item.get("status") in
+                     ("AVAILABLE","DOUBTFUL","OUT","UNKNOWN"),
+                     "PLAYER_AVAILABILITY_STATUS_INVALID:"+pid)
+            _require(sha(item.get("source_sha256")) and item.get("observed_at"),
+                     "PLAYER_AVAILABILITY_SOURCE_UNVERIFIED:"+pid)
+            _require(_timestamp(item["observed_at"])<=_timestamp(scenario_bundle["source_cutoff_at"]),
+                     "PLAYER_AVAILABILITY_FUTURE_LEAKAGE:"+pid)
+        for candidate in candidates:
+            for pid in candidate.get("starting_xi",[]):
+                if pid in medical and medical[pid]["status"]=="OUT":
+                    _require(pid in candidate.get("documented_overrides",{}),
+                             "OFFICIALLY_UNAVAILABLE_PLAYER_SELECTED_WITHOUT_OVERRIDE:"+pid)
     _require(_timestamp(scenario_bundle["generated_at"])<=_timestamp(scenario_bundle["lock_at"]),
              "post-lock model generation not allowed")
     _require(_timestamp(scenario_bundle["source_cutoff_at"])<=_timestamp(scenario_bundle["generated_at"]),
