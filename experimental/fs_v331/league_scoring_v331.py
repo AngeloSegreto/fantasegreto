@@ -22,6 +22,16 @@ def rules(config, key):
     return obj
 
 def _is_vote(p):
+    """Vote presence is official status/fantavote, NOT an inferred pure rating.
+
+    Older synthetic unit tests without explicit status remain supported by
+    presence of a pure vote. Real replay records MUST carry final VOTED/SV.
+    """
+    status=p.get("status")
+    if status == "VOTED":
+        return p.get("fantavote") is not None
+    if status in ("SV","DID_NOT_PLAY"):
+        return False
     return p.get("pure_vote") is not None
 
 def modifier(xi, config):
