@@ -14,12 +14,12 @@
   },
   "current_ci": {
     "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
-    "head_sha": "a1932f78a69c8070e00777d96f8135f863168310",
-    "run_id": 39200255367,
-    "tests_passed": 116,
-    "tests_total": 116,
-    "conclusion": "success",
-    "scope": "UNIT_TESTS_INCLUDING_SYNTHETIC_COMPLETE_G7_REPLAY_AND_NECESSARY_PURE_VOTE_CONTRACT"
+    "head_sha": null,
+    "run_id": null,
+    "tests_passed": null,
+    "tests_total": null,
+    "conclusion": "pending_new_run",
+    "scope": "STALE_PREVIOUS_COMMIT_REQUIRES_NEW_BRANCH_CI"
   },
   "verified_evidence": [
     {
@@ -81,13 +81,43 @@
       "level": "116_TESTS_PASS_GITHUB_CI",
       "run_id": 39200255367,
       "limitation": "missing independently verified pure votes and real final match results"
+    },
+    {
+      "area": "CLASSIC_ROLES_AND_ALLOWED_FORMATIONS_19OCT",
+      "level": "LEAGUE_SCREENSHOT_RULE_INPUTS_HASHED_NOT_EMPIRICAL_GOLD",
+      "files": [
+        {
+          "file": "IMG_9189.jpeg",
+          "sha256": "2cff499668fd9fb145e52b3974638a3896596a5f5ad54cd762617dbf87ec0d2d"
+        },
+        {
+          "file": "IMG_9190.png",
+          "sha256": "278ef4a26388d6490797f401b91acc9d79a59b535283943c17c671dba113f41e"
+        },
+        {
+          "file": "IMG_9191.png",
+          "sha256": "cd4ce8f2098835d3d3ebe2ef6da30990e7f7a0c0fcc7bce61c4dcdad6ad61bd5"
+        },
+        {
+          "file": "IMG_9192.png",
+          "sha256": "740d4247b8b99dc9be8560adee0b45f39a2cba97d119eb0ddc47c87aa2117d5c"
+        },
+        {
+          "file": "IMG_9193.png",
+          "sha256": "0c9c8c6fc7444309886ceb50044f929794fbfdccc85eab03e60500a313d2f720"
+        }
+      ],
+      "official_guides": [
+        "https://leghe.fantacalcio.it/guide-leghe-fantacalcio/gestione-lega/impostazione-delle-opzioni-rose-e-formazioni-76",
+        "https://leghe.fantacalcio.it/guide-leghe-fantacalcio/gestione-lega/impostazione-delle-opzioni-sostituzioni-88"
+      ],
+      "limitations": "Screenshot source bytes retained in conversation; hashes are recorded but original binary images are not yet archived in GitHub; no trusted platform acquisition timestamp."
     }
   ],
   "real_prelock_forecasts_available_for_certified_backtest": false,
   "observed_official_outcomes_reconciled_for_certified_backtest": false,
   "holdouts_verified": false,
   "blocking_rules": [
-    "allowed_formations_not_confirmed_by_league_screen",
     "classification_points_3_1_0_not_confirmed_by_league_screen",
     "special_SV_and_political_vote_options_unverified",
     "unresolved_defense_modifier_fourth_defender_SV_edge"
@@ -128,7 +158,8 @@
     "Archive SHA-256 verifies byte integrity but not external provenance.",
     "Real-time capture remains unintegrated with the simulator.",
     "Never set gold=true without independent signed evidence.",
-    "The user evidence ZIP is available as conversation artifact but has not been committed into GitHub repository."
+    "The user evidence ZIP is available as conversation artifact but has not been committed into GitHub repository.",
+    "Classic roles and seven allowed formations rule inputs certified from user screenshots; not proof of historical platform state or GOLD empirical gates."
   ],
   "g8_prelock": {
     "matchday": 8,
