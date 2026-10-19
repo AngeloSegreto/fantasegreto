@@ -122,7 +122,8 @@ def score(starters, bench, captain_id, vice_id, config, goal_function):
     xi = changes["xi"]
     base = sum(D(p["fantavote"]) for p in xi if _is_vote(p))
     mod = modifier(xi, config)
-    cap = captain_bonus(xi, captain_id, vice_id, config)
+    # Captain and vice refer to designated starters; a bench replacement is not captain.
+    cap = captain_bonus(starters, captain_id, vice_id, config)
     total = base + mod + cap
     return {"base": str(base), "defense_modifier": str(mod),
             "captain_factor": str(cap), "total": str(total),
