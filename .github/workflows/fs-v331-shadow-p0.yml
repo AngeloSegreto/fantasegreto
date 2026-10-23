@@ -1,0 +1,48 @@
+name: FS V3.3.1 Shadow P0 checks
+
+on:
+  pull_request:
+    paths:
+      - 'experimental/fs_v331/**'
+      - '.github/workflows/fs-v331-shadow-p0.yml'
+  push:
+    branches:
+      - 'fs-v331-evidence-custody-phase1'
+    paths:
+      - 'experimental/fs_v331/**'
+      - '.github/workflows/fs-v331-shadow-p0.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  p0-shadow-tests:
+    name: P0 software tests (NOT GOLD)
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install open-source P0 dependencies
+        run: |
+          python -m pip install --disable-pip-version-check 'numpy==2.2.6' 'PyYAML==6.0.2'
+      - name: Run deterministic tests
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s experimental/fs_v331 -p 'test_*.py' -v 2>&1 | tee /tmp/fs-v331-shadow-test.log
+          echo "SHADOW_ONLY_TESTS_PASS=1"
+      - name: Confirm forbidden promotion did not occur
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0,"experimental/fs_v331")
+          from p0_core import load_config, promotion_state
+          from shadow_evidence import promotion_gate
+          c = load_config("experimental/fs_v331/league_config.yaml")
+          assert promotion_state(c)["GOLD_LOCK"] is False
+          assert promotion_gate({}, c, {})["gold_lock"] is False
+          print("SHADOW_GOLD_GUARD_PASS")
+          PY

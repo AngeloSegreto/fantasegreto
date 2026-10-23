@@ -1,0 +1,157 @@
+{
+  "schema": "FS_V331_G7_APP_SIMULATED_SCORE_SNAPSHOT_V1",
+  "league": "AutoMasterFanta National League 26-27",
+  "matchday": 7,
+  "captured_context_date": "2026-10-19",
+  "date_basis": "chat_context_NOT_TRUSTED_EXACT_PLATFORM_RECEIPT_TIME",
+  "evidence_kind": "USER_APP_SCREENSHOTS_WITH_LABEL_RISULTATO_SIMULATO",
+  "status": "APP_SIMULATED_SCORE_NOT_OFFICIAL_FINAL",
+  "relation_to_prior": "extends data/g7_live_partial_20261019.json; preserves the original untouched",
+  "raw_screenshots_saved_in_repo": false,
+  "screenshots": [
+    {
+      "file": "IMG_9196(1).jpeg",
+      "sha256": "f38f1f49616719bce6b93f856c27cd7dc67eb34d65fbfca6b5db73355989cd0e",
+      "scope": "mall_starters_live_55_vs_60_5"
+    },
+    {
+      "file": "IMG_9197(1).jpeg",
+      "sha256": "565a1f309f0e8779454244eb1492d7006257879a78b20a4d95895ebfa4af4aff",
+      "scope": "mall_bench_live"
+    },
+    {
+      "file": "IMG_9198(2).jpeg",
+      "sha256": "5e1beb496e09c8415787c4f430675e8345603159e79a2e1ce7b9d23234f28648",
+      "scope": "mall_simulated_starters_60_vs_74"
+    },
+    {
+      "file": "IMG_9199(2).jpeg",
+      "sha256": "19c5ee223afe63a5745d070d3738535473c0daab159b5a5c99456dec4d1696d7",
+      "scope": "mall_simulated_bench_and_captain_factor"
+    },
+    {
+      "file": "IMG_9200(1).jpeg",
+      "sha256": "086b61e6e115d0c6775c7a9be0652adaddf085f864cc184acb6a7d87d9d5d8b1",
+      "scope": "democrazia_atletico_live"
+    },
+    {
+      "file": "IMG_9201(1).jpeg",
+      "sha256": "dd771b00b56048a74323109f905ce60c5a0876c5bc7f17436c8389a138aaad0f",
+      "scope": "democrazia_atletico_bench_live"
+    },
+    {
+      "file": "IMG_9202(1).jpeg",
+      "sha256": "6dc416b77b9dc19ae88e4a41f0a95bf9367c147902f42114c091c2722e4fc410",
+      "scope": "democrazia_atletico_simulated_starters"
+    },
+    {
+      "file": "IMG_9203(1).jpeg",
+      "sha256": "8255a7941d4ea4027d79cf32e0606246fbdc67449ccb4fbd939b3bee48a51bbc",
+      "scope": "democrazia_atletico_simulated_bench_totals"
+    },
+    {
+      "file": "IMG_9204(1).jpeg",
+      "sha256": "bb08041d4d905949ceb533b8e09f8bbf9958ce33c1f0506ff0dfe0deb53060d0",
+      "scope": "divo_artibanaikos_partial_starters"
+    },
+    {
+      "file": "IMG_9205(1).jpeg",
+      "sha256": "e76b29a365f5c7bcd1ce3a4e0a6f9c6d0daee14fccd523bd81c7ce1ff8efaa95",
+      "scope": "divo_artibanaikos_partial_bench"
+    }
+  ],
+  "matches": [
+    {
+      "home": "Mall & Dealer Sikuli",
+      "away": "AC DENTI",
+      "home_formation": "4-3-3",
+      "away_formation": "3-5-2",
+      "live_titulars": {
+        "home": "55",
+        "away": "60.5"
+      },
+      "simulated_platform": {
+        "home_total": "60",
+        "away_total": "74",
+        "home_goals": 0,
+        "away_goals": 3,
+        "label": "Risultato simulato"
+      },
+      "independently_visible_components": {
+        "home": {
+          "starter_votes_sum": "55",
+          "captain": "Maldini",
+          "captain_fantavote": "5",
+          "captain_factor": "-1",
+          "true_subs": [
+            {
+              "out": "Wesley",
+              "out_status": "SV",
+              "in": "Cambiaso",
+              "role": "D",
+              "fantavote": "6"
+            }
+          ],
+          "defensive_modifier_independently_verified": false
+        },
+        "away": {
+          "starter_votes_sum_without_simeone": "60.5",
+          "simeone_fantavote": "6",
+          "captain": "Nico Paz",
+          "captain_fantavote": "11",
+          "captain_factor": "1.5",
+          "true_subs": [
+            {
+              "out": "Adzic",
+              "out_status": "DID_NOT_PLAY",
+              "in": "Perrone",
+              "role": "C",
+              "fantavote": "6"
+            }
+          ],
+          "defense_three_no_modifier": true
+        }
+      },
+      "residual_modifier_from_platform_if_no_other_components": {
+        "home": "0",
+        "away": "0"
+      },
+      "independently_verified_pure_votes": false,
+      "notes": [
+        "Home 55 already includes Maldini fantavote 5; do not add twice",
+        "Away 60.5 excludes Simeone as indicated by dash in starting lineup",
+        "App displays explicit captain factors -1 for home and +1.5 for away",
+        "Final simulated scoreboard not a signed official result receipt; G16 remains pending"
+      ]
+    },
+    {
+      "home": "Democrazia Cri...",
+      "away": "Atletico Mai...",
+      "home_formation": "3-4-3",
+      "away_formation": "3-4-3",
+      "simulated_platform": {
+        "home_total": "67",
+        "away_total": "68.5",
+        "home_goals": 1,
+        "away_goals": 1,
+        "label": "Risultato simulato"
+      },
+      "status": "REFERENCE_ONLY_NO_FULL_REPLAY"
+    },
+    {
+      "home": "Divo master ran...",
+      "away": "ARTIBANAIKOS",
+      "home_formation": "3-4-3",
+      "away_formation": "3-4-3",
+      "visible_starter_partial": {
+        "home": "75",
+        "away": "69"
+      },
+      "status": "STARTER_PARTIAL_ONLY_NOT_OFFICIAL_FINAL"
+    }
+  ],
+  "use_for_calibration": false,
+  "use_as_prelock_prediction": false,
+  "gold_lock": false,
+  "revision_policy": "APP simulated snapshot can later be superseded by authenticated final league receipt; never rewrite prior evidence"
+}

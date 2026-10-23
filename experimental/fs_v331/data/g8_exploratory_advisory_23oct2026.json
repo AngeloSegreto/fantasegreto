@@ -1,0 +1,102 @@
+{
+  "schema": "FS_V331_G8_SENSITIVITY_ADVISORY_ONLY_V1",
+  "observed_on": "2026-10-23",
+  "league": "NATIONAL_LEAGUE_2026_27",
+  "team": "Mall & Dealer Sikuli",
+  "opponent": "ARTIBANAIKOS",
+  "status": "SHADOW_EXPLORATORY_NOT_CERTIFIED_NOT_PRELOCK_FREEZE_NOT_PUBLISHED_TO_LEAGUE",
+  "n_simulations_per_regime": 70000,
+  "regimes": [
+    "prudente",
+    "bonus_alti"
+  ],
+  "key_assumptions": "Proxy goal/vote/assist probabilities were manually assigned; NOT empirically calibrated. G05 not independently event coherent.",
+  "synthetic_results": {
+    "prudente": {
+      "3-5-2_same_captain": 71.28,
+      "4-4-2_Cambiaso": 72.28,
+      "delta_4_4_2_minus_3_5_2": 1
+    },
+    "bonus_alti": {
+      "3-5-2_same_captain": 72.54,
+      "4-4-2_Cambiaso": 73.49,
+      "delta_4_4_2_minus_3_5_2": 0.95
+    }
+  },
+  "human_advisory": {
+    "formation": "4-4-2",
+    "starting_by_role": {
+      "P": [
+        "Gollini"
+      ],
+      "D": [
+        "Dimarco",
+        "Solet",
+        "Wesley",
+        "Cambiaso"
+      ],
+      "C": [
+        "Gaetano",
+        "Modric",
+        "Thorstvedt",
+        "Moreira"
+      ],
+      "A": [
+        "Maldini",
+        "Kolo Muani"
+      ]
+    },
+    "captain": "Dimarco",
+    "vice": "Modric",
+    "ordered_bench": [
+      "Meret",
+      "Svilar",
+      "Zortea",
+      "Spence",
+      "Zanoli",
+      "Pobega",
+      "Ekkelenkamp",
+      "Zalewski",
+      "Geubbels",
+      "Boga",
+      "Ngonge",
+      "Raspadori"
+    ],
+    "excluded_from_match_sheet": [
+      "Hien",
+      "Thuram K."
+    ]
+  },
+  "opponent_lineup": "UNKNOWN_NO_HEAD_TO_HEAD_WIN_PROBABILITY",
+  "source_strength": [
+    {
+      "url": "https://sport.sky.it/calcio/serie-a/2026/10/23/napoli-roma-probabili-formazioni-8-giornata",
+      "interpretation": "Gollini starting, Milinkovic Savic favored vs Meret"
+    },
+    {
+      "url": "https://sport.sky.it/calcio/serie-a/2026/10/23/probabili-formazioni-serie-a-giornata-8-ultime-news",
+      "interpretation": "Cambiaso and Kolo Muani start probable; Hien and Raspadori OUT"
+    },
+    {
+      "url": "https://www.gazzetta.it/Calcio/prob_form/?match=2638151",
+      "interpretation": "Dimarco rotational risk, Gaetano ballot with Pasalic"
+    },
+    {
+      "url": "https://www.acmonza.com/it/news/torino-monza-i-convocati-221026/",
+      "interpretation": "Ngonge called up, not guaranteed to start"
+    }
+  ],
+  "limitations": [
+    "No official prelock hash of model inputs and no real-data G14/G15 calibration",
+    "Simplified goalkeeper goals conceded independently of fixture/player goals, fails G05",
+    "Proxy pitch events and substitute availability are not predictive-certification data",
+    "Do not treat simulated probability of 66/70 points as a forecast",
+    "Must press Salva manually before user-league lock, which was not independently verified"
+  ],
+  "promotion": {
+    "GOLD_LOCK": false,
+    "TECH_PASS": false,
+    "STAT_VALIDATED": false
+  },
+  "actions_taken": "REPORT_SAVED_ON_SHADOW_BRANCH_ONLY__NO_LEAGUE_FORMATION_UPDATE"
+}

@@ -1,0 +1,427 @@
+{
+  "schema": "FS_V331_GOLD_PROMOTION_EVIDENCE_STATUS_V1",
+  "generated_utc": "2026-10-19T19:42:00Z",
+  "specification": "FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1",
+  "candidate_branch": "fs-v331-evidence-custody-phase1",
+  "target_branch": "fs-v331-shadow-phase1",
+  "production_branch": "main",
+  "candidate_state": "SHADOW",
+  "promotion": {
+    "TECH_PASS": false,
+    "STAT_VALIDATED": false,
+    "GOLD_LOCK": false,
+    "gold_flag_mutation": false
+  },
+  "current_ci": {
+    "workflow": ".github/workflows/fs-v331-shadow-p0.yml",
+    "head_sha": "b56584cddaef1a3ecfac8528ed7bf913af1c11fe",
+    "run_id": 39313098493,
+    "tests_passed": 184,
+    "tests_total": 184,
+    "conclusion": "success",
+    "scope": "SHADOW_UNIT_TESTS_INCLUDING_OPPONENT_FIXTURE_EXPOSURES_NO_REAL_PREDICTIVE_VALIDATION"
+  },
+  "verified_evidence": [
+    {
+      "area": "goal_band_66_4",
+      "source": "user-provided screenshot IMG_9122.png",
+      "sha256": "f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf",
+      "level": "RULE_INPUT_HASH_VERIFIED"
+    },
+    {
+      "area": "CI_SHADOW_TESTS",
+      "level": "31_UNIT_TESTS_PASS",
+      "run_id": 39169894005
+    },
+    {
+      "area": "G8_INTAKE_TESTS",
+      "level": "14_UNIT_TESTS_PASS_GITHUB_CI",
+      "run_id": 39170918359
+    },
+    {
+      "area": "G09_G10_RULE_INPUTS",
+      "level": "SCREENSHOT_DOCUMENTED_NOT_HISTORICAL_GOLDEN",
+      "files": [
+        "IMG_9123(1).png",
+        "IMG_9124(1).png",
+        "IMG_9125(1).png",
+        "IMG_9126(1).png",
+        "IMG_9127(1).png"
+      ]
+    },
+    {
+      "area": "UNIT_TESTS_SHADOW",
+      "level": "63_UNIT_TESTS_PASS",
+      "run_id": 39197583813
+    },
+    {
+      "area": "ROSTER_MAPPING",
+      "level": "25_ID_MATCH_AND_CREDIT_RECONCILIATION",
+      "run_id": 39198649256
+    },
+    {
+      "area": "MATCH_CORRELATION_STRUCTURE",
+      "level": "86_SHADOW_UNIT_TESTS_PASS",
+      "run_id": 39198649256
+    },
+    {
+      "area": "G7_LIVE_PARTIAL_REPLAY",
+      "level": "96/96_SHADOW_SOFTWARE_TESTS_SUCCESS",
+      "run_id": 39199338310,
+      "limitation": "pending Monday real match & pure votes"
+    },
+    {
+      "area": "G7_COMPLETE_REPLAY_SOFTWARE",
+      "level": "113_113_SHADOW_UNIT_TESTS_PASS_INCLUDING_SYNTHETIC_END_TO_END",
+      "run_id": 39199993206,
+      "limitation": "no true G7 final scores or pure votes"
+    },
+    {
+      "area": "G7_COMPLETE_REPLAY_MINIMUM_DATA_CONTRACT",
+      "level": "116_TESTS_PASS_GITHUB_CI",
+      "run_id": 39200255367,
+      "limitation": "missing independently verified pure votes and real final match results"
+    },
+    {
+      "area": "G7_APP_SIMULATED_ARITHMETIC_PARITY",
+      "level": "131_131_CI_PASS_60_74_EXACT_SCREENSHOT_COMPONENT_RECONCILIATION",
+      "run_id": 39305100001,
+      "limitation": "not independently authenticated official final, modifier 0 inferred residual"
+    },
+    {
+      "area": "G8_THREE_MODULE_PAIRED_COMPARISON_SOFTWARE",
+      "level": "161_161_UNIT_TESTS_CI_PASS_NO_REAL_FORECAST",
+      "run_id": 39310019542,
+      "commit": "bbf28c9fff78510715903f5b396f6bf17724c6f0"
+    },
+    {
+      "area": "G8_ARTIBANAIKOS_ROSTER_RECONCILIATION",
+      "level": "176_176_SHADOW_UNIT_TESTS_PASS_THREE_SCREENSHOT_HASHES_AND_25_UNIQUE_IDS",
+      "run_id": 39312444342,
+      "limitation": "G8 XI/bench/captain/vice and calibrated event distributions missing"
+    },
+    {
+      "area": "G8_ARTIBANAIKOS_STRUCTURAL_FIXTURE_EXPOSURES",
+      "level": "184_184_SHADOW_TESTS_PASSED",
+      "run_id": 39313098493,
+      "commit": "b56584cddaef1a3ecfac8528ed7bf913af1c11fe"
+    }
+  ],
+  "real_prelock_forecasts_available_for_certified_backtest": false,
+  "observed_official_outcomes_reconciled_for_certified_backtest": false,
+  "holdouts_verified": false,
+  "blocking_rules": [
+    "allowed_formations_not_confirmed_by_league_screen",
+    "classification_points_3_1_0_not_confirmed_by_league_screen",
+    "special_SV_and_political_vote_options_unverified",
+    "unresolved_defense_modifier_fourth_defender_SV_edge"
+  ],
+  "blocking_gates": [
+    "G00",
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G09",
+    "G10",
+    "G11",
+    "G12",
+    "G13",
+    "G14",
+    "G15",
+    "G16",
+    "G17",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22"
+  ],
+  "next_actions": [
+    "Archive raw source screenshots IMG_9212/9213/9214 as authenticated evidence and confirm G8 matchday opponent source platform fixture screen",
+    "Confirm National League Classic allowed formations and actual G8 lock time",
+    "Prepare candidate formation full XI/bench/captain from own roster without using any observed G8 results; await current injuries/lineups",
+    "Capture ARTIBANAIKOS real G8 formation, ordered reserves and captain/vice if available; do not infer from G7 3-4-3",
+    "Generate event-consistent joint scoring scenarios from documented pre-lock probabilities and ground them in calendar, team strength and availability; G05 blocked",
+    "Preregister prelock predicted event distributions and evaluate P(V/N/S) plus uncertainty with paired CRNs and comparator",
+    "Collect out-of-sample observed outcomes for rolling G14/G15; hold TECH and GOLD until all gates pass"
+  ],
+  "notes": [
+    "Do not interpret 31 tests as STAT VALIDATED.",
+    "Archive SHA-256 verifies byte integrity but not external provenance.",
+    "Real-time capture remains unintegrated with the simulator.",
+    "Never set gold=true without independent signed evidence.",
+    "The user evidence ZIP is available as conversation artifact but has not been committed into GitHub repository."
+  ],
+  "g8_prelock": {
+    "matchday": 8,
+    "earliest_fixture": "Torino-Monza",
+    "first_kickoff": "2026-10-23T20:45:00+02:00",
+    "fixtures_json": "experimental/fs_v331/fixtures/md08_serie_a_2026_27.json",
+    "intake_module": "experimental/fs_v331/prelock_intake.py",
+    "source_url": "https://www.legaseriea.it/serie-a/news/quando-si-gioca-anticipi-e-posticipi-fino-alla-12a-giornata",
+    "status": "SOFTWARE_READY_SYNTHETIC_SCENARIOS_ONLY_REAL_G8_COMPARE_BLOCKED",
+    "notes": "Must capture verified raw source bytes and real engine candidate/B0/B1 forecasts before actual league lock; G00/G01 remain pending.",
+    "roster_fixture_bridge": "experimental/fs_v331/fixture_bridge.py",
+    "player_fixture_links": 25,
+    "shared_match_correlations": "STRUCTURAL_GROUPING_TESTED_NOT_MC_IMPLEMENTED",
+    "comparison_engine": "experimental/fs_v331/prelock_scenario_compare.py",
+    "runbook": "experimental/fs_v331/G8_PAIRED_SCENARIO_RUNBOOK.md",
+    "modules_tested": [
+      "4-3-3",
+      "4-4-2",
+      "3-5-2"
+    ],
+    "goal": "max 3P(V)+P(N) or P(V) with paired MC confidence",
+    "keeper_comparison_supported_in_synthetic_tests": true,
+    "game_fixture_reference_check": "SUPPORTED",
+    "G05_joint_model_event_coherence_certified": false,
+    "calibrated_real_outcome_probability_available": false,
+    "real_opponent_fantasy_lineup_available": false,
+    "real_joint_prelock_scenarios_available": false,
+    "allowed_formations_status": "PROVVISORIA",
+    "classic_roles_status": "PROVVISORIA",
+    "G14_G15": "BLOCKED_REAL_HOLDOUT_MISSING",
+    "gold_lock": false,
+    "real_opponent_fantasy_roster_available": true,
+    "real_opponent_fantasy_team": "ARTIBANAIKOS"
+  },
+  "photo_settings": {
+    "status": "SCREENSHOT_VERIFIED_PENDING_INDEPENDENT_GOLDEN_REPLAY",
+    "user_evidence_package_sha256": "cb17aebb39d4166553a3bb466adeae6efa1248927178922ac13dadaba956a323",
+    "substitution": {
+      "state": "CERTIFICATA_FROM_SCREENSHOT",
+      "max_changes": 5,
+      "mode": "TRADITIONAL",
+      "office_reserve": false
+    },
+    "defense_modifier": {
+      "state": "CERTIFICATA_FROM_SCREENSHOT",
+      "enabled": true,
+      "includes_goalkeeper": true,
+      "maximum_bonus": 2
+    },
+    "captain_factor": {
+      "state": "CERTIFICATA_FROM_SCREENSHOT",
+      "enabled": true,
+      "maximum_bonus": 1.5
+    },
+    "bonus_malus": {
+      "state": "CERTIFICATA_FROM_APP_CONFIG_PLUS_SCORING_LEGEND",
+      "goal_scored_row": "+3 visible in IMG_9134.jpeg",
+      "score_replay_pending": true
+    },
+    "raw_receipts_on_github": false
+  },
+  "league_roster_19oct": {
+    "status": "RECONCILED_25_OF_25_WITH_REGISTRY_13OCT",
+    "path": "experimental/fs_v331/data/mall_dealer_roster_20261019.json",
+    "role_counts": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
+    },
+    "spent_from_acquisition_column": 492,
+    "remaining": 8,
+    "verified_budget_total": 500,
+    "raw_screenshot_sha256": [
+      "9a476f2e3d762858c6f6ad6b862981794c30ffb37c8e7f0c4ed1c875b9f045e8",
+      "b3d2284ac75c3b5a5ecc0d4ad0b773c7e2688697db8dc119d1476b03bc49874e",
+      "3c1340c2bee84085d2948a9ef66da6a8cf2e5a9fa5063f5ecd7e4f5362521ef7"
+    ],
+    "evidence_note": "Originals in conversation runtime; raw photo bytes not yet archived in GitHub"
+  },
+  "g7_live_partial": {
+    "status": "PARTIAL_UNRESOLVED_MALDINI_AND_SIMEONE",
+    "source_json": "experimental/fs_v331/data/g7_live_partial_20261019.json",
+    "replay_code": "experimental/fs_v331/g7_partial_replay.py",
+    "home_starters_50": "50",
+    "away_starters_60_5": "60.5",
+    "home_after_known_substitution": "56",
+    "away_after_known_substitution": "66.5",
+    "defense_modifier_and_captain_applied": false,
+    "final_score_certified": false,
+    "out_of_sample_eligible": false,
+    "raw_user_screenshots": [
+      {
+        "file": "IMG_9128.jpeg",
+        "sha256": "a2d3f01fc8e336f4264f18c12c3f1909c4d6057f9142e96c5390df2eb643bd51"
+      },
+      {
+        "file": "IMG_9129.jpeg",
+        "sha256": "0e20a51376095b428d393ee96e6a76a7cac481e428f5f18ddf43b10fe314eb58"
+      },
+      {
+        "file": "IMG_9133.jpeg",
+        "sha256": "80d8dd020e730b9b50087b7c53aa8c21d111b47653fd5f5aef54814e9940516d"
+      },
+      {
+        "file": "IMG_9134.jpeg",
+        "sha256": "e6125923dfe0e603851ff93dee609002e944973d55ee5f32fa6c6db3d7ae40c2"
+      }
+    ]
+  },
+  "g7_golden_replay_engine": {
+    "code": "experimental/fs_v331/g7_golden_replay.py",
+    "tests": "experimental/fs_v331/test_g7_golden_replay.py",
+    "readme": "experimental/fs_v331/G7_GOLDEN_REPLAY_README.md",
+    "state": "READY_TO_COMPARE_ON_VERIFIED_FINAL_INPUT__BLOCKED_G7_PENDING_OFFICIAL_FANTAVOTES_PURE_VOTES_APP_RECEIPT",
+    "partial_score_home": 50,
+    "partial_score_away": 60.5,
+    "substituted_base_home": 56,
+    "substituted_base_away": 66.5,
+    "goalkeeper_and_defense_combination": "requires all selected pure votes, no interpolation",
+    "captain": "requires Maldini and Nico Paz official pure vote",
+    "missing": [
+      "G7_MALDINI_FINAL_FANTAVOTE_AND_PURE_VOTE",
+      "G7_SIMEONE_FINAL_FANTAVOTE",
+      "COMPLETE_PURE_VOTES",
+      "FINAL_PLATFORM_BOTH_TOTALS_AND_FANTAGOALS",
+      "AUTHENTICATED_FINAL_APP_RECEIPT"
+    ],
+    "synthetic_test_scenario": {
+      "home_total": "69",
+      "away_total": "72.5",
+      "home_fantagoals": 1,
+      "away_fantagoals": 2,
+      "evidence_status": "SYNTHETIC_ONLY_NOT_REAL_GAME"
+    },
+    "real_platform_parity": false,
+    "real_independent_replay": false,
+    "statistical_holdout_eligible": false,
+    "core_condition": "ALL_VOTE_STATUSES_AND_FANTAVOTES_PLUS_PURE_VOTES_ONLY_FOR_EFFECTIVE_GOALKEEPER_AND_DEFENDERS_AND_CAPTAIN_OR_VICE",
+    "status": "LIVE_G7_UPDATED_TO_APP_SIMULATED_PARITY_60_74__OFFICIAL_FULL_PURE_VOTE_REPLAY_STILL_BLOCKED",
+    "results": "NO_REAL_SCORE_PARITY_YET",
+    "known_substitution_total_home": "56",
+    "known_substitution_total_away": "66.5",
+    "synthetic_unit_test_is_real_data": false,
+    "real_final_app_screenshot_available": false,
+    "required_true_final_inputs": [
+      "Final app screenshot with both official totals/fantagoals",
+      "Status and fantavotes for all 11+reserves of both teams",
+      "Pure votes: Meret, Solet, Dimarco, Zortea, Cambiaso; Maldini and Nico Paz (or vice if no vote)",
+      "Screenshot/source evidence with matching sha256"
+    ]
+  },
+  "g7_app_simulated_reconciliation": {
+    "source": "experimental/fs_v331/data/g7_app_simulated_20261019.json",
+    "code": "experimental/fs_v331/g7_simulated_parity.py",
+    "tests": "experimental/fs_v331/test_g7_simulated_parity.py",
+    "raw_uploaded_images": 10,
+    "image_hash_verified_from_local_bytes": true,
+    "github_stores_raw_image_bytes": false,
+    "status": "APP_SIMULATED_TOTAL_DECOMPOSITION_PASS_NOT_G16",
+    "mall_dealer": {
+      "starting_sum": "55",
+      "confirmed_traditional_substitute": "Wesley_SV_to_Cambiaso_6",
+      "captain_factor": "-1",
+      "modifier_residual_observed": "0",
+      "app_total": "60",
+      "app_fantagoals": 0
+    },
+    "ac_denti": {
+      "starting_sum_before_simeone": "60.5",
+      "simeone_fantavote": "6",
+      "confirmed_traditional_substitute": "Adzic_DNP_to_Perrone_6",
+      "captain_factor": "+1.5",
+      "modifier": "0_3_DEFENDERS",
+      "app_total": "74",
+      "app_fantagoals": 3
+    },
+    "platform_label": "Risultato simulato",
+    "additional_app_match_observations": [
+      {
+        "teams": "Democrazia_vs_Atletico",
+        "result": "67-68.5",
+        "goals": "1-1",
+        "evidence": "APP_SIMULATED"
+      },
+      {
+        "teams": "Divo_vs_ARTIBANAIKOS",
+        "points": "75-69",
+        "evidence": "STARTERS_ONLY"
+      }
+    ],
+    "raw_pure_votes_available": false,
+    "final_authenticated_platform_receipt_available": false,
+    "independent_scoring_parity_certified": false,
+    "golden_gate_G16": "DA_VERIFICARE",
+    "out_of_sample_eligible": false,
+    "release": "SHADOW"
+  },
+  "g8_opponent": {
+    "fantasy_team": "ARTIBANAIKOS",
+    "manager": "Andrea Artibani",
+    "next_matchday": 8,
+    "matchup_grounding": "EXPLICIT_USER_STATEMENT_NOT_IN_APP_CALENDAR_TAB",
+    "roster_source": "experimental/fs_v331/data/artibanaikos_roster_20261019.json",
+    "roster_bridge": "experimental/fs_v331/g8_opponent_bridge.py",
+    "role_counts": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
+    },
+    "ids_reconciled": 25,
+    "ids_unmatched": 0,
+    "id_source": "registry.json",
+    "registry_cutoff": "2026-10-13",
+    "screenshot_sha256": [
+      "cabf923f313089e540aee9020019c1b878878ca4b520d2ffc5d21eb2a4d615ad",
+      "e6f40d964386f9e22b1524b2c12d0ab981c9cb44289faa668e486ccfc8b69b9b",
+      "7912aa74d3d2953610c06b785d5ff4a98a81aa85e3200f8f6aa4964334de2f52"
+    ],
+    "original_user_screenshot_bytes_archived_in_github": false,
+    "remaining_credits": 6,
+    "acquisition_column_total": 494,
+    "budget_total": 500,
+    "calendar_player_links": 25,
+    "historical_g7_observed_module": "3-4-3",
+    "g7_lineup_is_not_g8_confirmation": true,
+    "g8_starters": null,
+    "g8_ordered_bench": null,
+    "g8_captain": null,
+    "g8_vice": null,
+    "competition_level_8_opponent_confirmed_by_user": true,
+    "full_prelock_scenario_probabilities_available": false,
+    "prediction_state": "BLOCKED_OPPONENT_G8_LINEUP_NOT_PROVIDED",
+    "G05": "NOT_CERTIFIED",
+    "G14_G15": "NOT_CERTIFIED",
+    "promotion_golden": false
+  },
+  "g8_opponent_intake": {
+    "snapshot_file": "experimental/fs_v331/data/artibanaikos_roster_20261019.json",
+    "source_screenshot_sha_verified": true,
+    "sources_raw_files_uploaded_to_github": false,
+    "registered_opponent": "ARTIBANAIKOS",
+    "rival_players_reconciled": 25,
+    "own_players_reconciled": 25,
+    "rival_role_counts": {
+      "P": 3,
+      "D": 8,
+      "C": 8,
+      "A": 6
+    },
+    "rival_va_column_total": 494,
+    "rival_remaining_budget": 6,
+    "g7_observed_rival_module": "3-4-3",
+    "g8_confirmed_rival_lineup": false,
+    "g8_opponent_full_bench_order_known": false,
+    "g8_opponent_captain_known": false,
+    "opponent_source": "user-stated next fantasy opponent + 3 screenshots",
+    "related_code": [
+      "experimental/fs_v331/g8_opponent_bridge.py",
+      "experimental/fs_v331/g8_opponent_exposure.py"
+    ],
+    "structural_key_exposures": [
+      "Meret (Napoli) vs rival Soule (Roma)",
+      "Gollini and Svilar (Roma) vs rival Hojlund (Napoli)",
+      "Rival Palmisani (Frosinone) vs Raspadori (Atalanta)"
+    ],
+    "structural_only_no_expected_outcomes": true
+  }
+}

@@ -27,9 +27,27 @@ class ContractTests(unittest.TestCase):
         a={k:uniform(42,k,13) for k in 'abc'}
         b={k:uniform(42,k,13) for k in 'cba'}
         self.assertEqual(a,b)
+    def test_failclosed_certification_transition(self):
+        import copy
+        baseline = promotion_state(self.cfg)
+        self.assertEqual(set(baseline['uncertified']), {'classic_roles', 'allowed_formations'})
+        self.assertNotIn('captain_factor', baseline['uncertified'])
+        self.assertFalse(baseline['GOLD_LOCK'])
+        degraded = copy.deepcopy(self.cfg)
+        degraded['rules']['captain_factor']['status'] = 'MANCANTE'
+        result = promotion_state(degraded)
+        self.assertIn('captain_factor', result['uncertified'])
+        self.assertEqual(result['status'], 'PROVVISORIO')
+        self.assertFalse(result['TECH_PASS'])
+        self.assertFalse(result['STAT_VALIDATED'])
+        self.assertFalse(result['GOLD_LOCK'])
     def test_failclosed(self):
         s=promotion_state(self.cfg)
         self.assertEqual(s['status'],'PROVVISORIO')
-        self.assertIn('captain_factor',s['uncertified'])
+        self.assertIn('allowed_formations',s['uncertified'])
+        self.assertNotIn('bonus_malus',s['uncertified'])
+        self.assertIn('classic_roles',s['uncertified'])
+        self.assertNotIn('captain_factor',s['uncertified'])
+        self.assertNotIn('defense_modifier',s['uncertified'])
         self.assertFalse(s['GOLD_LOCK'])
 if __name__=='__main__':unittest.main()

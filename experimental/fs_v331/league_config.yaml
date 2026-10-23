@@ -1,7 +1,32 @@
-# FS V3.3.1 — PROVVISORIO / SHADOW ONLY.
+# FS V3.3.1 - National League, SHADOW ONLY.
+# Evidenze fotografiche fornite dall'utente, byte hash verificati il 19 ottobre 2026.
+# La data reale di acquisizione dalla piattaforma non compare nelle schermate.
 version: FS_LEAGUE_CONFIG_V3_3_1_CANDIDATE
 league_id: NATIONAL_LEAGUE_2026_27
 status: PROVVISORIO
+evidence_receipts:
+  goal_threshold:
+    file: IMG_9122.png
+    sha256: f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf
+  substitution:
+    file: "IMG_9123(1).png"
+    sha256: ee925c7d3fd00316b0cc71ec579cb865a4fe3affd4184e52d6328aa4ed42a542
+  bonus_malus:
+    file: "IMG_9124(1).png"
+    sha256: e44851694f5b61565b057b6d8e61768fe27e490192939f56f2f52cbfa9bb61ab
+  defensive_modifier:
+    file: "IMG_9125(1).png"
+    sha256: 217212830225922688005ab9e99a8f62641ee66885500d8099360afeec8817db
+  captain_factor:
+    file: "IMG_9126(1).png"
+    sha256: b69916e5f5d69ae4f936e7ec9ca1d89975df4b152b9398c6f97108a917e08d95
+  g7_scoring_legend:
+    file: IMG_9134.jpeg
+    sha256: e6125923dfe0e603851ff93dee609002e944973d55ee5f32fa6c6db3d7ae40c2
+    evidence_type: screenshot_of_league_scoring_legend
+  defensive_modifier_info:
+    file: "IMG_9127(1).png"
+    sha256: aac35e4abbc1d150d96c2f69a42672652bc186fb718ee120d067cd2ff62c70b5
 strategic_profile:
   value: PUNTI_ATTESI
   status: PROVVISORIA
@@ -16,20 +41,71 @@ rules:
     first_goal: '66'
     band_width: '4'
     unbounded: true
-    source_type: user_supplied_screenshot
-    source_sha256: f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf
-    observed_at: '2026-10-18T20:21:00+02:00'
+    evidence_ref: goal_threshold
   defense_modifier:
-    status: MANCANTE
-    parameters: null
+    status: CERTIFICATA
+    evidence_refs: [defensive_modifier, defensive_modifier_info]
+    enabled: true
+    applies_to: OWN_TEAM
+    min_defenders_after_substitutions: 4
+    include_goalkeeper: true
+    selected_defenders: 3
+    vote_basis: PURE_VOTE
+    bands:
+      - {from_inclusive: null, to_exclusive: '6.25', bonus: '0'}
+      - {from_inclusive: '6.25', to_exclusive: '6.5', bonus: '0.5'}
+      - {from_inclusive: '6.5', to_exclusive: '6.75', bonus: '1'}
+      - {from_inclusive: '6.75', to_exclusive: '7', bonus: '1.5'}
+      - {from_inclusive: '7', to_exclusive: null, bonus: '2'}
+    special_votes:
+      political_six_and_sv_booked_if_enabled: NOT_VERIFIED
+      office_reserve_defender_not_eligible: true
+    unresolved_case: fewer_than_four_defenders_with_valid_votes
   captain_factor:
-    status: MANCANTE
-    parameters: null
+    status: CERTIFICATA
+    evidence_ref: captain_factor
+    enabled: true
+    basis: PURE_VOTE
+    vice_if_captain_without_vote: true
+    double_bonus: false
+    double_malus: false
+    designation_per_match: true
+    bands:
+      - {from_inclusive: null, to_exclusive: '5', upper_inclusive: '4.5', bonus: '-1.5'}
+      - {from_inclusive: '4.5', to_exclusive: '5.5', upper_inclusive: '5', bonus: '-1'}
+      - {from_inclusive: '5', to_exclusive: '7', upper_inclusive: '6.5', bonus: '0'}
+      - {from_inclusive: '7', to_exclusive: '7.5', bonus: '1'}
+      - {from_inclusive: '7.5', to_exclusive: null, bonus: '1.5'}
+    vote_tick: '0.5'
+    unresolved_case: non_half_point_pure_votes
   substitution:
-    status: PROVVISORIA
+    status: CERTIFICATA
+    evidence_ref: substitution
     max_changes: 5
-    mode: SAME_ROLE
+    mode: TRADITIONAL
+    same_role_only: true
     module_change_allowed: false
+    bench_order: DISPLAY_ORDER
+    office_reserve_enabled: false
+    source_guide_url: https://leghe.fantacalcio.it/guide-leghe-fantacalcio/gestione-lega/impostazione-delle-opzioni-sostituzioni-88
+  bonus_malus:
+    status: CERTIFICATA
+    evidence_refs: [bonus_malus, g7_scoring_legend]
+    goal_scored: {value: '3', status: CERTIFICATA, evidence_ref: g7_scoring_legend}
+    goal_conceded: {value: '-1', status: CERTIFICATA}
+    penalty_scored: {value: '3', status: CERTIFICATA}
+    penalty_missed: {value: '-2', status: CERTIFICATA}
+    penalty_saved: {value: '3', status: CERTIFICATA}
+    yellow_card: {value: '-0.5', status: CERTIFICATA}
+    red_card: {value: '-1', status: CERTIFICATA}
+    assist_standard: {value: '1', status: CERTIFICATA}
+    assist_soft: {value: '0.5', status: CERTIFICATA}
+    assist_gold: {value: '1.5', status: CERTIFICATA}
+    own_goal: {value: '-2', status: CERTIFICATA}
+    equalizer_goal_extra: {value: '0', status: CERTIFICATA}
+    winner_goal_extra: {value: '0', status: CERTIFICATA}
+    clean_sheet: {value: '1', status: CERTIFICATA}
+    player_of_match: {value: '0', status: CERTIFICATA}
   classic_roles:
     status: PROVVISORIA
     values: [P, D, C, A]

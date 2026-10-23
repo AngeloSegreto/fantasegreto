@@ -1,0 +1,105 @@
+{
+  "schema": "FS_V331_G8_POSTLOCK_USER_APP_LINEUP_SNAPSHOT_V1",
+  "game": "AutoMasterFanta National League 2026-27",
+  "matchday": 8,
+  "matchup": {
+    "home": "ARTIBANAIKOS",
+    "away": "Mall & Dealer Sikuli"
+  },
+  "observed_at_device_clock": "20:35",
+  "observed_date_context": "2026-10-23",
+  "timezone_from_user_context": "Europe/Rome",
+  "official_platform_lock_time_certified": false,
+  "status": "USER_REPORTS_FORMATION_LOCKED_SCREENSHOT_VISIBLE_WITHOUT_BENCH",
+  "screenshot": {
+    "file": "IMG_9414.jpeg",
+    "sha256": "eedec924b98cc5302e9f3fcc383834ccce30aa75e6acc7b7ce165ea981e1a6cf",
+    "raw_bytes_in_github": false,
+    "source": "user_upload"
+  },
+  "home": {
+    "team": "ARTIBANAIKOS",
+    "module": "3-4-3",
+    "starting_xi": [
+      "4431",
+      "6660",
+      "4998",
+      "7219",
+      "7078",
+      "7556",
+      "6190",
+      "7436",
+      "5436",
+      "6052",
+      "5734"
+    ],
+    "starting_names": [
+      "Carnesecchi",
+      "Marcandalli",
+      "Molina N.",
+      "Bernasconi",
+      "Mastantuono",
+      "Mora",
+      "Pisilli",
+      "Alajbegovic",
+      "Raimondo",
+      "Hojlund",
+      "Soulè"
+    ],
+    "captain_id": "5734",
+    "vice_id": "6052",
+    "bench_order": null
+  },
+  "away": {
+    "team": "Mall & Dealer Sikuli",
+    "module": "4-4-2",
+    "starting_xi": [
+      "610",
+      "7181",
+      "6956",
+      "254",
+      "5520",
+      "6372",
+      "5844",
+      "2606",
+      "4364",
+      "5951",
+      "4896"
+    ],
+    "starting_names": [
+      "Gollini",
+      "Wesley",
+      "Solet",
+      "Dimarco",
+      "Cambiaso",
+      "Moreira",
+      "Thorstvedt",
+      "Modric",
+      "Gaetano",
+      "Kolo Muani",
+      "Maldini"
+    ],
+    "captain_id": "254",
+    "vice_id": "2606",
+    "bench_order": null
+  },
+  "partial_scoreboard": {
+    "home_display": "0",
+    "away_display": "0",
+    "note": "zero after lock with unscored players; NOT a final result or forecast"
+  },
+  "evidence": {
+    "prelock_freeze_available": false,
+    "decision_full_hash_possible": false,
+    "reason": "ordered bench not visible; screenshot time not independently authenticated",
+    "postlock_observation_only": true,
+    "G14_G15_eligible": false
+  },
+  "deployment": {
+    "changes_to_league_lineup": false,
+    "changes_to_production": false,
+    "branch": "SHADOW",
+    "GOLD_LOCK": false
+  },
+  "rules": "Do not infer bench, fallback order, opponent selection rationale, player pure scores or outcome probabilities from screenshot."
+}
