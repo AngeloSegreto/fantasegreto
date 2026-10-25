@@ -1,0 +1,148 @@
+{
+  "schema": "FS_PHASE0_INSPECTION_V1",
+  "inspected_at": "2026-10-18T20:16:45.905427+00:00",
+  "reviewed_remote_commit": "2122699104f8923eb65d9f4c7491d4bcf48306f2",
+  "production_commit": "fa9562decb683a3d64ca248cb66ff20099ddcb54",
+  "local_commit": "9b93dd9ab2e700da0e8f59fd53cc8866ebec28f5",
+  "reviewed_tree": "949ca62d8a62fddb2999dd00844d6a6139dbfc34",
+  "local_tree": "949ca62d8a62fddb2999dd00844d6a6139dbfc34",
+  "environment": {
+    "python": "3.12.14",
+    "node": "v24.19.0",
+    "system": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "cpu_count": 9,
+    "machine": "x86_64"
+  },
+  "runtime": {
+    "version": "V4.2.5",
+    "registry_count": 539,
+    "engine": "V4.0.23.1 LOCK + AUCTION_MARKET_V1",
+    "gold": false
+  },
+  "checks": {
+    "official-parity": {
+      "command": [
+        "python3",
+        "tools/validate_13oct_offline.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.06961295499991138,
+      "log": "audit/v3_3_1_phase0/evidence/official-parity.log",
+      "sha256": "c3b5ceedc81abcb3a14a96704b74d0e646f2be31417c266a6e8c496f39f382ff"
+    },
+    "official-runtime": {
+      "command": [
+        "python3",
+        "tools/validate_official_runtime.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.09481541499985724,
+      "log": "audit/v3_3_1_phase0/evidence/official-runtime.log",
+      "sha256": "e7aba45cce35f60044b01a038cea999ff7a63080620ab7d03e9ba3b70ba3dcea"
+    },
+    "legacy-scoring": {
+      "command": [
+        "node",
+        "experimental/scoring-gate-v1.test.js"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.15204771300000175,
+      "log": "audit/v3_3_1_phase0/evidence/legacy-scoring.log",
+      "sha256": "32080c5a06edbafc68238dadcba4f73664da9a31bc246faaabfaad92cecf8d11"
+    },
+    "legacy-simulator": {
+      "command": [
+        "node",
+        "premium-monte-carlo-v1.test.js"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.1558707259998755,
+      "log": "audit/v3_3_1_phase0/evidence/legacy-simulator.log",
+      "sha256": "0116877fa61ce2be0d169b69af75504e5b82592e62eda7dd14f7343e40572f8a"
+    },
+    "candidate-tests": {
+      "command": [
+        "node",
+        "--test",
+        "experimental/match-win-v3_2/test.js"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.41623027099990395,
+      "log": "audit/v3_3_1_phase0/evidence/candidate-tests.log",
+      "sha256": "6345a58cdd8974b5f6f52b2189918aaa8846c2b026f9f423eaf71f2e11d952c8"
+    }
+  },
+  "production_integrity": [
+    {
+      "path": "engine.js",
+      "base_sha256": "7a35ddba08d79fe73119e445ab1103b1f3c62cfe85707dd96f1a4ccbb26ac001",
+      "current_sha256": "7a35ddba08d79fe73119e445ab1103b1f3c62cfe85707dd96f1a4ccbb26ac001",
+      "identical": true
+    },
+    {
+      "path": "app.js",
+      "base_sha256": "857cf9f9e8a937bed082d2555e6438d4751b4bc2d5a963c95e4481c70388f53f",
+      "current_sha256": "857cf9f9e8a937bed082d2555e6438d4751b4bc2d5a963c95e4481c70388f53f",
+      "identical": true
+    },
+    {
+      "path": "index.html",
+      "base_sha256": "b10ead211ec3d39e097bd468c555d6339cefa7dbb6ca82b1592ed16b705b9b46",
+      "current_sha256": "b10ead211ec3d39e097bd468c555d6339cefa7dbb6ca82b1592ed16b705b9b46",
+      "identical": true
+    },
+    {
+      "path": "sw.js",
+      "base_sha256": "c85afa8ab8f1d4ff285be367a4aab6c3dd3f472ee36202a774ca8e45cc2b5e5e",
+      "current_sha256": "c85afa8ab8f1d4ff285be367a4aab6c3dd3f472ee36202a774ca8e45cc2b5e5e",
+      "identical": true
+    },
+    {
+      "path": "registry.json",
+      "base_sha256": "3b30d7ea0b170c797d11fde3f362fd380a374a6ec8d2d37f7840ec3f06b30029",
+      "current_sha256": "3b30d7ea0b170c797d11fde3f362fd380a374a6ec8d2d37f7840ec3f06b30029",
+      "identical": true
+    },
+    {
+      "path": "version.json",
+      "base_sha256": "7a7838fc345155cd16035ad6d3b7ebe738ad63c775db9a0d2ae4a9cb3cf8bcbb",
+      "current_sha256": "7a7838fc345155cd16035ad6d3b7ebe738ad63c775db9a0d2ae4a9cb3cf8bcbb",
+      "identical": true
+    },
+    {
+      "path": "premium-monte-carlo-v1.js",
+      "base_sha256": "eb7d2a9d00f921d5ddaa57ba3399dca3e511a69d5fe47eebe20d6374a7a05279",
+      "current_sha256": "eb7d2a9d00f921d5ddaa57ba3399dca3e511a69d5fe47eebe20d6374a7a05279",
+      "identical": true
+    },
+    {
+      "path": "experimental/scoring-gate-v1.js",
+      "base_sha256": "b9e0e279328fc37ce261ce71340ba218b7958062fcf8d5b2cb83819ff18ad107",
+      "current_sha256": "b9e0e279328fc37ce261ce71340ba218b7958062fcf8d5b2cb83819ff18ad107",
+      "identical": true
+    },
+    {
+      "path": "FS_PREMIUM_MATCH_EVIDENCE_V1.json",
+      "base_sha256": "812d3c66a4cda1333755c54e25525743d523feb219ba2cbcddce25f7682573f7",
+      "current_sha256": "812d3c66a4cda1333755c54e25525743d523feb219ba2cbcddce25f7682573f7",
+      "identical": true
+    }
+  ],
+  "frozen_run_manifests": [
+    {
+      "run": "synthetic",
+      "files_ok": true,
+      "code_ok": true
+    },
+    {
+      "run": "real-readiness",
+      "files_ok": true,
+      "code_ok": true
+    }
+  ],
+  "independent_auditor": false,
+  "stat_validated": false,
+  "gold": false,
+  "scope": "Existing tests rerun; not certification of V3.3.1 or live forecast accuracy.",
+  "inspection_checks_pass": true
+}

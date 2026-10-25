@@ -1,0 +1,218 @@
+{
+  "base_commit": "fa9562decb683a3d64ca248cb66ff20099ddcb54",
+  "technical_status": "PASS_RC_SCOPE",
+  "gold": false,
+  "promoted": false,
+  "incremental_paid_compute_eur": 0,
+  "checks": [
+    {
+      "name": "candidate_tests",
+      "pass": true,
+      "exit_code": 0
+    },
+    {
+      "name": "legacy_simulator",
+      "pass": true,
+      "exit_code": 0
+    },
+    {
+      "name": "legacy_scoring",
+      "pass": true,
+      "exit_code": 0
+    },
+    {
+      "name": "official_runtime",
+      "pass": true,
+      "exit_code": 0
+    },
+    {
+      "name": "official_parity",
+      "pass": true,
+      "exit_code": 0
+    }
+  ],
+  "integrity": [
+    {
+      "path": "engine.js",
+      "base_sha256": "7a35ddba08d79fe73119e445ab1103b1f3c62cfe85707dd96f1a4ccbb26ac001",
+      "current_sha256": "7a35ddba08d79fe73119e445ab1103b1f3c62cfe85707dd96f1a4ccbb26ac001",
+      "identical": true
+    },
+    {
+      "path": "app.js",
+      "base_sha256": "857cf9f9e8a937bed082d2555e6438d4751b4bc2d5a963c95e4481c70388f53f",
+      "current_sha256": "857cf9f9e8a937bed082d2555e6438d4751b4bc2d5a963c95e4481c70388f53f",
+      "identical": true
+    },
+    {
+      "path": "index.html",
+      "base_sha256": "b10ead211ec3d39e097bd468c555d6339cefa7dbb6ca82b1592ed16b705b9b46",
+      "current_sha256": "b10ead211ec3d39e097bd468c555d6339cefa7dbb6ca82b1592ed16b705b9b46",
+      "identical": true
+    },
+    {
+      "path": "sw.js",
+      "base_sha256": "c85afa8ab8f1d4ff285be367a4aab6c3dd3f472ee36202a774ca8e45cc2b5e5e",
+      "current_sha256": "c85afa8ab8f1d4ff285be367a4aab6c3dd3f472ee36202a774ca8e45cc2b5e5e",
+      "identical": true
+    },
+    {
+      "path": "registry.json",
+      "base_sha256": "3b30d7ea0b170c797d11fde3f362fd380a374a6ec8d2d37f7840ec3f06b30029",
+      "current_sha256": "3b30d7ea0b170c797d11fde3f362fd380a374a6ec8d2d37f7840ec3f06b30029",
+      "identical": true
+    },
+    {
+      "path": "version.json",
+      "base_sha256": "7a7838fc345155cd16035ad6d3b7ebe738ad63c775db9a0d2ae4a9cb3cf8bcbb",
+      "current_sha256": "7a7838fc345155cd16035ad6d3b7ebe738ad63c775db9a0d2ae4a9cb3cf8bcbb",
+      "identical": true
+    },
+    {
+      "path": "premium-monte-carlo-v1.js",
+      "base_sha256": "eb7d2a9d00f921d5ddaa57ba3399dca3e511a69d5fe47eebe20d6374a7a05279",
+      "current_sha256": "eb7d2a9d00f921d5ddaa57ba3399dca3e511a69d5fe47eebe20d6374a7a05279",
+      "identical": true
+    },
+    {
+      "path": "experimental/scoring-gate-v1.js",
+      "base_sha256": "b9e0e279328fc37ce261ce71340ba218b7958062fcf8d5b2cb83819ff18ad107",
+      "current_sha256": "b9e0e279328fc37ce261ce71340ba218b7958062fcf8d5b2cb83819ff18ad107",
+      "identical": true
+    },
+    {
+      "path": "FS_PREMIUM_MATCH_EVIDENCE_V1.json",
+      "base_sha256": "812d3c66a4cda1333755c54e25525743d523feb219ba2cbcddce25f7682573f7",
+      "current_sha256": "812d3c66a4cda1333755c54e25525743d523feb219ba2cbcddce25f7682573f7",
+      "identical": true
+    }
+  ],
+  "runs": [
+    {
+      "name": "synthetic",
+      "files_ok": true,
+      "code_ok": true,
+      "status": "SYNTHETIC_TEST_ONLY",
+      "simulation_count": 100000,
+      "holdout_count": 100000,
+      "convergence": true
+    },
+    {
+      "name": "real-readiness",
+      "files_ok": true,
+      "code_ok": true,
+      "status": "BLOCKED_PENDING_VERIFIED_INPUTS",
+      "simulation_count": 0,
+      "holdout_count": 0,
+      "convergence": null
+    }
+  ],
+  "ui": {
+    "status": "BLOCKED_BROWSER_UNAVAILABLE",
+    "reason": "browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell",
+    "physical_iphone_safari": "PENDING",
+    "results": []
+  },
+  "gates": [
+    {
+      "id": "G0",
+      "status": "PARTIAL",
+      "evidence": "Provenance validation tested; live authoritative source ingestion pending"
+    },
+    {
+      "id": "G1",
+      "status": "PARTIAL",
+      "evidence": "Fixture identity/time checks tested; current calendar acquisition pending"
+    },
+    {
+      "id": "G2",
+      "status": "PASS_TECHNICAL",
+      "evidence": "539 official runtime identities verified; candidate input schema tested"
+    },
+    {
+      "id": "G3",
+      "status": "PASS_TECHNICAL",
+      "evidence": "All seven formations validated; exhaustive search bounded and explicitly scoped"
+    },
+    {
+      "id": "G4",
+      "status": "PARTIAL",
+      "evidence": "Availability simplex, unavailable lock, Beta update; current calibrated probabilities pending"
+    },
+    {
+      "id": "G5",
+      "status": "PARTIAL",
+      "evidence": "Shared goals, linked assist events and exclusive keepers tested; red-card game-state feedback and substitution minutes pending"
+    },
+    {
+      "id": "G6",
+      "status": "PASS_TECHNICAL",
+      "evidence": "Finite/domain checks and result simplex"
+    },
+    {
+      "id": "G7",
+      "status": "PARTIAL",
+      "evidence": "Five same-role changes and display-order priority tested; National League exceptional SV rules pending"
+    },
+    {
+      "id": "G8",
+      "status": "PASS_TECHNICAL",
+      "evidence": "Strict 66 + 4 fixed bands tested at boundaries"
+    },
+    {
+      "id": "G9",
+      "status": "PARTIAL",
+      "evidence": "Per-scenario pure-vote modifier implemented; official bands pending"
+    },
+    {
+      "id": "G10",
+      "status": "PARTIAL",
+      "evidence": "Configurable captain/vice implemented; official bands and exceptional SV handling pending"
+    },
+    {
+      "id": "G11",
+      "status": "PARTIAL",
+      "evidence": "Keeper event distributions implemented; real Meret/Gollini/Svilar comparison pending current sources"
+    },
+    {
+      "id": "G12",
+      "status": "PARTIAL",
+      "evidence": "Future sources rejected; immutable-by-run convention; LIVE scoring-only, residual event adapter pending"
+    },
+    {
+      "id": "G13",
+      "status": "PASS_SYNTHETIC",
+      "evidence": "100k shared selection draws + 100k independent holdout; half-sample consistency and MC errors reported"
+    },
+    {
+      "id": "G14",
+      "status": "PENDING",
+      "evidence": "Metrics implemented and tested; actual calibration history missing"
+    },
+    {
+      "id": "G15",
+      "status": "PENDING",
+      "evidence": "Rolling harness tested; real temporal backtest not run"
+    },
+    {
+      "id": "G16",
+      "status": "PARTIAL",
+      "evidence": "Legacy regression suites pass; G7 observations archived, complete official oracle pending"
+    },
+    {
+      "id": "G17",
+      "status": "PENDING",
+      "evidence": "Excel/PWA scoring parity not executed"
+    },
+    {
+      "id": "G18",
+      "status": "PENDING",
+      "evidence": "Browser executable unavailable and download unsuccessful; UI script provided but browser acceptance not executed"
+    },
+    {
+      "id": "G19",
+      "status": "PARTIAL",
+      "evidence": "Protected production files identical, candidate manifests checked; release promotion blocked"
+    }
+  ]
+}

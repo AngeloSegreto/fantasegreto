@@ -1,0 +1,1229 @@
+{
+  "input": {
+    "kind": "SYNTHETIC",
+    "mode": "PRE_MATCH",
+    "round": 1,
+    "as_of": "2026-01-01T10:00:00Z",
+    "deadline": "2026-01-01T11:00:00Z",
+    "sources": [
+      {
+        "id": "synthetic",
+        "url": "synthetic://test-fixture-only",
+        "observed_at": "2026-01-01T09:00:00Z",
+        "reliability": 1,
+        "half_life_hours": 24,
+        "conflicts": []
+      }
+    ],
+    "fixtures": [
+      {
+        "id": "test",
+        "home": "TEST_HOME",
+        "away": "TEST_AWAY",
+        "kickoff": "2026-01-01T12:00:00Z",
+        "home_goal_rate": 1.6,
+        "away_goal_rate": 1.1,
+        "disruption_probability": 0.03,
+        "source_id": "synthetic"
+      }
+    ],
+    "players": [
+      {
+        "id": "hP0",
+        "official_id": "SYNTHETIC_hP0",
+        "name": "TEST hP0",
+        "role": "P",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.7,
+          "sub": 0,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0,
+          "assist_share": 0,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 3,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hP1",
+        "official_id": "SYNTHETIC_hP1",
+        "name": "TEST hP1",
+        "role": "P",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.3,
+          "sub": 0,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0,
+          "assist_share": 0,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 3,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hD0",
+        "official_id": "SYNTHETIC_hD0",
+        "name": "TEST hD0",
+        "role": "D",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hD1",
+        "official_id": "SYNTHETIC_hD1",
+        "name": "TEST hD1",
+        "role": "D",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hD2",
+        "official_id": "SYNTHETIC_hD2",
+        "name": "TEST hD2",
+        "role": "D",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hD3",
+        "official_id": "SYNTHETIC_hD3",
+        "name": "TEST hD3",
+        "role": "D",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hD4",
+        "official_id": "SYNTHETIC_hD4",
+        "name": "TEST hD4",
+        "role": "D",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hC0",
+        "official_id": "SYNTHETIC_hC0",
+        "name": "TEST hC0",
+        "role": "C",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hC1",
+        "official_id": "SYNTHETIC_hC1",
+        "name": "TEST hC1",
+        "role": "C",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hC2",
+        "official_id": "SYNTHETIC_hC2",
+        "name": "TEST hC2",
+        "role": "C",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hC3",
+        "official_id": "SYNTHETIC_hC3",
+        "name": "TEST hC3",
+        "role": "C",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hC4",
+        "official_id": "SYNTHETIC_hC4",
+        "name": "TEST hC4",
+        "role": "C",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hA0",
+        "official_id": "SYNTHETIC_hA0",
+        "name": "TEST hA0",
+        "role": "A",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.15,
+          "assist_share": 0.07,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hA1",
+        "official_id": "SYNTHETIC_hA1",
+        "name": "TEST hA1",
+        "role": "A",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.15,
+          "assist_share": 0.07,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "hA2",
+        "official_id": "SYNTHETIC_hA2",
+        "name": "TEST hA2",
+        "role": "A",
+        "team": "TEST_HOME",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.15,
+          "assist_share": 0.07,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aP0",
+        "official_id": "SYNTHETIC_aP0",
+        "name": "TEST aP0",
+        "role": "P",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 1,
+          "sub": 0,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0,
+          "assist_share": 0,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 3,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aD0",
+        "official_id": "SYNTHETIC_aD0",
+        "name": "TEST aD0",
+        "role": "D",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aD1",
+        "official_id": "SYNTHETIC_aD1",
+        "name": "TEST aD1",
+        "role": "D",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aD2",
+        "official_id": "SYNTHETIC_aD2",
+        "name": "TEST aD2",
+        "role": "D",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aD3",
+        "official_id": "SYNTHETIC_aD3",
+        "name": "TEST aD3",
+        "role": "D",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.01,
+          "assist_share": 0.025,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": -0.15,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aC0",
+        "official_id": "SYNTHETIC_aC0",
+        "name": "TEST aC0",
+        "role": "C",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aC1",
+        "official_id": "SYNTHETIC_aC1",
+        "name": "TEST aC1",
+        "role": "C",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aC2",
+        "official_id": "SYNTHETIC_aC2",
+        "name": "TEST aC2",
+        "role": "C",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aC3",
+        "official_id": "SYNTHETIC_aC3",
+        "name": "TEST aC3",
+        "role": "C",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6.1,
+          "vote_sd": 0.65,
+          "goal_share": 0.035,
+          "assist_share": 0.055,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aA0",
+        "official_id": "SYNTHETIC_aA0",
+        "name": "TEST aA0",
+        "role": "A",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.15,
+          "assist_share": 0.07,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      },
+      {
+        "id": "aA1",
+        "official_id": "SYNTHETIC_aA1",
+        "name": "TEST aA1",
+        "role": "A",
+        "team": "TEST_AWAY",
+        "fixture_id": "test",
+        "unavailable": false,
+        "projection": {
+          "source_id": "synthetic",
+          "observed_at": "2026-01-01T09:00:00Z",
+          "kind": "HEURISTIC",
+          "start": 0.85,
+          "sub": 0.1,
+          "vote_given_start": 0.99,
+          "vote_given_sub": 0.75,
+          "vote_mean": 6,
+          "vote_sd": 0.65,
+          "goal_share": 0.15,
+          "assist_share": 0.07,
+          "yellow_probability": 0.12,
+          "red_probability": 0.015,
+          "save_rate": 0,
+          "team_vote_loading": 0.3,
+          "conceded_vote_loading": 0,
+          "disruption_sensitivity": 0.25
+        }
+      }
+    ],
+    "rules": {
+      "verified": true,
+      "source_id": "synthetic",
+      "goal_lock": "NATIONAL_66_4_FIXED_V3_1",
+      "formations": [
+        "3-5-2",
+        "3-4-3",
+        "4-3-3",
+        "4-4-2",
+        "4-5-1",
+        "5-3-2",
+        "5-4-1"
+      ],
+      "substitution_count": 5,
+      "substitution_mode": "SAME_ROLE",
+      "module_change_allowed": false,
+      "bench_order": "DISPLAY_ORDER",
+      "keeper_model": "EXCLUSIVE_FULL_MATCH",
+      "bonus_malus": {
+        "goal": 3,
+        "assist": 1,
+        "yellow": -0.5,
+        "red": -1,
+        "conceded": -1,
+        "save": 0,
+        "clean_sheet": 1
+      },
+      "defence": {
+        "enabled": true,
+        "minimum_rated_defenders": 4,
+        "top_defenders": 3,
+        "include_keeper": true,
+        "bands": [
+          {
+            "min": 6,
+            "bonus": 1
+          },
+          {
+            "min": 6.5,
+            "bonus": 3
+          },
+          {
+            "min": 7,
+            "bonus": 6
+          }
+        ]
+      },
+      "captain": {
+        "enabled": true,
+        "sv_policy": "VICE_THEN_ZERO",
+        "basis": "PURE_VOTE",
+        "bands": [
+          {
+            "min": 0,
+            "bonus": -1
+          },
+          {
+            "min": 6,
+            "bonus": 0
+          },
+          {
+            "min": 7,
+            "bonus": 1
+          }
+        ]
+      }
+    },
+    "home": {
+      "name": "SYNTHETIC HOME",
+      "roster": [
+        "hP0",
+        "hP1",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hD4",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hC4",
+        "hA0",
+        "hA1",
+        "hA2"
+      ],
+      "lineup": {
+        "starters": [
+          "hP0",
+          "hD0",
+          "hD1",
+          "hD2",
+          "hD3",
+          "hC0",
+          "hC1",
+          "hC2",
+          "hC3",
+          "hA0",
+          "hA1"
+        ],
+        "bench": [
+          "hP1",
+          "hD4",
+          "hC4",
+          "hA2"
+        ],
+        "captain": "hD0",
+        "vice": "hD1"
+      }
+    },
+    "away": {
+      "name": "SYNTHETIC AWAY",
+      "roster": [
+        "aP0",
+        "aD0",
+        "aD1",
+        "aD2",
+        "aD3",
+        "aC0",
+        "aC1",
+        "aC2",
+        "aC3",
+        "aA0",
+        "aA1"
+      ],
+      "lineup": {
+        "starters": [
+          "aP0",
+          "aD0",
+          "aD1",
+          "aD2",
+          "aD3",
+          "aC0",
+          "aC1",
+          "aC2",
+          "aC3",
+          "aA0",
+          "aA1"
+        ],
+        "bench": [],
+        "captain": "aD0",
+        "vice": "aD1"
+      }
+    }
+  },
+  "candidates": [
+    {
+      "starters": [
+        "hP0",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hC4",
+        "hA0",
+        "hA1"
+      ],
+      "bench": [
+        "hP1",
+        "hD3",
+        "hD4",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP1",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hC4",
+        "hA0",
+        "hA1"
+      ],
+      "bench": [
+        "hP0",
+        "hD3",
+        "hD4",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP0",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hA0",
+        "hA1",
+        "hA2"
+      ],
+      "bench": [
+        "hP1",
+        "hD3",
+        "hD4",
+        "hC4"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP1",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hA0",
+        "hA1",
+        "hA2"
+      ],
+      "bench": [
+        "hP0",
+        "hD3",
+        "hD4",
+        "hC4"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP0",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hA0",
+        "hA1",
+        "hA2"
+      ],
+      "bench": [
+        "hP1",
+        "hD4",
+        "hC3",
+        "hC4"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP1",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hA0",
+        "hA1",
+        "hA2"
+      ],
+      "bench": [
+        "hP0",
+        "hD4",
+        "hC3",
+        "hC4"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP0",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hA0",
+        "hA1"
+      ],
+      "bench": [
+        "hP1",
+        "hD4",
+        "hC4",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP1",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hA0",
+        "hA1"
+      ],
+      "bench": [
+        "hP0",
+        "hD4",
+        "hC4",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP0",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hC4",
+        "hA0"
+      ],
+      "bench": [
+        "hP1",
+        "hD4",
+        "hA1",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP1",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hC4",
+        "hA0"
+      ],
+      "bench": [
+        "hP0",
+        "hD4",
+        "hA1",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP0",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hD4",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hA0",
+        "hA1"
+      ],
+      "bench": [
+        "hP1",
+        "hC3",
+        "hC4",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP1",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hD4",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hA0",
+        "hA1"
+      ],
+      "bench": [
+        "hP0",
+        "hC3",
+        "hC4",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP0",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hD4",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hA0"
+      ],
+      "bench": [
+        "hP1",
+        "hC4",
+        "hA1",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    },
+    {
+      "starters": [
+        "hP1",
+        "hD0",
+        "hD1",
+        "hD2",
+        "hD3",
+        "hD4",
+        "hC0",
+        "hC1",
+        "hC2",
+        "hC3",
+        "hA0"
+      ],
+      "bench": [
+        "hP0",
+        "hC4",
+        "hA1",
+        "hA2"
+      ],
+      "captain": "hD0",
+      "vice": "hD1"
+    }
+  ]
+}

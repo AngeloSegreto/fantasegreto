@@ -1,0 +1,11 @@
+{
+  "audit/v3_3_1_invariance/verify.js": "517ffd6ad3e9349ea5ed64076d302539d5572883d50179c1959c64969bf1b06a",
+  "audit/v3_3_1_invariance/node-tests.log": "069e37826b405900ed26be866fa344edcc1d3a60724b2137dd5eb8a00dfbb1bd",
+  "audit/v3_3_1_invariance/README.md": "9b60135a2980252477602ac7a76c16b1befa98d2a0028c893d59d836b96d5cbd",
+  "audit/v3_3_1_invariance/regression.json": "a088857a445d7260155c993d9e4437606eb7ee3141e87ab3b060f75f9344c545",
+  "experimental/match-win-v3_2/core.js": "c01241a5649ef0d9abf59c80f6a906aaccfb7a200412b0f73a78ad8ad8516dea",
+  "experimental/match-win-v3_2/simulator.js": "c9c6674c9352e7cc66b418dceb546854053499ad76797813342e711a73fd6ab1",
+  "experimental/match-win-v3_2/optimizer.js": "0d363a158ed9896238a96cc917cb7a4c1abd44234263620afb8567e723b5e9dc",
+  "experimental/match-win-v3_2/decision-id.js": "aa8f65ab32bed58ac1d3a12beb155490fe4f2c67766c342bbe6aa80e732178cd",
+  "experimental/match-win-v3_2/invariance.test.js": "0ebaf7b2f3d243389ec9a6312a993af6da30e4396f0aa579550f17e7dcd3b463"
+}

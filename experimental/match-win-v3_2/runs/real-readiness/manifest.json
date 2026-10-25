@@ -1,0 +1,19 @@
+{
+  "schema": "FS_FROZEN_RUN_V1",
+  "files": {
+    "input.json": "ad25e928ef3e77f9849cf949bfc6807217335b4f2f067a9fc43dae2a5272a44a",
+    "report.json": "09fcf0a9ee15bc959869b5642712fbbe55862ac4468fac209067a86307373b35"
+  },
+  "code_sha256": {
+    "audit-browser.js": "2449fbe2c20534335cd1eaa5cd803c38d8c361dc57e24fd62e4892dea58c566f",
+    "audit.js": "d984343aed173c0533adcfdeab65c9c57777669d20e95bcbc9ace3b826fc11da",
+    "core.js": "088da3fa15890037d9526778f2fe6d3ae3a202e4165602156435963ae9ddd4c3",
+    "diagnostics.js": "c7f3455e9e10788c7c31cfdb7933078a528a9550ee45064f18ffccad8c876908",
+    "example.js": "c69c2840a116f77d1d65bfaeac8748185fab4ba921cf783bedae854f9af83f53",
+    "optimizer.js": "3c4e71d9e8b8fb26e919b7f45d3063e60fa6db41357951e9881d554eec558e2f",
+    "run.js": "41cd275bf025dfc2fb583f2bf9f85ae387c556b4f494975d30028b8ffe9a66b9",
+    "simulator.js": "08f64db99349d00b383232d5a961afc23b6597f9c53c28fe38d184c9fce81d3c",
+    "test.js": "0d9bdb5fb1db11e94a4f6a36cc1d4e0fd0f4d406f2d96ac7115505f8f1fe524e"
+  },
+  "gold": false
+}

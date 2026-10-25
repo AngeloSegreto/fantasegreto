@@ -1,0 +1,22 @@
+{
+  "schema": "FS_FROZEN_RUN_V1",
+  "files": {
+    "input.json": "9f8b2290217009734077721c8af680eb551cc2f0a37db4b1780073a8b93b4541",
+    "report.json": "8be37a123a6744a2a4f4c34e68e2c84fd538b9ce5078a9fafca71b2b79611b2e"
+  },
+  "code_sha256": {
+    "audit-browser.js": "2449fbe2c20534335cd1eaa5cd803c38d8c361dc57e24fd62e4892dea58c566f",
+    "audit.js": "d984343aed173c0533adcfdeab65c9c57777669d20e95bcbc9ace3b826fc11da",
+    "core.js": "3917807a3b0235eec615278f8cbcb75ea3abf8ab6d5fde4172597c1a638f58b9",
+    "diagnostics.js": "c7f3455e9e10788c7c31cfdb7933078a528a9550ee45064f18ffccad8c876908",
+    "example.js": "c69c2840a116f77d1d65bfaeac8748185fab4ba921cf783bedae854f9af83f53",
+    "league-integration.test.js": "36845af5c055a44d95a11e98100b8a253cc4880c49b2c2c41a06be72fc8f396a",
+    "league-rules.js": "35e99d3ebb4e18f1f98c5b96c2269632d5f2182c753b00ce18eb15b7ef3379ea",
+    "league-rules.test.js": "03bb91335cbed00b1c64f49b4209c6816947e5c07131d59b084cff1f79ddfa22",
+    "optimizer.js": "a37e777647c2fa5dbdf74e614ea76730d14ab74321cfbce5342047c6382d5eff",
+    "run.js": "41cd275bf025dfc2fb583f2bf9f85ae387c556b4f494975d30028b8ffe9a66b9",
+    "simulator.js": "0cdd8b776778675e6228bfd95851754ac8180e288f6e3b15316c69226ce00563",
+    "test.js": "0d9bdb5fb1db11e94a4f6a36cc1d4e0fd0f4d406f2d96ac7115505f8f1fe524e"
+  },
+  "gold": false
+}

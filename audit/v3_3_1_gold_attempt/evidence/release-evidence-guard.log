@@ -1,0 +1,15 @@
+test_complete_fixture_only_qualifies_for_review (test_match_win_gold_audit.EvidenceGateTests.test_complete_fixture_only_qualifies_for_review) ... ok
+test_duplicate_cannot_hide_failure (test_match_win_gold_audit.EvidenceGateTests.test_duplicate_cannot_hide_failure) ... ok
+test_missing_gate_blocks (test_match_win_gold_audit.EvidenceGateTests.test_missing_gate_blocks) ... ok
+test_no_reviewer_blocks (test_match_win_gold_audit.EvidenceGateTests.test_no_reviewer_blocks) ... ok
+test_other_engine_cannot_close_gate (test_match_win_gold_audit.EvidenceGateTests.test_other_engine_cannot_close_gate) ... ok
+test_other_tree_cannot_close_gate (test_match_win_gold_audit.EvidenceGateTests.test_other_tree_cannot_close_gate) ... ok
+test_path_escape_blocks (test_match_win_gold_audit.EvidenceGateTests.test_path_escape_blocks) ... ok
+test_pending_blocks (test_match_win_gold_audit.EvidenceGateTests.test_pending_blocks) ... ok
+test_predictive_report_is_required (test_match_win_gold_audit.EvidenceGateTests.test_predictive_report_is_required) ... ok
+test_tampering_blocks (test_match_win_gold_audit.EvidenceGateTests.test_tampering_blocks) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.036s
+
+OK

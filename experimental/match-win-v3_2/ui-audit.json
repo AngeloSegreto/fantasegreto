@@ -1,0 +1,6 @@
+{
+  "status": "BLOCKED_BROWSER_UNAVAILABLE",
+  "reason": "browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell",
+  "physical_iphone_safari": "PENDING",
+  "results": []
+}

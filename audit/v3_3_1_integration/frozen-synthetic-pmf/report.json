@@ -1,0 +1,873 @@
+{
+  "version": "FS_MATCH_WIN_V3.2_RC1",
+  "status": "SYNTHETIC_TEST_ONLY",
+  "gold": false,
+  "simulation_count": 100000,
+  "seed": 20261018,
+  "confidence": "UNCALIBRATED",
+  "warnings": [],
+  "results": [
+    {
+      "lineup": {
+        "starters": [
+          "hP0",
+          "hD0",
+          "hD1",
+          "hD2",
+          "hD3",
+          "hC0",
+          "hC1",
+          "hC2",
+          "hC3",
+          "hA0",
+          "hA1"
+        ],
+        "bench": [
+          "hP1",
+          "hD4",
+          "hC4",
+          "hA2"
+        ],
+        "captain": "hD0",
+        "vice": "hD1"
+      },
+      "formation": "4-4-2",
+      "win": 0.46965,
+      "draw": 0.22511,
+      "loss": 0.30524,
+      "mc_95_interval": [
+        0.4665566823380002,
+        0.47274331766199984
+      ],
+      "mc_standard_error": 0.001578223296938681,
+      "paired_to_first": {
+        "win_difference": 0,
+        "mc_standard_error": 0,
+        "indistinguishable_mc": true
+      },
+      "points": {
+        "mean": 70.055825,
+        "median": 70,
+        "p05": 63,
+        "p25": 67,
+        "p75": 73,
+        "p95": 78,
+        "worst_5pct_mean": 61.8338,
+        "variance": 19.725016069377432
+      },
+      "opponent_points": {
+        "mean": 68.5045,
+        "median": 68.5,
+        "p05": 62,
+        "p25": 65.5,
+        "p75": 71,
+        "p95": 75.5,
+        "worst_5pct_mean": 60.75,
+        "variance": 16.995189750000648
+      },
+      "fantagoals": {
+        "0": 0.16394,
+        "1": 0.33239,
+        "2": 0.30889,
+        "3": 0.14369,
+        "4": 0.0414,
+        "5": 0.00831,
+        "6": 0.00125,
+        "7": 0.00012,
+        "8": 0.00001
+      },
+      "goal_margins": {
+        "0": 0.22511,
+        "1": 0.21545,
+        "2": 0.15113,
+        "3": 0.07314,
+        "4": 0.02347,
+        "5": 0.00541,
+        "6": 0.00094,
+        "7": 0.0001,
+        "8": 0.00001,
+        "-1": 0.16809,
+        "-2": 0.09358,
+        "-3": 0.03401,
+        "-4": 0.00782,
+        "-5": 0.00147,
+        "-7": 0.00003,
+        "-6": 0.00024
+      },
+      "expected_fantagoals": 1.59681,
+      "next_threshold": 74,
+      "probability_next_threshold": 0.19478,
+      "incomplete_probability": 0,
+      "expected_defence_modifier": 0.61484,
+      "expected_captain": 0.12388,
+      "expected_recovered_points": 1.61238,
+      "expected_unused_bench_points": 19.45002,
+      "expected_unused_bench_bonus": 1.1215,
+      "convergence": {
+        "first_half_win": 0.47164,
+        "second_half_win": 0.46766,
+        "delta": 0.0039799999999999836,
+        "tolerance": 0.009479264504912722,
+        "pass": true
+      }
+    },
+    {
+      "lineup": {
+        "starters": [
+          "hP0",
+          "hD0",
+          "hD1",
+          "hD2",
+          "hC0",
+          "hC1",
+          "hC2",
+          "hC3",
+          "hC4",
+          "hA0",
+          "hA1"
+        ],
+        "bench": [
+          "hP1",
+          "hD3",
+          "hD4",
+          "hA2"
+        ],
+        "captain": "hD0",
+        "vice": "hD1"
+      },
+      "formation": "3-5-2",
+      "win": 0.44236,
+      "draw": 0.23094,
+      "loss": 0.3267,
+      "mc_95_interval": [
+        0.43928162902666906,
+        0.4454383709733309
+      ],
+      "mc_standard_error": 0.001570597435372922,
+      "paired_to_first": {
+        "win_difference": -0.02729,
+        "mc_standard_error": 0.0008397973634134106,
+        "indistinguishable_mc": false
+      },
+      "points": {
+        "mean": 69.606855,
+        "median": 69.5,
+        "p05": 63,
+        "p25": 66.5,
+        "p75": 72.5,
+        "p95": 77,
+        "worst_5pct_mean": 61.7547,
+        "variance": 18.400619508975023
+      },
+      "opponent_points": {
+        "mean": 68.5045,
+        "median": 68.5,
+        "p05": 62,
+        "p25": 65.5,
+        "p75": 71,
+        "p95": 75.5,
+        "worst_5pct_mean": 60.75,
+        "variance": 16.995189750000648
+      },
+      "fantagoals": {
+        "0": 0.18227,
+        "1": 0.35985,
+        "2": 0.29623,
+        "3": 0.1216,
+        "4": 0.03291,
+        "5": 0.00623,
+        "6": 0.00084,
+        "7": 0.00007
+      },
+      "goal_margins": {
+        "0": 0.23094,
+        "1": 0.21206,
+        "2": 0.14125,
+        "3": 0.06432,
+        "4": 0.0197,
+        "5": 0.00429,
+        "6": 0.00067,
+        "7": 0.00007,
+        "-1": 0.17736,
+        "-2": 0.1013,
+        "-3": 0.03754,
+        "-4": 0.00866,
+        "-5": 0.00155,
+        "-7": 0.00003,
+        "-6": 0.00026
+      },
+      "expected_fantagoals": 1.48543,
+      "next_threshold": 70,
+      "probability_next_threshold": 0.45788,
+      "incomplete_probability": 0,
+      "expected_defence_modifier": 0,
+      "expected_captain": 0.12388,
+      "expected_recovered_points": 1.61238,
+      "expected_unused_bench_points": 19.28415,
+      "expected_unused_bench_bonus": 0.95992,
+      "convergence": {
+        "first_half_win": 0.44502,
+        "second_half_win": 0.4397,
+        "delta": 0.005320000000000047,
+        "tolerance": 0.009433449460149929,
+        "pass": true
+      }
+    }
+  ],
+  "keepers": {
+    "hP0": {
+      "vote_probability": 0.69773,
+      "clean_sheet_probability": 0.23391,
+      "expected_conceded": 0.76638,
+      "expected_saves": 2.097,
+      "pure_conditional_on_vote": {
+        "mean": 6.175053387413469,
+        "median": 6,
+        "p05": 5,
+        "p25": 6,
+        "p75": 6.5,
+        "p95": 7,
+        "worst_5pct_mean": 5,
+        "variance": 0.43106786186810414
+      },
+      "fantasy_points": {
+        "mean": 3.723855,
+        "median": 4.5,
+        "p05": 0,
+        "p25": 0,
+        "p75": 6,
+        "p95": 7.5,
+        "worst_5pct_mean": -0.0067,
+        "variance": 7.774086438970439
+      },
+      "probability_ge6": 0.27491,
+      "probability_ge65": 0.21564,
+      "probability_ge7": 0.16471
+    },
+    "hP1": {
+      "vote_probability": 0.30227,
+      "clean_sheet_probability": 0.10044,
+      "expected_conceded": 0.33219,
+      "expected_saves": 0.91129,
+      "pure_conditional_on_vote": {
+        "mean": 6.177556489231482,
+        "median": 6,
+        "p05": 5,
+        "p25": 6,
+        "p75": 6.5,
+        "p95": 7.5,
+        "worst_5pct_mean": 5,
+        "variance": 0.43481173527951744
+      },
+      "fantasy_points": {
+        "mean": 1.61238,
+        "median": 0,
+        "p05": 0,
+        "p25": 0,
+        "p75": 4,
+        "p95": 7,
+        "worst_5pct_mean": -0.0035,
+        "variance": 6.764515735591998
+      },
+      "probability_ge6": 0.11908,
+      "probability_ge65": 0.09309,
+      "probability_ge7": 0.07074
+    }
+  },
+  "availability": {
+    "hP0": {
+      "start": 0.7,
+      "sub": 0,
+      "vote": 0.7,
+      "sv": 0.30000000000000004,
+      "kind": "HEURISTIC"
+    },
+    "hP1": {
+      "start": 0.3,
+      "sub": 0,
+      "vote": 0.3,
+      "sv": 0.7,
+      "kind": "HEURISTIC"
+    },
+    "hD0": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hD1": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hD2": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hD3": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hD4": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hC0": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hC1": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hC2": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hC3": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hC4": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hA0": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hA1": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "hA2": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aP0": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aD0": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aD1": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aD2": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aD3": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aC0": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aC1": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aC2": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aC3": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aA0": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    },
+    "aA1": {
+      "start": 1,
+      "sub": 0,
+      "vote": 1,
+      "sv": 0,
+      "kind": "HEURISTIC"
+    }
+  },
+  "source_health": {
+    "synthetic": {
+      "age_hours": 0.08333333333333333,
+      "confidence": 0.9975961328836203,
+      "needs_refresh": false
+    }
+  },
+  "uncertainty_note": "Monte Carlo error conditional on input model; excludes parameter uncertainty and forecast miscalibration.",
+  "objective": "MAX_WIN_THEN_DRAW_THEN_COMPLETENESS_THEN_POINTS",
+  "scope": {
+    "lineups": "EXPLICIT_PANEL",
+    "global_joint_optimum_searched": false
+  },
+  "recommended_index": 0,
+  "ranking": [
+    {
+      "index": 0,
+      "win": 0.46965,
+      "draw": 0.22511,
+      "points": 70.055825,
+      "formation": "4-4-2"
+    },
+    {
+      "index": 1,
+      "win": 0.44236,
+      "draw": 0.23094,
+      "points": 69.606855,
+      "formation": "3-5-2"
+    }
+  ],
+  "selection_warning": "Best among evaluated candidates under supplied model, not a certified National League prediction.",
+  "holdout": {
+    "seed": 2667729187,
+    "simulation_count": 100000,
+    "results": [
+      {
+        "lineup": {
+          "starters": [
+            "hP0",
+            "hD0",
+            "hD1",
+            "hD2",
+            "hD3",
+            "hC0",
+            "hC1",
+            "hC2",
+            "hC3",
+            "hA0",
+            "hA1"
+          ],
+          "bench": [
+            "hP1",
+            "hD4",
+            "hC4",
+            "hA2"
+          ],
+          "captain": "hD0",
+          "vice": "hD1"
+        },
+        "formation": "4-4-2",
+        "win": 0.47341,
+        "draw": 0.22445,
+        "loss": 0.30214,
+        "mc_95_interval": [
+          0.4703153532013313,
+          0.4765046467986687
+        ],
+        "mc_standard_error": 0.001578901427892191,
+        "paired_to_first": {
+          "win_difference": 0,
+          "mc_standard_error": 0,
+          "indistinguishable_mc": true
+        },
+        "points": {
+          "mean": 70.0836,
+          "median": 70,
+          "p05": 63.5,
+          "p25": 67,
+          "p75": 73,
+          "p95": 78,
+          "worst_5pct_mean": 61.8807,
+          "variance": 19.61318104000026
+        },
+        "opponent_points": {
+          "mean": 68.48259,
+          "median": 68.5,
+          "p05": 62,
+          "p25": 65.5,
+          "p75": 71,
+          "p95": 75.5,
+          "worst_5pct_mean": 60.7588,
+          "variance": 16.935781891901346
+        },
+        "fantagoals": {
+          "0": 0.1606,
+          "1": 0.33535,
+          "2": 0.30743,
+          "3": 0.14484,
+          "4": 0.04238,
+          "5": 0.00808,
+          "6": 0.00114,
+          "7": 0.00017,
+          "8": 0.00001
+        },
+        "goal_margins": {
+          "0": 0.22445,
+          "1": 0.21731,
+          "2": 0.15153,
+          "3": 0.07413,
+          "4": 0.02403,
+          "5": 0.00534,
+          "6": 0.00092,
+          "7": 0.00014,
+          "8": 0.00001,
+          "-1": 0.16726,
+          "-2": 0.09133,
+          "-3": 0.03335,
+          "-4": 0.00861,
+          "-5": 0.00144,
+          "-6": 0.00015
+        },
+        "expected_fantagoals": 1.60276,
+        "next_threshold": 74,
+        "probability_next_threshold": 0.19662,
+        "incomplete_probability": 0,
+        "expected_defence_modifier": 0.61606,
+        "expected_captain": 0.12514,
+        "expected_recovered_points": 1.59271,
+        "expected_unused_bench_points": 19.45772,
+        "expected_unused_bench_bonus": 1.123655,
+        "convergence": {
+          "first_half_win": 0.47176,
+          "second_half_win": 0.47506,
+          "delta": 0.0032999999999999696,
+          "tolerance": 0.009483356838206823,
+          "pass": true
+        }
+      },
+      {
+        "lineup": {
+          "starters": [
+            "hP0",
+            "hD0",
+            "hD1",
+            "hD2",
+            "hC0",
+            "hC1",
+            "hC2",
+            "hC3",
+            "hC4",
+            "hA0",
+            "hA1"
+          ],
+          "bench": [
+            "hP1",
+            "hD3",
+            "hD4",
+            "hA2"
+          ],
+          "captain": "hD0",
+          "vice": "hD1"
+        },
+        "formation": "3-5-2",
+        "win": 0.44661,
+        "draw": 0.22916,
+        "loss": 0.32423,
+        "mc_95_interval": [
+          0.44352868607644624,
+          0.44969131392355377
+        ],
+        "mc_standard_error": 0.0015720989405886643,
+        "paired_to_first": {
+          "win_difference": -0.0268,
+          "mc_standard_error": 0.0008385848986514858,
+          "indistinguishable_mc": false
+        },
+        "points": {
+          "mean": 69.632805,
+          "median": 69.5,
+          "p05": 63,
+          "p25": 66.5,
+          "p75": 72.5,
+          "p95": 77,
+          "worst_5pct_mean": 61.7656,
+          "variance": 18.34329533197651
+        },
+        "opponent_points": {
+          "mean": 68.48259,
+          "median": 68.5,
+          "p05": 62,
+          "p25": 65.5,
+          "p75": 71,
+          "p95": 75.5,
+          "worst_5pct_mean": 60.7588,
+          "variance": 16.935781891901346
+        },
+        "fantagoals": {
+          "0": 0.18089,
+          "1": 0.36035,
+          "2": 0.2944,
+          "3": 0.12446,
+          "4": 0.03288,
+          "5": 0.00602,
+          "6": 0.00085,
+          "7": 0.00015
+        },
+        "goal_margins": {
+          "0": 0.22916,
+          "1": 0.21385,
+          "2": 0.14265,
+          "3": 0.06513,
+          "4": 0.01995,
+          "5": 0.00426,
+          "6": 0.00064,
+          "7": 0.00013,
+          "-1": 0.17704,
+          "-2": 0.09872,
+          "-3": 0.03708,
+          "-4": 0.00963,
+          "-5": 0.0016,
+          "-6": 0.00016
+        },
+        "expected_fantagoals": 1.4903,
+        "next_threshold": 70,
+        "probability_next_threshold": 0.45876,
+        "incomplete_probability": 0,
+        "expected_defence_modifier": 0,
+        "expected_captain": 0.12514,
+        "expected_recovered_points": 1.59271,
+        "expected_unused_bench_points": 19.292455,
+        "expected_unused_bench_bonus": 0.965865,
+        "convergence": {
+          "first_half_win": 0.44368,
+          "second_half_win": 0.44954,
+          "delta": 0.005859999999999976,
+          "tolerance": 0.00944242981845081,
+          "pass": true
+        }
+      }
+    ]
+  },
+  "alternative_index": 1,
+  "advantage": {
+    "win_difference": -0.0268,
+    "mc_standard_error": 0.0008385848986514858,
+    "indistinguishable_mc": false
+  },
+  "model_comparison": {
+    "A_expected_points_index": 0,
+    "B_availability_index": 0,
+    "C_shared_scenarios": 100000,
+    "D_match_win_index": 0,
+    "ensemble_weights": null,
+    "note": "A and B are diagnostics of the same supplied model, not independent calibrated predictors. Learned ensemble pending real out-of-sample history."
+  },
+  "context": {
+    "round": 1,
+    "opponent": "SYNTHETIC AWAY",
+    "as_of": "2026-10-18T21:10:00Z",
+    "players": {
+      "hP0": {
+        "name": "TEST hP0",
+        "role": "P",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hP1": {
+        "name": "TEST hP1",
+        "role": "P",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hD0": {
+        "name": "TEST hD0",
+        "role": "D",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hD1": {
+        "name": "TEST hD1",
+        "role": "D",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hD2": {
+        "name": "TEST hD2",
+        "role": "D",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hD3": {
+        "name": "TEST hD3",
+        "role": "D",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hD4": {
+        "name": "TEST hD4",
+        "role": "D",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hC0": {
+        "name": "TEST hC0",
+        "role": "C",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hC1": {
+        "name": "TEST hC1",
+        "role": "C",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hC2": {
+        "name": "TEST hC2",
+        "role": "C",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hC3": {
+        "name": "TEST hC3",
+        "role": "C",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hC4": {
+        "name": "TEST hC4",
+        "role": "C",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hA0": {
+        "name": "TEST hA0",
+        "role": "A",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hA1": {
+        "name": "TEST hA1",
+        "role": "A",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "hA2": {
+        "name": "TEST hA2",
+        "role": "A",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aP0": {
+        "name": "TEST aP0",
+        "role": "P",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aD0": {
+        "name": "TEST aD0",
+        "role": "D",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aD1": {
+        "name": "TEST aD1",
+        "role": "D",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aD2": {
+        "name": "TEST aD2",
+        "role": "D",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aD3": {
+        "name": "TEST aD3",
+        "role": "D",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aC0": {
+        "name": "TEST aC0",
+        "role": "C",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aC1": {
+        "name": "TEST aC1",
+        "role": "C",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aC2": {
+        "name": "TEST aC2",
+        "role": "C",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aC3": {
+        "name": "TEST aC3",
+        "role": "C",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aA0": {
+        "name": "TEST aA0",
+        "role": "A",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      },
+      "aA1": {
+        "name": "TEST aA1",
+        "role": "A",
+        "fixture": "TEST_HOME – TEST_AWAY"
+      }
+    }
+  },
+  "execution": {
+    "input_sha256": "9f8b2290217009734077721c8af680eb551cc2f0a37db4b1780073a8b93b4541",
+    "code_sha256": {
+      "audit-browser.js": "2449fbe2c20534335cd1eaa5cd803c38d8c361dc57e24fd62e4892dea58c566f",
+      "audit.js": "d984343aed173c0533adcfdeab65c9c57777669d20e95bcbc9ace3b826fc11da",
+      "core.js": "3917807a3b0235eec615278f8cbcb75ea3abf8ab6d5fde4172597c1a638f58b9",
+      "diagnostics.js": "c7f3455e9e10788c7c31cfdb7933078a528a9550ee45064f18ffccad8c876908",
+      "example.js": "c69c2840a116f77d1d65bfaeac8748185fab4ba921cf783bedae854f9af83f53",
+      "league-integration.test.js": "36845af5c055a44d95a11e98100b8a253cc4880c49b2c2c41a06be72fc8f396a",
+      "league-rules.js": "35e99d3ebb4e18f1f98c5b96c2269632d5f2182c753b00ce18eb15b7ef3379ea",
+      "league-rules.test.js": "03bb91335cbed00b1c64f49b4209c6816947e5c07131d59b084cff1f79ddfa22",
+      "optimizer.js": "a37e777647c2fa5dbdf74e614ea76730d14ab74321cfbce5342047c6382d5eff",
+      "run.js": "41cd275bf025dfc2fb583f2bf9f85ae387c556b4f494975d30028b8ffe9a66b9",
+      "simulator.js": "0cdd8b776778675e6228bfd95851754ac8180e288f6e3b15316c69226ce00563",
+      "test.js": "0d9bdb5fb1db11e94a4f6a36cc1d4e0fd0f4d406f2d96ac7115505f8f1fe524e"
+    },
+    "base_commit": "fc69916ac481ce8066b6127e538c165bffe5734f",
+    "elapsed_ms": 40065.160562,
+    "cost_incurred_eur": 0
+  }
+}

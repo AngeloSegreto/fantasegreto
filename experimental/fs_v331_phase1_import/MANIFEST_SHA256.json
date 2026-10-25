@@ -1,0 +1,21 @@
+{
+  "contract": "FS_V331_PHASE0_PHASE1_SHADOW",
+  "manifest_rule": "Manifest excludes its own file to avoid circular hash",
+  "source_sha256": "b28612633b192e4301ca7e74cc259a34fa49fef19bf5e017a30329545bcdcfc4",
+  "items": {
+    "FASE0_FASE1_STATUS.md": "0432cb54e6e221bb9ee7f4daea5040bf7f8f0180ca3a15e22d2f9bfbf686d44d",
+    "evidence/EVIDENZA_SOGLIE_18OTT2026.png": "f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf",
+    "evidence/FS_FANTASEGRETO_MASTER_PROMPT_V3_3_1_COMPLETO.txt": "b28612633b192e4301ca7e74cc259a34fa49fef19bf5e017a30329545bcdcfc4",
+    "phase0/MATRICE_CONFORMITA_V3_3_1.json": "ea0c96172ef0160f80b14cacb4868e734a04cbacf227aab4cba2b0be4303f724",
+    "phase0/MATRICE_CONFORMITA_V3_3_1.md": "b75104eac7b8639143d5de34b82f4fabd0d6cb7a877e17431a1ebd0adcdb97aa",
+    "phase0/TEST_EXECUTION_LOCAL.log": "6841ba5e623afc78ddd2b287778e2a162c85cede2576c7a85a164e8f1069ba1f",
+    "phase0/TEST_GOAL_LOCK_V3_1.log": "1955d59f15c840cff7c0edc77ee7175d4f4bcbcd1d573bd18f4bbf98fe47c84e",
+    "phase1_baseline/README.md": "73ee1990d355d9701cc1f22b52c28bd0deeb1d34a42c758fade4461205ce64b8",
+    "phase1_baseline/fs_decision_protocol.py": "797bbdf842bdeadfdf3f69496f5fb6a5ddd233e7b86fca57b1b829656f795f88",
+    "phase1_baseline/fs_p0_core.py": "805cfd01a7d532fd122280f078ff9ab35b787c568ad6e06e2d96b77f47ff0763",
+    "phase1_baseline/league_config.schema.json": "9c4e8bf22c77b5bbff71d47788e75b489207109838ffd69757f44da6ebc84b03",
+    "phase1_baseline/league_config.yaml": "4dc0f85f998cabd2eb4bb0536bad32e5a4ae86ce78ebe1e11ea0436a6b1848f4",
+    "phase1_baseline/tests/test_decision_protocol.py": "a79fb5461c85d5a6691ff77b089f9d481ca94866cd4bec4592efd45e501af5b5",
+    "phase1_baseline/tests/test_p0_core.py": "7b48a61c4f36605130c57d7261d92e2a7b07c1854efd36f2f513873ffc5ddb5e"
+  }
+}

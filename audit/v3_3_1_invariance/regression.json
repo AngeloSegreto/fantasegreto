@@ -1,0 +1,29 @@
+{
+  "schema": "FS_V331_INVARIANCE_REGRESSION_V1",
+  "based_on_commit": "8a481b2fb26cf4120dd6aaf1796d2366c5762eda",
+  "options": {
+    "iterations": 2000,
+    "seed": 20261018
+  },
+  "player_record_permutation": {
+    "pass": true,
+    "normal_wins": [
+      0.343,
+      0.343
+    ],
+    "reversed_wins": [
+      0.343,
+      0.343
+    ]
+  },
+  "exact_tie_candidate_permutation": {
+    "pass": true,
+    "normal_choice": "0643c7ce3166200e5e7e71125576ee1e365777d5b7dbfd8de275c31b68c02c3f",
+    "reversed_choice": "0643c7ce3166200e5e7e71125576ee1e365777d5b7dbfd8de275c31b68c02c3f"
+  },
+  "identity_example": "0643c7ce3166200e5e7e71125576ee1e365777d5b7dbfd8de275c31b68c02c3f",
+  "scope": "Synthetic regression only; does not certify PCG64, calibration, parity or full V3.3.1.",
+  "tech_pass_v331": false,
+  "stat_validated": false,
+  "gold_lock": false
+}

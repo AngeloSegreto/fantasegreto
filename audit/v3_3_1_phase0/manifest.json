@@ -1,0 +1,29 @@
+{
+  "schema": "FS_PHASE0_DELIVERY_MANIFEST_V1",
+  "reviewed_commit": "2122699104f8923eb65d9f4c7491d4bcf48306f2",
+  "files": {
+    "MATRICE_CONFORMITA_V3_3_1.csv": "05d0c8b9ed8fa8b231c655ae2c2e29e6d79881281b8e10982db01333cdf39875",
+    "MATRICE_CONFORMITA_V3_3_1.md": "295ec33acb98151be17e767692e073bde5b9ee36194fe9228cc21ab80c684228",
+    "README.md": "eb9be583d22bc23f20c76dbf492d110d8f571f7f93e62188f9c5b455ff525e5d",
+    "build_matrix.py": "0060e81b683dc08616d7cdf474e57dabfdb1d1c464b5bd691a7fd10a76f6c47f",
+    "evidence/candidate-tests.log": "6345a58cdd8974b5f6f52b2189918aaa8846c2b026f9f423eaf71f2e11d952c8",
+    "evidence/legacy-scoring.log": "32080c5a06edbafc68238dadcba4f73664da9a31bc246faaabfaad92cecf8d11",
+    "evidence/legacy-simulator.log": "0116877fa61ce2be0d169b69af75504e5b82592e62eda7dd14f7343e40572f8a",
+    "evidence/official-parity.log": "c3b5ceedc81abcb3a14a96704b74d0e646f2be31417c266a6e8c496f39f382ff",
+    "evidence/official-runtime.log": "e7aba45cce35f60044b01a038cea999ff7a63080620ab7d03e9ba3b70ba3dcea",
+    "gate-aliases.json": "2dea38ad3da244bd820a2e61acd647e916d56cd497a71951e79f55cf803f464c",
+    "inspect.py": "acf6ff6d180f3eeb383db78daa8469da0dda7f23755a27d90ebd2c3c2483b05d",
+    "inspection.json": "d1c6609dbe4d555b79ff9b93a5f966e52d2f1ad634c962373fcbdef52c9a4788",
+    "matrix-summary.json": "00f0c6db5af33c861932cb4ef16b8ad8494ae62ab0db42fc9abb4e345c94ceb7",
+    "matrix-validation.json": "f746016cf3611ca5565879e4a5d79bceafca2e5df6a9a84848545c7eb59b4ee4",
+    "probes.js": "51768c661905382aba930752c9c3ff5edd4c27521721f3d25222ac1c5f8d20a0",
+    "probes.json": "2f6ec12b58ca3ddbc722871ea263721f9cba74a56e91b620fed6dd16ee485a28",
+    "ratification-clarifications.md": "e9fc6502ee55f1db02ff590fd96432cf4813c4391575a57b748b246c5e366bfd",
+    "source-receipt.json": "e0bd9f7d00ba5fcd8418fe7eb9b116e53497c5b1b31fb8a13504753ea4fa0ad5",
+    "specification-received.txt": "6466d32004b48ab6a02a70c3868bd7d0c28c61eb3642003cad6d1d9fafa23bed"
+  },
+  "digital_signature": false,
+  "independent_auditor": false,
+  "stat_validated": false,
+  "gold": false
+}

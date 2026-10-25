@@ -1,0 +1,338 @@
+{
+  "input": {
+    "kind": "REAL",
+    "mode": "PRE_MATCH",
+    "round": null,
+    "as_of": "2026-10-18T19:11:44Z",
+    "deadline": null,
+    "sources": [
+      {
+        "id": "g7_reference_only",
+        "url": "https://github.com/AngeloSegreto/fantasegreto/blob/fa9562decb683a3d64ca248cb66ff20099ddcb54/analysis/G7_HYBRID_ROBUST_13OCT2026.md",
+        "observed_at": "2026-10-18T19:11:44Z",
+        "reliability": 0.5,
+        "half_life_hours": 24,
+        "conflicts": [
+          "G6/G7 reference only, not confirmed next-match lineup",
+          "Identity snapshot dated 13 October; no current fixture/player projection evidence"
+        ]
+      }
+    ],
+    "fixtures": [],
+    "players": [
+      {
+        "id": "p-meret-napoli",
+        "official_id": "572",
+        "name": "Meret",
+        "team": "Napoli",
+        "role": "P",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-gollini-roma",
+        "official_id": "610",
+        "name": "Gollini",
+        "team": "Roma",
+        "role": "P",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-svilar-roma",
+        "official_id": "5841",
+        "name": "Svilar",
+        "team": "Roma",
+        "role": "P",
+        "fixture_id": null,
+        "unavailable": true,
+        "projection": {}
+      },
+      {
+        "id": "p-zortea-bologna",
+        "official_id": "4433",
+        "name": "Zortea",
+        "team": "Bologna",
+        "role": "D",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-dimarco-inter",
+        "official_id": "254",
+        "name": "Dimarco",
+        "team": "Inter",
+        "role": "D",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-solet-udinese",
+        "official_id": "6956",
+        "name": "Solet",
+        "team": "Udinese",
+        "role": "D",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-wesley-roma",
+        "official_id": "7181",
+        "name": "Wesley",
+        "team": "Roma",
+        "role": "D",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-cambiaso-juventus",
+        "official_id": "5520",
+        "name": "Cambiaso",
+        "team": "Juventus",
+        "role": "D",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-zanoli-udinese",
+        "official_id": "5527",
+        "name": "Zanoli",
+        "team": "Udinese",
+        "role": "D",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-spence-inter",
+        "official_id": "5982",
+        "name": "Spence",
+        "team": "Inter",
+        "role": "D",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-fc-6372",
+        "official_id": "6372",
+        "name": "Moreira",
+        "team": "Milan",
+        "role": "C",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-modric-milan",
+        "official_id": "2606",
+        "name": "Modric",
+        "team": "Milan",
+        "role": "C",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-ekkelenkamp-udinese",
+        "official_id": "6684",
+        "name": "Ekkelenkamp",
+        "team": "Udinese",
+        "role": "C",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-thorstvedt-sassuolo",
+        "official_id": "5844",
+        "name": "Thorstvedt",
+        "team": "Sassuolo",
+        "role": "C",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-pobega-bologna",
+        "official_id": "5298",
+        "name": "Pobega",
+        "team": "Bologna",
+        "role": "C",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-gaetano-atalanta",
+        "official_id": "4364",
+        "name": "Gaetano",
+        "team": "Atalanta",
+        "role": "C",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-zalewski-atalanta",
+        "official_id": "5422",
+        "name": "Zalewski",
+        "team": "Atalanta",
+        "role": "C",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-thuram-k-juventus",
+        "official_id": "5562",
+        "name": "Thuram K.",
+        "team": "Juventus",
+        "role": "C",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-kolo-muani-juventus",
+        "official_id": "5951",
+        "name": "Kolo Muani",
+        "team": "Juventus",
+        "role": "A",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-maldini-atalanta",
+        "official_id": "4896",
+        "name": "Maldini",
+        "team": "Cagliari",
+        "role": "A",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-geubbels-lecce",
+        "official_id": "5029",
+        "name": "Geubbels",
+        "team": "Lecce",
+        "role": "A",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-fc-6145",
+        "official_id": "6145",
+        "name": "Ngonge",
+        "team": "Monza",
+        "role": "A",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      },
+      {
+        "id": "p-boga-juventus",
+        "official_id": "2832",
+        "name": "Boga",
+        "team": "Juventus",
+        "role": "A",
+        "fixture_id": null,
+        "unavailable": null,
+        "projection": {}
+      }
+    ],
+    "home": {
+      "name": "Mall & Dealer Sikuli",
+      "roster": [
+        "p-meret-napoli",
+        "p-gollini-roma",
+        "p-svilar-roma",
+        "p-zortea-bologna",
+        "p-dimarco-inter",
+        "p-solet-udinese",
+        "p-wesley-roma",
+        "p-cambiaso-juventus",
+        "p-zanoli-udinese",
+        "p-spence-inter",
+        "p-fc-6372",
+        "p-modric-milan",
+        "p-ekkelenkamp-udinese",
+        "p-thorstvedt-sassuolo",
+        "p-pobega-bologna",
+        "p-gaetano-atalanta",
+        "p-zalewski-atalanta",
+        "p-thuram-k-juventus",
+        "p-kolo-muani-juventus",
+        "p-maldini-atalanta",
+        "p-geubbels-lecce",
+        "p-fc-6145",
+        "p-boga-juventus"
+      ],
+      "lineup": {
+        "starters": [],
+        "bench": [],
+        "captain": null,
+        "vice": null
+      }
+    },
+    "away": {
+      "name": null,
+      "roster": [],
+      "lineup": {
+        "starters": [],
+        "bench": [],
+        "captain": null,
+        "vice": null
+      }
+    },
+    "rules": {
+      "verified": false,
+      "source_id": null,
+      "goal_lock": "NATIONAL_66_4_FIXED_V3_1",
+      "formations": [
+        "3-5-2",
+        "3-4-3",
+        "4-3-3",
+        "4-4-2",
+        "4-5-1",
+        "5-3-2",
+        "5-4-1"
+      ],
+      "substitution_count": 5,
+      "substitution_mode": "SAME_ROLE",
+      "module_change_allowed": false,
+      "bench_order": null,
+      "keeper_model": null,
+      "bonus_malus": null,
+      "defence": null,
+      "captain": null
+    },
+    "readiness": {
+      "identity_source": "registry.json at fa9562decb683a3d64ca248cb66ff20099ddcb54",
+      "roster_authority": "REFERENCE_ONLY_NOT_CURRENT_CONFIRMED",
+      "name_binding_unresolved": [],
+      "svilar_state": "USER_REPORTED_UNAVAILABLE_NO_RETURN_VERIFICATION",
+      "probabilities": null,
+      "calendar": null,
+      "opponent": null
+    }
+  },
+  "candidates": [
+    {
+      "starters": [],
+      "bench": [],
+      "captain": null,
+      "vice": null
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema": "FS_ACQUIRED_RULES_INTEGRATION_AUDIT_V1",
+  "based_on_commit": "fc69916ac481ce8066b6127e538c165bffe5734f",
+  "checked_at": "2026-10-18T21:14:26.595986+00:00",
+  "checks": {
+    "node-integration": {
+      "command": [
+        "node",
+        "--test",
+        "experimental/match-win-v3_2/test.js",
+        "experimental/match-win-v3_2/league-rules.test.js",
+        "experimental/match-win-v3_2/league-integration.test.js"
+      ],
+      "exit_code": 0,
+      "log": "audit/v3_3_1_integration/evidence/node-integration.log",
+      "sha256": "00e3ad4cac88b4639eaec3d790fa0515de2ca7450f207723faa4ad7cedee977c"
+    },
+    "python-baseline": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "audit/v3_3_1_integration/evidence/python-baseline.log",
+      "sha256": "bad1f83e74243d28c91c970025b403c1ef06ed2d0c4dc8d0cf7a269066c6152e"
+    },
+    "gold-evidence-guard": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "test_match_win_gold_audit.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "audit/v3_3_1_integration/evidence/gold-evidence-guard.log",
+      "sha256": "fff8b8ceef41e2cf1b8b3ed6a2c4006fa980d9f494812a2173d523395f747cb6"
+    },
+    "legacy-simulator": {
+      "command": [
+        "node",
+        "premium-monte-carlo-v1.test.js"
+      ],
+      "exit_code": 0,
+      "log": "audit/v3_3_1_integration/evidence/legacy-simulator.log",
+      "sha256": "0116877fa61ce2be0d169b69af75504e5b82592e62eda7dd14f7343e40572f8a"
+    },
+    "legacy-scoring": {
+      "command": [
+        "node",
+        "experimental/scoring-gate-v1.test.js"
+      ],
+      "exit_code": 0,
+      "log": "audit/v3_3_1_integration/evidence/legacy-scoring.log",
+      "sha256": "32080c5a06edbafc68238dadcba4f73664da9a31bc246faaabfaad92cecf8d11"
+    },
+    "official-runtime": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/validate_official_runtime.py"
+      ],
+      "exit_code": 0,
+      "log": "audit/v3_3_1_integration/evidence/official-runtime.log",
+      "sha256": "e7aba45cce35f60044b01a038cea999ff7a63080620ab7d03e9ba3b70ba3dcea"
+    },
+    "official-parity": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/validate_13oct_offline.py"
+      ],
+      "exit_code": 0,
+      "log": "audit/v3_3_1_integration/evidence/official-parity.log",
+      "sha256": "c3b5ceedc81abcb3a14a96704b74d0e646f2be31417c266a6e8c496f39f382ff"
+    }
+  },
+  "production_integrity": {
+    "app.js": true,
+    "engine.js": true,
+    "index.html": true,
+    "sw.js": true,
+    "registry.json": true,
+    "version.json": true,
+    "premium-monte-carlo-v1.js": true,
+    "experimental/scoring-gate-v1.js": true,
+    "FS_PREMIUM_MATCH_EVIDENCE_V1.json": true
+  },
+  "all_test_groups_pass": true,
+  "tech_pass_v331": false,
+  "stat_validated": false,
+  "gold_lock": false
+}

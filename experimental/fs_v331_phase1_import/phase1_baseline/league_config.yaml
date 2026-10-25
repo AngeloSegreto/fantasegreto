@@ -1,0 +1,48 @@
+# V3.3.1 FASE 1 — SHADOW ONLY; regolamento incompleto, GOLD BLOCCATO.
+version: FS_LEAGUE_CONFIG_V3_3_1_CANDIDATE
+league_id: NATIONAL_LEAGUE_2026_27
+created_at: '2026-10-18T22:29:00+02:00'
+status: PROVVISORIO
+source_commit: fa9562decb683a3d64ca248cb66ff20099ddcb54
+strategic_profile:
+  value: PUNTI_ATTESI
+  status: PROVVISORIA
+  source: V3.3.1 sezione 3 (default pre-registrato)
+standings_points:
+  win: 3
+  draw: 1
+  loss: 0
+  status: PROVVISORIA
+  source: V3.3.1 sezione 3; verificare 3/1/0 della lega
+rules:
+  fantasy_goals:
+    status: CERTIFICATA
+    first_goal: '66'
+    band_width: '4'
+    unbounded: true
+    source_type: screenshot
+    source_path: evidence/EVIDENZA_SOGLIE_18OTT2026.png
+    source_sha256: f2d48601461a517d3970877127c53f88742f160aafd916f82a1c1cc836c94ccf
+    observed_at: '2026-10-18T20:21:00+02:00'
+  defense_modifier:
+    status: MANCANTE
+    parameters: null
+    source: null
+  captain_factor:
+    status: MANCANTE
+    parameters: null
+    source: null
+  substitution:
+    status: PROVVISORIA
+    max_changes: 5
+    mode: SAME_ROLE
+    module_change_allowed: false
+    source: premium-monte-carlo-v1.test.js (existing project test, not league certified)
+  classic_roles:
+    status: PROVVISORIA
+    allowed: [P, D, C, A]
+    source: FS V3.3.1, appendix
+  allowed_formations:
+    status: PROVVISORIA
+    values: ['3-5-2', '3-4-3', '4-3-3', '4-4-2', '4-5-1', '5-3-2', '5-4-1']
+    source: FS V3.3.1, appendix (if allowed)

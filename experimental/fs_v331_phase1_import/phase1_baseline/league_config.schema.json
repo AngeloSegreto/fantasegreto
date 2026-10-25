@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FS_V331_LEAGUE_CONFIG_P0_CANDIDATE",
+  "type": "object",
+  "required": [
+    "version",
+    "league_id",
+    "status",
+    "rules",
+    "strategic_profile",
+    "standings_points"
+  ],
+  "properties": {
+    "version": {
+      "const": "FS_LEAGUE_CONFIG_V3_3_1_CANDIDATE"
+    },
+    "league_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "PROVVISORIO",
+        "CERTIFICATO"
+      ]
+    },
+    "source_commit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "strategic_profile": {
+      "type": "object",
+      "required": [
+        "value",
+        "status"
+      ],
+      "properties": {
+        "value": {
+          "enum": [
+            "PUNTI_ATTESI",
+            "MAX_VITTORIA"
+          ]
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "standings_points": {
+      "type": "object",
+      "required": [
+        "win",
+        "draw",
+        "loss",
+        "status"
+      ]
+    },
+    "rules": {
+      "type": "object",
+      "required": [
+        "fantasy_goals",
+        "defense_modifier",
+        "captain_factor",
+        "substitution",
+        "classic_roles",
+        "allowed_formations"
+      ],
+      "properties": {
+        "fantasy_goals": {
+          "type": "object",
+          "required": [
+            "status",
+            "first_goal",
+            "band_width",
+            "unbounded",
+            "source_path",
+            "source_sha256",
+            "observed_at"
+          ],
+          "properties": {
+            "status": {
+              "const": "CERTIFICATA"
+            },
+            "first_goal": {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            "band_width": {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]+)?$"
+            },
+            "unbounded": {
+              "const": true
+            },
+            "source_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          }
+        },
+        "defense_modifier": {
+          "type": "object",
+          "required": [
+            "status"
+          ]
+        },
+        "captain_factor": {
+          "type": "object",
+          "required": [
+            "status"
+          ]
+        },
+        "substitution": {
+          "type": "object",
+          "required": [
+            "status"
+          ]
+        },
+        "classic_roles": {
+          "type": "object",
+          "required": [
+            "status"
+          ]
+        },
+        "allowed_formations": {
+          "type": "object",
+          "required": [
+            "status"
+          ]
+        }
+      }
+    }
+  }
+}

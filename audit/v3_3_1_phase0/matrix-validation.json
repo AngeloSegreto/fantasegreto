@@ -1,0 +1,9 @@
+{
+  "status": "PASS_MATRIX_ARTIFACT_ONLY",
+  "rows": 37,
+  "columns": 9,
+  "unique_ids": true,
+  "gates_G00_G22_complete": true,
+  "evidence_hashes_verified": true,
+  "gold": false
+}

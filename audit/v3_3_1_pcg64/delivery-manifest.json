@@ -1,0 +1,13 @@
+{
+  "audit/v3_3_1_pcg64/node-tests.log": "4b56e0ffd239efa6dae16166d3073dd906bdd1a359cb38bf1c8faeb2010dab07",
+  "audit/v3_3_1_pcg64/README.md": "fe3f6064248bb935c4faeeb6120ffc1b95e6b6da378fff6935807d5deff2ff12",
+  "audit/v3_3_1_pcg64/numpy-vectors.json": "27ac61a7f193621cfd5c1af9837326b5ba5eaab677941286445a0b250f9f3065",
+  "audit/v3_3_1_pcg64/generate_numpy_vectors.py": "033012680e1dd3755e04ab48fa3ee1ce3cf89a33e5975dcc905fa54e48d7071f",
+  "audit/v3_3_1_pcg64/verification.json": "e7ac7fc31bbea6a120800d99681aac51b683bb8135c2947fcf64a580d887976c",
+  "audit/v3_3_1_pcg64/frozen-synthetic-pmf/report.json": "ec7a64fcd98b4f9f0abd399da8aa196aedbb5e4fe1d32b12524ac1a3aecf4998",
+  "audit/v3_3_1_pcg64/frozen-synthetic-pmf/input.json": "9f8b2290217009734077721c8af680eb551cc2f0a37db4b1780073a8b93b4541",
+  "audit/v3_3_1_pcg64/frozen-synthetic-pmf/manifest.json": "20f4dd884f74443e0828786efa1026e1bc5cb7dc47a158065153bc56bdefb7d7",
+  "experimental/match-win-v3_2/pcg64.js": "dd9a5241bc8839ee8464a5abacfc8ff8a623acec54d365963e9f75ae0c50ef95",
+  "experimental/match-win-v3_2/pcg64.test.js": "e7b867251de8c99eb8691eea62326544d36b3b977897abd6123acc82a9e51025",
+  "experimental/match-win-v3_2/simulator.js": "ec23e43b333d271f707f7b8cef6f057ee516febb759b6ec3d3100688806026c4"
+}

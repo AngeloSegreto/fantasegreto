@@ -1,0 +1,31 @@
+✔ G8 strict goal boundaries across all 30 bands, no epsilon promotion (2.123454ms)
+✔ G0 G1 G2 G3 valid example and every formation (11.353148ms)
+✔ G6 rejects missing, nonfinite, out-of-domain probabilities (20.582937ms)
+✔ G0 G12 rejects stale certification labels, future sources and fixture leakage (12.123663ms)
+✔ G2 G3 duplicate identity, missing fixture, illegal XI and ownership blocked (7.066972ms)
+✔ G4 unavailable lock, mutually exclusive keepers, state simplex (2.801365ms)
+✔ G5 shared match goals conserved, assists linked, keeper opposition and exclusivity (81.834416ms)
+✔ G7 display bench order has priority across roles and maximum 5 substitutions (2.139002ms)
+✔ G9 modifier requires four rated defenders after substitutions and pure votes (0.848063ms)
+✔ G10 captain SV uses vice, replacements do not inherit marker (1.353378ms)
+✔ seed replay identical and winner/draw/loss simplex (137.207174ms)
+✔ G13 sample count and seed validation; blocked input has zero runs (1.775744ms)
+✔ optimizer values wins over means: constructed threshold counterexample (0.498256ms)
+✔ exhaustive enumerate small roster across forms, rejects huge joint search (19.764548ms)
+✔ optimizer uses separate holdout seed and identifies explicit panel scope (18.548926ms)
+✔ freshness confidence decays without inventing new probabilities (0.627069ms)
+✔ Bayesian updates reject future labels (0.312414ms)
+✔ Brier, log loss and calibration tested against known values (0.500017ms)
+✔ rolling folds never expose held-out labels or unfinished rounds (0.674113ms)
+✔ G16 G7 outcomes retained as observations only, oracle diagnoses supplied panel (1.362762ms)
+✔ LIVE what-if never randomizes observed state; ongoing simulation blocked (1.041134ms)
+✔ candidate HTML script syntax, unique IDs, explicit synthetic entry and no paid endpoints (0.956433ms)
+✔ frozen runner refuses existing output directory without overwriting input (1.597604ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 570.992606
