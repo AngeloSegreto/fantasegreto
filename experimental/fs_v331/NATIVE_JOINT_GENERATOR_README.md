@@ -48,7 +48,7 @@ Comando CLI indipendente:
 - native_joint_generator.py crea il bundle che prelock_scenario_compare.py riceve in input.
 - Il comparatore ora valida matchday del calendario contro matchday del bundle, senza vincolarsi rigidamente a G8.
 - league_scoring_v331.py rimane invariato: Traditional cinque sostituzioni di pari ruolo, fattore capitano su voto puro, modificatore difesa e soglie 66/4.
-- test_native_joint_comparator_bridge.py verifica end-to-end il flusso con tutti i tre moduli, usando esclusivamente dati sintetici.
+- test_native_joint_comparator_bridge.py verifica end-to-end il flusso con tutti i tre moduli per G8 e G11, usando esclusivamente dati sintetici.
 
 ## Stato verifiche
 
@@ -57,7 +57,7 @@ Comando CLI indipendente:
 | Generatore nativo con evento per fixture | Implementato |
 | Marcatori/assist della squadra corretta | Test sintetico superato |
 | Portiere e fantavoto coerenti con gli eventi | Test sintetico superato |
-| Integrazione scorer V3.3.1 | Test sintetico, CI da verificare |
+| Integrazione scorer V3.3.1 | PASS: 199/199 GitHub CI SHADOW; bridge G8 e G11 |
 | Parametri previsionali calibrati su storico autenticato | **NON VERIFICATO** |
 | Rigori, autogol, secondo giallo e processo infortuni | **NON IMPLEMENTATI** |
 | Replay osservato e holdout G14/G15 | **BLOCCATO** |
