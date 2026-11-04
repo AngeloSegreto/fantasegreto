@@ -132,7 +132,7 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
     if not scenario_bundle:
         return {**status,"status":"BLOCKED_NO_PRELOCK_JOINT_SCENARIOS",
                 "missing":["JOINT_PRELOCK_SCENARIOS","OPPONENT_FORECAST","OBSERVED_SOURCE_RECEIPTS"]}
-    _require(calendar.get("matchday")==8,"matchday 8 fixture calendar required")
+    _require(isinstance(calendar.get("matchday"),int) and calendar["matchday"]>0,"positive matchday fixture calendar required")
     _require(roster.get("status")=="SCREENSHOT_GROUNDED_SHADOW_ONLY","wrong roster source")
     mapped=fixture_bridge(roster,calendar)
     own_byid={p["id"]:p for p in roster["roster"]}
@@ -151,7 +151,7 @@ def analyze(roster,calendar,config,candidates,opponent,scenario_bundle,protocol)
             byclub[club]=key
     fixture_by_player={p["id"]:byclub[p["team"]]
                        for p in list(own_byid.values())+list(opp_byid.values())}
-    _require(scenario_bundle.get("matchday")==8,"scenario matchday mismatch")
+    _require(scenario_bundle.get("matchday")==calendar["matchday"],"scenario/calendar matchday mismatch")
     _require(scenario_bundle.get("sampling_design")=="IID_JOINT_MATCHDAY_SCENARIOS",
              "invalid sampling design")
     kind=scenario_bundle.get("evidence_kind")
