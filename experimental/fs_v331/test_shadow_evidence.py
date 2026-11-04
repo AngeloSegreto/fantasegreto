@@ -2,10 +2,13 @@
 import tempfile
 import unittest
 from pathlib import Path
+from datetime import datetime, timedelta, timezone
 from shadow_evidence import freeze_prelock, verify_archive, promotion_gate, GATES, REQUIRED_RULES
 
-BEFORE = "2026-10-23T20:40:00+02:00"
-LOCK = "2026-10-23T20:45:00+02:00"
+LOCK_TIME = datetime.now(timezone.utc) + timedelta(days=30)
+BEFORE = (LOCK_TIME - timedelta(minutes=5)).isoformat()
+LOCK = LOCK_TIME.isoformat()
+AFTER = (LOCK_TIME + timedelta(minutes=1)).isoformat()
 
 class CustodyTests(unittest.TestCase):
     def setUp(self):
@@ -41,12 +44,12 @@ class CustodyTests(unittest.TestCase):
             freeze_prelock(self.root / "backdated", **p)
 
     def test_no_postlock_run(self):
-        self.payload["run_at"] = "2026-10-23T20:46:00+02:00"
+        self.payload["run_at"] = AFTER
         with self.assertRaises(ValueError):
             freeze_prelock(self.root / "frozen", **self.payload)
 
     def test_no_postlock_source(self):
-        self.sources[0]["observed_at"] = "2026-10-23T20:46:00+02:00"
+        self.sources[0]["observed_at"] = AFTER
         with self.assertRaises(ValueError):
             freeze_prelock(self.root / "frozen", **self.payload)
 
@@ -66,7 +69,7 @@ class CustodyTests(unittest.TestCase):
             freeze_prelock(self.root / "frozen", **self.payload)
 
     def test_timezone_required(self):
-        self.payload["lock_at"] = "2026-10-23T20:45:00"
+        self.payload["lock_at"] = LOCK_TIME.replace(tzinfo=None).isoformat()
         with self.assertRaises(ValueError):
             freeze_prelock(self.root / "frozen", **self.payload)
 
