@@ -1,0 +1,148 @@
+{
+  "schema": "FS_G11_PRELOCK_RECOMMENDATION_V1",
+  "status": "PROVISIONAL_EDITORIAL_SHADOW_ONLY",
+  "prepared_for": "Mall & Dealer Sikuli",
+  "league": "National League 2026-27",
+  "matchday": 11,
+  "fixture_window": "2026-11-06/2026-11-08",
+  "current_context": "2026-11-06 Europe/Rome",
+  "origin": "User screenshots show prior 6a giornata, NOT a verified G11 submitted lineup",
+  "safety": {
+    "gold_lock": false,
+    "stat_validated": false,
+    "official_platform_submitted": false,
+    "production_runtime_modified": false,
+    "optimizer_max_mutated": false,
+    "calibrated_monte_carlo_run": false,
+    "app_synchronized": false
+  },
+  "formation": "4-4-2",
+  "captain": "Moreira",
+  "vice": "Modric",
+  "starters": {
+    "P": [
+      "Meret"
+    ],
+    "D": [
+      "Wesley",
+      "Dimarco",
+      "Spence",
+      "Solet"
+    ],
+    "C": [
+      "Ekkelenkamp",
+      "Modric",
+      "Pobega",
+      "Moreira"
+    ],
+    "A": [
+      "Maldini",
+      "Kolo Muani"
+    ]
+  },
+  "bench_order": [
+    {
+      "name": "Gollini",
+      "role": "P",
+      "availability": "HIGH_RISK_INJURY"
+    },
+    {
+      "name": "Zortea",
+      "role": "D",
+      "availability": "POSSIBLE_START"
+    },
+    {
+      "name": "Cambiaso",
+      "role": "D",
+      "availability": "EXPECTED_BENCH_OR_ROTATION"
+    },
+    {
+      "name": "Thorstvedt",
+      "role": "C",
+      "availability": "EXPECTED_START"
+    },
+    {
+      "name": "Zalewski",
+      "role": "C",
+      "availability": "EXPECTED_BENCH_WITH_SUB_CHANCE"
+    },
+    {
+      "name": "Ngonge",
+      "role": "A",
+      "availability": "POSSIBLE_SUB"
+    },
+    {
+      "name": "Boga",
+      "role": "A",
+      "availability": "POSSIBLE_SUB"
+    },
+    {
+      "name": "Geubbels",
+      "role": "A",
+      "availability": "UNCERTAIN_MINUTES"
+    },
+    {
+      "name": "Gaetano",
+      "role": "C",
+      "availability": "OUT"
+    },
+    {
+      "name": "Hien",
+      "role": "D",
+      "availability": "OUT"
+    },
+    {
+      "name": "Zanoli",
+      "role": "D",
+      "availability": "OUT"
+    },
+    {
+      "name": "Raspadori",
+      "role": "A",
+      "availability": "OUT"
+    }
+  ],
+  "roster_not_selected": [
+    "Svilar",
+    "Thuram K."
+  ],
+  "prelock_checks": [
+    "Verify Udinese official XI for Solet and Ekkelenkamp before first kickoff 2026-11-06 20:45 Europe/Rome",
+    "If Solet not starting or unfit, substitute Zortea in XI, then reorder defenders bench",
+    "Verify app permits 4-4-2 and respects 5 traditional same-role substitutions",
+    "Check actual official league lineup lock deadline and submit manually in fantasy platform",
+    "Recheck Gollini status; Meret preferred due to Gollini back injury",
+    "No calibrated forecast: lineup is qualitative and risk-managed"
+  ],
+  "rules_understood": {
+    "substitutions": "MAX_5_TRADITIONAL_SAME_ROLE",
+    "defense_modifier": "AT_LEAST_4_VALID_DEFENDER_VOTES_KEEPER_PLUS_BEST_3_DEFENDERS_MAX_PLUS_2",
+    "captain": "PURE_VOTE_BANDS_FROM_EXISTING_SHADOW_LEAGUE_CONFIG"
+  },
+  "rationale": "4-4-2 preserves defense modifier and two reserve midfielders; 3-5-2 leaves only Zalewski because Gaetano out; Kolo Muani expected XI rather than Boga; Moreira current top pure vote form; Meret expected XI vs Gollini doubtful/out.",
+  "provenance": {
+    "screenshots": [
+      {
+        "name": "IMG_9834(1).jpeg",
+        "sha256": "1166e04be2937f550b871f7180ea32d29165b68152a2704af4287c7ac6a31d3d",
+        "scope": "Prior matchday starting XI"
+      },
+      {
+        "name": "IMG_9835(1).jpeg",
+        "sha256": "010f9dbd71dc968ead541f8b57f608f4ee73e7e6e737f45dabee3189f45100a7",
+        "scope": "Prior matchday bench"
+      }
+    ],
+    "screenshots_archived_in_git": false,
+    "prior_roster": "experimental/fs_v331/data/mall_dealer_roster_20261019.json",
+    "sources": [
+      "https://www.legaseriea.it/serie-a/news/quando-si-gioca-anticipi-e-posticipi-fino-alla-12a-giornata",
+      "https://sport.sky.it/calcio/serie-a/2026/11/06/probabili-formazioni-serie-a-giornata-11-ultime-news",
+      "https://sport.sky.it/calcio/serie-a/2026/11/06/roma-sassuolo-probabili-formazioni-11-giornata",
+      "https://www.sosfanta.com/lista-formazioni/probabili-formazioni-serie-a/",
+      "https://www.ansa.it/sito/notizie/sport/calcio/2026/11/02/calcio-atalanta-kristensen-e-gaetano-rientrano-dopo-la-sosta-distrazioni-muscolari_36bc5940-2a28-4347-b2bf-ee5890568a17.html",
+      "https://www.fantacalcio.it/serie-a/squadre/milan/moreira/6372/2026-27",
+      "https://www.tuttofantacalcio.it/infortunati-squalificati-serie-a/fantacalcio-infortunati-squalificati-11a-giornata-33835"
+    ]
+  }
+}
